@@ -1,0 +1,91 @@
+Location
+--------
+
+chunk1.dat\Assets\tpp\pack\buddy\quiet\buddy_quiet2_heli.fpk
+	Assets\tpp\motion\mtar\buddyquiet2\BuddyQuiet2_heli.mtar
+
+
+Descriptions
+------------
+
+0000 -- sortie prep screen - standing pose
+0001 -- sortie prep screen - standing pose, deploy select 'preparedness' animation (legs slightly apart, one hand behind back with elbow bent)
+0002 -- sortie prep screen - standing pose, looking around, puts hand on hip
+0003 -- sitting pose, looks behind
+0004 -- getting up from seat to go to the other ACC seat with butt aimed out, pauses animation at this moment
+0005 -- returning to sitting pose after 0004
+0006 -- loop for 0004, butt moving slightly
+0007 -- sitting pose, looking toward Pequod direction inquisitively
+0008 -- sitting pose, crosses one leg, rests both arms on leg, returns to sitting pose
+0009 -- sitting pose, crosses one leg then crosses the other between looking at player
+0010 -- sitting pose, looking out window inquistively
+0011 -- getting up from seat and holding top of ceiling in front of player before returning to sitting pose
+0012 -- intro to 0014
+0013 -- returning to sitting pose after 0014
+0014 -- laying with back on seat, hands behind head, one knee up
+0015 -- intro to 0017
+0016 -- returning to sitting pose after 0017
+0017 -- laying with chest to seat facing player, legs bent, dangling in air
+0018 -- sitting pose, staring toward the front
+0019 -- stretching butt out behind then in the opposite direction before returning to sitting pose
+0020 -- sitting pose, turns head toward player before returning to original gaze
+0021 -- sitting pose, acknowledges player with a gentle nod
+
+
+Grouped by related motions
+--------------------------
+
+0000
+0002
+0001
+
+0018
+0010
+0007
+0003
+0020
+0021
+0009
+0008
+    
+0019
+0011
+    
+0004
+0006
+0005
+    
+0014
+0012
+0013
+    
+0017
+0015
+0016
+
+
+Raw MtarTool reference (2021-05-18)
+-----------------------------------
+
+0000_1fcae14e60d2d
+0001_239e21cf935ce
+0002_163ffb1df1550
+0003_1c22467fb6de7
+0004_69e8d06626a2 
+0005_d8ce58e5cdfa 
+0006_269bc42fa2bec
+0007_31ce91238aeab
+0008_9622b94619c6 
+0009_265e4b6107a50
+0010_1d72ca247ffd6
+0011_23f479ca7f442
+0012_279727693777d
+0013_90e9df1ef895 
+0014_3db975a160f95
+0015_7827e881f13d 
+0016_70c0ba4e5c1e 
+0017_58e0b4d37ba8 
+0018_2e7997d7a7344
+0019_21b1bce3c601 
+0020_121942f76b8db
+0021_254c06e19936c

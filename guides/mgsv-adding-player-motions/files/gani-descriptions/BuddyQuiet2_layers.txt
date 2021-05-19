@@ -1,0 +1,267 @@
+Location
+--------
+
+chunk1.dat\Assets\tpp\pack\buddy\quiet\buddy_quiet2_common.fpk
+	Assets\tpp\motion\mtar\buddyquiet2\BuddyQuiet2_layers.mtar
+
+
+Descriptions
+------------
+
+0000 -- laying prone, unconscious, arms and legs splayed
+0001 -- collapsed prone, arms and legs splayed (static, alternate?)
+0002  -- collapsed prone, arms and legs splayed (static)
+0003 -- being held by player unconscious, then laid down by player, arms and legs splayed [clips through solid ground when played]
+0004 -- being held by player unconscious (static)
+0005 -- half-off ground, unconscious, transition into being held by player
+0006 -- grabbed by player from front, transition from on back unconscious to being held by player (while crouched?)
+0007 -- grabbed by player from left (?), transition from on back unconscious to being held by player (freezes before leaving ground entirely)
+0008 -- grabbed by player from right, transition from on back unconscious to being held by player (while crouched?)
+0009 -- collapsed on back, arms and legs splayed (static)
+0010 -- collapsed on back, arms and legs splayed (static)
+0011 -- collapsed on back, arms and legs splayed (static)
+0012 -- being held by player unconscious, then laid down by player from front, arms and legs splayed [similar to 0009 clips through ground when played]
+0013 -- being held by player, unconscious, while still - loop
+0014 -- being held by player unconscious (static)
+0015 -- being held by player, unconscious, while still - loop
+0016 -- being held by player, unconscious, while running - loop
+0017 -- falling through air (backwards), transition from crouched pose
+0018 -- thrown by player down in front, unconscious, arms and legs splayed
+0019 -- falling through air (backwards) - intro
+0020 -- thrown down by player from front, transition to on back unconscious with arms and legs splayed
+0021 -- being held by player unconscious, then thrown (freezes mid-air)
+0022 -- being held by player unconscious, transitions into throw forward (freezes mid-throw)
+0023 -- knocked down in place (potentially from supply box)
+0024 -- grabbed by player (seemingly while upright), unconscious
+0025 -- being held by player unconscious, then laid down by player from front (while crouched?), arms and legs splayed
+0026 -- prone fall outro, resumes aim
+0027 -- prone aim, rechambers
+0028 -- prone aim - loop
+0029 -- laying backwards aim, aiming directly downward on left
+0030 -- prone aim, reloads
+0031 -- bumped (?) while standing with left leg slightly bent, arms sway left
+0032 -- bumped (?) while standing with right leg slightly bent, arms sway right
+0033 -- getting up from on back to crouched pose with one hand on knee
+0034 -- collapsed on back, unconscious (static)
+0035 -- fulton ascending/zipping into sky
+0036 -- fulton swaying - loop
+0037 -- grabbed by player from left, transition from on back unconscious to being held by player
+0038 -- leaning backwards aim, hit from front in head, resumes aim
+0039 -- leaning backwards aim, falling backwards unconscious (no visible hit)
+0040 -- leaning backwards aim, head back and hands slightly open as though feeling rain, resumes frontal gaze [outro for 0002 or standalone?]
+0041 -- leaning backwards aim, pauses to look up and feel rain with left hand
+0042 -- leaning backwards aim, rechambers
+0043 -- leaning backwards aim - loop
+0044 -- leaning backwards aim, aiming directly downward on right
+0045 -- leaning backwards aim, reloads (alternate?)
+0046 -- leaning backwards aim - loop (alternate?)
+0047 -- leaning backwards aim, thumbs up to player, resumes aim
+0048 -- leaning backwards aim, looks downward and to the right, resumes forward gaze
+0049 -- hard hit from front, launched off ground and backwards [clips through ground when played]
+0050 -- hit from front, falling backward, collapses on back
+0051 -- falling through air (backwards) - loop
+0052 -- hit from front, transitions into falling through air (backwards)
+0053 -- rain dance - intro (from standing position)
+0054 -- crouched, hit from right, resumes aiming (freezes just before regular aim pose assumed)
+0055 -- hit from front while crouched (more forward pose though), holding weapon only in left hand for the entirety
+0056 -- crounched, aiming, pauses briefly to enjoy rain, resumes aim
+0057 -- hit in front, collapses on back, unconscious
+0058 -- hit from front, falling to back unconscious
+0059 -- hit (?) from left, falling to back unconscious
+0060 -- collapsing onto left side then onto back, unconscious
+0061 -- hit (?) from left (?), falling to back unconscious
+0062 -- hit from left side while holding rifle (standing), collapses on back unconscious
+0063 -- hit from left side while crouched, collapses on back unconscious
+0064 -- hit from right, falling to back unconscious
+0065 -- crouched, self fultons [when played you go flying upward into the sky]
+0066 -- jumping off ledge (?) - intro
+0067 -- semi-crouched, both hands in front in defensive position (?, static)
+0068 -- releasing parachute (freezes prior to landing)
+0069 -- falling down, transition into crouched pose
+0070 -- jumping off ledge, transition into falling through air (upright), hands above head
+0071 -- landing on ground, transition to crouched pose with one hand on knee
+0072 -- jump from standing (freezes not far off ground)
+0073 -- jump, seemingly already partially in air, travels upward, then descends (freezes prior to landing)
+0074 -- jump upward and forward - intro [unlike the jump from `BossQuiet2.mtar` this doesn't propel the player anywhere]
+0075 -- dash forward (torso facing left) - one step forward
+0076 -- dash forward (torso facing right) - intro (alternate?)
+0077 -- crouched, aiming, pauses to feel the rain, arms out wide, resumes aim
+0078 -- prone aim, transition into crounched aiming
+0079 -- crouched, transition to aiming from grabbing rifle on back [recheck]
+0080 -- crouched, aiming, rechambers
+0081 -- crouched, aiming - loop
+0082 -- crouched, aiming directly downward
+0083 -- leaning backwards aim, transition to placing rifle on back in crouched pose
+0084 -- shifts weight (?) while in prone aim
+0085 -- grabbing rifle from back, transition from crouched pose to leaning backwards aim
+0086 -- crouched, aiming, transition to laying backwards aim
+0087 -- crouched, aiming, reloads
+0088 -- rotate 180 degrees while crouched, aims rifle
+0089 -- crouched, aiming, rotating right 90 degrees
+0090 -- crouched, grabbing rifle from back, aiming
+0091 -- crouched, aiming, rotating left 90 degrees
+0092 -- crouched, aiming, rotating right 90 degrees
+0093 -- crouched, holding rifle (non-aiming) - loop (alternate?)
+0094 -- crouched, aiming, nods to player, returns to aim
+0095 -- crouched, aiming, gives player thumbs up, resumes aim
+0096 -- crouched, looks downward and to the right, resumes forward gaze
+0097 -- slide, transition into crouched pose
+0098 -- dash forward (torso facing right) - intro (alternate?)
+0099 -- dash forward (torso facing right) - intro
+0100 -- dash forward (torso facing left) - intro
+0101 -- falling through air (upright) - intro
+0102 -- crouched, one hand on other knee (static)
+0103 -- jump landing
+0104 -- parachuting - loop
+0105 -- standing fairly rigidly - loop
+0106 -- walking forwards - loop
+0107 -- leaning backwards aim, reloads
+0108 -- laying backwards aim, aiming directly downward on right
+0109 -- leaning backwards aim, reloads
+0110 -- leaning backwards aim - loop
+0111 -- crouched, aiming, rechambers
+0112 -- crouched, aiming directly downward (static)
+0113 -- crouched, aiming, rechambers
+0114 -- crouched, holding rifle (non-aiming) - loop
+0115 -- sitting, hands by sides, leaning to the right as though tired - loop
+0116 -- sitting in ACC - loop
+0117 -- sitting in ACC, looks to player, returns to regular frontal gaze
+0118 -- sitting in ACC, turns head to player, nods, resumes forward gaze
+0119 -- exiting ACC, jumping off
+0120 -- behind cover, peeking around on right
+0121 -- ascending to exterior of ACC
+0122 -- riding on exterior of ACC, gazing outward - loop
+0123 -- riding on exterior of ACC, gazing at player before gazing outward
+0124 -- enters ACC and sits
+0125 -- ascending from mid-air to ACC, entering ACC and sitting, turns whole body toward player
+
+
+Raw MtarTool reference (2021-05-18)
+-----------------------------------
+
+0000_3ad528bb36404
+0001_1475af78f03cb
+0002_b1dfc8ea8cc6
+0003_6eb6acdebb01
+0004_333558ec7872a
+0005_3c58457a43094
+0006_237cb2468e5e8
+0007_3783502798175
+0008_23e3fd608e048
+0009_3b50699d85394
+0010_1877151185fc0
+0011_2961d57cc8431
+0012_24ae1dba9a9b1
+0013_8cb2944d9801
+0014_2dcb4340f7bbf
+0015_2b93d79a79e00
+0016_3d5a261f9f082
+0017_1edb882c20149
+0018_3430a543e9535
+0019_a62d3cfcd853
+0020_31bab6d8bd8aa
+0021_1bee1fed2eec
+0022_3711983550ed1
+0023_250b13540d880
+0024_32db6f3419de3
+0025_337a8d73aa77b
+0026_111f6fbe46898
+0027_2ad9e7cb8cbdd
+0028_23706289a5f49
+0029_341fbccb1c895
+0030_2e74bf0009027
+0031_3c913aaa12b34
+0032_2831c58e54486
+0033_274510d53ce5b
+0034_3df0cae3531bb
+0035_2dd1dfa8fd5cc
+0036_2a1081b6ad105
+0037_27b309d682450
+0038_2c128da26254a
+0039_26243d3bf507d
+0040_1b9e6827e1eb5
+0041_95f87903933
+0042_1551bbb1b699d
+0043_1da8386aa5476
+0044_2fbfa37b5a414
+0045_111097996c33f
+0046_216e3e1cbce05
+0047_26a559172a164
+0048_141180c240a70
+0049_268b244d11337
+0050_1a2c408341eaf
+0051_734e2693ace7
+0052_1d1bfe5784456
+0053_833031eb82a7
+0054_3089967304939
+0055_1edd59059f8ee
+0056_3b34d3659c918
+0057_3fb3e793968fd
+0058_22d27cfc016e4
+0059_1fd2f37d1b6ca
+0060_2b93e1ef68456
+0061_21e5543596619
+0062_35408ca2a5cc
+0063_14ba11be9e5f7
+0064_20e99ede4ec49
+0065_1155392f742fd
+0066_baf3560283a2
+0067_181237f74bb45
+0068_128891a339b10
+0069_26752a3584b39
+0070_2e01e85ca9b0e
+0071_1a1da0299976f
+0072_2156da15fa90
+0073_50479968110
+0074_1a8f8feaf9d6f
+0075_36c1d21c15fac
+0076_30593c8df39d4
+0077_28440788ac9e7
+0078_3d5e624a97973
+0079_9c0c64baa9ab
+0080_217c7a91d48d8
+0081_3cc409b007e7d
+0082_212996967e6f2
+0083_15946f7ab812a
+0084_2a617569324
+0085_1df8146aaaf14
+0086_33398e0273bc4
+0087_2c14b1c800fe8
+0088_537478dcf8e4
+0089_3ef2770f12b58
+0090_1f3eab5b612f1
+0091_26e19b064ae80
+0092_a9948817f3c7
+0093_2ac7afbae1d66
+0094_c0fcbb22d7bd
+0095_16172c3f223c7
+0096_2a38293a2eee7
+0097_256d740a30d9e
+0098_2a3877c1daf72
+0099_25ee4eef77b0b
+0100_36e403457fef3
+0101_a840071febb9
+0102_10dd5dded9896
+0103_1bc74fa8d917
+0104_1099b8e5f3ada
+0105_1950f7b1e2511
+0106_1e932047374f2
+0107_110bbd5b6f9d5
+0108_381552894055a
+0109_306a30981d04a
+0110_31e21eaf6c39d
+0111_24eae82911090
+0112_103d55bb04d07
+0113_ee09978cc5dc
+0114_9685dbde1d2b
+0115_7545107cc557
+0116_bfe107fdd2ed
+0117_83bec4f72467
+0118_3e5213ed255e8
+0119_1ddbe3bdc527c
+0120_7e1673b299d0
+0121_1c16e5b27f2c7
+0122_177db4d22dc29
+0123_152776b106d7f
+0124_152f315dec7a
+0125_18bd3aebfebf0

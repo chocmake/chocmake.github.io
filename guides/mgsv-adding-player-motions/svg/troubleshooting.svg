@@ -1,0 +1,125 @@
+<!-- Created by choc (chocmake.github.io) -->
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+    <!ENTITY ns_svg "http://www.w3.org/2000/svg">
+    <!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
+]>
+
+<svg version="1.1" width="300px" height="180px" viewBox="0 0 300 180" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;">
+
+    <defs>
+
+        <path id="text-path" d="M150,16.5c73.73,0,133.5,59.77,133.5,133.5 c0,73.73-59.77,133.5-133.5,133.5c-73.73,0-133.5-59.77-133.5-133.5C16.5,76.27,76.27,16.5,150,16.5z"/>
+
+        <g id="circle-bottom" class="perspective">
+            <path class="rotation-bottom" d="M170,17.992C234.242,27.644,283.5,83.068,283.5,150 c0,73.73-59.77,133.5-133.5,133.5c-73.73,0-133.5-59.77-133.5-133.5C16.5,83.068,65.758,27.644,130,17.992"/>
+        </g>
+
+        <g id="circle-top" class="perspective">
+            <path class="rotation-top" d="M134,17.458c5.247-0.627,10.584-0.958,16-0.958 c5.416,0,10.753,0.331,16,0.958 M202,27.007C249.896,47.282,283.5,94.716,283.5,150c0,73.73-59.77,133.5-133.5,133.5 c-73.73,0-133.5-59.77-133.5-133.5C16.5,94.716,50.104,47.282,98,27.007"/>
+        </g>
+
+        <g id="symbol" class="perspective">
+            <g class="rotation-bottom">
+                <path d="M150,91v41"/>
+                <path d="M201.096,179.5L165.589,159"/>
+                <path d="M98.904,179.5l35.507-20.5"/>
+            </g>
+        </g>
+
+        <text id="text" x="0" y="0" dy="0" dx="0 -0.05em -0.05em -0.05em -0.05em -0.05em 0.1em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em 2em -0.05em -0.05em -0.05em -0.05em -0.05em 0.1em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em 4em -0.05em -0.05em -0.05em -0.05em -0.05em 0.1em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em -0.05em">
+            <textPath xlink:href="#text-path" textLength="auto" startOffset="0">START TROUBLESHOOTING START TROUBLESHOOTING START TROUBLESHOOTING</textPath>
+        </text>
+
+    </defs>
+
+    <style><![CDATA[
+
+        * {
+            --color-unique: #7b87de;
+            --color: hsla(218,18%,53%,0.4);
+            /* Any time the SVG height is changed this Y value has to be adjusted */
+            /* 300px high = 50%, 200px high = 75%, 180px high = ~83.35%, 150px high = 100% */
+            transform-origin: 50% 83.35%;
+        }
+
+        text {
+            fill: var(--color);
+        }
+
+        textPath {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        svg {
+            overflow: visible;
+        }
+
+        path {
+            fill: none;
+            stroke: var(--color);
+            stroke-width: 2.5px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 2;
+            vector-effect: non-scaling-stroke;
+        }
+
+        .perspective {
+            transform: scale(0.85,0.5);
+        }
+
+        .text-container {
+            transform: scale(0.87,0.5); /* align more accurately to perspective-affected circle */
+        }
+
+        .text {
+            transform: rotate(8deg);
+        }
+
+        .circle-top,
+        .circle-bottom {
+            transform: scale(1.15);
+        }
+
+        /* ---------------------------- Animation: rotation ---------------------------  */
+
+        /* If applied directly to path in defs it causes weight differences in FF when perspective scaling applied... */
+        @keyframes anim-rotation {
+            0%     { transform: rotate(0deg); }
+            100%   { transform: rotate(360deg); }
+        }
+
+        .rotation-top {
+            animation: anim-rotation 7s 0s infinite linear;
+        }
+
+        .rotation-bottom {
+            animation: anim-rotation 18s 0s infinite linear reverse;
+        }
+
+
+        /* -------------------------- Support/media queries ---------------------------  */
+
+        /* Firefox has different (buggy) way of treating `non-scaling-stroke` vs Chromium: it rotates a varying stroke weight despite the transform occurring prior to the stroke being applied. So this disables the effect as a workaround: */
+        @supports (-moz-appearance:none) { path { vector-effect: none; } }
+
+
+    ]]></style>
+
+    <!-- <rect width="100%" height="100%" fill="lightblue"/> -->
+
+    <svg y="-50px">
+        <g class="text-container">
+            <g class="rotation-bottom">
+                <use class="text" xlink:href="#text"/>
+            </g>
+        </g>
+
+        <use class="circle-bottom" xlink:href="#circle-bottom"/>
+        <use class="circle-bottom" xlink:href="#symbol"/>
+        <use y="-15px" class="circle-top" xlink:href="#circle-top"/>
+    </svg>
+
+</svg>

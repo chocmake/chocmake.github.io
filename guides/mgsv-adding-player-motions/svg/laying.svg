@@ -1,0 +1,292 @@
+<!-- Created by choc (chocmake.github.io) -->
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+    <!ENTITY ns_svg "http://www.w3.org/2000/svg">
+    <!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
+]>
+
+<svg version="1.1" height="300px" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;">
+
+    <defs>
+
+        <!-- Frame: 222x188, Sprite: <width * 37>x<height> (single row) -->
+        <image id="sprite-alpha" x="0" y="0" width="8214px" height="188px" xlink:href="laying-sprite-alpha.png"/>
+        <image id="sprite" mask="url(#mask-sprite-alpha)" x="0" y="0" width="8214px" height="188px" xlink:href="laying-sprite-color.jpg"/>
+
+        <path id="file-rectangle" class="initial-offset" d="M608.2,133.644L370.729,2.665L4.619,223.406L242.09,354.385L608.2,133.644Z"/>
+
+        <path id="film-rectangle" class="initial-offset" d="M609.932,134.599C609.932,134.599 587.172,122.046 577.682,116.811C569.451,112.272 561.221,109.732 552.99,105.193C544.244,100.369 534.468,92.976 525.206,87.868C495.118,71.273 372.461,3.62 372.461,3.62C372.461,3.62 358.474,12.054 351.48,16.27C344.34,20.575 337.718,26.774 331.621,30.45C326.714,33.408 319.808,35.367 314.901,38.325C286.147,55.662 200.206,107.479 126.305,152.036C120.931,155.277 115.621,156.479 110.401,159.626C103.527,163.77 96.81,169.82 90.31,173.739C42.434,202.605 6.351,224.361 6.351,224.361L243.822,355.34C243.822,355.34 263.634,344.32 272.24,338.206C281.135,331.886 289.895,324.027 299.19,318.422C308.104,313.048 318.955,309.873 328.011,304.58C338.38,298.518 355.781,288.141 377.006,275.405C389.602,267.847 402.103,257.988 416.165,248.313C437.144,233.88 450.738,228.855 471.833,215.251C483.859,207.496 496.25,203.487 508,196.376C563.697,162.669 609.932,134.599 609.932,134.599Z"/>
+
+        <path id="film-perforations-right" class="initial-offset" d="M255.505,325.377L241.454,317.627L227.711,325.913L241.762,333.663L255.505,325.377ZM300.13,296.377L286.079,288.627L272.336,296.913L286.387,302.663L300.13,296.377ZM345.255,271.252L331.204,263.502L317.461,271.788L331.512,279.538L345.255,271.252ZM390.38,243.127L376.329,236.377L362.586,244.663L376.637,252.413L390.38,243.127ZM434.505,216.002L420.454,208.252L406.711,216.538L420.762,223.288L434.505,216.002ZM480.63,189.877L466.579,182.127L452.836,190.413L466.887,197.163L480.63,189.877ZM525.755,162.752L511.704,155.002L497.961,163.288L512.012,171.038L525.755,162.752ZM570.88,135.627L556.329,128.377L543.086,136.163L557.137,143.913L570.88,135.627Z"/>
+
+        <path id="film-perforations-left" class="initial-offset" d="M69.505,222.377L55.454,214.627L41.711,222.913L55.762,230.663L69.505,222.377ZM114.13,195.377L100.079,187.627L86.336,195.913L100.387,203.663L114.13,195.377ZM159.255,168.252L145.204,160.502L133.461,166.788L146.512,175.538L159.255,168.252ZM204.38,141.127L190.329,133.377L176.586,141.663L190.637,149.413L204.38,141.127ZM249.505,114.002L235.454,106.252L221.711,114.538L235.762,122.288L249.505,114.002ZM294.63,86.877L280.579,79.127L266.836,87.413L280.887,95.163L294.63,86.877ZM340.755,60.752L326.704,53.002L311.961,60.288L326.012,68.038L340.755,60.752ZM384.88,32.627L370.829,24.877L358.086,33.163L372.137,40.913L384.88,32.627Z"/>
+
+        <g id="sombrero" class="initial-offset">
+            <path id="whole-outline" d="M284.054,88.637C272.747,98.51 249.117,101.482 238.385,101.95C226.972,102.447 206.15,101.656 185.885,91.95C169.926,84.306 158.384,74.312 149.432,57.648C146.472,52.137 142.6,43.224 142.637,35.345C142.693,23.392 150.131,19.537 162.797,20.589C175.391,21.635 186.9,25.519 201.122,30C207.892,32.133 216.72,34.296 224.23,36.789C241.492,42.52 266.745,52.358 280.263,61.056C290.51,67.648 294.232,79.75 284.054,88.637Z"/>
+            <path id="middle-band" d="M143.497,43.421C150.122,61.465 175.471,77.622 193.766,85.779C211.971,93.897 245.608,101.242 264.027,97.945"/>
+            <path id="brim" d="M289.73,77.956C288.091,82.294 284.032,83.95 277.009,84.97C258.512,87.657 229.213,83.654 203.23,73.456C184.391,66.061 166.095,54.241 152.7,38.876C148.481,34.036 145.793,27.862 147.563,24.122"/>
+            <path id="inner-curve" d="M198.758,29.804C201.5,31.412 200.719,32.798 197.116,32.624C187.939,32.18 179.049,30.954 168.981,31.972C161.001,32.779 156.581,36.058 154.581,38.658"/>
+            <path id="cone" d="M190.66,56.619C199.326,45.453 207.077,36.313 214.493,30.786C227.95,20.758 233.791,23.982 235.66,36.119C237.048,45.135 237.66,59.119 236.493,73.619"/>
+            <path id="cone-indent" d="M222.732,52.003C223.154,54.403 224.288,56.025 226.043,57.625"/>
+        </g>
+
+
+        <!-- Masks -->
+        <!-- Dimensions defined in CSS -->
+        <clipPath id="mask-sprite-crop">
+            <rect x="0" y="0"/>
+        </clipPath>
+
+        <mask id="mask-sprite-alpha" y="0" height="100%">
+            <rect width="100%" height="100%" fill="#000"/>
+            <use xlink:href="#sprite-alpha"/>
+        </mask>
+
+        <mask id="mask-sombrero" y="0" height="100%">
+            <svg width="700px" height="300px" viewBox="0 0 700 300">
+                <rect width="100%" height="100%" fill="#fff"/>
+                <g class="sombrero">
+                    <use xlink:href="#whole-outline" class="initial-offset" fill="#000" stroke="#000" stroke-width="2.5px"/>
+                </g>
+            </svg>
+        </mask>
+
+    </defs>
+
+    <style><![CDATA[
+
+        * {
+            --color-unique: #7b87de;
+            --color: hsl(218,18%,53%);
+            --canvas-width: 700px;
+            --frame-width: 222px; /* Sprite frame dimensions */
+            --frame-height: 188px; /* Sprite frame dimensions */
+            --frames: 37;
+            /*--anim-duration: 2.7s;*/
+            --anim-duration: 2s;
+            /*--anim-duration: 0.7s;*/
+            transform-origin: 50% 50%;
+        }
+
+        svg {
+            overflow: visible;
+        }
+
+        line,
+        path {
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 2;
+            vector-effect: non-scaling-stroke;
+        }
+
+        .file,
+        .film-perforations,
+        .sombrero {
+            fill: none;
+            stroke: var(--color);
+            stroke-width: 2.5px;
+        }
+
+        /* Apply to entire stroke container */
+        .stroke-opacity {
+            opacity: 0.4;
+        }
+
+        .initial-offset {
+            transform: translate(14px,3px) scale(0.5);
+        }
+
+        .centering-offset {
+            transform: translateX(calc(-1 * var(--canvas-width) / 2));
+        }
+
+        /* -------------------------- Fragment target styling -------------------------  */
+
+        #whole:not(:target) .non-thumbnail {
+            visibility: hidden;
+        }
+
+        #whole:target .non-thumbnail,
+        #thumbnail:target {
+            visibility: visible;
+        }
+
+        #thumbnail:target {
+            transform: translate(7px,-32px);
+        }
+
+        /* --------------------------------- Sombrero ---------------------------------  */
+
+        @keyframes anim-sombrero {
+            0%   { transform: translate(0.3px,-0.3px) rotate(0.2deg); }
+            15%  { transform: translate(0,-0.1px) rotate(-0.8deg); }
+            50%  { transform: translate(0.2px,0) rotate(-1.2deg); }
+            72%  { transform: translate(0.6px,-0.1px); }
+            84%  { transform: translate(1px,-0.4px) rotate(0.5deg); }
+            100% { transform: translate(0.3px,-0.3px) rotate(0.2deg); }
+        }
+
+        /* Add some pseudo-perspective to make movement more convincing */
+        @keyframes anim-sombrero-perspective {
+            0%   { stroke-dashoffset: 0.2; }
+            15%  { stroke-dashoffset: -0.2; }
+            50%  { stroke-dashoffset: -0.4; }
+            72%  { stroke-dashoffset: 0.4; }
+            84%  { stroke-dashoffset: 0.8; }
+            100% { stroke-dashoffset: 0.2; }
+        }
+
+        @keyframes anim-sombrero-indent-perspective {
+            0%   { transform: translate(0,0); }
+            15%  { transform: translate(-0.1px,0); }
+            50%  { transform: translate(-0.3px,0); }
+            72%  { transform: translate(0.5px.0); }
+            84%  { transform: translate(1px,0); }
+            100% { transform: translate(0,0); }
+        }
+
+        .sombrero {
+            animation: anim-sombrero var(--anim-duration) infinite linear;
+            transform-origin: 297px 109px; /* center of bounding box at original position */
+        }
+
+        #whole-outline {
+            stroke-dasharray: 105.8 5.6 10.6 23.5 2 6.3 15.7 6.5;
+            animation: anim-sombrero-perspective var(--anim-duration) infinite linear;
+        }
+
+        #brim {
+            stroke-dasharray: 0 8.4 2 5 24 6.4 23.5 5.6 10;
+            animation: anim-sombrero-perspective var(--anim-duration) infinite linear;
+        }
+
+        #inner-curve {
+            stroke-dasharray: 20 5;
+            stroke-dashoffset: -1;
+        }
+
+        #cone {
+            stroke-dasharray: 49.5 2;
+            stroke-dashoffset: -1.5;
+        }
+
+        #cone-indent {
+            animation: anim-sombrero-indent-perspective var(--anim-duration) infinite linear;
+        }
+
+        /* ---------------------------------- Files -----------------------------------  */
+
+        #film-perforations-left,
+        #film-perforations-right {
+            stroke-dasharray: 15 20;
+            stroke-dashoffset: -0.5;
+        }
+
+        /* The rectangle paths begin in the top-right corner (when determining stroke-dasharray starting position) */
+        .file.PM12 {
+            transform: translate(67px,-236px);
+            stroke-dasharray: 0 448 0.2 10 2.8 11 25 9 2.8 10 0.2 500;
+        }
+
+        .file.PM2 {
+            transform: translate(239px,-139px);
+            stroke-dasharray: 0 254.5 0.2 10.5 2.8 11 9 9 14 9 209.5 9 20 9 20 9 15 9 12 9 2.8 13.5 0.2 500;
+        }
+
+        .file.PM3 {
+            transform: translate(413.5px,-40.5px);
+            stroke-dasharray: 0 241 0.2 13.5 2.8 10 9 9 16 9 77 9 14 9 10 9 2.8 13.5 0.2 500;
+        }
+
+        .file.PM5 {
+            transform: translate(174.7px,98.6px);
+            stroke-dasharray: 0.2 13.5 2.8 11 9 9 13 9 15 9 268 9 0.2 500;
+        }
+
+        .file.PM7 {
+            transform: translate(-236.8px,142px);
+            stroke-dasharray: 172.5 9 15 9 13 9 11 9 7.5 11 2.8 13.5 0.2 395 0.2 9;
+        }
+
+        .file.PM9 {
+            transform: translate(-408.6px,45px);
+            stroke-dasharray: 36 9 11 9 9 9 1.5 10 0.2 508 0.2 11 2.8 9 9.5 9 15 9;
+        }
+
+        .file.PM11 {
+            transform: translate(-172px,-97px);
+            stroke-dasharray: 30 9 13.5 9 11 10 2.8 10.2 0.2 77 0.2 10.2 2.8 11 14.5 9 46 9 20 11 2.8 13.5 0.2 36 0.2 11.5 2.8 10 11 9 15 9 500;
+        }
+
+        /* ----------------------------- Animation: sprite ----------------------------  */
+
+        @keyframes anim-sprite {
+            0%    { transform: translate(0,0); }
+            100%  { transform: translate(calc((-1 * var(--frame-width)) * var(--frames)),0); }
+        }
+
+        .sprite {
+            will-change: transform;
+            animation: anim-sprite var(--anim-duration) 0s infinite steps(var(--frames));
+        }
+
+        #mask-sprite-crop rect {
+            width: var(--frame-width);
+            height: var(--frame-height);
+        }
+
+        .sprite-centering-offset {
+            transform: translate(-103px,30px); /* Sprite offset (rounded up) but applied to all foreground */
+        }
+
+    ]]></style>
+
+
+    <!-- <rect width="100%" height="100%" fill="lightblue"/> -->
+
+    <g id="whole">
+        <svg x="50%">
+            <g class="centering-offset">
+                <svg width="700px" height="300px" viewBox="0 0 700 300">
+                    <g mask="url(#mask-sombrero)">
+                        <g class="non-thumbnail stroke-opacity">
+                            <!-- Files ('PM' classes = clockwise position around center) -->
+                            <use xlink:href="#file-rectangle" class="file PM12"/>
+                            <use xlink:href="#file-rectangle" class="file PM2"/>
+                            <use xlink:href="#file-rectangle" class="file PM3"/>
+                            <use xlink:href="#file-rectangle" class="file PM5"/>
+                            <use xlink:href="#file-rectangle" class="file PM7"/>
+                            <use xlink:href="#file-rectangle" class="file PM9"/>
+                            <use xlink:href="#file-rectangle" class="file PM11"/>
+                        </g>
+                    </g>
+
+                    <g id="thumbnail">
+                        <g mask="url(#mask-sombrero)">
+                            <g class="stroke-opacity">
+                                <!-- Film -->
+                                <use xlink:href="#film-rectangle" class="file"/>
+                                <use xlink:href="#film-perforations-right" class="film-perforations"/>
+                                <use xlink:href="#film-perforations-left" class="film-perforations"/>
+                            </g>
+
+                            <!-- Sprite -->
+                            <svg x="50%">
+                                <g class="sprite-centering-offset">
+                                    <g clip-path="url(#mask-sprite-crop)">
+                                        <use xlink:href="#sprite" class="sprite"/>
+                                    </g>
+                                </g>
+                            </svg>
+                        </g>
+                        <!-- Sombrero -->
+                        <use xlink:href="#sombrero" class="sombrero stroke-opacity"/>
+                    </g>
+
+                </svg>
+            </g>
+        </svg>
+    </g>
+
+</svg>

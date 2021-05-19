@@ -1,0 +1,145 @@
+Location
+--------
+
+chunk0.dat\Assets\tpp\pack\mission2\common\mis_com_mafr_hostage.fpk
+	mis_com_mafr_hostage.fpk\Assets\tpp\motion\mtar\hostage2\Hostage2_layers.mtar
+
+
+Descriptions
+------------
+
+Note: 'Hands tied' = hands tied behind back
+
+0000 -- starting prone with hands splayed, transitioning into sitting with legs splayed (bent over)
+0001 -- starting prone with hands splayed, transitioning into half-laying sideways position (cowering-like)
+0002 -- starting on back with arms splayed, awakening, transitioning into sitting with legs splayed (bent over)
+0003 -- starting on back with arms splayed, awakening, transitioning into half-laying sideways position
+0004 -- sitting with legs splayed (bent-over), leaning forward trying to get player's attention with one arm out - loop
+0005 -- sitting with legs splayed (bent-over), leaning forward trying to get player's attention with one arm out - outro
+0006 -- sitting with legs splayed (bent-over), leaning forward trying to get player's attention with one arm out - intro
+0007 -- sitting with legs splayed (upright), one arm covering face as if from sun - loop
+0008 -- sitting with legs splayed (upright), one arm covering face as if from sun - outro (transitions to bent over posture)
+0009 -- sitting with legs splayed (upright), one arm covering face as if from sun - intro (transitions from bent over posture)
+0010 -- sitting with legs splayed (bent over), hit/slapped on right-side of face
+0011 -- half-laying sideways postureition - brief head and feet shake as though from minor impact
+0012 -- kneeling position, hit hard on right-side of head (+ sound effect)
+0013 -- sitting on chair (?) (bent over) - loop
+0014 -- sitting on chair (?) (bent over), looks quickly left then right - loop
+0015 -- sitting with legs splayed (bent over) - loop
+0016 -- sitting with legs splayed (bent over), looks slowly right then left - loop
+0017 -- sitting with legs splayed (bent over), left hand touches right upper arm - loop
+0018 -- sitting with legs splayed (bent over), hit on right-side of face
+0019 -- sitting with legs splayed (bent over), hit hard on right-side of face that knocks them onto back
+0020 -- sitting with legs splayed (bent over) - completely static
+0021 -- sitting with legs splayed (upright) - completely static
+0022 -- sitting with legs in front (bent over), arms over them - completely static
+0023 -- sitting with one leg upright (bent over), one arm resting on upright leg - completely static
+0024 -- sitting with legs splayed (bent over), gesturing widely with both hands as if to give themselves some space, while looking left and right, nods head a couple times - loop
+0025 -- sitting with legs splayed (bent over), gesturing widely with both hands as if to give themselves some space, while looking left and right - outro
+0026 -- sitting with legs splayed (bent over), gesturing widely with both hands as if to give themselves some space, while looking left and right - intro
+0027 -- kneeling, hands tied, then hit hard (+ sound effect), falls back before getting back into kneeling position
+0028 -- kneeling, hands tied, shifting limbs and body left and right a bit as though uncomfortable - loop
+0029 -- kneeling, hands tied, stands up (bent over)
+0030 -- kneeling, hit hard in stomach, falls left then gets back into kneeling position
+0031 -- sitting with legs splayed (bent over), falls onto back out of exhaustion (or seeing player character?)
+0032 -- sitting with legs splayed (bent over), transitions into intro of fulton lift anim
+0033 -- sitting with legs splayed (bent over), transitions into half-laying sideways position as though dust kicked in face or something
+0034 -- laying sideways, hands tied, gets up into kneeling position
+0035 -- laying sideways, hands tied - loop
+0036 -- standing, hands tied, kicked down, transitions into laying sideways position
+0037 -- standing, hands tied, hit/slapped from some direction, resumes standing pose
+0038 -- standing, hands tied, hit from in front, torso and head knocked back, resumes standing pose 
+0039 -- sitting in vehicle, hands tied, leaning back and slightly to right-side - loop
+0040 -- standing, hands tied, walks up and into vehicle and sits
+0041 -- sitting in vehicle, hands tied, rolls over dramatically to the left, off vehicle and falls to ground
+0042 -- standing, hands tied, looks left then falls down into laying sideways position (having spotted player character coming to rescue them)
+0043 -- standing, hands tied, looks ahead then falls down into laying sideways position (having spotted player character coming to rescue them)
+0044 -- standing, hands tied - loop
+0045 -- standing, hands tied, transitions into kneeling position
+0046 -- laying sideways, hands tied, transitions into intermediate kneeling position before fully standing, ending up facing opposite direction
+0047 -- standing, hands tied, rotates 90 degrees left
+0048 -- standing, hands tied, rotates 90 degrees right
+0049 -- standing, hands tied then freeing themselves of the ropes as they look around slightly, then arms ending up at sides
+0050 -- standing, hands tied, taking one step forward
+0051 -- standing, hands tied, walking foward - loop
+0052 -- standing, hands tied, transitioning into walking forward (two steps) - intro
+0053 -- standing, hands tied, turning left 90 degrees while walking 
+0054 -- standing, hands tied, turning right 90 degrees while walking 
+0055 -- half-laying sideways position, falls onto back out of exhaustion (or seeing player character?)
+0056 -- half-laying sideways position, transitions into sitting with legs splayed (bent over) position
+0057 -- half-laying sideways position, hit/slapped in face
+0058 -- laying sideways, hands tied, reacting to being hit somewhere on body
+0059 -- half-laying sideways position, falls onto back with arms splayed and eyes closed (died?)
+0060 -- half-laying sideways position, shaking whole body - loop
+0061 -- half-laying sideways position, hands around head - loop
+0062 -- kneeling, hands tied, falling into laying sideways position
+0063 -- laying sideways, hands tied behind beack, ropes cut, falling onto back with arms splayed
+
+
+Raw MtarTool reference (2021-05-18)
+-----------------------------------
+
+0000_12ca39ab9cfa9
+0001_2d2fa038a5a9e
+/Assets/tpp/motion/SI_game/fani/bodies/prs0/prs0non/0002_prs0non_fnt2qid.gani
+0003_15423e41baaac
+0004_30516bfb8fbe1
+0005_63102a589148 
+0006_2f73987055207
+0007_1f328f9a27da0
+0008_1f1c813d9414b
+0009_3b7b66dbf6da0
+0010_e9b0985d5135 
+0011_389dabb3836bc
+0012_18cf6119a54ca
+0013_12c2569a3c1ab
+0014_28322b41fd15 
+0015_2d02a8a3cb0b8
+0016_761b61250f8c 
+0017_2a90581d33d99
+0018_37c8c86d11e86
+0019_386a49aba3d93
+0020_215729b555a01
+0021_2aa5f47019ffb
+0022_34022b999b222
+0023_ef289a29fd8d 
+0024_3f45b8d870bef
+0025_24585c546d7b8
+0026_22510cb052a63
+0027_1daf166507c2f
+0028_339a42d34e601
+0029_2645bf6359855
+0030_2c495eea20096
+0031_2055827a66119
+0032_2f11b3b726e3f
+0033_1de77c3a41c91
+0034_c61f8ae80bb3 
+0035_356ce0c4c84e2
+0036_86ae79ed9e3e 
+0037_d434017512d9 
+0038_32387268efe3e
+0039_242d31af2b841
+0040_3a94eab12a2a2
+0041_be579872f4ed 
+0042_2d49fcb4e3cc8
+0043_28b1f2e6ce489
+0044_2237c90277093
+0045_13e56a8c8b3e0
+0046_371ebbb04d7a8
+0047_234bb6d508a64
+0048_55cdb305b5ec 
+0049_2aa90de66e6a 
+0050_3a622d0bfd656
+0051_11aac4132afd5
+0052_e6eade9f1499 
+0053_1ddc27ec46385
+0054_3556c45c98313
+0055_bb90ed60ebdf 
+0056_2337c554eaf8a
+0057_2bef94c75fa65
+0058_c020bc99bd96 
+0059_1bbf3e3ca9281
+0060_318ff37766f63
+0061_2abe49a2f10dc
+0062_352114063486d
+0063_16c90df59a565

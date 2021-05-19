@@ -1,0 +1,343 @@
+Location
+--------
+
+chunk4.dat\Assets\tpp\pack\mission2\story\s10120_area.fpk
+	Assets\tpp\motion\mtar\liquid2\Liquid2_layers.mtar
+
+
+Descriptions
+------------
+
+Note: the way the behind cover rotations is described isn't the clearest in the sense of where Eli is positioned before/after.
+
+0000 -- player CQC, flipped forward onto ground on back from left arm [clips through ground when played]
+0001 -- laying on back, hands tied - loop
+0002 -- prone, unconscious, arms and legs splayed (static)
+0003 --  prone, unconscious, arms and legs splayed (static)
+0004 -- held by player, placed down on back, arms and legs splayed
+0005 -- held by player, placed down on back, hands tied
+0006 -- held by player (static)
+0007 -- grabbed by player from front, Eli begins upright with legs bent, hands tied
+0008 -- grabbed by player from left, Eli begins on back, hands tied (freezes before fully on player's shoulders)
+0009 -- grabbed by player from left, Eli begins upright with legs bent, hands tied (freezes while upright with legs bent, like start of 0007)
+0010 -- laying on back, hands tied (static)
+0011 -- laying on back, hands tied (static)
+0012 -- laying on back, unconscious, arms and legs splayed
+0013 -- laying on back, unconscious, arms and legs splayed
+0014 -- prone, unconscious, arms and legs splayed, flipped over by player onto back from left side
+0015 -- prone, unconscious, arms and legs splayed, flipped over by player onto back from right side
+0016 -- prone, unconscious, arms and legs splayed (static)
+0017 -- prone, unconscious, arms and legs splayed (static)
+0018 -- held by player, placed down on back, arms and legs splayed
+0019 -- held by player while still - loop
+0020 -- grabbed by player from left, Eli begins on back, arms and legs splayed (freezes while fully upright)
+0021 -- grabbed by player from front, Eli begins on back (slightly bent knees), arms and legs splayed (freezes while fully upright)
+0022 -- laying on back, unconscious, arms and legs splayed
+0023 -- laying on back, unconscious, arms and legs splayed
+0024 -- grabbed by player from front, Eli begins upright (?)
+0025 -- landing on ground prone, unconscious, arms and legs splayed, short duration (potentially already on ground when knocked unconscious)
+0026 -- landing on ground on back, unconscious, arms and legs splayed, short duration (potentially already on ground when knocked unconscious)
+0027 -- pulling machete out, spinning it around, assuming armed stance
+0028 -- spinning machete around, resumes armed stance
+0029 -- armed stance, looking downward and to the right (static)
+0030 -- vertical then horizontal machete slash, resumes armed stance
+0031 -- jump + large overhead slash, resumes armed stance
+0032 -- lunge jab with machete, resumes armed stance
+0033 -- player CQC, machete hit out of hand, pushed over onto back, gets back up weaponless with annoyed expression
+0034 -- player CQC, flipping forward onto ground from right arm, rotates 180 degrees in process
+0035 -- player CQC, flipping forward into roll from left arm, rotates 180 degrees in process
+0036 -- player CQC, machete hit out of hand, rolls, rotates 180 degrees in process
+0037 -- transition from crouched to armed stance
+0038 -- armed stance, rotating 90 degrees left
+0039 -- armed stance, rotating 90 degrees right
+0040 -- transition from standing to crouched behind cover, rotating 90 degrees backwards left in process, looking over left shoulder
+0041 -- transition from standing to crouched behind cover, looking over left shoulder
+0042 -- transition from standing to crouched behind cover, rotating 180 degrees in process, looking over left shoulder
+0043 -- transition from crouched behind cover to armed stance, facing forward
+0044 -- transition from crouched behind cover to armed stance, rotating 90 degrees left in process (?)
+0045 -- transition from crouched behind cover to armed stance, rotating 180 degrees right in process (?)
+0046 -- transition from armed stance to crouched behind cover, rotating backwards left 90 degrees in process
+0047 -- transition from armed stance to crouched behind cover, rotating backwards left 180 degrees in process (?)
+0048 -- transition from armed stance to crouched behind cover, facing forward
+0049 -- armed stance, one step forward 
+0050 -- armed stance, one step forward (alternate?)
+0051 -- running with machete - loop
+0052 -- running with machete, one step forward
+0053 -- running with machete forward, 180 degree turn left
+0054 -- running with machete forward, 180 degree turn right
+0055 -- running with machete forward, 90 degree turn left
+0056 -- running with machete forward, 90 degree turn right
+0057 -- spinning 360 degrees from either ground or over obstacle, resuming armed stance
+0058 -- spinning 360 degrees from either ground or over obstacle, resuming armed stance
+0059 -- spinning left 360 degrees in place, resuming armed stance (freezes just priot to full stance)
+0060 -- spinning right 360 degrees in place, resuming armed stance (freezes just priot to full stance)
+0061 -- armed stance - loop
+0062 -- sweeping kick, spins 360 degrees, resumes armed stance
+0063 -- armed stance, one step backwards (fast)
+0064 -- armed stance, one step backwards (slow)
+0065 -- armed stance, one step backwards (medium?)
+0066 -- armed stance, one step forwards (medium?)
+0067 -- armed stance, one step forwards (slow)
+0068 -- transition from steps into armed stance (?) 
+0069 -- armed stance, one step sideways left (slow)
+0070 -- armed stance, one step sideways right (slow)
+0071 -- armed stance, one step sideways right (fast)
+0072 -- armed stance, walking backwards - loop
+0073 -- armed stance, walking forwards - loop
+0074 -- armed stance, walking sideways left - loop
+0075 -- armed stance, walking sideways right - loop
+0076 -- armed stance, walking backwards, one step
+0077 -- armed stance, walking fowards, one step
+0078 -- armed stance, walking sideways left, one step
+0079 -- armed stance, walking sideways right, one step
+0080 -- electrocuted, prone - loop [violently shaking]
+0081 -- prone, getting up to crouched pose
+0082 -- prone, unconscious, spread out like swastika - loop
+0083 -- on back, unconscious, arms and legs splayed - loop
+0084 -- electrocuted, on back - loop
+0085 -- cool flip up from on back to crouched, begins with legs in air already
+0086 -- standing upright, looking down slightly  and right (static)
+0087 -- crouched behind cover on left side, looking around variously - loop
+0088 -- crouched behind cover on right side, looking around variously - loop
+0089 -- held by player while still, hands tied - loop
+0090 -- falling forwards with mouth agape (freezes before hitting ground)
+0091 -- falling forwards into prone position, unconscious, spread out like swastika 
+0092 -- falling forwards (as through some distance), mouth agape - loop
+0093 -- falling forwards into prone position, unconscious, spread out like swastika
+0094 -- hit, torso rotates right, falls back unconscious, arms and legs pretty much parallel to body
+0095 -- hit, torso rotates left, falls prone unconscious, arms and legs pretty much parallel to body
+0096 -- falling onto knees then ground prone, unconscious, arms and legs spread out like swastika
+0097 -- falling onto buckled knees then ground prone, unconscious, arms and legs spread out like swastika
+0098 -- electrocuted, standing - loop
+0099 -- falling backwards off ledge (freezes mid-air)
+0100 -- hitting ground from falling backwards, mouth agape
+0101 -- falling backwards (as through some distance), head tucked - loop
+0102 -- hitting ground from falling backwards
+0103 -- crouched, arms covering face defensively, transitions to armed stance
+0104 -- crouched, arms covering face defensively - loop
+0105 -- crouched, arms covering face defensively (freezes mid-animation)
+0106 -- falling onto knees then ground prone, unconscious, arms and legs spread out like swastika
+0107 -- minor hit, shakes head, resumes armed stance
+0108 -- minor transition in crouched pose (?)
+0109 -- large step foward in crouched pose
+0110 -- running forward - loop
+0111 -- running forward, one step
+0112 -- running, 180 degree turn left
+0113 -- running, 180 degree turn right
+0114 -- running, 90 degree turn left
+0115 -- running, 90 degree turn right
+0116 -- armed stance, 180 degree turn left
+0117 -- armed stance, 180 degree turn right
+0118 -- running forward with machete, sliding, rotating 180 degrees in process and assuming armed stance
+0119 -- running, picks up machete from ground while taking one step
+0120 -- crouched pose - loop
+0121 -- transition from laying on bed to rolling off onto ground on back, unconscious
+0122 -- laying on bed, hands behind head - loop
+0123 -- laying on bed, hands behind head - intro (getting up onto bed)
+0124 -- laying on bed, hands behind head - outro (getting off bed to standing position)
+0125 -- transition from laying on bed to quickly jumping off and standing
+0126 -- hit, falls off bed, unconscious
+0127 -- standing - loop
+0128 -- standing, rotates 180 degrees left, looks up (at player?)
+0129 -- standing, rotates 180 degrees right, looks up
+0130 -- standing, transition from looking up to looking ahead (?)
+0131 -- standing, looks up
+0132 -- standing, rotates 90 degrees left, looks up
+0133 -- standing, rotates 90 degrees right, looks up
+0134 -- standing, looking ahead curiously - loop
+0135 -- standing, blows shell with head lowered, resumes standing pose
+0136 -- standing, blowing shell with head lowered then tilting head back - loop
+0137 -- standing, takes shell out and blows with head lowered (freezes with head lowered)
+0138 -- sitting on chair - outro (gets off then jumps down onto ground into standing pose)
+0139 -- sitting on chair - loop
+0140 -- sitting on chair - jumps down onto ground in one motion into standing pose
+0141 -- sitting on chair - intro (climbs into chair)
+0142 -- standing, rotates 90 degrees left
+0143 -- standing, rotates 90 degrees right
+0144 -- transition from standing pose to crouched pose
+0145 -- standing, either shift in pose or very minor shuffle forward 
+0146 -- walking upright - loop
+0147 -- walking upright, one step forward
+0148 -- sliding from crouched pose, rotating 180 degrees left in process
+0149 -- running up stairs, jumping off ledge, rolling, rotating 180 degrees in process, assuming crouched pose
+0150 -- running off a short ledge into crouched pose
+0151 -- rotating 180 degrees, swinging off upper object onto ground into crouched pose
+0152 -- running jump off ledge, head facing downward (freezes mid air)
+0153 -- minor jump landing 
+0154 -- climbing up ladder onto surface, assuming crouched pose
+0155 -- large jump over object, assuming crouched pose
+0156 -- crouched pose (static)
+0157 -- overhand throw of object (right hand), assuming crouched pose
+0158 -- underhand throw of object (right hand), assuming crouched pose
+0159 -- looking at object then larger overhand throw (right hand), assuming crouched pose
+0160 -- armed stance, quick underhand throw of object (left hand), assuming armed stance 
+0161 -- held by player while running, hands tied - loop
+0162 -- held by player, hands tied (static)
+
+
+Raw MtarTool reference (2021-05-18)
+-----------------------------------
+
+0000_1e0998dc6c7fd
+0001_2ea6209ac5533
+0002_1475af78f03cb
+0003_b1dfc8ea8cc6
+0004_6eb6acdebb01
+0005_2c100e9d65576
+0006_333fbcc600385
+0007_2287386d30beb
+0008_115a46deb8201
+0009_431087b17e3d
+0010_18d3f6fc0a016
+0011_d192442128e6
+0012_1877151185fc0
+0013_2961d57cc8431
+0014_6c592deee19d
+0015_15e93b8b508ad
+0016_13df0e37e9313
+0017_1280019aef5bc
+0018_24ae1dba9a9b1
+0019_8cb2944d9801
+0020_3b58a5b440d92
+0021_28df893bfc28
+0022_36c090af6bc48
+0023_3f133452377de
+0024_32db6f3419de3
+0025_3a94a9d9c9b7d
+0026_2282d827c61ab
+0027_29995b3e817ad
+0028_2cdbe5fe10672
+0029_30226ef9d0bd0
+0030_23498d5cac3bc
+0031_24cbba93b197c
+0032_187cbd316cc51
+0033_3fdf8a84847f5
+0034_356c24d34772f
+0035_3d643551cbf8b
+0036_12c7f88ab0e36
+0037_1bb56fd3c126
+0038_18880ab412b5f
+0039_27e40e1a089a3
+0040_f42199a7ace1
+0041_3219245f06ba8
+0042_21ef2d550e68a
+0043_2de088599289d
+0044_34b4f4b639f24
+0045_11f97341d6c9f
+0046_f385db115480
+0047_3f0497a1664ee
+0048_247f6b4375d44
+0049_e2245808e03c
+0050_1964905073f52
+0051_2b2cb752c309c
+0052_13a5c5934ada
+0053_3f18c46a7a22a
+0054_66632c51f7ea
+0055_3597a97b4046d
+0056_176148949e56f
+0057_607207dd9a32
+0058_702727a5feb7
+0059_151a827249338
+0060_18bd6bacde74e
+0061_309c1b6402b11
+0062_c16cbc8bd250
+0063_182560eecd388
+0064_40c5d2c18c85
+0065_27d94b90ce819
+0066_175e5b8fc0ac4
+0067_1a5c66ac8114a
+0068_34c8ee98ac0b
+0069_37129a92fe5cd
+0070_33ce88ee442cc
+0071_1db426deaef99
+0072_1dc98a2efd6f8
+0073_1e1861f80511
+0074_3c9d6a2016ea9
+0075_11f21937f5c2b
+0076_2777de0d70d49
+0077_4902112fb77e
+0078_1962f5b529c4
+0079_2f265a56f0577
+0080_34b4562d7544a
+0081_17fa43b3f62be
+0082_1190234ea603e
+0083_3e3b307aedb5c
+0084_1f0fd59ab6ede
+0085_3017586bb6083
+0086_2b3a8c7fc180b
+0087_1b9c872a3322c
+0088_1035971a63339
+0089_2bc3988086945
+0090_12c8407c33e0c
+0091_2aa92b95c3bfa
+0092_77e4f0b99764
+0093_221beabf8bcc2
+0094_1b3aafd2d4d8c
+0095_29f9963b6fd2c
+0096_38d27460007e0
+0097_19ea3311078b4
+0098_11bef5f63109e
+0099_1960adc63c78c
+0100_2c7fae23f8ce8
+0101_3207e37c47917
+0102_2828391c2afb1
+0103_3074a43dbc652
+0104_35206ea1a81e6
+0105_3a1bb045b4a84
+0106_32cc1db9ab460
+0107_280fb17d1a5cc
+0108_28a78c00d8366
+0109_110075a7c1a9a
+0110_36cbb3299cb91
+0111_64e45492d5d8
+0112_2d4066abfb30f
+0113_3bea77da91475
+0114_3e8830e5a6656
+0115_2c0c13975ad2e
+0116_37c302d1060aa
+0117_1cdccf7dfb29a
+0118_d97e975008c4
+0119_234f3fa3da73
+0120_1cb20bd3a836
+0121_185b7d5241a9
+0122_26719c945971d
+0123_1b6c27345467e
+0124_307a503820ed8
+0125_395b99c650bf7
+0126_138ffbe348f38
+0127_3b72664352288
+0128_3c82397563745
+0129_32ddd58f934c
+0130_3b343a51ab0a1
+0131_3201bf49972e9
+0132_159453bc2896c
+0133_1d959aecdd14d
+0134_122c7aabcab1
+0135_85d3390c55f4
+0136_29c25baf29db6
+0137_2f44e7e9d699c
+0138_85b48946336d
+0139_2c6b0e0076ca7
+0140_1c557277d2c36
+0141_1e878cc9ba654
+0142_7e5ec2dc2404
+0143_2f1d25fa0ffc2
+0144_12dbf230b485d
+0145_939275fb9705
+0146_100d71db5c24
+0147_3bc7fa97de3a
+0148_3b583ff010b65
+0149_19d5dc855e338
+0150_298b8d0ad54d8
+0151_25452a819754
+0152_3c98f21cfd670
+0153_1255330a96b4f
+0154_3e3a1aead4266
+0155_37366d127ac73
+0156_3b0206a2d9e4b
+0157_d5504691e024
+0158_1f461c2ac26c0
+0159_732ca17d416d
+0160_cd762284c4b
+0161_da75e58f8102
+0162_113f11f365c89

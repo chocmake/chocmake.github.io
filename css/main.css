@@ -1,0 +1,1752 @@
+
+/*                                  ,:;.                              */
+/*                                ,"  }}                              */
+/*                  .,+.+,.      {;  ;'                               */
+/*               .{*     '}}    {{ ,*                                 */
+/*             .{{       .}:   {{;"                                   */
+/*            {{:       .}'   {{" .+:.      ,.+:,       ,.+.          */
+/*           {{:    +..^'    {{;+'  }}    ,{:'  }}    ,{'  }}         */
+/*          :{{             {{;'   }};   {{'{   }}   {{'  .'          */
+/*          {{;           .{{"    }}:   {{: +   ;' ,{{:               */
+/*          :{{         ,^{{"    :{'   ;{{   ".,;:''{{      +         */
+/*           {{;      ,^ {{"     {{   + {{    ;'    {{    ,"          */
+/*            '*:>.:^'  :{'      '+.:'   *.+:'       *.+:'            */
+
+
+/* ----------------------------- General ---------------------------- */
+
+* {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --body-margin: 30px;
+    --extended-width: 1164px;
+    --viewport-width: calc(100vw + var(--body-margin) * 2);
+    --content-width: 700px;
+    --sidenote-width: 184px;
+    --font-family-global: sans-serif;
+    --font-size-global: 15px;
+    --font-size-code: 95%;
+    --font-size-small: 83.5%;
+    --font-size-micro: 60%;
+    --spacing-general: 16px;
+    --column-gap: calc(var(--spacing-general) * 2);
+    --heading-primary-margin-bottom: 50px;
+    --border-radius: 3px;
+    --border-radius-circle: 30px;
+    --rounding: 4.9406564584124654e-324;
+    --content-width-formatted: calc(100vw - var(--body-margin) * 2 - var(--spacing-general));
+}
+
+/* Themes */
+/* The 'intermediate' color is to provide even visual color for larger headings/text and solid fills, otherwise they'd appear brighter */
+:root {
+    --light-color-unique: #ea8591;
+    --dark-color-unique: #bd6a74;
+
+    --light-page-background: #eee;
+    --light-color: hsl(218,8%,30%);
+    --light-color-secondary: hsl(218,12%,53%);
+    --light-color-intermediate: hsl(218,8%,40%);
+    --light-color-links: hsl(212,55%,56%);
+    --light-color-code: hsl(218,11%,88%);
+    --light-color-selection-bg: hsl(218,41%,84%);
+    --light-color-selection-fg: inherit;
+    --light-border-color: hsl(218,11%,84%);
+    --light-border-color-thin: hsl(218,11%,81%);
+
+    --dark-page-background: #1d1d1d;
+    --dark-color: hsl(218,8%,64%);
+    --dark-color-secondary: hsl(218,12%,48%);
+    --dark-color-intermediate: hsl(218,8%,55%);
+    --dark-color-links: hsl(20,34%,50%);
+    --dark-color-code: hsl(218,11%,18%);
+    --dark-color-selection-bg: hsl(218,22%,33%);
+    --dark-color-selection-fg: hsl(218,22%,73%);
+    --dark-border-color: hsl(218,11%,23%);
+    --dark-border-color-thin: var(--dark-border-color);
+}
+
+body {
+    font-size: var(--font-size-global);
+    font-family: var(--font-family-global);
+    line-height: 135%;
+    position: relative;
+}
+
+.page {
+    --color-unique: var(--light-color-unique);
+    --page-background: var(--light-page-background);
+    --color: var(--light-color);
+    --color-secondary: var(--light-color-secondary);
+    --color-intermediate: var(--light-color-intermediate);
+    --color-links: var(--light-color-links);
+    --color-code: var(--light-color-code);
+    --color-selection-bg: var(--light-color-selection-bg);
+    --color-selection-fg: var(--light-color-selection-fg);
+    --border-color: var(--light-border-color);
+    --border-color-thin: var(--light-border-color-thin);
+
+    width: 100%; /* to cover body area */
+    min-height: 100vh;
+    background-color: var(--light-page-background);
+    color: var(--light-color);
+    padding: 0 var(--body-margin);
+    overflow-x: hidden; /* hides uncovered area at mobile widths */
+    position: absolute;
+}
+
+::-moz-selection { background: var(--color-selection-bg); color: var(--color-selection-fg); }
+::selection      { background: var(--color-selection-bg); color: var(--color-selection-fg); }
+
+p {
+    margin-bottom: var(--spacing-general);
+}
+
+h2, h3  {
+    color: var(--color-intermediate);
+    letter-spacing: -0.01em;
+    padding-right: 40px; /* to account for potential section spoiler element expansion button/outgoing link indicator */
+    margin: var(--spacing-general) 0 calc(var(--spacing-general) * 1.5);
+    /* Below are to raise text above section spoiler element toggle */
+    position: relative;
+    z-index: 2;
+}
+
+.guide h2,
+.guide h3 {
+    pointer-events: none; /* so that expandable spoiler checkbox takes precidence */
+}
+
+.home h3,
+h2 {
+    font-size: 140%;
+    letter-spacing: -0.02em;
+}
+
+/* Viewport top margin for fragment links */
+h2:target::before {
+    height: 30px;
+    content: '';
+    display: block;
+    margin-top: -30px;
+}
+
+h2.table-of-contents,
+h3 {
+    font-size: 110%;
+}
+
+p + h2, p + h3,
+small + h2, small + h3,
+.note + h2, .note + h3,
+.tip + h2, .tip + h3 {
+    margin-top: calc(var(--spacing-general) * 1.5); /* additional spacing when directly beneath other block text */
+}
+
+small {
+    color: var(--color-secondary);
+    font-size: var(--font-size-small);
+    display: inline-block;
+    letter-spacing: 0.02em;
+    margin-bottom: var(--spacing-general);
+}
+
+a {
+    color: var(--color-links);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Used for section page links (eg: on home page) */
+h2 a,
+h3 a {
+    color: inherit;
+}
+
+code,
+pre,
+kbd {
+    background: var(--color-code);
+    color: var(--color-secondary);
+    font-size: var(--font-size-code);
+    word-break: break-all;
+    overflow-wrap: break-word;
+    padding: 0 4px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-code);
+    margin: 0 1px;
+}
+
+pre {
+    background: var(--color-code);
+    white-space: pre-wrap;
+    padding: calc(var(--spacing-general) / 1.6) calc(var(--spacing-general) / 1.25);
+    border-radius: var(--border-radius);
+    margin: var(--spacing-general) 0;
+}
+
+/* For adding titles to code blocks. Shares styling with note/tip titles. */
+pre[alt] {
+    --offset: calc(var(--spacing-general) * 1.5);
+    --margin: calc(var(--spacing-general) + var(--offset) + 2px); /* 2px is for 1px top/bottom border */
+    margin-top: var(--margin);
+    position: relative;
+}
+
+pre[alt]::before {
+    font-family: var(--font-family-global);
+    font-size: calc(var(--font-size-global) * .6); /* 60%. Reset needs to be calculated from global due to inheritance. */
+    content: attr(alt);
+    position: absolute;
+    top: calc(-1 * var(--offset) - 2px);
+    left: -1px;
+}
+
+/* For situations when directly beneath task-complete element to visually balance more */
+.task-complete + pre[alt] {
+    margin-top: calc(var(--margin) + var(--spacing-general) / 1.5);
+}
+
+kbd {
+    background: none;
+    border-color: var(--border-color);
+}
+
+abbr[title] {
+    text-decoration: none;
+    border-bottom: 1px dotted currentColor;
+}
+
+sup {
+    color: var(--color-secondary);
+    font-size: var(--font-size-micro);
+    margin-left: 5px;
+    position: absolute;
+    top: -5px;
+}
+
+blockquote {
+    color: var(--color-secondary);
+    padding-left: var(--spacing-general);
+    border-left: 4px solid var(--border-color);
+    margin: var(--spacing-general) 0;
+}
+
+pre[alt]::before,
+.note::before,
+.tip::before {
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 0;
+    display: inline-block;
+    padding: 8px 4px 7px 5px; /* for some reason the right-side is 1px too wide so compensated here */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+hr {
+    height: 0;
+    color: transparent;
+    break-after: avoid-column;
+    border: 0;
+    border-bottom: 4px solid var(--border-color);
+    margin: calc(var(--spacing-general) * 2) 0;
+}
+
+hr.subsection,
+ul hr,
+ol hr {
+    border-style: solid;
+    border-bottom-width: 8px;
+    border-color: var(--border-color-thin);
+    -webkit-mask-image: url("/svg/ui.svg#hr-wavy");
+    mask-image: url("/svg/ui.svg#hr-wavy");
+}
+
+ul hr,
+ol hr {
+    margin: var(--spacing-general) 0;
+}
+
+time::before {
+    content: attr(datetime);
+}
+
+object {
+    pointer-events: none; /* disables Chromium's shift+drag to move feature */
+}
+
+.content img,
+.content object,
+.content video {
+    display: block;
+    margin: 0 auto calc(var(--spacing-general) * 2);
+}
+
+.content img,
+.content object:not(.full-width):not(.full-viewport),
+.content video {
+    max-width: 100%;
+}
+
+.content video {
+    border-radius: var(--border-radius);
+}
+
+.content video:focus {
+    outline: none; /* disables Chromium's new focus outline */
+}
+
+/* For SVGs that require width set externally */
+.full-width {
+    /* To compensate for Chromium's SVG alpha mask alignment issue (where depending whether a raster sprite inside an SVG has odd/even frame widths the edges will flicker if the viewport has a non-odd/even width, respectively). */
+    /* Requires SVG sprite to have even number frame width and the HTML container element to have an initial even width (subsequent viewport scaling rounding handled by the calc below). */
+    --width: var(--content-width);
+    --max-width: var(--content-width-formatted);
+    width: var(--width);
+    /* Rounds max-width to even whole numbers. Doesn't fix it appearing on zoom scaling however. Doesn't work with percentage inputs only viewport/pixel units. */
+    max-width: calc((((var(--max-width) * var(--rounding) / var(--rounding)) / 2) * var(--rounding) / var(--rounding)) * 2);
+}
+
+
+/* ----------------------------- Lists ----------------------------- */
+
+ol, ul {
+    margin: calc(var(--spacing-general) * 1.5) 0 calc(var(--spacing-general) * 1.5) var(--spacing-general);
+    position: relative; /* to align hidden absolutely positioned Version elements to parent list */
+}
+
+ol {
+    counter-reset: list;
+    counter-increment: 1;
+    margin-left: calc(var(--spacing-general) * 1.5); /* extra to account for larger markers */
+}
+
+ol ol, ol ul,
+ul ul, ul ol {
+    margin: calc(var(--spacing-general) / 1.5) var(--spacing-general);
+}
+
+li {
+    page-break-inside: avoid; /* avoid sub-list items breaking into next column. Firefox still lacks any proper support for this/related column break properties when applied to list elements. */
+    margin: 0 0 var(--spacing-general) var(--spacing-general);
+    position: relative;
+}
+
+ol.compact li,
+ul.compact li {
+    margin: 0 0 calc(var(--spacing-general) / 1.5) var(--spacing-general);
+}
+
+/* Offers marginally more room for ordered list markers to fill the full content container width */
+ol.standalone {
+    margin-left: calc(var(--spacing-general) / 1.5);
+}
+
+ul.standalone {
+    margin-left: 3px;
+}
+
+ol li::before,
+ul:not(.downloads) li::before {
+    --right: calc(100% + var(--spacing-general) / 2);
+    display: inline-flex;
+    right: var(--right); /* to align to left of element while expanding from right */
+    position: absolute;
+}
+
+span.key::before,
+ul:not(.downloads) li:not(.fragment-link):not(.credit)::before {
+    --size: 5px;
+    width: var(--size);
+    height: var(--size);
+    background: var(--color-intermediate);
+    content: '';
+    padding: 0; /* to override if within ol */
+    border: 1px solid var(--color-intermediate);
+    border-radius: var(--border-radius-circle);
+    top: 6px;
+}
+
+ul li.fragment-link ul li::before,
+ul li.credit ul li::before,
+ul li ul li::before {
+    background: none !important;
+}
+
+ul li.credit::before,
+ul li.fragment-link::before {
+    color: var(--color-intermediate);
+    font-size: 80%;
+    content: '#';
+}
+
+ul li.credit::before {
+    content: '\2661\FE0E';
+    right: calc(var(--right) - 3.5px);
+}
+
+/* Diamond symbol to add differentiation to specific list items. Inline standalone .key class for textual definition (use empty span). */
+span.key::before,
+ul:not(.downloads) li:not(.fragment-link):not(.credit).key::before {
+    --size: 4px;
+    border-radius: 0;
+    transform: rotate(45deg);
+    top: 7.5px;
+}
+
+span.key::before {
+    color: inherit;
+    display: inline-block;
+    margin: 0 2px;
+    position: relative;
+    top: -1px;
+}
+
+.note span.key::before,
+.tip span.key::before {
+    opacity: 0.75; /* for even color */
+}
+
+ol li > ul:not(.downloads) li:not(.fragment-link):not(.credit)::before {
+    background: var(--color-unique);
+    border-color: var(--color-unique);
+}
+
+ol > li::before {
+    --size: 16px;
+    --padding: 3px;
+    height: var(--size);
+    min-width: calc(var(--size) - (var(--padding) * 2));
+    background: var(--color-unique);
+    color: var(--page-background);
+    font-size: 65%;
+    counter-increment: list;
+    content: counter(list);
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--padding);
+    border: 1px solid var(--color-unique);
+    border-radius: var(--border-radius-circle);
+    top: 1px;
+}
+
+ol > li > ol {
+    counter-reset: sub-list;
+}
+
+ol > li > ol > li::before {
+    background: none;
+    color: var(--color-unique);
+    counter-increment: sub-list;
+    content: counter(list) counter(sub-list, lower-alpha);
+    padding: 0 calc(var(--padding) * 1.5);
+}
+
+
+/* ----------------------- Lists: downloads ------------------------ */
+
+ul.downloads {
+    max-width: var(--content-width);
+    overflow: hidden; /* to avoid absolutely positioned Version elements from extending past max-width, causing greating than 100% page widths in mobile viewports */
+    padding-left: var(--spacing-general);
+    padding: var(--spacing-general) var(--spacing-general) 0;
+    margin: calc(var(--spacing-general) * 1.5) 0 calc(var(--spacing-general) * 1.5) 0;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+ul.downloads li {
+    --icon-width: 30px;
+    --icon-height: 37px;
+    height: var(--icon-height);
+    display: inline-block;
+    padding: 0;
+    margin: 0 calc(var(--spacing-general) * 2) var(--spacing-general) 0;
+}
+
+ul.downloads li a {
+    max-width: 400px;
+    height: var(--icon-height);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    overflow: hidden;
+    background: red;
+    padding: 0 0 var(--spacing-general) calc(var(--icon-width) + var(--spacing-general) - 7px);
+    -webkit-mask-image: url("/svg/ui.svg#downloads-icon-whole");
+    mask-image: url("/svg/ui.svg#downloads-icon-whole");
+}
+
+ul.downloads li a,
+ul.downloads li a::after {
+    --background-fill: var(--border-color);
+    background: linear-gradient(90deg, var(--background-fill) 0, var(--background-fill) var(--icon-width), transparent calc(var(--icon-width) + 1px));
+}
+
+ul.downloads li a::before,
+ul.downloads li a::after {
+    width: var(--icon-width);
+    height: var(--icon-height);
+    content: '';
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    -webkit-mask-image: url("/svg/ui.svg#downloads-icon-shadow");
+    mask-image: url("/svg/ui.svg#downloads-icon-shadow");
+    z-index: 1;
+}
+
+ul.downloads li a::before {
+    background: var(--dark-border-color);
+    mix-blend-mode: color-burn; /* to be dark on both light/dark themes */
+    opacity: 0.15;
+}
+
+ul.downloads li a::after {
+    --background-fill: var(--color-intermediate);
+    width: 100%;
+    color: var(--color-secondary);
+    font-size: var(--font-size-small);
+    content: attr(data-filesize);
+    padding: 18px 0 0 calc(var(--icon-width) + var(--spacing-general) - 6px);
+    -webkit-mask-image: url("/svg/ui.svg#downloads-icon-glyph");
+    mask-image: url("/svg/ui.svg#downloads-icon-glyph");
+}
+
+
+/* --------------------- Content, misc classes --------------------- */
+
+.content {
+    max-width: var(--content-width);
+    margin: var(--heading-primary-margin-bottom) auto 0;
+    position: relative;
+}
+
+.home .content {
+    padding-top: var(--spacing-general);
+}
+
+.home .heading-primary-wrapper,
+.sidenote {
+    width: var(--sidenote-width);
+    margin-left: calc(-1 * var(--sidenote-width) - (var(--spacing-general) * 3));
+    position: absolute;
+    left: 0;
+}
+
+.sidenote {
+    margin-bottom: calc(var(--spacing-general) * 2); /* visible when combining into main content at narrower widths */
+}
+
+.split,
+.split {
+    columns: 2;
+    column-gap: var(--column-gap);
+}
+
+.note,
+.tip {
+    color: var(--color-secondary);
+    padding: var(--spacing-general);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin: var(--spacing-general) 0;
+}
+
+.note::before,
+.tip::before {
+    font-size: var(--font-size-micro);
+    content: 'Note';
+    margin-right: 5px;
+    position: relative;
+    top: -1px;
+}
+
+.tip::before {
+    content: 'Tip';
+}
+
+.note p:last-of-type,
+.tip p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* To make pseudo-element text appear inline. Used instead of absolute positioning the pseudo-elements since text usually isn't wrapped in paragraph elements, although the margin-left offsets below vary slightly based on the font. */
+.note p:first-of-type,
+.tip p:first-of-type {
+    margin-top: calc(-1 * var(--spacing-general) - 3px);
+}
+
+.note p:first-of-type:first-letter {
+    margin-left: 43px;
+}
+
+.tip p:first-of-type:first-letter {
+    margin-left: 31px;
+}
+
+span.highlight,
+strong.highlight,
+em.highlight {
+    color: var(--color-unique);
+}
+
+.note.highlight::before,
+.tip.highlight::before {
+    background: var(--color-unique);
+    color: var(--page-background);
+    border-color: var(--color-unique);
+}
+
+.caption {
+    text-align: center;
+    display: block;
+}
+
+.sidenote .caption {
+    text-align: left;
+}
+
+/* For captions not directly attached to an above element, roomier spacing */
+.caption.standalone {
+    margin: calc(var(--spacing-general) * 1.5) 0 calc(var(--spacing-general) * 2);
+}
+
+.content img + .caption:not(.standalone),
+.content object + .caption:not(.standalone),
+.content video + .caption:not(.standalone) {
+    margin-top: calc(-1 * var(--spacing-general));
+}
+
+/* Label class currently used for sidenote tags, loose conceptual diagrams */
+.tags {
+    margin-bottom: var(--spacing-general);
+}
+
+.tags .label {
+    font-size: var(--font-size-small);
+}
+
+.tags.primary .label {
+    font-weight: bold;
+}
+
+.label {
+    color: var(--color-secondary);
+    display: inline-block;
+    padding: 1px 7px;
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--border-radius);
+    cursor: default;
+}
+
+.label:not(:only-of-type) {
+    margin-bottom: 5px; /* need to only add this for elements between each other not at bottom-most */
+}
+
+.label.inverse {
+    background: var(--border-color);
+    color: var(--color-secondary);
+    border-color: var(--border-color);
+}
+
+.label.highlight {
+    color: var(--color-unique);
+    border-color: var(--color-unique);
+}
+
+.label.highlight.inverse {
+    background: var(--color-unique);
+    color: var(--page-background);
+    border-color: transparent;
+    font-weight: normal;
+}
+
+.caption .label {
+    margin-bottom: 0;
+}
+
+.task-complete {
+    --size: 32px; /* 2x the size of the ordered list markers */
+    --offset: 8px;
+    padding-left: calc(var(--size) + var(--offset) + 2px);
+    margin: calc(var(--spacing-general) + var(--offset) + 6px) 0 calc(var(--spacing-general) + var(--offset));
+    position: relative;
+}
+
+.task-complete::before {
+    width: var(--size);
+    height: var(--size);
+    background: var(--border-color);
+    font-size: var(--font-size-small);
+    font-weight: bold;
+    line-height: var(--size);
+    content: '✓';
+    display: inline-flex;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-circle);
+    position: absolute;
+    top: calc(-1 * var(--offset));
+    left: 0;
+}
+
+
+/* ------ User setting toggles (see Header for button styling) ------ */
+
+.theme-toggle-checkbox,
+.version-toggle-checkbox {
+    display: none;
+}
+
+/* Defaults for light theme */
+.theme-toggle-checkbox:checked ~ .page {
+    --color-unique: var(--dark-color-unique);
+    --page-background: var(--dark-page-background);
+    --color: var(--dark-color);
+    --color-secondary: var(--dark-color-secondary);
+    --color-intermediate: var(--dark-color-intermediate);
+    --color-links: var(--dark-color-links);
+    --color-code: var(--dark-color-code);
+    --color-selection-bg: var(--dark-color-selection-bg);
+    --color-selection-fg: var(--dark-color-selection-fg);
+    --border-color: var(--dark-border-color);
+    --border-color-thin: var(--dark-border-color-thin);
+
+    background-color: var(--dark-page-background);
+    color: var(--dark-color);
+}
+
+.theme-toggle-checkbox:checked ~ .page::before {
+    background: var(--dark-page-background);
+}
+
+/* Defaults for light theme - make bold text easier to distinguish on dark background */
+.theme-toggle-checkbox:checked ~ .page b:not(.label):not(.highlight),
+.theme-toggle-checkbox:checked ~ .page strong:not(.label):not(.highlight) {
+    filter: brightness(1.05);
+}
+
+/* Using visibility instead of display since there's no method of restoring original display value */
+.version-toggle-checkbox:checked ~ .page .version-toggle-default,
+.version-toggle-checkbox ~ .page .version-toggle-alternative {
+    visibility: hidden;
+    position: absolute;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.version-toggle-checkbox:checked ~ .page .version-toggle-alternative {
+    visibility: visible;
+    position: inherit;
+    pointer-events: inherit;
+    -webkit-user-select: inherit;
+    user-select: inherit;
+}
+
+.version-toggle-checkbox:checked ~ .page li.version-toggle-alternative {
+    position: relative;
+}
+
+
+/* ---------------------------- Header ---------------------------- */
+
+.header {
+    --margin: 20px;
+    max-width: var(--extended-width);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: var(--margin);
+    margin: 0 auto calc(var(--margin) + 5px);
+    position: relative;
+}
+
+.home .header {
+    margin-bottom: 80px;
+}
+
+.header .breadcrumbs {
+    position: relative;
+}
+
+.header .breadcrumbs a {
+    color: inherit;
+    font-weight: bold;
+    position: relative;
+}
+
+.header .breadcrumbs a + a {
+    margin-left: calc(var(--spacing-general) * 1.5);
+}
+
+.header .breadcrumbs a + a::before {
+    content: '→';
+    color: var(--color-secondary);
+    text-decoration: none;
+    display: inline-block;
+    position: absolute;
+    left: -21px;
+    pointer-events: none;
+}
+
+.header .user-settings {
+    display: flex;
+    margin-left: calc(var(--spacing-general) * 1.5);
+}
+
+/* In header area for now but could be used elsewhere */
+.user-setting-button {
+    display: inline-flex;
+    position: relative;
+    padding-right: 50px; /* for toggle button visual */
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.user-setting-button::before,
+.user-setting-button::after {
+    width: 40px;
+    height: 20px;
+    background: var(--color-code);
+    content: '';
+    border-radius: var(--border-radius-circle);
+    margin-left: 10px;
+    position: absolute;
+    right: 0;
+}
+
+.user-setting-button::after {
+    --size: 16px;
+    width: var(--size);
+    height: var(--size);
+    background: var(--color-secondary);
+    top: 2px;
+    right: 22px;
+    transition: background 150ms, right 150ms;
+}
+
+.theme-toggle-checkbox:checked ~ .page .header .user-settings .theme-toggle-button::before,
+.version-toggle-checkbox:checked ~ .page .header .user-settings .version-toggle-button::before {
+    background: var(--color-unique);
+}
+
+.theme-toggle-checkbox:checked ~ .page .header .user-settings .theme-toggle-button::after,
+.version-toggle-checkbox:checked ~ .page .header .user-settings .version-toggle-button::after {
+    background: var(--page-background);
+    right: 2px;
+}
+
+.header .user-setting-button:last-child {
+    margin-left: calc(var(--spacing-general) * 1.5);
+}
+
+
+/* ------------------------ Primary heading ----------------------- */
+
+.home .heading-primary-wrapper {
+    min-height: 55px; /* since it's absolutely positioned */
+    margin-bottom: var(--heading-primary-margin-bottom);
+}
+
+.guide .heading-primary-wrapper {
+    --width: calc(100% + var(--body-margin) * 2);
+    width: var(--width);
+    max-width: var(--width);
+    min-height: 200px;
+    padding: 0 var(--body-margin);
+    position: relative;
+    left: calc(-1 * var(--body-margin));
+}
+
+.guide .heading-primary-image {
+    min-height: 200px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+}
+
+.guide .heading-primary-image:not(.full-width):not(.full-viewport) {
+    max-width: 100%;
+}
+
+/* To compensate for Chromium's SVG alpha mask alignment issue (see .full-width notes for info) */
+.guide .heading-primary-image.full-width {
+    --width: var(--extended-width);
+}
+
+.guide .heading-primary-image.full-viewport {
+    --width: 200vw; /* for an initial even, absolute value */
+    width: var(--width);
+    max-width: calc((((var(--viewport-width) * var(--rounding) / var(--rounding)) / 2) * var(--rounding) / var(--rounding)) * 2);
+    margin: 0;
+    left: calc(-1 * var(--body-margin) * 2);
+}
+
+/* Solely for guide pages/articles, element can be absent on other pages. Added for optional full viewport width heading images, to provide a relative positioned centered point. */
+.guide .heading-primary-text-wrapper {
+    max-width: var(--extended-width);
+    margin: 0 auto;
+    position: relative;
+    left: 0;
+}
+
+.heading-primary-text {
+    --margin: calc(var(--spacing-general) / 1.6);
+    position: absolute;
+    bottom: calc(var(--margin) * 2);
+}
+
+.heading-primary-text.bottom {
+    bottom: calc(var(--margin) * 2);
+}
+
+.heading-primary-text.top {
+    top: calc(var(--margin) - 3px);
+    bottom: 0;
+}
+
+/* h1 + subheading and clone styling (if only h1 is styled the clone doesn't receive the styling) */
+.heading-primary,
+.subheading-primary {
+    --wght: 900;
+    width: 100%; /* for FF */
+    color: var(--page-background);
+    font-size: 270%;
+    font-weight: var(--wght);
+    letter-spacing: -0.04em;
+    line-height: 90%;
+    display: block; /* if set to 'inline-block' FF breaks the text differently */
+    margin: 0 0 calc(-1 * var(--margin)) var(--margin);
+    position: relative;
+    z-index: 2;
+}
+
+.subheading-primary {
+    --wght: 500;
+    font-size: 113.3%;
+    font-weight: var(--wght);
+    letter-spacing: -0.02em;
+    line-height: 115%;
+    text-transform: uppercase;
+}
+
+/* Cloned text is necessary since text highlight backgrounds overlap otherwise */
+/* In my tests pseudo elements can't be used instead since a wrapper is necessary */
+.heading-primary-highlight-wrapper {
+    position: absolute;
+    top: 0;
+    left: calc(-1 * var(--margin));
+    z-index: 1;
+}
+
+.heading-primary .highlight,
+.subheading-primary .highlight {
+    --box-shadow: 0;
+    background: var(--color-unique);
+    color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    display: inline;
+    padding: 0 10px;
+    box-shadow: 0 calc(-1 * var(--box-shadow)) 0 var(--color-unique),
+                0 var(--box-shadow) 0 var(--color-unique);
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.subheading-primary .highlight {
+    --box-shadow: 5px;
+    /* Extra top pixel is to account for gap in some renderings */
+    box-shadow: 0 calc(-1 * var(--box-shadow) - 1px) 0 var(--color-unique),
+                0 var(--box-shadow) 0 var(--color-unique);
+}
+
+
+/* ----------------------- Expandable spoiler ----------------------- */
+
+.spoiler-block {
+    --toggle-height: calc(var(--spacing-general) * 2);
+    --mask: linear-gradient(180deg, hsla(0,0%,0%,1) 32px, hsla(0,0%,0%,0) 32px, hsla(0,0%,0%,1) 42px); /* to smoothen content transition near edge. Static values based on --toggle-height variable. */
+    min-height: var(--toggle-height);
+    overflow: hidden;
+    margin: var(--spacing-general) 0;
+    position: relative;
+    -webkit-mask-image: var(--mask);
+    mask-image: var(--mask);
+}
+
+.spoiler-block.section {
+    --toggle-height: calc(var(--spacing-general) * 3.75); /* to align vertically with center of heading text */
+    --mask: linear-gradient(180deg, hsla(0,0%,0%,1) 60px, hsla(0,0%,0%,0) 60px, hsla(0,0%,0%,1) 70px);
+    margin-top: calc(-1 * var(--toggle-height) - 8px);
+}
+
+/* Excluded negative margin on last section */
+.spoiler-block.section:not(:last-of-type) {
+    margin-bottom: calc(-1 * var(--spacing-general));
+}
+
+.spoiler-checkbox,
+.spoiler-block.regular .spoiler-content-wrapper::before,
+.spoiler-content-wrapper::after {
+    --padding: 10px;
+    width: 100%;
+    height: var(--toggle-height);
+    display: flex;
+    position: absolute;
+}
+
+.spoiler-checkbox {
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.spoiler-block.regular .spoiler-content-wrapper::before,
+.spoiler-content-wrapper::after {
+    width: calc(100% - (var(--padding) * 2));
+    color: var(--page-background);
+    align-items: center;
+    padding: 0 var(--padding);
+    border-radius: var(--border-radius);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.spoiler-block.regular .spoiler-content-wrapper::before {
+    --padding-right: 30px;
+    width: calc(100% - (var(--padding) * 2) - (var(--padding-right) - var(--padding)));
+    background-color: var(--color-unique);
+    line-height: 90%; /* when breaking to new line at mobile widths */
+    content: attr(alt);
+    padding-right: var(--padding-right); /* to leave space for expansion button at mobile widths */
+}
+
+.spoiler-block.regular .spoiler-checkbox:active ~ .spoiler-content-wrapper::before {
+    background-image: linear-gradient(0deg, hsla(0,0%,0%,0.1) 0%, hsla(0,0%,0%,0.1) 100%);
+    background-blend-mode: overlay;
+}
+
+h2:target + .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper::after,
+.spoiler-content-wrapper::after {
+    font-size: 120%;
+    content: '+';
+    justify-content: flex-end;
+}
+
+h2:target + .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper::after,
+.spoiler-block.section > .spoiler-content-wrapper::after {
+    background: var(--page-background);
+    color: var(--color-intermediate);
+    font-size: 200%;
+    border-radius: 0; /* prevents any content leaking through edge pixels on transition */
+}
+
+h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) ~ .spoiler-content-wrapper::after,
+.spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper::after {
+    content: '-';
+    letter-spacing: 1px; /* to align with '+' */
+}
+
+h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) ~ .spoiler-content-wrapper::after,
+.spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper::after {
+    letter-spacing: 2px;
+    padding-top: 0.5px;
+}
+
+h2:target + .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper,
+.spoiler-block .spoiler-content-wrapper {
+    height: 0;
+    transition: height 250ms; /* to slow the height transition on collapse, else it appears like there's no transition on child elements */
+}
+
+h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper,
+.spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper {
+    height: 100%;
+}
+
+.spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper {
+    padding: calc(var(--toggle-height) + var(--spacing-general)) 5px 0; /* slight padding on sides to look more gracefully aligned beneath toggle strip */
+}
+
+h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper,
+.spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper {
+    padding: calc(var(--toggle-height) + var(--spacing-general) - 8px) 5px 0; /* the '8px' top subtraction is to align the heading to the first child element as per non-spoilered headings */
+}
+
+h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper,
+.spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+h2:target + .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper > .spoiler-content,
+.spoiler-block .spoiler-content-wrapper > .spoiler-content {
+    opacity: 0;
+    margin-bottom: -100%; /* without it there's no transition for elements below it when collapsing */
+    position: relative;
+    top: -100px;
+    transition: opacity 150ms, top 250ms, margin-bottom 500ms;
+}
+
+h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper > .spoiler-content,
+.spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper > .spoiler-content {
+    margin-bottom: 0;
+    opacity: 1;
+    top: 0;
+    transition: opacity 150ms, top 250ms, margin-bottom 0ms;
+}
+
+h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper > .spoiler-content > *:first-child,
+.spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper > .spoiler-content > *:first-child {
+    margin-top: 0;
+}
+
+h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper > .spoiler-content > pre[alt]:first-child,
+.spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper > .spoiler-content > pre[alt]:first-child {
+    margin-top: calc(var(--spacing-general) * 1.5);
+}
+
+
+/* ------------------------ Paginated section ----------------------- */
+
+.paginated-wrapper {
+    --mask-fade: 3px;
+    --mask-calc: calc(100% - var(--mask-fade));
+    --mask: linear-gradient(90deg, hsla(0,0%,0%,1) 0, hsla(0,0%,0%,0) 0, hsla(0,0%,0%,1) var(--mask-fade), hsla(0,0%,0%,1) var(--mask-calc), hsla(0,0%,0%,0) 100%);
+    width: 100%;
+    overflow: hidden;
+    -webkit-mask-image: var(--mask);
+    mask-image: var(--mask);
+}
+
+/* Note: '--pages' variables defined in HTML inline since using attr() values for properties other than 'content' isn't supported currently */
+.paginated-list-wrapper {
+    --content-width-formatted-page: var(--content-width);
+    width: calc(var(--content-width-formatted-page) * var(--pages) + (var(--column-gap) * (var(--pages) - 1)));
+    counter-reset: list; /* spread ordered list counters across pages rather than resetting per page */
+    display: flex;
+    flex-direction: row;
+    min-height: var(--toggle-height);
+    overflow: hidden;
+    margin: var(--spacing-general) 0;
+    position: relative;
+    transition: transform 500ms;
+}
+
+.paginated-page {
+    width: var(--content-width-formatted-page);
+    max-height: 250px;
+    flex: 0 0 auto;
+    padding: 0 var(--mask-fade);
+    margin-right: var(--column-gap);
+    transition: max-height 500ms ease-in-out;
+}
+
+.paginated-list-wrapper .paginated-page > ol,
+.paginated-list-wrapper .paginated-page > ul {
+    width: calc(100% - 12px); /* to account for margin-left offset (afaict), otherwise the right-most side clips */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.paginated-list-wrapper .paginated-page > ol {
+    counter-reset: unset;
+}
+
+/* Intended to prevent standalone child elements from being split by ol columns */
+.paginated-non-breaking > * {
+    display: inline-block;
+}
+
+.paginated-radiobox {
+    display: none;
+}
+
+.paginated-labels-numbers-wrapper {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: calc(var(--spacing-general) * 1.5);
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.paginated-labels-numbers-wrapper::before {
+    color: var(--color-secondary);
+    content: 'Steps';
+    margin-right: calc(var(--spacing-general) / 1.5);
+}
+
+/* Second copy of page numbers for narrower only viewports */
+.paginated-labels-numbers-wrapper.bottom-duplicate {
+    display: none;
+}
+
+.paginated-radiobox-label {
+    background: var(--border-color);
+    color: var(--color-secondary);
+    border-radius: var(--border-radius-circle);
+    border: 1px solid var(--border-color);
+    padding: 1px 7px; /* equivalent to .label padding */
+    margin: 0 calc(var(--spacing-general) / 1.5) 0 0;
+    cursor: pointer;
+}
+
+.paginated-radiobox:nth-of-type(1):checked ~ .paginated-list-wrapper {
+    transform: none;
+}
+
+.paginated-radiobox:nth-of-type(2):checked ~ .paginated-list-wrapper,
+.paginated-radiobox:nth-of-type(3):checked ~ .paginated-list-wrapper,
+.paginated-radiobox:nth-of-type(4):checked ~ .paginated-list-wrapper,
+.paginated-radiobox:nth-of-type(5):checked ~ .paginated-list-wrapper,
+.paginated-radiobox:nth-of-type(6):checked ~ .paginated-list-wrapper {
+    --page: 2;
+    transform: translateX(calc(-1 * var(--content-width-formatted-page) * (var(--page) - 1) - (var(--column-gap) * (var(--page) - 1))));
+}
+
+.paginated-radiobox:nth-of-type(3):checked ~ .paginated-list-wrapper {
+    --page: 3;
+}
+
+.paginated-radiobox:nth-of-type(4):checked ~ .paginated-list-wrapper {
+    --page: 4;
+}
+
+.paginated-radiobox:nth-of-type(5):checked ~ .paginated-list-wrapper {
+    --page: 5;
+}
+
+.paginated-radiobox:nth-of-type(6):checked ~ .paginated-list-wrapper {
+    --page: 6;
+}
+
+/* For page height transition */
+.paginated-radiobox:nth-of-type(1):checked ~ .paginated-list-wrapper .paginated-page:nth-of-type(1),
+.paginated-radiobox:nth-of-type(2):checked ~ .paginated-list-wrapper .paginated-page:nth-of-type(2),
+.paginated-radiobox:nth-of-type(3):checked ~ .paginated-list-wrapper .paginated-page:nth-of-type(3),
+.paginated-radiobox:nth-of-type(4):checked ~ .paginated-list-wrapper .paginated-page:nth-of-type(4),
+.paginated-radiobox:nth-of-type(5):checked ~ .paginated-list-wrapper .paginated-page:nth-of-type(5),
+.paginated-radiobox:nth-of-type(6):checked ~ .paginated-list-wrapper .paginated-page:nth-of-type(6) {
+    max-height: 1400px;
+}
+
+.paginated-radiobox:nth-of-type(1):checked ~ .paginated-labels-numbers-wrapper .paginated-radiobox-label:nth-of-type(1),
+.paginated-radiobox:nth-of-type(2):checked ~ .paginated-labels-numbers-wrapper .paginated-radiobox-label:nth-of-type(2),
+.paginated-radiobox:nth-of-type(3):checked ~ .paginated-labels-numbers-wrapper .paginated-radiobox-label:nth-of-type(3),
+.paginated-radiobox:nth-of-type(4):checked ~ .paginated-labels-numbers-wrapper .paginated-radiobox-label:nth-of-type(4),
+.paginated-radiobox:nth-of-type(5):checked ~ .paginated-labels-numbers-wrapper .paginated-radiobox-label:nth-of-type(5),
+.paginated-radiobox:nth-of-type(6):checked ~ .paginated-labels-numbers-wrapper .paginated-radiobox-label:nth-of-type(6) {
+    background: var(--color-unique);
+    color: var(--page-background);
+    border-color: var(--color-unique);
+}
+
+/* ----------------------------- Tables ----------------------------- */
+
+.table {
+    display: flex;
+    flex: 1 1 auto;
+    flex-flow: column;
+    margin: var(--spacing-general) 0;
+}
+
+.table .centered {
+    justify-content: center;
+}
+
+.table .right {
+    justify-content: flex-end;
+}
+
+.table .tr {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+}
+
+.table .th,
+.table .td {
+    font-size: var(--font-size-small);
+    display: flex;
+    flex: 1 1 0%;
+    flex-flow: row;
+    padding: calc(var(--spacing-general) / 2) calc(var(--spacing-general) / 1.5);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table .td + .td {
+    border-left: 1px solid var(--border-color);
+}
+
+/* Last column can grow 3x as wide than first */
+.table.bias-right .th:last-child,
+.table.bias-right .td:last-child {
+    flex-grow: 3;
+}
+
+.table .td code,
+.table .td pre,
+.table .td kbd {
+    height: max-content; /* prevents from expanding in height to match adjacent cell(s) */
+}
+
+
+/* ------------------------- Home-specific -------------------------- */
+
+/* Note: some home-specific elements defined elsewhere above where appropriate */
+
+.home .section-entries {
+    margin-bottom: calc(var(--spacing-general) * 7);
+}
+
+.home .section-entry {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    page-break-inside: avoid;
+    position: relative;
+}
+
+.home .section-entry:not(:last-of-type) {
+    margin-bottom: calc(var(--spacing-general) * 5);
+}
+
+.home .section-entries.split .section-entry:not(:last-of-type) {
+    margin-bottom: calc(var(--spacing-general) * 2);
+}
+
+/* Horizontal divider */
+.home .section-entries:not(.split) .section-entry::after {
+    width: var(--extended-width);
+    content: '';
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    border-bottom: 8px solid var(--border-color-thin);
+    position: relative;
+    top: calc(var(--spacing-general) * 1.5);
+    transform: skewY(-3deg);
+    -webkit-mask-image: url("/svg/ui.svg#hr-wavy");
+    mask-image: url("/svg/ui.svg#hr-wavy");
+}
+
+.home .section-entries:not(.split) .section-entry .details {
+    max-width: calc(var(--sidenote-width) * 1.3);
+    margin-right: calc(var(--spacing-general) * 2);
+}
+
+.home .section-entries.split .section-entry .details {
+    width: 100%;
+}
+
+.home h3,
+.home .section-entry .description {
+    position: relative;
+}
+
+.home .section-entry .image {
+    max-width: calc(100% - var(--sidenote-width) * 1.3 - var(--spacing-general) * 2);
+    flex-grow: 1;
+    margin-bottom: var(--spacing-general); /* mostly for mobile widths as margin for horizontal divider */
+    position: relative;
+}
+
+.home .section-entry .image.offset-upper {
+    top: -20px;
+}
+
+.home .section-entry .thumbnail {
+    max-height: 300px;
+    margin-bottom: 0;
+}
+
+/* Outbound links indicator */
+.home h3 a[href^="http"]::after {
+    --size: 22px;
+    width: var(--size);
+    height: var(--size);
+    color: var(--color-secondary);
+    font-size: var(--font-size-micro);
+    content: '↗';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 2px 0 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-circle);
+    position: absolute;
+    top: 0;
+    right: 0;
+    pointer-events: none;
+}
+
+.home h3 a[href^="http"]:hover::after {
+    background: var(--color-unique);
+    color: var(--page-background);
+    border-color: var(--color-unique);
+}
+
+.home .section-entry .description {
+    margin-bottom: calc(var(--spacing-general) * 1.5);
+}
+
+.home .tags {
+    --margin: calc(var(--spacing-general) / 1.5);
+    margin-bottom: var(--margin);
+}
+
+.home .tags .label {
+    margin-right: var(--margin);
+}
+
+.home .tags.secondary .label {
+    border-color: var(--border-color);
+}
+
+
+/* ----------------------------- Footer ----------------------------- */
+
+.footer {
+    width: calc(100% + var(--body-margin) * 2);
+    height: 175px;
+    background: var(--border-color);
+    margin: 100px 0 0;
+    -webkit-mask-image: url("/svg/ui.svg#footer-wavy");
+    mask-image: url("/svg/ui.svg#footer-wavy");
+    position: relative;
+    left: calc(-1 * var(--body-margin));
+}
+
+.footer::before {
+    width: 100%;
+    text-align: center;
+    content: '';
+    display: block;
+    position: absolute;
+    padding: 100px 0 0;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+
+/* ---------------------- Support/media queries --------------------- */
+
+/* Only disable default weight/style if browser supports variable fonts */
+@supports (font-variation-settings: 'wght' 100) {
+
+    @font-face {
+        font-family: 'Inter';
+        src: url('/fonts/Inter.woff2') format('woff2');
+        font-display: swap;
+    }
+
+    :root {
+        --font-family-global: Inter, sans-serif;
+    }
+
+    body,
+    .header .breadcrumbs a + a::before {
+        --wght: 520;
+        --slnt: 0;
+        font-variation-settings: 'wght' var(--wght),'slnt' var(--slnt);
+        font-weight: inherit;
+    }
+
+    /* Override default weight/style using variable font values for cross-browser compatibility */
+    h1, h2, h3, b, strong,
+    ol li::before,
+    .header .breadcrumbs a,
+    .table .th,
+    .tags.primary .label {
+        --wght: 700;
+        font-variation-settings: 'wght' var(--wght),'slnt' var(--slnt);
+        font-weight: inherit;
+    }
+
+    ul li.fragment-link::before {
+        --wght: 800;
+        font-variation-settings: 'wght' var(--wght),'slnt' var(--slnt);
+        font-weight: inherit;
+    }
+
+    cite, i, em {
+        --slnt: -10;
+        font-variation-settings: 'wght' var(--wght),'slnt' var(--slnt);
+        font-style: inherit;
+    }
+
+    /* Intentionally left '--wght' variable defined outside of @supports (along with fallback font-weight) to provide consistency for non-variable fallback */
+    .heading-primary,
+    .subheading-primary {
+        font-variation-settings: 'wght' var(--wght),'slnt' var(--slnt);
+        font-weight: inherit;
+    }
+
+    .subheading-primary {
+        font-variation-settings: 'wght' var(--wght),'slnt' var(--slnt);
+        font-weight: inherit;
+    }
+
+}
+
+@media (prefers-color-scheme: dark) {
+
+    .page {
+        --color-unique: var(--dark-color-unique);
+        --page-background: var(--dark-page-background);
+        --color: var(--dark-color);
+        --color-secondary: var(--dark-color-secondary);
+        --color-intermediate: var(--dark-color-intermediate);
+        --color-links: var(--dark-color-links);
+        --color-code: var(--dark-color-code);
+        --color-selection-bg: var(--dark-color-selection-bg);
+        --color-selection-fg: var(--dark-color-selection-fg);
+        --border-color: var(--dark-border-color);
+        --border-color-thin: var(--dark-border-color-thin);
+
+        background-color: var(--dark-page-background);
+        color: var(--dark-color);
+    }
+
+    .theme-toggle-checkbox:checked ~ .page {
+        --color-unique: var(--light-color-unique);
+        --page-background: var(--light-page-background);
+        --color: var(--light-color);
+        --color-secondary: var(--light-color-secondary);
+        --color-intermediate: var(--light-color-intermediate);
+        --color-links: var(--light-color-links);
+        --color-code: var(--light-color-code);
+        --color-selection-bg: var(--light-color-selection-bg);
+        --color-selection-fg: var(--light-color-selection-fg);
+        --border-color: var(--light-border-color);
+        --border-color-thin: var(--light-border-color-thin);
+
+        background-color: var(--light-page-background);
+        color: var(--light-color);
+    }
+
+    .theme-toggle-checkbox:checked ~ .page::before {
+        background: var(--light-page-background);
+    }
+
+    /* Make bold text easier to distinguish on dark background */
+    .theme-toggle-checkbox:not(:checked) ~ .page b:not(.label):not(.highlight),
+    .theme-toggle-checkbox:not(:checked) ~ .page strong:not(.label):not(.highlight) {
+        filter: brightness(1.05);
+    }
+
+}
+
+@media only screen and (max-width: 1250px) {
+
+    .content {
+        margin-left: calc(var(--sidenote-width) + (var(--spacing-general) * 3));
+    }
+
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .content {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home .heading-primary-wrapper {
+        position: relative;
+    }
+
+    .home .heading-primary-wrapper,
+    .sidenote {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .sidenote {
+        position: static;
+    }
+
+    .sidenote,
+    .sidenote .caption {
+        text-align: center;
+    }
+
+    .sidenote .tags,
+    .sidenote .date-edited {
+        display: inline-block;
+    }
+
+    .sidenote .tags {
+        margin-right: var(--spacing-general);
+    }
+
+}
+
+@media only screen and (max-width: 775px) {
+
+    .paginated-list-wrapper {
+        --content-width-formatted-page: var(--content-width-formatted);
+    }
+
+}
+
+@media only screen and (max-width: 700px) {
+
+    :root {
+        --font-size-global: 14px;
+    }
+
+    .content {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .split,
+    .split {
+        columns: 1;
+    }
+
+    .paginated-labels-numbers-wrapper.bottom-duplicate {
+        display: flex;
+    }
+
+    .home .header {
+        margin-bottom: inherit;
+    }
+
+}
+
+@media only screen and (max-width: 665px) {
+
+    .home .section-entries:not(.split) .section-entry .details {
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    .home .section-entries:not(.split) .section-entry .image {
+        max-width: inherit;
+        margin-top: var(--spacing-general);
+    }
+
+    .home .section-entries:not(.split) .section-entry .thumbnail {
+        max-height: 300px;
+        min-width: 310px;
+    }
+
+    .home .section-entries:not(.split) .section-entry .image.offset-upper {
+        top: 0;
+    }
+
+    .home .tags {
+        display: inline-block;
+    }
+
+}
+
+@media only screen and (max-width: 475px) {
+
+    .header .user-setting-button:only-child {
+        margin-left: 0;
+    }
+
+    /* Only wrap to new line if more than one user setting button */
+    .guide .user-setting:nth-child(2) ~ .page .header {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: calc(var(--margin) * 4); /* to account for the lowered user-settings row */
+    }
+
+    .guide .user-setting:nth-child(2) ~ .page .header .breadcrumbs,
+    .guide .user-setting:nth-child(2) ~ .page .header .user-settings {
+        flex-basis: 100%;
+    }
+
+    .guide .user-setting:nth-child(2) ~ .page .header .user-settings {
+        justify-content: space-between;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    ul.downloads li {
+        width: 100%;
+    }
+
+    ul.downloads li a {
+        max-width: 100%;
+    }
+
+}
+
+
+/* -------------------- Browser-specific styling -------------------- */
+
+/* Firefox doesn't suffer from the same SVG alpha mask alignment bug that Chromium does so it can support sane 100% widths */
+@supports (-moz-appearance:none) {
+
+    .guide .heading-primary-image.full-viewport {
+        width: var(--viewport-width);
+        max-width: var(--viewport-width);
+    }
+
+    .full-width {
+        width: 100%;
+        max-width: 100%;
+    }
+
+}
+
+/* Firefox for non-latest OS versions (since variable font support is tied to OS support in FF) */
+@supports (-moz-appearance:none) and (not (font-variation-settings: 'wght' 100)) {
+
+    :root {
+        --font-family-global: 'Segoe UI', sans-serif;
+    }
+
+}
+
+/* Firefox (to account for typeface weight rendering differences) */
+/* Subtracting '50' from original weight values */
+@supports (-moz-appearance:none) and (font-variation-settings: 'wght' 100) {
+
+    .heading-primary {
+        --wght: 850;
+    }
+
+    .subheading-primary {
+        --wght: 450;
+    }
+
+    body {
+        --wght: 480;
+    }
+
+    h1, h2, h3, b, strong,
+    ol li::before,
+    .table .th {
+        --wght: 650;
+    }
+
+    ul li.fragment-link::before {
+        --wght: 750;
+    }
+
+}

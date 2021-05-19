@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en-US" class="guide" style="--light-color-unique: #7b87de; --dark-color-unique: #6b76ca;" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Metal Gear Solid V Modding: Adding Player Motions | Guides | choc</title>
+    <meta name="description" property="og:description" content="Discover how to customize player animations, allowing on-demand playback of poses and actions from other characters and contexts."/>
+    <script type="text/javascript" src="/js/session.js" defer></script>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <meta name="theme-color" content="#7b87de"/>
+    <!-- Open Graph/Twitter/Discord specific metadata -->
+    <meta property="og:site_name" content="choc"/>
+    <meta property="og:title" content="Metal Gear Solid V Modding Guide: Adding Player Motions"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="https://chocmake.github.io/guides/mgsv-adding-player-motions/meta/embed.png"/>
+    <meta name="twitter:image:width" content="1020"/>
+    <meta name="twitter:image:height" content="574"/>
+</head>
+<body>
+
+    <input id="version-toggle" class="version-toggle-checkbox user-setting" type="checkbox"/>
+    <input id="theme-toggle" class="theme-toggle-checkbox user-setting" type="checkbox"/>
+
+    <div class="page">
+
+        <div class="header">
+            <div class="breadcrumbs">
+                <a href="/">Home</a>
+                <a href="/#guides">Guides</a>
+            </div>
+            <div class="user-settings">
+                <label class="version-toggle-button user-setting-button" for="version-toggle">Version</label>
+                <label class="theme-toggle-button user-setting-button" for="theme-toggle">Theme</label>
+            </div>
+        </div>
+
+        <div class="heading-primary-wrapper">
+            <object class="heading-primary-image full-viewport" data="svg/header.svg" type="image/svg+xml" title="Sprinting motion"></object>
+            <div class="heading-primary-text-wrapper">
+                <div class="heading-primary-text bottom">
+                    <h1 class="heading-primary">Adding Player<br/>Motions</h1><br/>
+                    <span class="subheading-primary">Step-by-step Guide Using<br/>Custom Motion Archives</span>
+                    <div class="heading-primary-highlight-wrapper">
+                        <span class="heading-primary"><span class="highlight">Adding Player<br/>Motions</span></span><br/>
+                        <span class="subheading-primary"><span class="highlight">Step-by-step Guide Using<br/>Custom Motion Archives</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="sidenote">
+                <div class="tags primary">
+                    <strong class="label highlight version-toggle-default">Infinite Heaven version</strong>
+                    <strong class="label highlight version-toggle-alternative">unknown321 version</strong>
+                </div>
+                <small class="date-edited">Last edited: <time datetime="2021-03-28"></time></small>
+                <small class="caption">Animation seen above: <code>35ac42b3641df.gani</code> from <code>player2_resident.mtar</code>. One such motion that when triggered allows moving through the air and walls.</small>
+            </div>
+
+            <p>This guide covers adding a custom collection of existing human animations (motions) to <cite>Metal Gear Solid V: The Phantom Pain</cite>, so they can be triggered on-demand via the playable character. The guide can be followed without prior modding experience and also is useful for general reference.</p>
+
+            <p>Adding animations like this is mostly for fun currently: making the player pose/animate in new ways from other characters, move through the air, clip through walls, however it can also be of practical use for identifying animation files.</p>
+
+            <hr class="subsection"/>
+
+            <p class="version-toggle-default">For this version of the guide we'll be using the improved motions features of Infinite Heaven (aka <abbr title="Infinite Heaven">IH</abbr >), based on unknown321's original research but with some added flexibility.</p>
+
+            <p class="version-toggle-alternative">This version of the guide is based on unknown321's <a href="https://unknown321.github.io/mgsv_research/motions.html">original</a> mod and research and is included as an alternative to the Infinite Heaven (aka <abbr title="Infinite Heaven">IH</abbr>) version for those running an older version of the game/IH, or who don't use it at all.</p>
+
+            <p>Once set-up you'll be able to trigger and switch between animations while playing in free roam/missions<span class="version-toggle-default">, either by Infinite Heaven's menu or via button combos.</span><span class="version-toggle-alternative"> using button combos.</span></p>
+
+
+            <div class="tip version-toggle-default">By default IH already includes the player gestures from Metal Gear Online, such as saluting/pointing/karate/etc. You can try those out right now by opening IH's menu and selecting <i>Motions→Play motion</i>.</div>
+
+            <div class="note highlight version-toggle-default">
+                <p>As this guide is based on improvements added to IH in version r238 it's only compatible with game versions 1.0.15.2 and higher.</p>
+
+                <p>If you're on an older version or don't use IH you can alternatively switch to my guide for unknown321's version using the <i>Version</i> toggle at the top of the page.</p>
+            </div>
+
+            <div class="tip version-toggle-alternative">By default the mod we're basing this guide on already includes the player gestures from Metal Gear Online, such as saluting/pointing/karate/etc.</div>
+
+            <div class="note version-toggle-alternative">The main drawbacks of this mod compared to IH's version are being limited to a single modded motion archive rather than multiple, having a more involved initial installation and lacking a few QoL features. That said, they're both similar functionally.</div>
+
+            <hr/>
+
+            <h2 class="table-of-contents">Contents</h2>
+
+            <ul class="compact split">
+                <li class="fragment-link"><a href="#things">Things needed</a></li>
+                <li class="fragment-link version-toggle-alternative"><a href="#updating-mod">Updating the mod</a></li>
+                <li class="fragment-link"><a href="#finding">Finding the animation files</a></li>
+                <li class="fragment-link"><a href="#creation">Creating a custom motion archive</a></li>
+                <li class="fragment-link"><a href="#configuration">Pointing to the new animations</a></li>
+                <li class="fragment-link"><a href="#usage">Usage</a></li>
+                <hr/>
+                <li class="fragment-link"><a href="#troubleshooting">Troubleshooting</a></li>
+                <li class="fragment-link"><a href="#resources">Resources</a></li>
+                <li class="fragment-link"><a href="#credits">Credits</a></li>
+            </ul>
+
+            <hr/>
+
+            <h2 id="things">Things needed</h2>
+
+            <p class="version-toggle-default">Before beginning first grab the template file, which was created to streamline a few steps.</p>
+
+            <p class="version-toggle-alternative">Before beginning first grab unknown321's mod files, which will be the basis for our mod.</p>
+
+            <ul class="downloads">
+                <li class="version-toggle-default"><a href="files/motions-template.zip" download="Motions Template.zip" data-filesize="41KB">Motions Template.zip</a></li>
+                <li class="version-toggle-alternative"><a href="files/animation_changer+script_loader.zip" download="animation_changer+script_loader.zip" data-filesize="23.8MB">animation_changer+script_loader.zip</a></li>
+            </ul>
+
+            <p class="version-toggle-default">Then make sure you have the latest version of the game and the following:</p>
+
+            <p class="version-toggle-alternative">Then make sure you have the following:</p>
+
+            <ul class="compact split">
+                <li><a href="https://www.nexusmods.com/metalgearsolidvtpp/mods/106/?tab=files">Snakebite Mod Manager</a></li>
+                <li class="version-toggle-default"><a href="https://www.nexusmods.com/metalgearsolidvtpp/mods/45/?tab=files">Infinite Heaven</a></li>
+                <li><a href="https://github.com/BobDoleOwndU/GzsTool/releases/latest">GzsTool</a></li>
+                <li><a href="https://github.com/BobDoleOwndU/MtarTool/releases/latest">MtarTool</a></li>
+                <li><a href="https://github.com/Atvaark/FoxTool/releases/latest">FoxTool</a></li>
+            </ul>
+
+            <p>It's recommended to unzip the tools to a more permanent directory that has write permissions (eg: <code>C:\Modding\Tools\</code>).</p>
+
+            <div class="note">It's generally more foolproof to place the tools in directories that don't contain special characters.</div>
+
+            <div class="version-toggle-alternative">
+                <hr/>
+
+                <h2 id="updating-mod">Updating the mod</h2>
+
+                <p>To ensure compatibility with whatever version of the game you're running (and optionally Infinite Heaven) we'll first update the Snakebite mod package from unknown321's mod files.</p>
+
+                <div class="note">It looks like quite a few steps to go through but it's pretty simple, we're only changing a single line in two text files before installing the updated package with Snakebite.</div>
+
+                <hr class="subsection"/>
+
+                <div class="paginated-wrapper version-toggle-alternative" style="--pages: 3">
+
+                    <input id="updating-mod-page-1" name="updating-mod-page" class="paginated-radiobox" type="radio" checked/>
+                    <input id="updating-mod-page-2" name="updating-mod-page" class="paginated-radiobox" type="radio"/>
+                    <input id="updating-mod-page-3" name="updating-mod-page" class="paginated-radiobox" type="radio"/>
+
+                    <div class="paginated-labels-numbers-wrapper">
+                        <label class="paginated-radiobox-label" for="updating-mod-page-1"/>1-3</label>
+                        <label class="paginated-radiobox-label" for="updating-mod-page-2"/>4-5</label>
+                        <label class="paginated-radiobox-label" for="updating-mod-page-3"/>6-7</label>
+                    </div>
+
+                    <div class="paginated-list-wrapper">
+                        <div class="paginated-page">
+                            <ol class="standalone">
+                                <li>Locate your install directory of the game. For me that's <code>G:\Steam\steamapps\common\MGS_TPP</code>. Within it open the <code>master</code> directory, which contains all the game's data files.</li>
+                                <li>Open the <code>0</code> sub-directory and you'll see two DAT files. The one we want the <code>00.dat</code>. Unpack it by dragging it onto GzsTool.exe. You'll see a new unpacked directory named <code>0_dat</code>.</li>
+                                <li>Open the unpacked directory and within <code>Assets\tpp\script\lib\</code> copy <code>Tpp.lua</code> and <code>TppMain.lua</code> somewhere else (eg: the desktop) so you can edit them. These are the files we'll be making minor edits to.</li>
+                            </ol>
+                        </div>
+                        <div class="paginated-page">
+                            <ol class="standalone split">
+                                <li>
+                                    <p>Open the copy of <code>Tpp.lua</code> in a text editor. Then follow the appropriate expandable steps below, depending on what you have installed.</p>
+
+                                    <div class="spoiler-block regular">
+                                        <input class="spoiler-checkbox" type="checkbox"/>
+                                        <div class="spoiler-content-wrapper" alt="Infinite Heaven installed">
+                                            <div class="spoiler-content">
+                                                <p>Near the top of the file there's a list of lua script paths that starts with <code>this.requires</code>. Add the following line before the closing bracket of that list, then save the file:</p>
+
+                                                <pre>"/Assets/tpp/script/lib/script_loader.lua",</pre>
+
+                                                <pre alt="How it should look">
+<!--                                             -->this.requires={
+<!--                                             -->  ...
+<!--                                             -->  "/Assets/tpp/script/lib/TppMbFreeDemo.lua",
+<!--                                             -->  "/Assets/tpp/script/lib/script_loader.lua",
+<!--                                             -->}
+<!--                                         --></pre>
+
+                                                <small class="caption">The <code>...</code> is truncation for brevity.</small></small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="spoiler-block regular">
+                                        <input class="spoiler-checkbox" type="checkbox"/>
+                                        <div class="spoiler-content-wrapper" alt="Infinite Heaven not installed">
+                                            <div class="spoiler-content">
+                                                <p>Near the top of the file there's a list of lua script paths that starts with <code>e.requires</code>. Add the following line before the closing bracket of that list, then save the file:</p>
+
+                                                <pre>"/Assets/tpp/script/lib/script_loader.lua",</pre>
+
+                                                <pre alt="How it should look">e.requires={" ... "/Assets/tpp/script/lib/TppMbFreeDemo.lua","/Assets/tpp/script/lib/script_loader.lua"}function e.IsTypeFunc(e)return t(e)=="function"end</pre>
+
+                                                <small class="caption">Notice the <code>script_loader.lua</code> path at the end of the list. The <code>...</code> is truncation for brevity.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p>Open the copy of <code>TppMain.lua</code> in a text editor. Then follow the appropriate expandable steps below, depending on what you have installed.</p>
+
+                                    <div class="spoiler-block regular">
+                                        <input class="spoiler-checkbox" type="checkbox"/>
+                                        <div class="spoiler-content-wrapper" alt="Infinite Heaven installed">
+                                            <div class="spoiler-content">
+                                                <p>Search in the lua for <code>function this.SetUpdateFunction(missionTable)</code> and in the second <code>moduleUpdateFuncs</code> add the following line before the closing bracket, then save the file:</p>
+
+                                                <pre>script_loader.Update,</pre>
+
+                                                <pre alt="How it should look">
+<!--                                             -->function this.SetUpdateFunction(missionTable)
+<!--                                             -->  moduleUpdateFuncs={}
+<!--                                             -->  ...
+<!--                                             -->  moduleUpdateFuncs={
+<!--                                             -->    ...
+<!--                                             -->    InfMain.Update,--tex
+<!--                                             -->    script_loader.Update,
+<!--                                             -->  }
+<!--                                         --></pre>
+
+                                                <small class="caption">The <code>...</code> is truncation for brevity.</small></small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="spoiler-block regular">
+                                        <input class="spoiler-checkbox" type="checkbox"/>
+                                        <div class="spoiler-content-wrapper" alt="Infinite Heaven not installed">
+                                            <div class="spoiler-content">
+                                                <p>Search in the lua for <code>a={TppMission.Update,</code>. Add the following line before the closing bracket of that list, then save the file:</p>
+
+                                                <pre>script_loader.Update</pre>
+
+                                                <pre alt="How it should look">a={ ... ,TppMission.UpdateForMissionLoad,script_loader.Update}p=#a</pre>
+
+                                                <small class="caption">The <code>...</code> is just truncating the start of the list for brevity.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="paginated-page">
+                            <ol class="standalone">
+                                <li>
+                                    <p>Next we'll add the edited files back into the original Snakebite package.</p>
+                                    <ol>
+                                        <li>Unzip unknown321's mod files. The file we want is <code>script_loader.mgsv</code>.
+
+                                            <div class="note">You can ignore <code>script_loader_IH.mgsv</code> since the only difference are the two lua files we've already edited.</div></li>
+                                        <li>Open <code>script_loader.mgsv</code> in a decent zip manager (eg: 7-Zip).
+                                            <div class="tip">Snakebite packages are just zip files with a different file extension.</div>
+                                        </li>
+                                        <li>Within the zip manager nagivate to <code>Assets\tpp\script\lib</code> and replace both <code>Tpp.lua</code> and <code>TppMain.lua</code> with the versions we modified in the prior steps.
+
+                                            <div class="tip">In 7-Zip this can be done by simply dragging and dropping the updated files onto its window.</div>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <p>Lastly install the updated <code>script_loader.mgsv</code> using Snakebite Mod Manager by clicking <i>Mods→Install .MGSV File(s)</i> then navigating to the Snakebite package we just created and following the prompts to install.</p>
+
+                                    <p>If you're using Infinite Heaven Snakebite will warn of a conflict with the two lua files but it's fine to continue since we updated the versions of the files it uses.</p>
+
+                                    <div class="note">We won't be installing the <code>motions.mgsv</code> from unknown321's files yet since we'll be editing it later.</div>
+
+                                    <div class="tip">You can also delete the unpacked <code>0_dat</code> directory since we no longer need it.</div>
+                                </li>
+                            </ol>
+                        </div>
+
+                    </div><!-- End of .paginated-list-wrapper -->
+                    <div class="paginated-labels-numbers-wrapper bottom-duplicate">
+                        <label class="paginated-radiobox-label" for="updating-mod-page-1"/>1-3</label>
+                        <label class="paginated-radiobox-label" for="updating-mod-page-2"/>4-5</label>
+                        <label class="paginated-radiobox-label" for="updating-mod-page-3"/>6-7</label>
+                    </div>
+                </div><!-- End of .paginated-wrapper -->
+
+                <p class="task-complete">Nice. All prepped for the <a href="#finding">next section</a>!</p>
+
+                <hr class="subsection" />
+
+                <div class="spoiler-block regular">
+                    <input class="spoiler-checkbox" type="checkbox"/>
+                    <div class="spoiler-content-wrapper" alt="(Optional) Handling updates to Infinite Heaven">
+                        <div class="spoiler-content">
+                            <p>If you use Infinite Heaven and want to update it in the future it's pretty easy.</p>
+
+                            <ol>
+                                <li>Uninstall the <code>script_loader.mgsv</code> via Snakebite.</li>
+                                <li>Then uninstall IH and install the newer version.</li>
+                                <li>Repeat the steps in the section above for updating the motions mod (since the two lua files may have changed).</li>
+                            </ol>
+
+                            <p>However it's worth pointing out that if you also decide to update the game to the latest version (which is necessary for recent IH builds) then you're better off using IH's improved motions features introduced in r238 and following the IH version of this guide.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr/>
+
+            <h2 id="finding">Finding the animation files</h2>
+
+            <object data="svg/laying.svg#whole" class="full-width" type="image/svg+xml" title="Quiet laying motion"></object>
+
+            <small class="caption">I'll be waiting for you <strike>on the Beach</strike> inside <code>BuddyQuiet2_heli.mtar</code></small>
+
+            <p>Quiet's animations from the <abbr title="Aerial Control Center (aka Pequod's helicopter)">ACC</abbr> were chosen for the guide since there are a smaller number of them, making it simpler for an initial mod, however the same steps apply for other animations.</p>
+
+            <p>What we're after are the <abbr title="Game Animation">GANI</abbr> (Game Animation) files. These are contained within <abbr title="Motion Archive">MTAR</abbr> (Motion Archive) files, which <i>themselves</i> are contained inside <abbr title="Fox Package">FPK</abbr> files... found in the game's generic <abbr title="Data">DAT</abbr> files. Think of them a bit like zips within zips:</p>
+
+            <small class="caption standalone">
+                <span class="label">DAT</span> → <span class="label">FPK</span> → <span class="label">MTAR</span> → <span class="label">GANI</span>
+            </small>
+
+            <hr class="subsection"/>
+
+            <div class="paginated-wrapper" style="--pages: 2">
+
+                <input id="finding-page-1" name="finding-page" class="paginated-radiobox" type="radio" checked/>
+                <input id="finding-page-2" name="finding-page" class="paginated-radiobox" type="radio"/>
+
+                <div class="paginated-labels-numbers-wrapper">
+                    <label class="paginated-radiobox-label" for="finding-page-1"/>1-3</label>
+                    <label class="paginated-radiobox-label" for="finding-page-2"/>4-5</label>
+                </div>
+
+                <div class="paginated-list-wrapper">
+                    <div class="paginated-page">
+                        <ol class="standalone split">
+                            <li>
+                                <p class="version-toggle-default">Locate your install directory of the game. For me that's <code>G:\Steam\steamapps\common\MGS_TPP</code>. Within it open the <code>master</code> directory, which contains all the game's data files.</p>
+                                <p class="version-toggle-alternative">Open the game's install directory, then the <code>master</code> sub-directory.</p>
+                                </li>
+                            <li>The specific data file we want is <code>chunk1.dat</code>. Unpack it by dragging it onto GzsTool.exe. You'll see a new unpacked directory named <code>chunk1_dat</code>.
+
+                                <div class="note">Be patient as GzsTool can take a while to unpack everything.</div>
+
+                            </li>
+                            <li>Now we need the FPK within the unpacked DAT directory. Find it in the path below then copy the FPK somewhere else (eg: the desktop).
+
+                                <pre>Assets\tpp\pack\buddy\quiet\buddy_quiet2_heli.fpk</pre>
+
+                                <div class="tip">The reason for copying it elsewhere is to avoid too many nested directories in the next step, since Windows has a limit and files can silently fail to unpack otherwise.</div>
+
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="paginated-page">
+                        <ol class="standalone split">
+                            <li>After that unpack the copy of the FPK by dragging it onto GzsTool.exe. You'll see a new unpacked FPK directory named <code>buddy_quiet2_heli_fpk</code>.
+
+                            </li>
+                            <li>Within the unpacked FPK directory find the MTAR in the following path. Drag the MTAR file onto MtarTool.exe to unpack its contents.
+
+                                <pre>Assets\tpp\motion\mtar\buddyquiet2\BuddyQuiet2_heli.mtar</pre>
+
+                                <div class="tip">You can also delete the unpacked <code>chunk1_dat</code> directory since we no longer need it.</div>
+
+                            </li>
+                        </ol>
+                    </div>
+
+                </div><!-- End of .paginated-list-wrapper -->
+                <div class="paginated-labels-numbers-wrapper bottom-duplicate">
+                    <label class="paginated-radiobox-label" for="finding-page-1"/>1-3</label>
+                    <label class="paginated-radiobox-label" for="finding-page-2"/>4-5</label>
+                </div>
+            </div><!-- End of .paginated-wrapper -->
+
+            <p class="task-complete">Done! With all the above steps completed we now have the GANI files located for the <a href="#creation">next section</a>.</p>
+
+            <hr class="subsection"/>
+
+            <div class="spoiler-block regular">
+                <input class="spoiler-checkbox" type="checkbox"/>
+                <div class="spoiler-content-wrapper" alt="(Advanced tip) Finding other animations">
+                    <div class="spoiler-content">
+                        <p>GANI can be found in a variety of locations within the game's data files. If you're interested in sourcing other animations the easiest place to find some is inside <code>chunk0.dat</code> within <code>Assets\tpp\pack\player\motion</code>.</p>
+
+                        <p>There you'll find FPK files such as <code>player2_resident_motion.fpk</code>, which includes the <code>player2_resident.mtar</code> containing for hundreds of the player character's default animations: actions like running, CQC, carrying bodies and more.</p>
+
+                        <div class="tip">
+                            <p>For a complete list of of MTAR locations download <a href="https://github.com/JosephZoeller/FileMonolith/releases/latest">File Monolith</a>, which includes <code>TppMasterFileList.txt</code>, a giant list all the files in the game.</p>
+
+                            <p>Keep in mind this file isn't updated regularly so mightn't reflect new changes if hashed paths are discovered in the future (though as of writing it's up-to-date <abbr title="as far as I can tell">afaict</abbr>).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr/>
+
+            <h2 id="creation">Creating a custom motion archive</h2>
+
+            <div class="spoiler-block section">
+                <input class="spoiler-checkbox" type="checkbox"/>
+                <div class="spoiler-content-wrapper">
+                    <div class="spoiler-content">
+                        <p>With the GANI animation files on hand it's time to go about putting them into a custom MTAR, based on the template file downloaded earlier.</p>
+
+                        <p>A custom motion archive is necessary since the game normally expects animations to only be played in certain contexts and for certain characters but through the magic of modding we can force animations to always be available for the player.</p>
+
+                        <p>Let's begin!</p>
+
+                        <hr class="subsection">
+
+                        <div class="paginated-wrapper version-toggle-default" style="--pages: 5">
+
+                            <input id="creation-default-page-1" name="creation-default-page" class="paginated-radiobox" type="radio" checked/>
+                            <input id="creation-default-page-2" name="creation-default-page" class="paginated-radiobox" type="radio"/>
+                            <input id="creation-default-page-3" name="creation-default-page" class="paginated-radiobox" type="radio"/>
+                            <input id="creation-default-page-4" name="creation-default-page" class="paginated-radiobox" type="radio"/>
+                            <input id="creation-default-page-5" name="creation-default-page" class="paginated-radiobox" type="radio"/>
+
+                            <div class="paginated-labels-numbers-wrapper">
+                                <label class="paginated-radiobox-label" for="creation-default-page-1"/>1-2</label>
+                                <label class="paginated-radiobox-label" for="creation-default-page-2"/>3-4</label>
+                                <label class="paginated-radiobox-label" for="creation-default-page-3"/>5</label>
+                                <label class="paginated-radiobox-label" for="creation-default-page-4"/>6</label>
+                                <label class="paginated-radiobox-label" for="creation-default-page-5"/>7-8</label>
+                            </div>
+
+                            <div class="paginated-list-wrapper">
+                                <div class="paginated-page">
+                                    <ol class="standalone split">
+                                        <li>Unzip the template file somewhere that's relatively close to the root of the drive (eg: the desktop).</li>
+                                        <li>
+                                            <p>Within the template directory navigate to then unpack the following MTAR by dragging it onto MtarTool.exe:</p>
+
+                                            <pre>Assets\tpp\pack\mission2\ih\custom_motions_fpk\Assets\tpp\motion\mtar\player2\custom_motions.mtar</pre>
+                                        </li>
+
+                                        <div class="paginated-non-breaking">
+                                            <object data="svg/dancing.svg" type="image/svg+xml" title="Quiet boss fight rejuvenating dance motion"></object>
+                                            <small class="caption">That fresh mod feeling. Or maybe <code>20b11e7a7a63c.gani</code> from <code>BossQuiet2_layers.mtar</code></small>
+                                        </div>
+                                    </ol>
+                                </div>
+                                <div class="paginated-page">
+                                    <ol class="standalone">
+                                        <li>
+                                            <p>Open the unpacked MTAR directory and within it open <code>Assets\tpp</code>. There create a directory named <code>BuddyQuiet2_heli</code>.</p>
+
+                                            <div class="tip">
+                                                <p>This is a custom named directory. You could give it a different name and even place it within more custom sub-directories if you wanted (just has to always begin inside <code>Assets\tpp</code>).</p>
+                                                <p>So long the name is limited to upper/lowercase, numbers and underscores (no spaces).</p>
+                                                <p>I've found it useful though to name it after the MTAR the GANI came from so that's what this guide uses.</p>
+                                            </div>
+
+                                            <div class="note">You'll also notice a <code>motion</code> directory already there. It contains a single fulton GANI to keep the template small. See it in action beneath the Credits section.</div>
+                                        </li>
+                                        <li>
+                                            <p>Time to use that MTAR we unpacked in the <a href="#finding">previous section</a>! Open its unpacked directory and copy all the files from it <em>except</em> <code>BuddyQuiet2_heli.chnk</code> and <code>BuddyQuiet2_heli.trk</code> into our newly created directory from step 3 of this section.</p>
+
+                                            <div class="tip">For future reference animations can be just a <code>.gani</code> file, or have additional matching <code>.enchnk</code> (and occasionally <code>.exchnk</code>) files. Such matching files need to also be copied if present.</div>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div class="paginated-page">
+                                    <ol class="standalone">
+                                        <li>
+                                            <p>In the template directory navigate back up to where the unpacked <code>custom_motions_mtar</code> directory and XML file are located and open <code>custom_motions.mtar.xml</code> in a text editor.</p>
+
+                                            <ol>
+                                                <li>In the <code>Entries</code> section there's a single <code>Gani</code> entry included by default. Copy and paste it to a new line below it.</li>
+                                                <li>
+                                                    <p>In the copy change the path between the double quotes to one of our newly added GANI, according to the following formatting. Make such an entry for each new GANI we've added. Then save.</p>
+
+                                                    <div class="spoiler-block regular">
+                                                        <input class="spoiler-checkbox" type="checkbox"/>
+                                                        <div class="spoiler-content-wrapper" alt="Example entry formatting">
+                                                            <div class="spoiler-content">
+                                                                <pre>&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/1fcae14e60d2d" /&gt;</pre>
+
+                                                                <small class="caption">Only one path per animation is necessary since paths are extensionless (ie: no <code>.gani</code>/etc is used).</small>
+
+                                                                <div class="note">Native MGSV files use forward-slashes rather than backslashes for paths and always use a forward-slash before <code>Assets</code>.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="tip">If you're unsure or want to skip ahead check the complete list of example XML entries necessary to add in the expandable section below these steps.</div>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div class="paginated-page">
+                                    <ol class="standalone">
+                                        <li>
+                                            <p>Last step before repacking the MTAR. We just need to add those same paths from the XML to MtarTool's dictionary so it knows what to look for when repacking the MTAR in the next step.</p>
+
+                                            <p>Navigate to MtarTool's program directory and open <code>mtar_dictionary.txt</code> in a text editor.</p>
+
+                                            <ol>
+                                                <li>
+                                                    <p>At the start or end of the text file paste in just the paths by themselves from step 5b, like the example below. Then save.</p>
+
+                                                    <pre alt="Example excerpt">
+<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/1fcae14e60d2d
+<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/239e21cf935ce
+<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/163ffb1df1550
+<!--                                                 -->...
+<!--                                             --></pre>
+
+                                                    <small class="caption">The <code>...</code> is truncation for brevity.</small></small>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+
+                                    <hr class="subsection"/>
+
+                                    <div class="note">For future reference step 6 is only necessary if the GANI have <em>hashed</em> filenames, like the ones we're adding in this guide.</div>
+
+                                    <div class="tip">Hashed filenames are easy to spot since they look random, eg: <code>1c22467fb6de7</code> (hashed) vs <code>enetnon_ful_idl</code> (non-hashed). Non-hashed GANI are already in MtarTool's dictionary.</div>
+                                </div>
+                                <div class="paginated-page">
+                                    <ol class="standalone split">
+                                        <li>
+                                            <p><em>*Whew*</em> We're now ready to repack the MTAR!</p>
+
+                                            <p>Drag the <code>custom_motions.mtar.xml</code> onto MtarTool.exe and a new <code>custom_motions.mtar</code> will be created.</p>
+
+                                            <div class="tip">The unpacked <code>custom_motions_mtar</code> and <code>custom_motions.mtar.xml</code> can now be deleted since we no longer need them.</div>
+                                        </li>
+                                        <li>
+                                            <p>Final step is creating a Snakebite mod package and installing it. Open the Snakebite program directory and launch makebite.exe.</p>
+
+                                            <ol>
+                                                <li>On the right click the <code>...</code> button, navigate to the root of the template directory and choose <i>Select Folder</i>.</li>
+                                                <li>Included are some default metadata on the left as suggestions. Change as desired.</li>
+                                                <li>On the right click the <i>Build Mod</i> button, select a location for the Snakebite package, then click <i>Save</i>.</li>
+                                                <li>
+                                                    <p>Close Makebite and open SnakeBite.exe from the same program directory.</p>
+
+                                                    <p>Click <i>Mods→Install .MGSV File(s)</i> then navigate to the Snakebite package we just created and follow the prompts to install.</p>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </div>
+
+                            </div><!-- End of .paginated-list-wrapper -->
+                            <div class="paginated-labels-numbers-wrapper bottom-duplicate">
+                                <label class="paginated-radiobox-label" for="creation-default-page-1"/>1-2</label>
+                                <label class="paginated-radiobox-label" for="creation-default-page-2"/>3-4</label>
+                                <label class="paginated-radiobox-label" for="creation-default-page-3"/>5</label>
+                                <label class="paginated-radiobox-label" for="creation-default-page-4"/>6</label>
+                                <label class="paginated-radiobox-label" for="creation-default-page-5"/>7-8</label>
+                            </div>
+                        </div><!-- End of .paginated-wrapper -->
+
+                        <div class="paginated-wrapper version-toggle-alternative" style="--pages: 6">
+
+                            <input id="creation-alternative-page-1" name="creation-alternative-page" class="paginated-radiobox" type="radio" checked/>
+                            <input id="creation-alternative-page-2" name="creation-alternative-page" class="paginated-radiobox" type="radio"/>
+                            <input id="creation-alternative-page-3" name="creation-alternative-page" class="paginated-radiobox" type="radio"/>
+                            <input id="creation-alternative-page-4" name="creation-alternative-page" class="paginated-radiobox" type="radio"/>
+                            <input id="creation-alternative-page-5" name="creation-alternative-page" class="paginated-radiobox" type="radio"/>
+                            <input id="creation-alternative-page-6" name="creation-alternative-page" class="paginated-radiobox" type="radio"/>
+
+                            <div class="paginated-labels-numbers-wrapper">
+                                <label class="paginated-radiobox-label" for="creation-alternative-page-1"/>1-2</label>
+                                <label class="paginated-radiobox-label" for="creation-alternative-page-2"/>3-5</label>
+                                <label class="paginated-radiobox-label" for="creation-alternative-page-3"/>6</label>
+                                <label class="paginated-radiobox-label" for="creation-alternative-page-4"/>7</label>
+                                <label class="paginated-radiobox-label" for="creation-alternative-page-5"/>8-9</label>
+                                <label class="paginated-radiobox-label" for="creation-alternative-page-6"/>10-11</label>
+                            </div>
+
+                            <div class="paginated-list-wrapper">
+                                <div class="paginated-page">
+                                    <ol class="standalone split">
+                                        <li>Within unknown321's unzipped mod files you'll see the <code>motions.mgsv</code> Snakebite package. Unzip it somewhere (eg: the desktop).
+                                            <div class="tip">If you remember from the Updating the mod <a href="#updating-mod">section</a> such packages are just renamed zip files.</div>
+                                        </li>
+                                        <li>In the unzipped <code>motions</code> directory navigate to the following FPK file and unpack it by dragging it onto GzsTool.exe
+                                            <pre>Assets\tpp\pack\player\motion\player2_resident_motion.fpk</pre>
+                                        </li>
+                                        <div class="paginated-non-breaking">
+                                            <object data="svg/dancing.svg" type="image/svg+xml" title="Quiet boss fight rejuvenating dance motion"></object>
+                                            <small class="caption">That fresh mod feeling. Or maybe <code>20b11e7a7a63c.gani</code> from <code>BossQuiet2_layers.mtar</code></small>
+                                        </div>
+                                    </ol>
+                                </div>
+                                <div class="paginated-page">
+                                    <ol class="standalone">
+                                        <li>Within the newly unpacked <code>player2_resident_motion_fpk</code> directory navigate to the following MTAR and unpack it by dragging it onto MtarTool.exe.
+                                            <pre>Assets\tpp\motion\mtar\player2\player2_resident.mtar</pre>
+                                        </li>
+                                        <li>
+                                            <p>Open the unpacked MTAR directory and within it open <code>Assets\tpp</code>. There create a directory named <code>BuddyQuiet2_heli</code>.</p>
+
+                                            <div class="tip">
+                                                <p>This is a custom named directory. You could give it a different name and even place it within more custom sub-directories if you wanted (just has to always begin inside <code>Assets\tpp</code>).</p>
+                                                <p>So long the name is limited to upper/lowercase, numbers and underscores (no spaces).</p>
+                                                <p>I've found it useful though to name it after the MTAR the GANI came from so that's what this guide uses.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <p>Time to use that MTAR we unpacked in the <a href="#finding">previous section</a>! Open its unpacked directory and copy all the files from it <em>except</em> <code>BuddyQuiet2_heli.chnk</code> and <code>BuddyQuiet2_heli.trk</code> into our newly created directory from step 4 of this section.</p>
+
+                                            <div class="tip">For future reference animations can be just a <code>.gani</code> file, or have additional matching <code>.enchnk</code> (and occasionally <code>.exchnk</code>) files. Such matching files need to also be copied if present.</div>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div class="paginated-page">
+                                    <ol class="standalone">
+                                        <li>
+                                            <p>Navigate back up to where the unpacked <code>player2_resident_mtar</code> directory and XML file are located and open <code>player2_resident.mtar.xml</code> in a text editor.</p>
+
+                                            <ol>
+                                                <li>In the <code>Entries</code> section are all the existing <code>Gani</code> entries. Copy one and paste it to a new line.</li>
+                                                <li>
+                                                    <p>In the copy change the path between the double quotes to one of our newly added GANI, according to the following formatting. Make such an entry for each new GANI we've added. Then save.</p>
+
+                                                    <div class="spoiler-block regular">
+                                                        <input class="spoiler-checkbox" type="checkbox"/>
+                                                        <div class="spoiler-content-wrapper" alt="Example entry formatting">
+                                                            <div class="spoiler-content">
+                                                                <pre>&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/1fcae14e60d2d" /&gt;</pre>
+
+                                                                <small class="caption">Only one path per animation is necessary since paths are extensionless (ie: no <code>.gani</code>/etc is used).</small>
+
+                                                                <div class="note">Native MGSV files use forward-slashes rather than backslashes for paths and always use a forward-slash before <code>Assets</code>.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="tip">If you're unsure or want to skip ahead check the complete list of example XML entries necessary to add in the expandable section below these steps.</div>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div class="paginated-page">
+                                    <ol class="standalone">
+                                        <li>
+                                            <p>Last step before repacking the MTAR. We just need to add those same paths from the XML to MtarTool's dictionary so it knows what to look for when repacking the MTAR in the next step.</p>
+
+                                            <p>Navigate to MtarTool's program directory and open <code>mtar_dictionary.txt</code> in a text editor.</p>
+
+                                            <ol>
+                                                <li>
+                                                    <p>At the start or end of the text file paste in just the paths by themselves from step 6b, like the example below. Then save.</p>
+
+                                                    <pre alt="Example excerpt">
+<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/1fcae14e60d2d
+<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/239e21cf935ce
+<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/163ffb1df1550
+<!--                                                 -->...
+<!--                                             --></pre>
+
+                                                    <small class="caption">The <code>...</code> is truncation for brevity.</small></small>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+
+                                    <hr class="subsection"/>
+
+                                    <div class="note">For future reference step 7 is only necessary if the GANI have <em>hashed</em> filenames, like the ones we're adding in this guide.</div>
+
+                                    <div class="tip">Hashed filenames are easy to spot since they look random, eg: <code>1c22467fb6de7</code> (hashed) vs <code>enetnon_ful_idl</code> (non-hashed). Non-hashed GANI are already in MtarTool's dictionary.</div>
+                                </div>
+                                <div class="paginated-page">
+                                    <ol class="standalone split">
+                                        <li>
+                                            <p><em>*Whew*</em> We're now ready to repack the MTAR!</p>
+
+                                            <p>Drag the <code>player2_resident.mtar.xml</code> onto MtarTool.exe and a new <code>player2_resident.mtar</code> will be created.</p>
+
+                                            <div class="tip">The unpacked <code>player2_resident_mtar</code> and <code>player2_resident.mtar.xml</code> can now be deleted since we no longer need them.</div>
+                                        </li>
+                                        <li>
+                                            <p>Let's also repack the FPK we unpacked earlier by navigating up to where <code>player2_resident_motion_fpk</code> and the XML are located and dragging <code>player2_resident_motion.fpk.xml</code> onto GzsTool.exe.</p>
+
+                                            <p>A new <code>player2_resident_motion.fpk</code> will be created.</p>
+
+                                            <div class="tip">The unpacked <code>player2_resident_motion_fpk</code> and <code>player2_resident_motion.fpk.xml</code> can now be deleted since we no longer need them.</div>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div class="paginated-page">
+                                    <ol class="standalone split">
+                                        <li>
+                                            <p>So close! Just need to re-zip the whole thing to create our Snakebite mod package. First navigate to the root of the <code>motions</code> directory we unzipped from step 1.</p>
+
+                                            <ol>
+                                                <li>
+                                                    <p>Highlight both the <code>Assets</code> directory and <code>metadata.xml</code> file, right-click them and select <i>Send to→Compressed (zipped) folder</i>.</p>
+
+                                                    <div class="note">You can of course alternatively zip them with whatever your preferred zip program is.</div>
+                                                </li>
+                                                <li>Rename the newly generated zip to whatever you like and then edit the file extension to be <code>.mgsv</code> instead of <code>.zip</code> (eg: <code>custom_motions.mgsv</code>).</li>
+                                            </ol>
+                                        </li>
+                                        <li>
+                                            <p>Final step is installing the Snakebite mod package. Open the Snakebite program directory and launch SnakeBite.exe.</p>
+
+                                            <ol>
+                                                <li>
+                                                    <p>Click <i>Mods→Install .MGSV File(s)</i> then navigate to the Snakebite package we just created and follow the prompts to install.</p>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </div>
+
+                            </div><!-- End of .paginated-list-wrapper -->
+                            <div class="paginated-labels-numbers-wrapper bottom-duplicate">
+                                <label class="paginated-radiobox-label" for="creation-alternative-page-1"/>1-2</label>
+                                <label class="paginated-radiobox-label" for="creation-alternative-page-2"/>3-5</label>
+                                <label class="paginated-radiobox-label" for="creation-alternative-page-3"/>6</label>
+                                <label class="paginated-radiobox-label" for="creation-alternative-page-4"/>7</label>
+                                <label class="paginated-radiobox-label" for="creation-alternative-page-5"/>8-9</label>
+                                <label class="paginated-radiobox-label" for="creation-alternative-page-6"/>10-11</label>
+                            </div>
+                        </div><!-- End of .paginated-wrapper -->
+
+                        <p class="task-complete">With that completed we're ready to tell <span class="version-toggle-default">IH</span><span class="version-toggle-alternative">the mod</span> where to find our shiny new motions, in the <a href="#configuration">following section</a>.</p>
+
+                        <hr class="subsection">
+
+                        <div class="tip version-toggle-default">
+                            <p>The above steps can be followed to also add other GANI to the same custom MTAR.</p>
+                            <p>Alternatively you could create multiple Snakebite mods each with a custom MTAR, which is great for flexibility and only requires a few extra steps to rename the template MTAR (for that see the expandable section below).</p>
+                        </div>
+
+                        <div class="tip version-toggle-alternative">
+                            <p>The above steps can be followed to also add other GANI to the same MTAR.</p>
+                        </div>
+
+                        <div class="spoiler-block regular">
+                            <input class="spoiler-checkbox" type="checkbox"/>
+                            <div class="spoiler-content-wrapper" alt="Complete example entries for XML">
+                                <div class="spoiler-content">
+                                    <p>Below are the full list of GANI entries necessary for adding the new GANI paths to the customized MTAR XML, not including <span class="version-toggle-default">the template's original entry that was</span><span class="version-toggle-alternative">the existing entries that were</span> there originally.</p>
+
+                                    <p>For reference of step <span class="version-toggle-default">5b</span><span class="version-toggle-alternative">6b</span> above.</p>
+
+                                    <pre>
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/1fcae14e60d2d" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/239e21cf935ce" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/163ffb1df1550" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/1c22467fb6de7" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/69e8d06626a2" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/d8ce58e5cdfa" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/269bc42fa2bec" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/31ce91238aeab" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/9622b94619c6" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/265e4b6107a50" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/1d72ca247ffd6" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/23f479ca7f442" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/279727693777d" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/90e9df1ef895" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/3db975a160f95" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/7827e881f13d" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/70c0ba4e5c1e" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/58e0b4d37ba8" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/2e7997d7a7344" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/21b1bce3c601" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/121942f76b8db" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/254c06e19936c" /&gt;
+<!--                             --></pre>
+
+                                    <small class="caption">These example entries use the custom <code>BuddyQuietQuiet2_heli</code> directory name chosen in step <span class="version-toggle-default">3</span><span class="version-toggle-alternative">4</span> above. If you've chosen a different name you'll have to update the above paths.</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spoiler-block regular version-toggle-default">
+                            <input class="spoiler-checkbox" type="checkbox"/>
+                            <div class="spoiler-content-wrapper" alt="(Optional) Renaming the MTAR for use with multiple Snakebite packages">
+                                <div class="spoiler-content">
+                                    <p>If you plan on creating multiple Snakebite mods, each containing a custom MTAR (instead of adding all the GANI to a single custom MTAR), then you'll need to rename the template MTAR to avoid them all sharing the same name (which would cause installation conflicts).</p>
+
+
+                                    <ol>
+                                        <li>
+                                            <p>Open the template directory and navigate to the following directory, which contains the default MTAR.</p>
+
+                                            <pre>Assets\tpp\pack\mission2\ih\custom_motions_fpk\Assets\tpp\motion\mtar\player2</pre>
+                                        </li>
+                                        <li>
+                                            <p>Rename the MTAR to your choosing.</p>
+
+                                            <div class="note">Filenames in MGSV are limited to upper/lowercase, numbers and underscores (no spaces).</div>
+                                        </li>
+                                        <li>
+                                            <p>Go back up to the root of the template directory and navigate to the following Fox2 file, then drag it onto FoxTool.exe. An XML file will be created beside it.</p>
+
+                                            <pre>Assets\tpp\pack\mission2\ih\custom_motions_fpkd\Assets\tpp\level_asset\chara\player\game_object\player2_ih_additional_motion.fox2</pre>
+                                        </li>
+                                        <li>Open the XML file in a text editor. There's one value which contains the template's default MTAR path (<code>/Assets/tpp/motion/mtar/player2/custom_motions.mtar</code>). Update it to the new MTAR filename chosen in step 2.</li>
+                                        <li>Drag the XML file back onto FoxTool.exe to recreate the Fox2 file and delete the XML file.</li>
+                                    </ol>
+
+                                    <p class="task-complete">Now after packaging the mod multiple IH motions mods can be installed separately.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr/>
+
+            <h2 id="configuration">Pointing to the new animations</h2>
+
+            <div class="spoiler-block section">
+                <input class="spoiler-checkbox" type="checkbox"/>
+                <div class="spoiler-content-wrapper">
+                    <div class="spoiler-content">
+                        <p>Almost there. We just need to tell <span class="version-toggle-default">IH</span><span class="version-toggle-alternative">the mod</span> where to find the new animations. This is also where we get to pick which GANI we want available while in-game; this could be all of them or just a few.</p>
+
+                        <hr class="subsection"/>
+
+                        <div class="paginated-wrapper version-toggle-default" style="--pages: 3">
+
+                            <input id="configuration-default-page-1" name="configuration-default-page" class="paginated-radiobox" type="radio" checked/>
+                            <input id="configuration-default-page-2" name="configuration-default-page" class="paginated-radiobox" type="radio"/>
+                            <input id="configuration-default-page-3" name="configuration-default-page" class="paginated-radiobox" type="radio"/>
+
+                            <div class="paginated-labels-numbers-wrapper">
+                                <label class="paginated-radiobox-label" for="configuration-default-page-1"/>1-2</label>
+                                <label class="paginated-radiobox-label" for="configuration-default-page-2"/>3</label>
+                                <label class="paginated-radiobox-label" for="configuration-default-page-3"/>4</label>
+                            </div>
+
+                            <div class="paginated-list-wrapper">
+                                <div class="paginated-page">
+                                    <ol class="standalone">
+                                        <li>Open the game's install directory and within <code>mod\devmodules</code> copy both <code>IHDev_AddMotions.lua</code> and <code>InfQuickMenuDefs_User.lua</code> to <code>mod\modules</code>.</li>
+                                        <li>
+                                            <p>Open the copied <code>IHDev_AddMotions.lua</code> and within the <code>this.packages</code> section edit it to point to our new FPK, like so:</p>
+
+                                            <pre>
+<!--                                         -->this.packages={
+<!--                                         -->    "/Assets/tpp/pack/mission2/ih/new_anims.fpk",
+<!--                                         -->}
+<!--                                     --></pre>
+
+                                            <small class="caption">I've excluded the default disabled example for brevity (which is commented-out by two dashes at the start of the line, <code>-- </code>).</small>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div class="paginated-page">
+                                    <ol class="standalone">
+                                        <li>
+                                            <p>While still in <code>IHDev_AddMotions.lua</code> and within the <code>this.motions</code> section add the desired GANI paths from the MTAR we installed with Snakebite, like the following. Not all the GANI have to be added, just whichever you want to access while in-game.</p>
+
+                                            <div class="tip">See the <a href="#resources">Resources</a> section for GANI descriptions.</div>
+
+                                            <pre>
+<!--                                         -->this.motions={
+<!--                                         -->    QuietLaying={
+<!--                                         -->        "/Assets/tpp/BuddyQuiet2_heli/58e0b4d37ba8.gani"
+<!--                                         -->    },
+
+<!--                                         -->    QuietSittingCrossingLegs={
+<!--                                         -->        "/Assets/tpp/BuddyQuiet2_heli/9622b94619c6.gani"
+<!--                                         -->    },
+<!--                                         -->}
+<!--                                     --></pre>
+
+                                            <small class="caption">By default the lua includes a couple disabled example entries in <code>this.motions</code>, which I've excluded from the above for brevity. You can simply add your code below them.</small>
+
+                                            <div class="tip">You can name the labels whatever you want. I've named them above <code>QuietLaying</code>, etc, to be recognizable.</div>
+
+                                            <div class="spoiler-block regular">
+                                                <input class="spoiler-checkbox" type="checkbox"/>
+                                                <div class="spoiler-content-wrapper" alt="(Alternative) Grouping multiple GANI within a single label">
+                                                    <div class="spoiler-content">
+                                                        <p>Another way of entering multiple GANI is placing them within a single group label:</p>
+
+                                                        <pre>
+<!--                                                     -->this.motions={
+<!--                                                     -->    QuietGroup={
+<!--                                                     -->       "/Assets/tpp/BuddyQuiet2_heli/58e0b4d37ba8.gani", -- Laying
+<!--                                                     -->       "/Assets/tpp/BuddyQuiet2_heli/9622b94619c6.gani", -- Sitting
+<!--                                                     -->    },
+<!--                                                     -->}
+<!--                                                 --></pre>
+
+                                                        <div class="tip">Grouping related motions under a single label can be useful if there is an intro/middle/outro, or if you want to bulk add motions to test. It's all just personal preference.</div>
+
+                                                        <div class="tip">Descriptive comments can be added to the <em>right-side</em> of lines. Also notice that trailing commas can be used after all paths and closing brackets within a parent code block.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div class="paginated-page">
+                                    <ol class="standalone">
+                                        <li>
+                                            <p>(Optional) If you want to have the motions sorted in a custom order rather than the default alphabetical then add your custom labels from the <code>this.motions</code> to the <code>this.motionGroups</code> section, as per the commented-out default examples found in the lua script.</p>
+                                        </li>
+                                    </ol>
+                                </div>
+
+                            </div><!-- End of .paginated-list-wrapper -->
+                            <div class="paginated-labels-numbers-wrapper bottom-duplicate">
+                                <label class="paginated-radiobox-label" for="configuration-default-page-1"/>1-2</label>
+                                <label class="paginated-radiobox-label" for="configuration-default-page-2"/>3</label>
+                                <label class="paginated-radiobox-label" for="configuration-default-page-3"/>4</label>
+                            </div>
+                        </div><!-- End of .paginated-wrapper -->
+
+                        <div class="paginated-wrapper version-toggle-alternative" style="--pages: 3">
+
+                            <input id="configuration-alternative-page-1" name="configuration-alternative-page" class="paginated-radiobox" type="radio" checked/>
+                            <input id="configuration-alternative-page-2" name="configuration-alternative-page" class="paginated-radiobox" type="radio"/>
+                            <input id="configuration-alternative-page-3" name="configuration-alternative-page" class="paginated-radiobox" type="radio"/>
+
+                            <div class="paginated-labels-numbers-wrapper">
+                                <label class="paginated-radiobox-label" for="configuration-alternative-page-1"/>1-2</label>
+                                <label class="paginated-radiobox-label" for="configuration-alternative-page-2"/>3</label>
+                                <label class="paginated-radiobox-label" for="configuration-alternative-page-3"/>4</label>
+                            </div>
+
+                            <div class="paginated-list-wrapper">
+                                <div class="paginated-page">
+                                    <ol class="standalone">
+                                        <li>Open the game's install directory and create an empty text file named <code>log.txt</code> in it (beside the game EXE).
+
+                                            <div class="note">This is so we can display mod messages and names of motions while in-game.</div>
+                                        </li>
+                                        <li>Create a directory named <code>lua</code> in the same place and into it copy the <em>contents</em> of the <code>put_us_into[MGS_TPP-lua]</code> directory from unknown321's mod files.</li>
+                                    </ol>
+                                </div>
+                                <div class="paginated-page">
+                                    <ol class="standalone">
+                                        <li>
+                                            <p>Inside our new <code>lua</code> directory open <code>animation_changer.lua</code> in a text editor and near the top of the file change the following values:</p>
+
+                                            <ul>
+                                                <li>The value in <code>debug = false</code> to <code>true</code>.
+                                                    <div class="note">This tells the mod to display messages while in-game, which is strongly recommended initially so you can tell when the mod is active and which motions are playing.</div>
+                                                </li>
+                                                <li>The value in <code>ani_hold_forever = true</code> to <code>false</code>.
+                                                    <div class="note">
+                                                        <p>This is so it doesn't remain playing the motion (either on loop or remaining static on the last frame), which would require manually ending playback.</p>
+                                                        <p>Useful to initially to get a sense of the mod, though for things like screenshotting purposes you'd want this set this to <code>true</code>.</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div class="paginated-page">
+                                    <ol class="standalone">
+                                        <li>
+                                            <p>In that same lua, within the <code>motions_table</code> section add the desired GANI paths from the MTAR we installed with Snakebite, like the following. Not all the GANI have to be added, just whichever you want to access while in-game.</p>
+
+                                            <div class="tip">See the <a href="#resources">Resources</a> section for GANI descriptions.</div>
+
+                                            <pre>
+<!--                                         -->local motions_table = {
+<!--                                         -->    {"QuietLaying",
+<!--                                         -->        "/Assets/tpp/BuddyQuiet2_heli/58e0b4d37ba8.gani"
+<!--                                         -->    },
+
+<!--                                         -->    {"QuietSittingCrossingLegs",
+<!--                                         -->        "/Assets/tpp/BuddyQuiet2_heli/9622b94619c6.gani"
+<!--                                         -->    },
+<!--                                         -->}
+<!--                                     --></pre>
+
+                                            <small class="caption">By default the lua includes all the MGO gestures already within <code>motions_table</code>, which I've excluded from the above for brevity. You can add your motions above them, or disable them by commenting them out (prefixing each line with two dashes and a space: <code>-- </code>).</small>
+
+                                            <div class="tip">You can name the labels whatever you want. I've named them above <code>QuietLaying</code>, etc, to be recognizable.</div>
+
+                                            <div class="spoiler-block regular">
+                                                <input class="spoiler-checkbox" type="checkbox"/>
+                                                <div class="spoiler-content-wrapper" alt="(Alternative) Grouping multiple GANI within a single label">
+                                                    <div class="spoiler-content">
+                                                        <p>Another way of entering multiple GANI is placing them within a single group label:</p>
+
+                                                        <pre>
+<!--                                                     -->local motions_table = {
+<!--                                                     -->    QuietGroup={
+<!--                                                     -->       "/Assets/tpp/BuddyQuiet2_heli/58e0b4d37ba8.gani", -- Laying
+<!--                                                     -->       "/Assets/tpp/BuddyQuiet2_heli/9622b94619c6.gani", -- Sitting
+<!--                                                     -->    },
+<!--                                                     -->}
+<!--                                                 --></pre>
+
+                                                        <div class="tip">Grouping related motions under a single label can be useful if there is an intro/middle/outro, or if you want to bulk add motions to test. It's all just personal preference.</div>
+
+                                                        <div class="tip">Descriptive comments can be added to the <em>right-side</em> of lines. Also notice that trailing commas can be used after all paths and closing brackets within a parent code block.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </div>
+
+                            </div><!-- End of .paginated-list-wrapper -->
+                            <div class="paginated-labels-numbers-wrapper bottom-duplicate">
+                                <label class="paginated-radiobox-label" for="configuration-alternative-page-1"/>1-2</label>
+                                <label class="paginated-radiobox-label" for="configuration-alternative-page-2"/>3</label>
+                                <label class="paginated-radiobox-label" for="configuration-alternative-page-3"/>4</label>
+                            </div>
+                        </div><!-- End of .paginated-wrapper -->
+
+                        <p class="task-complete">Finally time to test them in-game! Onto the <a href="#usage">fun section</a>.</p>
+
+                        <hr class="subsection version-toggle-default"/>
+
+                        <div class="tip version-toggle-default">
+                            <p>You can also edit the lua script while the game is running, which is a quick way of testing things.</p>
+                            <p>To do so: save your changes, open IH's menu and select <i>Debug stuff menu→Reload IH modules</i>, then pause the game and reload from checkpoint. Occasionally this doesn't work so in such cases just do a full game relaunch.</p>
+                        </div>
+
+                        <div class="spoiler-block regular version-toggle-default">
+                            <input class="spoiler-checkbox" type="checkbox"/>
+                            <div class="spoiler-content-wrapper" alt="(Optional) Adding back default MGO motions">
+                                <div class="spoiler-content">
+                                    <p>When we added the <code>IHDev_AddMotions.lua</code> to the <code>modules</code> directory IH disabled the default Metal Gear Online motions from appearing in the motions list.</p>
+
+                                    <p>This is intentional behavior so the user can chose exactly which motions they want available when in the game, instead of having the MGO ones always there.</p>
+
+                                    <h3>Option 1: Add them all back, mixed in with your custom motions</h3>
+
+                                    <ol>
+                                        <li>Open <code>IHDev_AddMotions.lua</code> and near the top change the <code>replaceMotions</code> value to <code>false</code>.</li>
+                                        </li>
+                                    </ol>
+
+                                    <hr class="subsection"/>
+
+                                    <h3>Option 2: Selectively add them back</h3>
+
+                                    <ol class="split">
+                                        <li>Open <code>IHDev_AddMotions.lua</code> and near the top make sure the <code>replaceMotions</code> value is set to <code>true</code>.</li>
+                                        <li>Uncomment the default <code>ih_additional_motion.fpk</code> path from the <code>this.packages</code> section by removing the beginning two dashes from the line (<code>-- </code>).</li>
+                                        <li>Add back any default GANI you want in the <code>this.motions</code> section (there are two already there commented-out as examples).
+
+                                            <div class="tip">The full list of GANI paths and labels from the default IH motions can be found mid-way inside the <code>InfMotion.lua</code>, from the <code>mod\modules</code> directory.</div>
+                                    </ol>
+
+                                    <p class="task-complete"><i>*QuietThumbsUpGood*</i></p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <hr/>
+
+            <h2 id="usage">Usage</h2>
+
+            <div class="spoiler-block section">
+                <input class="spoiler-checkbox" type="checkbox"/>
+                <div class="spoiler-content-wrapper">
+                    <div class="spoiler-content">
+                        <h3>Playing motions</h3>
+                        <ol class="version-toggle-default">
+                            <li>Launch the game and deploy in free-roam/Motherbase/a mission.</li>
+                            <li>
+                                <p>Open IH's menu, select <i>Motions</i>, choose a motion from the list and select <i>Play motion</i>.
+                                <p>Alternatively press the Quick Menu button combo to play/stop/change a motion (see the next subsection for details).</p>
+                            </li>
+                        </ol>
+                        <ol class="version-toggle-alternative">
+                            <li>Launch the game and deploy in free-roam/Motherbase/a mission.</li>
+                            <li>Press and hold <kbd>V</kbd>+<kbd>E</kbd> until it states on screen the keys have been bound.
+                                <div class="note highlight">This button combo is necessary to be used once after each new launch of the game while deployed if you want to use the motions mod. Once bound it will enable the mod until exiting the game.</div>
+                            </li>
+                            <li>Then you can press and hold the default <kbd>Zoom</kbd> button + <kbd>Up</kbd> to play the first animation in the motions list we customized earlier.</li>
+                        </ol>
+
+                        <p>If all went well you should see the motion play that was added in <span class="version-toggle-default">IH's</span><span class="version-toggle-alternative">the mod's</span> motions list earlier (yay). If not check the <a href="#troubleshooting">Troubleshooting</a> section.</p>
+
+                        <video src="video/sitting.mp4" poster="video/sitting-preview.jpg" preload="none" controls playsinline></video>
+
+                        <small class="caption">GANI tag team!</small>
+
+                        <hr class="subsection"/>
+
+                        <div class="version-toggle-default">
+
+                            <h3>Quick Menu commands</h3>
+
+                            <p>Infinite Heaven offers the ability to trigger motions via game button combos instead of its menu. This can be enabled by returning to the ACC in-game, opening IH's menu and selecting <i>IH system menu→Enable Quick Menu→On</i>.</p>
+
+                            <p>The Quick Menu commands by default use the <kbd>Call</kbd> button held down in combination with another button to trigger a command. The default combos are the following:</p>
+
+                            <div class="table">
+                                <div class="tr">
+                                    <div class="th">Command</div>
+                                    <div class="th">Button combo</div>
+                                </div>
+                                <div class="tr">
+                                    <div class="td">Play</div>
+                                    <div class="td"><kbd>Call</kbd> + <kbd>Up</kbd></div>
+                                </div>
+                                <div class="tr">
+                                    <div class="td">Stop</div>
+                                    <div class="td"><kbd>Call</kbd> + <kbd>Left</kbd></div>
+                                </div>
+                                <div class="tr">
+                                    <div class="td">Switch to and play next motion group</div>
+                                    <div class="td"><kbd>Call</kbd> + <kbd>Down</kbd></div>
+                                </div>
+                                <div class="tr">
+                                    <div class="td">Switch to and play next motion within group</div>
+                                    <div class="td"><kbd>Call</kbd> + <kbd>Right</kbd></div>
+                                </div>
+                            </div>
+
+                            <div class="tip">More commands are available and different buttons can be assigned if you customize the Quick Menu functions. See the expandable steps below for info.</div>
+
+                            <div class="spoiler-block regular">
+                                <input class="spoiler-checkbox" type="checkbox"/>
+                                <div class="spoiler-content-wrapper" alt="(Optional) Customizing the Quick Menu">
+                                    <div class="spoiler-content">
+                                        <p>The Quick Menu can be used for a variety of IH commands, including freezing/slowing time, toggling freecam and more but for these steps we'll focus on just customizing the motion commands.</p>
+
+                                        <h3>Customizing the default button trigger</h3>
+
+                                        By default you hold down <kbd>Call</kbd> + the button configured for the command but you can change this.
+
+                                        <ol>
+                                            <li>Go to the game's install directory and open <code>mod\modules\InfQuickMenuDefs_User.lua</code> in a text editor.</li>
+                                            <li>Search for <code>this.quickMenuHoldButton</code> and change its default value (<code>InfButton.CALL</code>) to one of the other buttons that can be found listed in commented-out examples at the top of the same lua.</li>
+                                        </ol>
+
+                                        <hr class="subsection"/>
+
+                                        <h3>Customizing the commands</h3>
+
+                                        <ol>
+                                            <li>Go to the game's install directory and open <code>mod\modules\InfQuickMenuDefs_User.lua</code> in a text editor.</li>
+                                            <li>
+                                                <p>Within it scroll to the <code>this.inMission</code> section and change the value within <code>Command</code> of <code>[InfButton.UP]</code>, <code>[InfButton.DOWN]</code>, etc to the desired function below.</p>
+
+                                                <div class="table bias-right">
+                                                    <div class="tr">
+                                                        <div class="th right">Function</div>
+                                                        <div class="th">Description</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>PlayCurrentMotion</code></div>
+                                                        <div class="td">Plays currently selected motion (whether group or within group)</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>StopMotion</code></div>
+                                                        <div class="td">Stops playback</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>NextGroup</code></div>
+                                                        <div class="td">Switches to next motion group</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>PrevGroup</code></div>
+                                                        <div class="td">Switches to previous motion group</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>NextMotion</code></div>
+                                                        <div class="td">Switches to next motion within group*</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>PrevMotion</code></div>
+                                                        <div class="td">Switches to previous motion within group*</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>PlayNextGroupMotion</code></div>
+                                                        <div class="td">Switches to and plays next motion group</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>PlayPrevGroupMotion</code></div>
+                                                        <div class="td">Switches to and plays previous motion group</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>PlayNextMotion</code></div>
+                                                        <div class="td">Switches to and plays next motion within group*</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>PlayPrevMotion</code></div>
+                                                        <div class="td">Switches to and plays previous motion within group*</div>
+                                                    </div>
+                                                </div>
+
+                                                <small class="caption">* Only if multiple GANI have been added within a single group in the <code>this.motions</code> list of <code>IHDev_AddMotions.lua</code> will anything occur.</small>
+
+                                                <pre alt="Example configuration excerpt">
+<!--                                             -->[InfButton.UP]={immediate=true,Command='InfMotion.PlayCurrentMotion'},
+<!--                                             -->[InfButton.DOWN]={immediate=true,Command='InfMotion.StopMotion'},
+<!--                                             -->[InfButton.LEFT]={immediate=true,Command='InfMotion.PlayPrevGroupMotion'},
+<!--                                             -->[InfButton.RIGHT]={immediate=true,Command='InfMotion.PlayNextGroupMotion'},
+<!--                                             -->[InfButton.HOLD]={immediate=true,Command='InfMotion.PlayNextMotion'},
+<!--                                         --></pre>
+
+                                                <small class="caption">The above is what I use personally. I added an extra combo (<kbd>Hold</kbd>) to play motions within a group since I use it less frequently and prefer switching between groups using the directional buttons.</small>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div><!-- End of .spoiler-block -->
+
+                        </div><!-- End of .version-toggle-default -->
+
+                        <div class="version-toggle-alternative">
+
+                            <h3>Quick commands</h3>
+
+                            <p>As you've seen playback of motions is controlled via button combos. We'll call these 'quick commands' since it's catchier and similar to what Infinite Heaven calls them.</p>
+
+                            <p>The quick commands by default use the <kbd>Zoom</kbd> button held down in combination with another button to trigger a command. The default combos are the following:</p>
+
+                            <div class="table">
+                                <div class="tr">
+                                    <div class="th">Command</div>
+                                    <div class="th">Button combo</div>
+                                </div>
+                                <div class="tr">
+                                    <div class="td">Play</div>
+                                    <div class="td"><kbd>Zoom</kbd> + <kbd>Up</kbd></div>
+                                </div>
+                                <div class="tr">
+                                    <div class="td">Stop</div>
+                                    <div class="td"><kbd>Zoom</kbd> + <kbd>Left</kbd></div>
+                                </div>
+                                <div class="tr">
+                                    <div class="td">Switch to and play next motion within group</div>
+                                    <div class="td"><kbd>Zoom</kbd> + <kbd>Down</kbd></div>
+                                </div>
+                                <div class="tr">
+                                    <div class="td">Switch to and play next motion group</div>
+                                    <div class="td"><kbd>Zoom</kbd> + <kbd>Right</kbd></div>
+                                </div>
+                            </div>
+
+                            <div class="tip">The buttons used for the combos can be customized, and it's possible to add a function to play a previous motion group. See the expandable steps below for info.</div>
+
+                            <div class="spoiler-block regular">
+                                <input class="spoiler-checkbox" type="checkbox"/>
+                                <div class="spoiler-content-wrapper" alt="(Optional) Customizing the quick commands">
+                                    <div class="spoiler-content">
+                                        <h3>Adding a play previous motion group function</h3>
+
+                                        <p>Since by default the mod lacks a way to play a previous motion group we'll add one. It's super simple.</p>
+
+                                        <ol>
+                                            <li>Go to the game's install directory and open <code>lua\animation_changer.lua</code> in a text editor.</li>
+                                            <li>Below the <code>function animation_changer.play_next_animation()</code> code block paste in the following function:
+
+                                                <pre>
+<!--                                             -->function animation_changer.play_prev_animation()
+<!--                                             -->    -- animation_changer.stop_animation()
+<!--                                             -->    ani_index = ani_index - 1
+<!--                                             -->    animation_changer.play_animation(ani_index, ani_inner_index, ani_hold_forever, ani_repeat)
+<!--                                             -->    if debug==true then
+<!--                                             -->        local animation_name = motions_table[ani_index][1]
+<!--                                             -->        helpers.log(string.format("[ANICHANGER] playing %s %s %s",tostring(ani_index), tostring(ani_inner_index), animation_name),true)
+<!--                                             -->    end
+<!--                                             -->end
+<!--                                         --></pre>
+
+                                                <div class="note">This function allows playing a previous motion group <em>after</em> some next motion group has been switched to but can't wrap backwards to the very last motions group if pressed while at the first group of the list.</div>
+                                            </li>
+                                        </ol>
+
+                                        <p class="task-complete">Now that function is available to use for the next subsection.</p>
+
+                                        <hr class="subsection"/>
+
+                                        <h3>Customizing the buttons</h3>
+
+                                        <ol>
+                                            <li>Go to the game's install directory and open <code>lua\script_loader.json</code> in a text editor.</li>
+                                            <li>
+                                                <p>Within the <code>keys</code> section there are the names of the buttons used in combination with the <kbd>Zoom</kbd>: <code>PlayerPad.UP</code>, <code>PlayerPad.RIGHT</code>, etc. Swap the <code>function</code> value to the desired function below.</p>
+
+                                                <div class="table bias-right">
+                                                    <div class="tr">
+                                                        <div class="th right">Function</div>
+                                                        <div class="th">Description</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>play_current_animation</code></div>
+                                                        <div class="td">Plays currently selected motion (whether group or within group)</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>stop_animation</code></div>
+                                                        <div class="td">Stops playback</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>play_next_animation</code></div>
+                                                        <div class="td">Switches to and plays next motion group</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>play_prev_animation</code></div>
+                                                        <div class="td">Switches to and plays previous motion group*</div>
+                                                    </div>
+                                                    <div class="tr">
+                                                        <div class="td right"><code>play_next_animation_step</code></div>
+                                                        <div class="td">Switches to and plays next motion within group**</div>
+                                                    </div>
+                                                </div>
+
+                                                <small class="caption">* Available after adding the custom function outlined in the subsection above.</small>
+
+                                                <small class="caption">** Only if multiple GANI have been added within a single group in the <code>motions_table</code> list of <code>animation_changer.lua</code> will anything occur.</small>
+
+                                                <pre alt="Example configuration excerpt">
+<!--                                             -->"keys":
+<!--                                             -->{
+<!--                                             -->    "PlayerPad.UP":
+<!--                                             -->    {
+<!--                                             -->        "module":"animation_changer",
+<!--                                             -->        "function":"play_current_animation"
+<!--                                             -->    },
+<!--                                             -->    "PlayerPad.RIGHT":
+<!--                                             -->    {
+<!--                                             -->        "module":"animation_changer",
+<!--                                             -->        "function":"play_next_animation"
+<!--                                             -->    },
+<!--                                             -->    "PlayerPad.LEFT":
+<!--                                             -->    {
+<!--                                             -->        "module":"animation_changer",
+<!--                                             -->        "function":"play_prev_animation"
+<!--                                             -->    },
+<!--                                             -->    "PlayerPad.DOWN":
+<!--                                             -->    {
+<!--                                             -->        "module":"animation_changer",
+<!--                                             -->        "function":"stop_animation"
+<!--                                             -->    }
+<!--                                             -->},
+<!--                                         --></pre>
+
+                                                <small class="caption">The above is what I use personally, after adding the custom function to play the previous motion group.</small>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div><!-- End of .spoiler-block.regular -->
+
+                        </div><!-- End of .version-toggle-alternative -->
+
+                    </div><!-- End of parent section .spoiler-content -->
+                </div>
+            </div>
+
+            <hr/>
+
+            <h2 id="troubleshooting">Troubleshooting</h2>
+
+            <div class="spoiler-block section">
+                <input class="spoiler-checkbox" type="checkbox"/>
+                <div class="spoiler-content-wrapper">
+                    <div class="spoiler-content">
+                        <object data="svg/troubleshooting.svg" type="image/svg+xml" title="Target practice pad"></object>
+                        <small class="caption"><i>*R&D platform flashbacks*</i></small>
+                        <p>Stuck on some issue after testing in-game? Here are some things to check first. Usually it's nothing major.</p>
+
+                        <div class="version-toggle-default">
+                            <h3>Infinite Heaven specific</h3>
+                            <ul class="standalone split">
+                                <li>Only the default MGO motions show in IH's in-game motions list.
+                                    <ul>
+                                        <li>Could be a mistake in <code>IHDev_AddMotions.lua</code>. Check that commas are correctly set in <code>this.motions</code> and <code>this.packages</code>, as per step 2-3 of <a href="#configuration">this section</a>.</li>
+                                        <li>If you made an edit to the lua then reloaded it via IH's menu (<i>Debug stuff menu→Reload IH modules</i>) before continuing from the last checkpoint, it could be IH didn't reload the lua properly. Try relaunching the game.</li>
+                                    </ul>
+                                </li>
+                                <li>Group labels appear in the motions list in-game but nothing plays.
+                                    <ul>
+                                        <li>Check that the custom FPK is correctly listed in the <code>this.packages</code> section within <code>IHDev_AddMotions.lua</code>, as per step 2 of <a href="#configuration">this section</a>.</li>
+                                    </ul>
+                                </li>
+                                <li>Animations were able to be played while in-game but a moment later stopped working.
+                                    <ul>
+                                        <li>Sometimes this just <em>happens</em> for unknown reasons. A checkpoint reload usually resolves it.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="version-toggle-alternative">
+                            <h3>Mod specific</h3>
+                            <ul class="standalone split">
+                                <li>Nothing plays and there's no indication on screen of the mod.
+                                    <ul>
+                                        <li>Check that you've bound the keys after deploying in the field, as per step 2 of the Usage <a href="#usage">section</a>. The mod won't be enabled until doing so.</li>
+                                    </ul>
+                                </li>
+                                <li>Only the MGO motions are available in-game.
+                                    <ul>
+                                        <li>Could be a mistake in <code>animation_changer.lua</code>. Check that commas are correctly set in the <code>motions_table</code>, as per step 4 of <a href="#configuration">this section</a>.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <hr class="subsection"/>
+
+                        <h3>General</h3>
+                        <ul class="standalone">
+                            <li>The custom motions still won't play, even after trying the troubleshooting suggestions above.
+                                <ul>
+                                    <li>Open MtarTool's <code>mtar_dictionary.txt</code> and check whether the custom GANI paths were added/saved to it, as per step <span class="version-toggle-default">6</span><span class="version-toggle-alternative">7</span> of <a href="#creation">this section</a>. If the custom paths aren't present you'll need to redo those steps to pack the MTAR as intended.
+                                        <div class="note">While MtarTool will still pack the MTAR even without any custom entries in the dictionary (they'll simply be converted to alternate hashed filenames instead) the issue is that the GANI paths added to <code class="version-toggle-default">IHDev_AddMotions.lua</code><code class="version-toggle-alternative">animation_changer.lua</code> would be using differently named paths so <span class="version-toggle-default">IH</span><span class="version-toggle-alternative">the mod</span> wouldn't find them.</div>
+                                    </li>
+                                    <li>Check the filesize of the custom MTAR. If it's suspiciously small (eg: it's meant to be close to 1MB but instead it's 100KB) unpack the MTAR and check that the MTAR XML contains exactly the same number of GANI entries as there are GANI files in the unpacked MTAR and that they're the correct paths.
+
+                                        <div class="note">If there are more/less entries in the XML than there are files in the MTAR MtarTool can fail to pack it correctly, resulting in an unusually small MTAR filesize.</div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <div class="tip">Something not covered here? Ask on the <a href="https://discord.gg/3XwAsWV">Modder's Heaven Discord</a>. Be sure to mention you're using <span class="version-toggle-default">Infinite Heaven's</span><span class="version-toggle-alternative">unknown321's</span> motions mod.</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <hr/>
+
+            <h2 id="resources">Resources</h2>
+
+            <div class="spoiler-block section">
+                <input class="spoiler-checkbox" type="checkbox"/>
+                <div class="spoiler-content-wrapper">
+                    <div class="spoiler-content">
+                        <p>Below are links to descriptions of GANI from various MTAR, made by users to help identify motions.</p>
+
+                        <p>The notes are numbered and sorted according to the GANI internal order of appearance to be more future-proof (see the expandable section below for more details).</p>
+
+                        <pre alt="Example">
+<!--                     -->0000 - Description
+<!--                     -->0001 - Description
+<!--                     -->0002 - Description
+<!--                     -->...
+<!--                 --></pre>
+
+                        <small class="caption">Sometimes the leading zeroes are omitted.</small>
+
+                        <div class="tip">To make it faster to get started some of the notes also include the current GANI filenames and MTAR location, distinguished in the list by <span class="key"></span> symbols.</div>
+
+                        <ul class="compact split">
+                            <li><a href="https://cdn.discordapp.com/attachments/364177950805065732/549317300256243714/Gani_Notes.zip">BossQuiet2_layers.mtar</a> <sup>zip</sup></li>
+                            <li class="key"><a href="files/gani-descriptions/BuddyQuiet2_heli.txt">BuddyQuiet2_heli.mtar</a></li>
+                            <li>
+                                BuddyQuiet2_layers.mtar
+                                <ul>
+                                    <li><a href="https://cdn.discordapp.com/attachments/364177950805065732/549317300256243714/Gani_Notes.zip">BobDoleOwndU version</a> <sup>zip</sup></li>
+                                    <li class="key"><a href="files/gani-descriptions/BuddyQuiet2_layers.txt">choc version</a></li>
+                                </ul>
+                            </li>
+                            <li class="key"><a href="files/gani-descriptions/Hostage2_layers.txt">Hostage2_layers.mtar</a></li>
+                            <li class="key"><a href="files/gani-descriptions/Liquid2_layers.txt">Liquid2_layers.mtar</a></li>
+                            <li><a href="https://cdn.discordapp.com/attachments/364177950805065732/549317300256243714/Gani_Notes.zip">mgoplayer_resident.mtar</a> <sup>zip</sup></li>
+                            <li><a href="https://cdn.discordapp.com/attachments/364177950805065732/549317300256243714/Gani_Notes.zip">player2_behind.mtar</a> <sup>zip</sup></li>
+                            <li>
+                                <a href="https://cdn.discordapp.com/attachments/364177950805065732/549317300256243714/Gani_Notes.zip">player2_resident.mtar</a> <sup>zip</sup>
+                                <ul>
+                                    <li class="key"><a href="files/gani-descriptions/player2_resident - staircase motions.txt">Staircase motions detailed</a></li>
+                                </ul>
+                                </li>
+                            <li class="key"><a href="files/gani-descriptions/timecigarette.txt">player2_timecigarette.mtar</a></li>
+                            <li><a href="https://cdn.discordapp.com/attachments/364177950805065732/549317300256243714/Gani_Notes.zip">player2_vram_resident.mtar</a> <sup>zip</sup></li>
+                        </ul>
+
+                        <small class="caption">BobDoleOwndU's zipped notes contain multiple MTAR descriptions but are listed above per file for consistency.</small>
+
+                        <div class="tip">
+                            <p>The game sometimes blends related GANI from different MTAR.</p>
+                            <p>Some of Quiet's boss motions for instance are used for Quiet's buddy motions, or Snake having an intro/outro for the Phantom Cigar motions in one MTAR and loops in another.</p>
+                            </div>
+
+                        <hr class="subsection"/>
+
+                        <div class="spoiler-block regular">
+                            <input class="spoiler-checkbox" type="checkbox"/>
+                            <div class="spoiler-content-wrapper" alt="Understanding the internal order numbering">
+                                <div class="spoiler-content">
+                                    <p>In the notes each description begins with the internal GANI order number from the MTAR. For notes that mightn't include a matching filename the steps below describe how to discover what that order is, so the numbers can be matched.</p>
+
+                                    <div class="note">It's preferred to number the descriptions like this to keep the GANI references short and (primarily) for future-proofing, since over time we may discover the real paths to more of the hashed filenames. Numbers keep it always consistent.</div>
+
+                                    <hr class="subsection"/>
+
+                                    <h3>Getting a copy of the order number + filename</h3>
+
+                                    <ol>
+                                        <li>First locate the MTAR and copy it somewhere else (eg: the desktop).
+                                            <div class="tip">
+                                                <p>If a particular GANI notes lacks the MTAR location you can determine where an MTAR is located by searching for the MTAR filename in <code>TppMasterFileList.txt</code> from <a href="https://github.com/JosephZoeller/FileMonolith/releases/latest">File Monolith</a>, which contains all the MTARs in the game.</p>
+
+                                                <p>File Monolith's list doesn't display which <code>chunk</code> DAT it's contained within though so you may have to unpack a few to find them.</p>
+                                            </div>
+                                        </li>
+                                        <li>Open the MtarTool program directory, select the addressbar at the top of the File Explorer window, type <code>cmd</code> then press <kbd>Enter</kbd>. This will open a command prompt at that location.</li>
+                                        <li>
+                                            <p>Type <code>MtarTool.exe</code> into the command prompt, followed by a space, then drag and drop the MTAR onto the command prompt window. Lastly add another space and type <code>-n</code>.</p>
+                                            <p>It should look like this but with your path instead of the example:</p>
+
+                                            <pre>MtarTool.exe "C:\path\example.mtar" -n</pre>
+                                        </li>
+                                        <li>Press <kbd>Enter</kbd> and MtarTool will unpack the MTAR but this time it'll prefix all the GANI filenames with the original internal order (eg: <code>0002_163ffb1df1550.gani</code>, where <code>0002</code> is the order number).
+
+                                            <div class="note highlight">Make sure you unpack only an original MTAR. If the MTAR has been repacked previously (even if nothing else has been modified) the internal order will be different. Ask me how I know :)</div>
+                                        </li>
+                                    </ol>
+
+                                    <p class="task-complete">That's it. Now all you have to do is compare the number in the description to the number at the start of the newly unpacked GANI.</p>
+
+                                    <div class="tip">Once unpacked it can be quicker to read from the MTAR's XML than browsing the files themselves.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tip">If you want to contribute your own to the above list get in touch on the <a href="https://discord.gg/3XwAsWV">Modder's Heaven Discord</a>!</div>
+                    </div>
+                </div>
+            </div>
+
+            <hr/>
+
+            <h2 id="credits">Credits</h2>
+
+            <div class="spoiler-block section">
+                <input class="spoiler-checkbox" type="checkbox"/>
+                <div class="spoiler-content-wrapper">
+                    <div class="spoiler-content">
+                        <ul class="standalone split">
+                            <li class="credit version-toggle-default"><strong class="highlight">tinmantex</strong> for updating Infinite Heaven with suggested improvements for the motions modules. Big thanks.</li>
+                            <li class="credit"><strong class="highlight">unknown321</strong> for the original motions research and mod.</li>
+                            <li class="credit"><strong class="highlight">BobDoleOwndU</strong> for various of the exhaustive GANI description lists and for helping locate files (including the one used for this guide, a while back).</li>
+                            <li class="credit"><strong class="highlight">originalnicodr</strong> for their time-saving <cite>StageDepthPlus.fx</cite> shader.</li>
+                            <li class="credit"><strong class="highlight">caplag</strong> for indirectly and unknowingly causing me to consider making a more comprehensive guide.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <object data="svg/balloon.svg" type="image/svg+xml" title="Fulton balloon motion (enetnon_ful_idl.gani from mgoplayer_resident.mtar, included in the IH version of the guide's template file)"></object>
+
+        </div><!-- End of .content -->
+
+        <div class="footer"></div>
+
+    </div><!-- End of .page -->
+
+</body>
+</html>

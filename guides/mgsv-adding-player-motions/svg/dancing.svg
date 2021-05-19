@@ -1,0 +1,433 @@
+<!-- Created by choc (chocmake.github.io) -->
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+    <!ENTITY ns_svg "http://www.w3.org/2000/svg">
+    <!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
+]>
+
+<svg version="1.1" height="270px" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;">
+
+    <defs>
+
+        <!-- Frame: 219x213, Sprite: <width * 41>x<height> (single row) -->
+        <image id="sprite-alpha" x="0" y="0" width="8979px" height="213px" xlink:href="dancing-sprite-alpha.png"/>
+        <image id="sprite" mask="url(#mask-sprite-alpha)" x="0" y="0" width="8979px" height="213px" xlink:href="dancing-sprite-color.jpg"/>
+
+        <g id="star">
+            <line id="star-w" x1="0" x2="16px" y1="8px" y2="8px"/>
+            <line id="star-h" x1="8px" x2="8px" y1="0" y2="16px"/>
+        </g>
+
+        <g id="rainbow">
+            <path id="rainbow-bow-1" d="M303.391,225.883C272.368,176.69 240.474,132.531 212.132,99.547C208.412,95.217 204.558,90.824 200.507,86.337"/>
+            <path id="rainbow-bow-2" d="M283.391,225.883C250.729,171.775 218.382,131.569 189.512,99.547C185.695,95.314 181.641,90.908 177.319,86.337"/>
+            <path id="rainbow-bow-3" d="M263.391,225.883C230.728,172.594 197.972,132.899 166.89,99.547C162.995,95.368 158.805,90.963 154.272,86.337"/>
+            <path id="rainbow-bow-4" d="M243.391,225.883C211.139,173.823 176.334,133.038 144.269,99.547C140.159,95.255 135.879,90.858 131.351,86.337"/>
+            <path id="rainbow-bow-5" d="M223.391,225.883C190.32,172.594 157.075,136.189 121.647,99.547C118.023,95.799 113.537,91.344 108.278,86.337"/>
+        </g>
+
+        <!-- Masks -->
+        <!-- Dimensions defined in CSS -->
+        <clipPath id="mask-sprite-crop">
+            <rect x="0" y="0"/>
+        </clipPath>
+
+        <mask id="mask-sprite-alpha" y="0" height="100%">
+            <rect width="100%" height="100%" fill="#000"/>
+            <use xlink:href="#sprite-alpha"/>
+        </mask>
+
+    </defs>
+
+    <style><![CDATA[
+
+        * {
+            --color-unique: #7b87de;
+            --color: hsl(218,18%,53%);
+            --frame-width: 219px; /* Sprite frame dimensions */
+            --frame-height: 213px; /* Sprite frame dimensions */
+            --frames: 41;
+            --anim-duration: 3.2s;
+            --anim-stars-duration: 1.6s;
+        }
+
+        svg {
+            overflow: visible;
+        }
+
+        line,
+        path {
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 2;
+            vector-effect: non-scaling-stroke;
+        }
+
+        .star,
+        .rainbow {
+            fill: none;
+            stroke: var(--color);
+            stroke-width: 2.5px;
+        }
+
+        /* Apply to entire stroke container */
+        .stroke-opacity {
+            opacity: 0.4;
+        }
+
+        /* ----------------------------- Animation: sprite ----------------------------  */
+
+        @keyframes anim-sprite {
+            0%    { transform: translate(0,0); }
+            100%  { transform: translate(calc((-1 * var(--frame-width)) * var(--frames)),0); }
+        }
+
+        .sprite {
+            will-change: transform;
+            animation: anim-sprite var(--anim-duration) 0s infinite steps(var(--frames));
+        }
+
+        #mask-sprite-crop rect {
+            width: var(--frame-width);
+            height: var(--frame-height);
+        }
+
+        .sprite-centering-offset {
+            transform: translate(-110px,50px); /* Sprite offset (rounded up) but applied to all foreground */
+            transform-origin: 50% 50%;
+        }
+
+
+        /* ---------------------------- Background elements ---------------------------  */
+
+        .rainbow {
+            transform: translate(-105px,-95px);
+        }
+
+        /* ----------------------------- Animation: stars -----------------------------  */
+
+        @keyframes anim-stars-container {
+            0%   { transform: translate(-10px,-10px); }
+            15%  { transform: translate(-20px,-10px); }
+            55%  { transform: translate(5px,-15px); }
+            75%  { transform: translate(15px,-15px); }
+            90%  { transform: translate(-5px,-10px); }
+            100% { transform: translate(-10px,-10px); }
+        }
+
+        /* Firefox doesn't support/render scale(0). If it's anywhere in the keyframes the entire anim doesn't play. Even Chromium can't scale to 0 correctly. */
+        @keyframes anim-star-scale-w {
+            0%      { visibility: hidden; }
+            0.01%   { visibility: visible; stroke-dasharray: 0 20; stroke-dashoffset: -7.75; transform: scaleX(1); }
+            60%     { visibility: visible; stroke-dasharray: 20 20; stroke-dashoffset: 1.5; transform: scaleX(1); }
+            80%     { visibility: visible; stroke-dasharray: 40 40; stroke-dashoffset: 2.8; transform: scaleX(2); }
+            100%    { visibility: visible; stroke-dasharray: 0 20; stroke-dashoffset: -7.75; transform: scaleX(1); }
+        }
+
+        @keyframes anim-star-scale-h {
+            0%      { visibility: hidden; }
+            0.01%   { visibility: visible; stroke-dasharray: 0 20; stroke-dashoffset: -7.75; }
+            50%     { visibility: visible; stroke-dasharray: 20 20; stroke-dashoffset: 1.5; }
+            100%    { visibility: visible; stroke-dasharray: 0 20; stroke-dashoffset: -7.75; }
+        }
+
+        /* Divide the values by how much it's been scaled further below */
+        @keyframes anim-star-scale-w-bg {
+            0%      { visibility: hidden; }
+            0.01%   { visibility: visible; stroke-dasharray: 0 10; stroke-dashoffset: -4; transform: scaleX(0.5); }
+            60%     { visibility: visible; stroke-dasharray: 10 10; stroke-dashoffset: 0.75; transform: scaleX(0.5); }
+            80%     { visibility: visible; stroke-dasharray: 20 20; stroke-dashoffset: 1.4; transform: scaleX(1); }
+            100%    { visibility: visible; stroke-dasharray: 0 10; stroke-dashoffset: -4; transform: scaleX(0.5); }
+        }
+
+        @keyframes anim-star-scale-h-bg {
+            0%      { visibility: hidden; }
+            0.01%   { visibility: visible; stroke-dasharray: 0 10; stroke-dashoffset: -3.8; }
+            50%     { visibility: visible; stroke-dasharray: 10 10; stroke-dashoffset: 0.75; }
+            100%    { visibility: visible; stroke-dasharray: 0 10; stroke-dashoffset: -3.8; }
+        }
+
+        @keyframes anim-star-move {
+            0%   { transform: translate(0,50px); }
+            100% { transform: translate(0,0); }
+        }
+
+        @keyframes anim-star-move-bg {
+            0%   { transform: translate(0,35px); }
+            100% { transform: translate(0,0); }
+        }
+
+        .stars-container {
+            animation: anim-stars-container var(--anim-duration) infinite linear;
+        }
+
+        .stars-background,
+        .stars-foreground {
+            transform: translate(0,-100px);
+        }
+
+        .stars-background .star-scale-w,
+        .stars-background .star-scale-h {
+            transform: scale(0.5);
+        }
+
+        .stars-foreground .star-move-container .star-move {
+            animation: anim-star-move var(--anim-stars-duration) infinite forwards;
+        }
+
+        .stars-background .star-move-container .star-move {
+            animation: anim-star-move-bg var(--anim-stars-duration) infinite forwards;
+        }
+
+        .star {
+            transform-origin: 8px 8px;
+        }
+
+        .star-scale-w {
+            animation: anim-star-scale-w var(--anim-stars-duration) infinite forwards;
+            transform-origin: 8px 8px;
+        }
+
+        .star-scale-h {
+            animation: anim-star-scale-h var(--anim-stars-duration) infinite forwards;
+        }
+
+        .stars-background .star-scale-w {
+            animation: anim-star-scale-w-bg var(--anim-stars-duration) infinite forwards;
+        }
+
+        .stars-background .star-scale-h {
+            animation: anim-star-scale-h-bg var(--anim-stars-duration) infinite forwards;
+        }
+
+        /* Timing offsets */
+
+        .stars-background .star-move-container .star-move:nth-child(1),
+        .stars-background .star-move-container .star-move:nth-child(1) .star-scale-w,
+        .stars-background .star-move-container .star-move:nth-child(1) .star-scale-h {
+            animation-delay: -1s;
+        }
+
+        .stars-background .star-move-container .star-move:nth-child(2),
+        .stars-background .star-move-container .star-move:nth-child(2) .star-scale-w,
+        .stars-background .star-move-container .star-move:nth-child(2) .star-scale-h {
+            animation-delay: -1.5s;
+        }
+
+        .stars-background .star-move-container .star-move:nth-child(3),
+        .stars-background .star-move-container .star-move:nth-child(3) .star-scale-w,
+        .stars-background .star-move-container .star-move:nth-child(3) .star-scale-h {
+            animation-delay: -1.1s;
+        }
+
+        .stars-background .star-move-container .star-move:nth-child(4),
+        .stars-background .star-move-container .star-move:nth-child(4) .star-scale-w,
+        .stars-background .star-move-container .star-move:nth-child(4) .star-scale-h {
+            animation-delay: -2.2s;
+        }
+
+        .stars-background .star-move-container .star-move:nth-child(5),
+        .stars-background .star-move-container .star-move:nth-child(5) .star-scale-w,
+        .stars-background .star-move-container .star-move:nth-child(5) .star-scale-h {
+            animation-delay: -0.5s;
+        }
+
+        .stars-background .star-move-container .star-move:nth-child(6),
+        .stars-background .star-move-container .star-move:nth-child(6) .star-scale-w,
+        .stars-background .star-move-container .star-move:nth-child(6) .star-scale-h {
+            animation-delay: -1.25s;
+        }
+
+        .stars-background .star-move-container .star-move:nth-child(7),
+        .stars-background .star-move-container .star-move:nth-child(7) .star-scale-w,
+        .stars-background .star-move-container .star-move:nth-child(7) .star-scale-h {
+            animation-delay: -1.75s;
+        }
+
+        .stars-background .star-move-container .star-move:nth-child(8),
+        .stars-background .star-move-container .star-move:nth-child(8) .star-scale-w,
+        .stars-background .star-move-container .star-move:nth-child(8) .star-scale-h {
+            animation-delay: -1.75s;
+        }
+
+        .stars-background .star-move-container .star-move:nth-child(9),
+        .stars-background .star-move-container .star-move:nth-child(9) .star-scale-w,
+        .stars-background .star-move-container .star-move:nth-child(9) .star-scale-h {
+            animation-delay: -0.75s;
+        }
+
+        .stars-background .star-move-container .star-move:nth-child(10),
+        .stars-background .star-move-container .star-move:nth-child(10) .star-scale-w,
+        .stars-background .star-move-container .star-move:nth-child(10) .star-scale-h {
+            animation-delay: -1.3s;
+        }
+
+        .stars-background .star-move-container .star-move:nth-child(11),
+        .stars-background .star-move-container .star-move:nth-child(11) .star-scale-w,
+        .stars-background .star-move-container .star-move:nth-child(11) .star-scale-h {
+            animation-delay: -1.1s;
+        }
+
+        .stars-background .star-move-container .star-move:nth-child(12),
+        .stars-background .star-move-container .star-move:nth-child(12) .star-scale-w,
+        .stars-background .star-move-container .star-move:nth-child(12) .star-scale-h {
+            animation-delay: -0.4s;
+        }
+
+        /* Foreground */
+
+        .stars-foreground .star-move-container .star-move:nth-child(1),
+        .stars-foreground .star-move-container .star-move:nth-child(1) .star-scale-w,
+        .stars-foreground .star-move-container .star-move:nth-child(1) .star-scale-h {
+            animation-delay: -1.9s;
+        }
+
+        .stars-foreground .star-move-container .star-move:nth-child(2),
+        .stars-foreground .star-move-container .star-move:nth-child(2) .star-scale-w,
+        .stars-foreground .star-move-container .star-move:nth-child(2) .star-scale-h {
+            animation-delay: -1s;
+        }
+
+        .stars-foreground .star-move-container .star-move:nth-child(3),
+        .stars-foreground .star-move-container .star-move:nth-child(3) .star-scale-w,
+        .stars-foreground .star-move-container .star-move:nth-child(3) .star-scale-h {
+            animation-delay: -1.5s;
+        }
+
+    ]]></style>
+
+
+    <!-- <rect width="100%" height="100%" fill="lightblue"/> -->
+
+    <svg x="50%" y="10px" width="700px" height="270px" viewBox="0 0 700 270">
+        <svg x="-50px">
+
+            <!-- Background elements -->
+            <g class="stroke-opacity">
+                <use xlink:href="#rainbow" class="rainbow"/>
+            </g>
+
+            <!-- Stars: background -->
+            <svg y="50%">
+                <svg y="-16px">
+                    <g class="stars-container stroke-opacity">
+                        <g class="stars-background">
+                            <g class="star-move-container">
+                                <g class="star-move">
+                                    <svg x="-40px" y="25px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                                <g class="star-move">
+                                    <svg x="15px" y="15px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                                <g class="star-move">
+                                    <svg x="45px" y="55px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                                <g class="star-move">
+                                    <svg x="-75px" y="75px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                                <g class="star-move">
+                                    <svg x="70px" y="75px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                                <g class="star-move">
+                                    <svg x="-60px" y="130px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                                <g class="star-move">
+                                    <svg x="-40px" y="100px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                                <g class="star-move">
+                                    <svg x="45px" y="120px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                                <g class="star-move">
+                                    <svg x="5px" y="180px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                                <g class="star-move">
+                                    <svg x="20px" y="150px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                                <g class="star-move">
+                                    <svg x="60px" y="160px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                                <g class="star-move">
+                                    <svg x="-55px" y="180px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </svg>
+
+            <g class="sprite-centering-offset">
+                <g clip-path="url(#mask-sprite-crop)">
+                    <use xlink:href="#sprite" class="sprite"/>
+                </g>
+            </g>
+
+            <!-- Stars: foreground -->
+            <svg y="50%">
+                <svg y="-16px">
+                    <g class="stars-container stroke-opacity">
+                        <g class="stars-foreground">
+                            <g class="star-move-container">
+                                <g class="star-move">
+                                    <svg x="-25px" y="50px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                                <g class="star-move">
+                                    <svg x="-5px" y="100px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                                <g class="star-move">
+                                    <svg x="-30px" y="150px">
+                                        <use xlink:href="#star-w" class="star star-scale-w"/>
+                                        <use xlink:href="#star-h" class="star star-scale-h"/>
+                                    </svg>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </svg>
+
+        </svg>
+    </svg>
+
+</svg>

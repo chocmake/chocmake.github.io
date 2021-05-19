@@ -1,0 +1,34 @@
+Location
+--------
+
+chunk0.dat\Assets\tpp\pack\player\motion\player2_location_motion.fpk
+	Assets\tpp\motion\mtar\player2\player2_timecigarette.mtar
+
+
+Descriptions
+------------
+
+Note: 'outro' = placing cigar back in pouch
+
+0000 -- smoking outro - crouched
+0001 -- smoking loop - crouched
+0002 -- smoking outro - standing
+0003 -- smoking loop - standing
+
+
+Raw MtarTool reference (2021-05-18)
+-----------------------------------
+
+0000_35c526ac3beb4
+0001_1d06e831899c0
+0002_3fee178f25b2c
+0003_b46bf194f75b
+
+
+Related
+-------
+
+`player2_resident.mtar` contains:
+
+	0166_d7775c7add7f  -- smoking intro - crouched
+	0167_3334d75022485 -- smoking intro - standing

@@ -1,0 +1,75 @@
+Location
+--------
+
+chunk0.dat\Assets\tpp\pack\player\motion\player2_resident_motion_fpk
+	Assets\tpp\motion\mtar\player2\player2_resident.mtar
+
+
+Select descriptions
+-------------------
+
+1164 -- quickly walking down crouched
+1165 -- quickly walking up crouched
+1166 -- tip-toeing down crouched
+1167 -- tip-toeing up crouched
+1168 -- sprinting down
+1169 -- sprinting up
+1170 -- casually sprinting down
+1171 -- casually sprinting up
+1172 -- slowly walking down
+1173 -- slowly walking up	
+1176 -- quickly walking down crouched
+1177 -- quickly walking up crouched
+1178 -- tip-toeing down crouched
+1179 -- tip-toeing up crouched
+1180 -- quickly walking down crouched
+1181 -- quickly walking up crouched
+1182 -- tip-toeing down crouched
+1183 -- tip-toeing up crouched
+1184 -- sprinting down at less of a steep angle
+1185 -- sprinting up at less of a steep angle
+1186 -- casually sprinting down at less of a steep angle
+1187 -- casually sprinting up at less of a steep angle
+1188 -- slow, close steps down
+1189 -- slow, close steps up
+1190 -- sprinting down, large steps
+1191 -- sprinting up, large steps
+1192 -- casually sprinting down, large steps
+1193 -- casually sprinting up, large steps
+1194 -- slow, semi-close steps down
+1195 -- slow, semi-close steps up
+
+
+Raw MtarTool reference (2021-05-18)
+-----------------------------------
+
+1164_3bdfbef078c69
+1165_fbfc9f6260ab
+1166_136167da5a1b5
+1167_209a69b536bfd
+1168_1333daa026aca
+1169_29fa3488991fe
+1170_1b740192ff0f2
+1171_792cd9de3c5f
+1172_3c7102f19f650
+1173_1912152c901fb
+1176_20c145e9fb6fd
+1177_2f27308736a78
+1178_3643afc196917
+1179_e5e78025cd54
+1180_2883dda1194da
+1181_348f0b030f49c
+1182_17a6b5e56a526
+1183_1295e50d56881
+1184_28d76c518e488
+1185_1bdc6eeb8f6d
+1186_279ac4e9675c6
+1187_1e52a1cef3a45
+1188_200ea3646105b
+1189_3c1fd77c697b9
+1190_2c43f94e87579
+1191_1f0644a28457a
+1192_32ecba210ce91
+1193_2769a469cc058
+1194_1c3126e1dc94d
+1195_77092beccb38
