@@ -457,7 +457,7 @@ ol > li > ol > li::before {
 
 ul.downloads {
     max-width: var(--content-width);
-    overflow: hidden; /* to avoid absolutely positioned Version elements from extending past max-width, causing greating than 100% page widths in mobile viewports */
+    overflow: hidden; /* to avoid absolutely positioned Version elements from extending past max-width, causing greater than 100% page widths in mobile viewports */
     padding-left: var(--spacing-general);
     padding: var(--spacing-general) var(--spacing-general) 0;
     margin: calc(var(--spacing-general) * 1.5) 0 calc(var(--spacing-general) * 1.5) 0;
