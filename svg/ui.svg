@@ -67,29 +67,29 @@
         <!-- End of Downloads icon -->
 
         <!-- Footer wavy background -->
-        <path id="footer-wavy-shape" transform="translate(-137 0)" d="M1320,26C1320,26 1129.21,96 1028.84,96C929.174,96 827.84,26 729.84,26C622.829,26 536.683,96 430.772,96C336.946,96 137,26 137,26L137,244L1320,244L1320,26Z"/>
+            <path id="footer-wavy-shape" transform="translate(-137 0)" d="M1320,26C1320,26 1129.21,96 1028.84,96C929.174,96 827.84,26 729.84,26C622.829,26 536.683,96 430.772,96C336.946,96 137,26 137,26L137,244L1320,244L1320,26Z"/>
 
-        <mask id="footer-wavy-mask-p1">
-            <g transform="translate(-295 0)">
-                <use class="fill" xlink:href="#footer-wavy-shape"/>
-                <rect class="exclusion fill crisp" x="5px" y="0" width="290px" height="250px"/>
-                <rect class="exclusion fill crisp" x="890px" y="0" width="300px" height="250px"/>
-            </g>
-        </mask>
+            <mask id="footer-wavy-mask-p1">
+                <g transform="translate(-295 0)">
+                    <use class="fill" xlink:href="#footer-wavy-shape"/>
+                    <rect class="exclusion fill crisp" x="5px" y="0" width="290px" height="250px"/>
+                    <rect class="exclusion fill crisp" x="890px" y="0" width="300px" height="250px"/>
+                </g>
+            </mask>
 
-        <!-- Offsetting to peaks on left/right, valley in center -->
-        <mask id="footer-wavy-mask-p2">
-            <g transform="translate(-295 0)">
-                <rect class="fill" mask="url(#footer-wavy-mask-p1)" width="500%" height="100%"/>
-                <rect class="fill" mask="url(#footer-wavy-mask-p1)" width="500%" height="100%" transform="translate(595 0)"/>
-                <rect class="exclusion fill crisp" x="890px" y="0" width="300px" height="250px"/>
-            </g>
-        </mask>
+            <!-- Offsetting to peaks on left/right, valley in center -->
+            <mask id="footer-wavy-mask-p2">
+                <g transform="translate(-295 0)">
+                    <rect class="fill" mask="url(#footer-wavy-mask-p1)" width="500%" height="100%"/>
+                    <rect class="fill" mask="url(#footer-wavy-mask-p1)" width="500%" height="100%" transform="translate(595 0)"/>
+                    <rect class="exclusion fill crisp" x="890px" y="0" width="300px" height="250px"/>
+                </g>
+            </mask>
 
-        <!-- X offset centers the pattern when the viewport width changes -->
-        <pattern id="footer-wavy-pattern" x="50%" y="0" width="595px" height="190px" patternUnits="userSpaceOnUse">
-            <rect class="fill foreground" mask="url(#footer-wavy-mask-p2)" width="500%" height="100%"/>
-        </pattern>
+            <!-- X offset centers the pattern when the viewport width changes -->
+            <pattern id="footer-wavy-pattern" x="50%" y="0" width="595px" height="190px" patternUnits="userSpaceOnUse">
+                <rect class="fill foreground" mask="url(#footer-wavy-mask-p2)" width="500%" height="100%"/>
+            </pattern>
         <!-- End of Footer wavy background -->
 
     </defs>
