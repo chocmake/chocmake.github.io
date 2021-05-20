@@ -13,7 +13,7 @@ Note: the way the behind cover rotations is described isn't the clearest in the 
 0000 -- player CQC, flipped forward onto ground on back from left arm [clips through ground when played]
 0001 -- laying on back, hands tied - loop
 0002 -- prone, unconscious, arms and legs splayed (static)
-0003 --  prone, unconscious, arms and legs splayed (static)
+0003 -- prone, unconscious, arms and legs splayed (static)
 0004 -- held by player, placed down on back, arms and legs splayed
 0005 -- held by player, placed down on back, hands tied
 0006 -- held by player (static)
