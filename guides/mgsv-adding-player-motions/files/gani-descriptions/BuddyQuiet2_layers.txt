@@ -10,7 +10,7 @@ Descriptions
 
 0000 -- laying prone, unconscious, arms and legs splayed
 0001 -- collapsed prone, arms and legs splayed (static, alternate?)
-0002  -- collapsed prone, arms and legs splayed (static)
+0002 -- collapsed prone, arms and legs splayed (static)
 0003 -- being held by player unconscious, then laid down by player, arms and legs splayed [clips through solid ground when played]
 0004 -- being held by player unconscious (static)
 0005 -- half-off ground, unconscious, transition into being held by player
