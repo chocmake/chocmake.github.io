@@ -908,6 +908,11 @@
                                     <ol class="standalone">
                                         <li>
                                             <p>(Optional) If you want to have the motions sorted in a custom order rather than the default alphabetical then add your custom labels from the <code>this.motions</code> to the <code>this.motionGroups</code> section, as per the commented-out default examples found in the lua script.</p>
+
+                                            <div class="note">
+                                                <p>If adding motions to the custom order list (<code>this.motionGroups</code>) just keep in mind to only include the same group labels that are enabled in the <code>this.motions</code> list.</p>
+                                                <p>If one appears in the <code>this.motions</code> list but not in the custom order list then that particular GANI won't be accessible when in-game (just a minor limitation of IH's feature).</p>
+                                            </div>
                                         </li>
                                     </ol>
                                 </div>
@@ -1504,7 +1509,7 @@
                                     <ol>
                                         <li>First locate the MTAR and copy it somewhere else (eg: the desktop).
                                             <div class="tip">
-                                                <p>If a particular GANI notes lacks the MTAR location you can determine where an MTAR is located by searching for the MTAR filename in <code>TppMasterFileList.txt</code> from <a href="https://github.com/JosephZoeller/FileMonolith/releases/latest">File Monolith</a>, which contains all the MTARs in the game.</p>
+                                                <p>If a particular GANI note lacks the MTAR location you can determine where an MTAR is located by searching for the MTAR filename in <code>TppMasterFileList.txt</code> from <a href="https://github.com/JosephZoeller/FileMonolith/releases/latest">File Monolith</a>, which contains all the MTARs in the game.</p>
 
                                                 <p>File Monolith's list doesn't display which <code>chunk</code> DAT it's contained within though so you may have to unpack a few to find them.</p>
                                             </div>
