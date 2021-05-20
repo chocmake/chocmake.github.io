@@ -56,7 +56,7 @@
                     <strong class="label highlight version-toggle-default">Infinite Heaven version</strong>
                     <strong class="label highlight version-toggle-alternative">unknown321 version</strong>
                 </div>
-                <small class="date-edited">Last edited: <time datetime="2021-03-28"></time></small>
+                <small class="date-edited">Last edited: <time datetime="2021-05-20"></time></small>
                 <small class="caption">Animation seen above: <code>35ac42b3641df.gani</code> from <code>player2_resident.mtar</code>. One such motion that when triggered allows moving through the air and walls.</small>
             </div>
 
@@ -1391,7 +1391,13 @@
                                         <li>Check that the custom FPK is correctly listed in the <code>this.packages</code> section within <code>IHDev_AddMotions.lua</code>, as per step 2 of <a href="#configuration">this section</a>.</li>
                                     </ul>
                                 </li>
-                                <li>Animations were able to be played while in-game but a moment later stopped working.
+                                <li>Some of the custom motions show up in-game and others not.
+
+                                    <ul>
+                                        <li>If you've added anything to the custom order list (<code>this.motionGroups</code>) from step 4 of <a href="#configuration">this section</a> make sure there are the same number in that list as enabled in the <code>this.motions</code> list, as per note in the linked step.</li>
+                                    </ul>
+                                </li>
+                                <li>Motions were able to be played while in-game but a moment later stopped working.
                                     <ul>
                                         <li>Sometimes this just <em>happens</em> for unknown reasons. A checkpoint reload usually resolves it.</li>
                                     </ul>
@@ -1489,7 +1495,7 @@
 
                         <div class="tip">
                             <p>The game sometimes blends related GANI from different MTAR.</p>
-                            <p>Some of Quiet's boss motions for instance are used for Quiet's buddy motions, or Snake having an intro/outro for the Phantom Cigar motions in one MTAR and loops in another.</p>
+                            <p>Some of Quiet's boss motions for instance are used for Quiet's buddy motions, or Snake having a couple intros for the Phantom Cigar motions in one MTAR and loops in another.</p>
                             </div>
 
                         <hr class="subsection"/>
