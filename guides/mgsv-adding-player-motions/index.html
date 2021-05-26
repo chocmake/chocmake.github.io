@@ -386,9 +386,11 @@
                 <input class="spoiler-checkbox" type="checkbox"/>
                 <div class="spoiler-content-wrapper" alt="(Advanced tip) Finding other animations">
                     <div class="spoiler-content">
-                        <p>GANI can be found in a variety of locations within the game's data files. If you're interested in sourcing other animations the easiest place to find some is inside <code>chunk0.dat</code> within <code>Assets\tpp\pack\player\motion</code>.</p>
+                        <p>GANI can be found in a variety of locations within the game's data files. A list of motions that users have already documented with descriptions can be found in the <a href="#resources">Resources</a> section.</p>
 
-                        <p>There you'll find FPK files such as <code>player2_resident_motion.fpk</code>, which includes the <code>player2_resident.mtar</code> containing for hundreds of the player character's default animations: actions like running, CQC, carrying bodies and more.</p>
+                        <p>If you're interested in sourcing other animations the easiest place to start is inside <code>chunk0.dat</code> within <code>Assets\tpp\pack\player\motion</code>.</p>
+
+                        <p>There you'll find various FPK files that include MTAR, such as <code>player2_resident_motion.fpk</code>, containing <code>player2_resident.mtar</code>, which features hundreds of the player character's default animations: actions like running, CQC, carrying bodies and more.</p>
 
                         <div class="tip">
                             <p>For a complete list of of MTAR locations download <a href="https://github.com/JosephZoeller/FileMonolith/releases/latest">File Monolith</a>, which includes <code>TppMasterFileList.txt</code>, a giant list all the files in the game.</p>
@@ -1098,6 +1100,12 @@
 
                         <small class="caption">GANI tag team!</small>
 
+                        <div class="tip">
+                            <p>If you'd like to loop motions when played (such as the various seen in this guide) open <span class="version-toggle-default">IH's menu and in the <i>Motions</i> menu enable <i>Hold motion</i></span><span class="version-toggle-alternative">the game's install directory then edit <code>lua\animation_changer.lua</code> in a text editor and change the <code>ani_hold_forever</code> value from <code>false</code> to <code>true</code></span>.</p>
+
+                            <p>Just know that only certain motions are loopable, while the rest will simply remain static on the last frame.</p>
+                        </div>
+
                         <hr class="subsection"/>
 
                         <div class="version-toggle-default">
@@ -1491,7 +1499,7 @@
                             <li><a href="https://cdn.discordapp.com/attachments/364177950805065732/549317300256243714/Gani_Notes.zip">player2_vram_resident.mtar</a> <sup>zip</sup></li>
                         </ul>
 
-                        <small class="caption">BobDoleOwndU's zipped notes contain multiple MTAR descriptions but are listed above per file for consistency.</small>
+                        <small class="caption">zip = BobDoleOwndU's zipped notes, containing multiple MTAR descriptions but listed above per file for consistency.</small>
 
                         <div class="tip">
                             <p>The game sometimes blends related GANI from different MTAR.</p>
