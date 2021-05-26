@@ -1770,6 +1770,7 @@
         <svg x="50%" viewBox="0 0 1200 1371">
             <g class="foreground-centering-offset">
                 <g class="stroke-opacity">
+                    <rect width="100%" height="100%" fill="transparent"/><!-- invisible rect to prevent top clipping -->
                     <use xlink:href="#frame-01" class="balloon-frame frame-01"/>
                     <use xlink:href="#frame-02" class="balloon-frame frame-02"/>
                     <use xlink:href="#frame-03" class="balloon-frame frame-03"/>
