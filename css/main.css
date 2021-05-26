@@ -1456,7 +1456,7 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
 
     @font-face {
         font-family: 'Inter';
-        src: url('/fonts/Inter.woff2') format('woff2');
+        src: url('/fonts/Inter/Inter.woff2') format('woff2');
         font-display: swap;
     }
 
