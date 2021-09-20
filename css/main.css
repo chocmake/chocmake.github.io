@@ -107,6 +107,15 @@ p {
     margin-bottom: var(--spacing-general);
 }
 
+h1, h2, h3, b, strong,
+ol li::before,
+.header .breadcrumbs a,
+.table .th,
+.tags.primary .label {
+    --wght: 700;
+    font-weight: var(--wght);
+}
+
 h2, h3  {
     color: var(--color-intermediate);
     letter-spacing: -0.01em;
@@ -357,7 +366,7 @@ ul.standalone {
 }
 
 ol li::before,
-ul:not(.downloads) li::before {
+ul:not(.downloads):not(.graph) li::before {
     --right: calc(100% + var(--spacing-general) / 2);
     display: inline-flex;
     right: var(--right); /* to align to left of element while expanding from right */
@@ -365,7 +374,7 @@ ul:not(.downloads) li::before {
 }
 
 span.key::before,
-ul:not(.downloads) li:not(.fragment-link):not(.credit)::before {
+ul:not(.downloads):not(.graph) li:not(.fragment-link):not(.credit)::before {
     --size: 5px;
     width: var(--size);
     height: var(--size);
@@ -395,29 +404,35 @@ ul li.credit::before {
     right: calc(var(--right) - 3.5px);
 }
 
-/* Diamond symbol to add differentiation to specific list items. Inline standalone .key class for textual definition (use empty span). */
-span.key::before,
-ul:not(.downloads) li:not(.fragment-link):not(.credit).key::before {
-    --size: 4px;
-    border-radius: 0;
-    transform: rotate(45deg);
-    top: 7.5px;
-}
-
+/* Symbols for legends. Add differentiation to specific list items. Inline standalone .key class for legend textual definition (use empty span). */
 span.key::before {
+    --size: 7px;
     color: inherit;
     display: inline-block;
     margin: 0 2px;
+    border-radius: 2px;
     position: relative;
+    top: 0;
+}
+
+span.key.diamond::before,
+ul:not(.downloads):not(.graph) li:not(.fragment-link):not(.credit).key.diamond::before {
+    --size: 4px;
+    border-radius: 0;
+    transform: rotate(45deg);
     top: -1px;
 }
 
-.note span.key::before,
-.tip span.key::before {
+ul:not(.downloads):not(.graph) li:not(.fragment-link):not(.credit).key.diamond::before {
+    top: 7.5px;
+}
+
+.note span.key.diamond::before,
+.tip span.key.diamond::before {
     opacity: 0.75; /* for even color */
 }
 
-ol li > ul:not(.downloads) li:not(.fragment-link):not(.credit)::before {
+ol li > ul:not(.downloads):not(.graph) li:not(.fragment-link):not(.credit)::before {
     background: var(--color-unique);
     border-color: var(--color-unique);
 }
@@ -613,6 +628,10 @@ em.highlight {
     display: block;
 }
 
+.caption p {
+    margin-bottom: calc(var(--spacing-general) / 2);
+}
+
 .sidenote .caption {
     text-align: left;
 }
@@ -635,10 +654,6 @@ em.highlight {
 
 .tags .label {
     font-size: var(--font-size-small);
-}
-
-.tags.primary .label {
-    font-weight: bold;
 }
 
 .label {
@@ -689,7 +704,7 @@ em.highlight {
     height: var(--size);
     background: var(--border-color);
     font-size: var(--font-size-small);
-    font-weight: bold;
+    font-weight: bold; /* intentionally using the default bold since when faux-bold is used it's marginally thicker than the custom variable font */
     line-height: var(--size);
     content: '✓';
     display: inline-flex;
@@ -759,6 +774,22 @@ em.highlight {
     position: relative;
 }
 
+div.version-toggle-default > .spoiler-block.section,
+div.version-toggle-alternative > .spoiler-block.section {
+    margin-bottom: calc(-1 * var(--spacing-general));
+}
+
+/* Hide divs via transforms to avoid page scrolling when hidden */
+.version-toggle-checkbox:checked ~ .page div.version-toggle-default,
+.version-toggle-checkbox ~ .page div.version-toggle-alternative {
+    transform: scale(0);
+}
+
+.version-toggle-checkbox ~ .page div.version-toggle-default,
+.version-toggle-checkbox:checked ~ .page div.version-toggle-alternative {
+    transform: scale(1);
+}
+
 
 /* ---------------------------- Header ---------------------------- */
 
@@ -783,7 +814,6 @@ em.highlight {
 
 .header .breadcrumbs a {
     color: inherit;
-    font-weight: bold;
     position: relative;
 }
 
@@ -921,9 +951,10 @@ em.highlight {
 /* h1 + subheading and clone styling (if only h1 is styled the clone doesn't receive the styling) */
 .heading-primary,
 .subheading-primary {
+    --color: var(--page-background);
     --wght: 900;
     width: 100%; /* for FF */
-    color: var(--page-background);
+    color: var(--color);
     font-size: 270%;
     font-weight: var(--wght);
     letter-spacing: -0.04em;
@@ -932,6 +963,11 @@ em.highlight {
     margin: 0 0 calc(-1 * var(--margin)) var(--margin);
     position: relative;
     z-index: 2;
+}
+
+.guide .heading-primary-text-wrapper.inverted .heading-primary,
+.guide .heading-primary-text-wrapper.inverted .subheading-primary {
+    --color: var(--color-unique);
 }
 
 .subheading-primary {
@@ -954,8 +990,9 @@ em.highlight {
 
 .heading-primary .highlight,
 .subheading-primary .highlight {
+    --color: var(--color-unique);
     --box-shadow: 0;
-    background: var(--color-unique);
+    background: var(--color);
     color: transparent;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
@@ -967,11 +1004,16 @@ em.highlight {
     user-select: none;
 }
 
+.guide .heading-primary-text-wrapper.inverted .heading-primary .highlight,
+.guide .heading-primary-text-wrapper.inverted .subheading-primary .highlight {
+    --color: var(--page-background);
+}
+
 .subheading-primary .highlight {
     --box-shadow: 5px;
     /* Extra top pixel is to account for gap in some renderings */
-    box-shadow: 0 calc(-1 * var(--box-shadow) - 1px) 0 var(--color-unique),
-                0 var(--box-shadow) 0 var(--color-unique);
+    box-shadow: 0 calc(-1 * var(--box-shadow) - 1px) 0 var(--color),
+                0 var(--box-shadow) 0 var(--color);
 }
 
 
@@ -1182,7 +1224,8 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
     display: flex;
     align-items: baseline;
     justify-content: center;
-    margin-bottom: calc(var(--spacing-general) * 1.5);
+    flex-wrap: wrap;
+    margin-bottom: calc(var(--spacing-general) * 1.5 - (var(--spacing-general) / 2)); /* to account for .paginated-radiobox-label's margin-bottom when wrapping at mobile widths */
     -webkit-user-select: none;
     user-select: none;
 }
@@ -1191,6 +1234,11 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
     color: var(--color-secondary);
     content: 'Steps';
     margin-right: calc(var(--spacing-general) / 1.5);
+}
+
+/* Ability to override page label for non-guide uses via inline style */
+.paginated-wrapper[style*="--pages-label"] .paginated-labels-numbers-wrapper::before {
+    content: var(--pages-label);
 }
 
 /* Second copy of page numbers for narrower only viewports */
@@ -1204,7 +1252,7 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
     border-radius: var(--border-radius-circle);
     border: 1px solid var(--border-color);
     padding: 1px 7px; /* equivalent to .label padding */
-    margin: 0 calc(var(--spacing-general) / 1.5) 0 0;
+    margin: 0 calc(var(--spacing-general) / 1.5) calc(var(--spacing-general) / 2) 0; /* margin-bottom for when wrapping at mobile widths */
     cursor: pointer;
 }
 
@@ -1258,6 +1306,7 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
     border-color: var(--color-unique);
 }
 
+
 /* ----------------------------- Tables ----------------------------- */
 
 .table {
@@ -1295,9 +1344,14 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
     border-left: 1px solid var(--border-color);
 }
 
-/* Last column can grow 3x as wide than first */
+/* Last column can grow wider than first */
 .table.bias-right .th:last-child,
 .table.bias-right .td:last-child {
+    flex-grow: 2;
+}
+
+.table.bias-right-wider .th:last-child,
+.table.bias-right-wider .td:last-child {
     flex-grow: 3;
 }
 
@@ -1305,6 +1359,161 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
 .table .td pre,
 .table .td kbd {
     height: max-content; /* prevents from expanding in height to match adjacent cell(s) */
+}
+
+
+/* ----------------------------- Graphs ----------------------------- */
+
+@keyframes graph-intro-anim {
+    0%   { width: 0; }
+    100% { width: var(--width); }
+}
+
+.graph-wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    column-gap: calc(var(--spacing-general) * 1.5);
+    margin-top: calc(var(--spacing-general) * 1.5);
+}
+
+.paginated-list-wrapper .paginated-page > .graph-wrapper {
+    margin-top: 0;
+}
+
+.graph-wrapper > .heading {
+    width: max-content;
+    height: max-content;
+    display: flex;
+    justify-self: flex-end;
+}
+
+.graph-wrapper > .heading,
+ul.graph li {
+    font-size: var(--font-size-small);
+    letter-spacing: 0.02em;
+}
+
+ul.graph {
+    flex-grow: 1;
+    grid-column: span 2; /* consume full width when headings aren't present */
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.graph-wrapper > .heading + ul.graph {
+    grid-column: span 1; /* align beside headings when they're present */
+}
+
+ul.graph li {
+    --width: calc(100% * (var(--value) / 100)); /* quasi-fallback if inline `--peak-value` style missing */
+    --padding-top: 2px;
+    --padding-right: calc(var(--spacing-general) / 2.5);
+    --padding-left: calc(var(--spacing-general) / 2);
+    width: var(--width);
+    min-width: 70px;
+    height: calc(var(--spacing-general) * 1.5);
+    background: var(--border-color);
+    color: var(--color-secondary);
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    border-bottom-right-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    margin: 0;
+}
+
+ul.graph li:not(:first-of-type):not(.secondary) {
+    margin-top: var(--spacing-general);
+}
+
+/* If inline style present use it to calculate max graph scale */
+.graph-wrapper[style*="--peak-value"] ul.graph li {
+    --width: calc(100% * var(--value) / var(--peak-value));
+}
+
+h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper ul.graph li,
+.spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper ul.graph li {
+    animation: graph-intro-anim 500ms;
+}
+
+ul.graph .heading {
+    /* To avoid `white-space: nowrap` preventing the entire graph from resizing narrower at mobile widths (due to the length of highest value bar heading) an alternate method is used to display ellipsis truncation. Unlike `white-space: nowrap` though it hides whole words delimited by spaces first but displays the ellipsis after doing so at least. */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: var(--padding-top) 0 0 var(--padding-left);
+}
+
+ul.graph .value {
+    padding: var(--padding-top) var(--padding-right) 0 0;
+    position: relative;
+    z-index: 2;
+}
+
+ul.graph li:first-of-type,
+ul.graph li:not(.secondary) {
+    border-top-left-radius: var(--border-radius);
+}
+
+ul.graph li:last-of-type,
+ul.graph .secondary {
+    border-bottom-left-radius: var(--border-radius);
+}
+
+/* Bug: Chromium's blurring of the SVG pattern mask for .secondary is caused seemingly when the HTML element has sub-pixel values from its fluid width. */
+ul.graph .secondary {
+    background: none;
+    justify-content: flex-end; /* since it will lack another element for `space-between` to work */
+}
+
+/* By using a separate element for the pattern mask it can change position based on the inline value width. */
+ul.graph .secondary::before {
+    width: 100%;
+    height: 100%;
+    content: '';
+    display: block;
+    margin-right: -5px; /* to avoid any gap at zoomed page levels */
+    -webkit-mask-image: url("/svg/ui.svg#graph-pattern-secondary");
+    mask-image: url("/svg/ui.svg#graph-pattern-secondary");
+}
+
+ul.graph .secondary .value,
+ul.graph .secondary::before {
+    background: var(--border-color);
+}
+
+ul.graph .highlight:not(.secondary),
+ul.graph .secondary.highlight .value,
+ul.graph .secondary.highlight::before {
+    background: var(--color-unique);
+}
+
+ul.graph .highlight {
+    color: var(--page-background);
+}
+
+.graph-wrapper .caption {
+    grid-column: span 2; /* to occupy its own row */
+
+}
+
+.graph-wrapper .caption,
+.graph-wrapper .caption p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* For legends: */
+span.key.graph:nth-child(n+2) {
+    margin-left: var(--spacing-general);
+}
+
+span.key.graph.secondary::before {
+    -webkit-mask-image: url("/svg/ui.svg#graph-pattern-secondary-key");
+    mask-image: url("/svg/ui.svg#graph-pattern-secondary-key");
 }
 
 
@@ -1478,7 +1687,6 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
     .header .breadcrumbs a,
     .table .th,
     .tags.primary .label {
-        --wght: 700;
         font-variation-settings: 'wght' var(--wght),'slnt' var(--slnt);
         font-weight: inherit;
     }
