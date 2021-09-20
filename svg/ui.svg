@@ -9,6 +9,7 @@
 
     <defs>
         <rect id="mask-exclusion" class="exclusion fill" width="100%" height="100%"/>
+        <rect id="mask-fill" class="fill" width="100%" height="100%"/>
 
         <!-- Horizontal rule - wavy -->
             <g id="hr-wavy-shape" class="stroke thin" transform="matrix(1,0,0,1,0.5,-1.99529)">
@@ -92,6 +93,73 @@
             </pattern>
         <!-- End of Footer wavy background -->
 
+        <!-- Graph: pattern - diagonal fade -->
+        <line id="graph-diagonal-line" x1="32.5px" x2="0.5px" y1="-2px" y2="52px"/>
+        <svg id="graph-diagonal-solid-pattern-composite" x="100%">
+            <g style="transform: translate(-1500px,0)">
+                <rect fill="url(#graph-diagonal-solid-pattern)" width="1500px" height="100%"/>
+            </g>
+        </svg>
+
+        <mask id="graph-diagonal-solid-mask">
+            <use xlink:href="#mask-fill"/>
+            <use class="stroke exclusion" xlink:href="#graph-diagonal-line"/>
+            <svg x="-5px"><use class="stroke exclusion" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="-10px"><use class="stroke exclusion" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="-15px"><use class="stroke exclusion" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="-20px"><use class="stroke exclusion" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="-25px"><use class="stroke exclusion" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="-30px"><use class="stroke exclusion" xlink:href="#graph-diagonal-line"/></svg>
+        </mask>
+
+        <pattern id="graph-diagonal-solid-pattern" x="0" y="0" width="10px" height="50px" patternUnits="userSpaceOnUse">
+            <rect class="fill" mask="url(#graph-diagonal-solid-mask)" width="100%" height="100%"/>
+        </pattern>
+
+        <mask id="graph-diagonal-fade-lines-mask">
+            <svg x="-5px"><use class="stroke" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="-10px"><use class="stroke" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="-15px"><use class="stroke" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="-20px"><use class="stroke" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="-25px"><use class="stroke" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="-30px"><use class="stroke" xlink:href="#graph-diagonal-line"/></svg>
+
+            <svg x="0"><use class="stroke" style="stroke-width: 1.9px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="5px"><use class="stroke" style="stroke-width: 1.8px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="10px"><use class="stroke" style="stroke-width: 1.7px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="15px"><use class="stroke" style="stroke-width: 1.6px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="20px"><use class="stroke" style="stroke-width: 1.5px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="25px"><use class="stroke" style="stroke-width: 1.4px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="30px"><use class="stroke" style="stroke-width: 1.3px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="35px"><use class="stroke" style="stroke-width: 1.2px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="40px"><use class="stroke" style="stroke-width: 1.1px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="45px"><use class="stroke" style="stroke-width: 1px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="50px"><use class="stroke" style="stroke-width: 0.9px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="55px"><use class="stroke" style="stroke-width: 0.8px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="60px"><use class="stroke" style="stroke-width: 0.7px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="65px"><use class="stroke" style="stroke-width: 0.6px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="70px"><use class="stroke" style="stroke-width: 0.5px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="75px"><use class="stroke" style="stroke-width: 0.4px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="80px"><use class="stroke" style="stroke-width: 0.3px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="85px"><use class="stroke" style="stroke-width: 0.2px" xlink:href="#graph-diagonal-line"/></svg>
+            <svg x="90px"><use class="stroke" style="stroke-width: 0.1px" xlink:href="#graph-diagonal-line"/></svg>
+        </mask>
+
+        <mask id="graph-diagonal-fade-mask">
+            <use xlink:href="#graph-diagonal-solid-pattern-composite"/>
+            <svg x="100%">
+                <rect class="fill crisp" width="130px" height="100%" style="transform: translate(-130px,0)"/>
+                <g style="transform: translate(-130px,0)">
+                    <rect class="crisp exclusion" width="130px" height="100%" mask="url(#graph-diagonal-fade-lines-mask)"/>
+                </g>
+            </svg>
+        </mask>
+
+        <mask id="graph-diagonal-key-mask">
+            <use xlink:href="#graph-diagonal-solid-pattern-composite" transform="translate(1 0)"/>
+        </mask>
+        <!-- End of Graph: pattern - diagonal fade -->
+
     </defs>
 
     <style><![CDATA[
@@ -121,6 +189,10 @@
             stroke-width: 1px;
         }
 
+        .exclusion.stroke {
+            stroke: #000;
+        }
+
         .exclusion.fill {
             fill: #000;
         }
@@ -148,6 +220,8 @@
 
         ]]></style>
 
+    <!-- <use xlink:href="#mask-exclusion"/> -->
+
     <!-- Downloads icon -->
     <rect id="downloads-icon-whole" class="output background fill" width="100%" height="100%" mask="url(#downloads-icon-whole-mask)"/>
     <rect id="downloads-icon-shadow" class="output foreground fill" width="100%" height="100%" mask="url(#downloads-icon-shadow-mask)"/>
@@ -158,5 +232,9 @@
 
     <!-- Footer wavy background -->
     <rect id="footer-wavy" class="output background" fill="url(#footer-wavy-pattern)" width="500%" height="190px"/>
+
+    <!-- Graph: diagonal lines fade pattern -->
+    <rect id="graph-pattern-secondary" class="output background" mask="url(#graph-diagonal-fade-mask)" width="100%" height="50px"/>
+    <rect id="graph-pattern-secondary-key" class="output background" mask="url(#graph-diagonal-key-mask)" width="100%" height="50px"/>
 
 </svg>
