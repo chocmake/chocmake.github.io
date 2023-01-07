@@ -54,7 +54,7 @@
                     <strong class="label highlight version-toggle-default">Infinite Heaven version</strong>
                     <strong class="label highlight version-toggle-alternative">unknown321 version</strong>
                 </div>
-                <small class="date-edited">Last edited: <time datetime="2021-10-09"></time></small>
+                <small class="date-edited">Last edited: <time datetime="2023-01-07"></time></small>
                 <small class="caption">Animation seen above: <code>35ac42b3641df.gani</code> from <code>player2_resident.mtar</code>. One such motion that when triggered allows moving through the air and walls.</small>
             </div>
 
@@ -783,12 +783,25 @@
 
                         <div class="spoiler-block regular version-toggle-default">
                             <input class="spoiler-checkbox" type="checkbox"/>
-                            <div class="spoiler-content-wrapper" alt="(Optional) Renaming the MTAR for use with multiple Snakebite packages">
+                            <div class="spoiler-content-wrapper" alt="(Advanced tip) Renaming the template for use with multiple Snakebite packages">
                                 <div class="spoiler-content">
-                                    <p>If you plan on creating multiple Snakebite mods, each containing a custom MTAR (instead of adding all the GANI to a single custom MTAR), then you'll need to rename the template MTAR to avoid them all sharing the same name (which would cause installation conflicts).</p>
+                                    <p>If you plan on creating multiple Snakebite mods, each containing a custom MTAR (instead of adding all the GANI to a single custom MTAR), then you'll need to rename a few things from the template to avoid them all sharing the same name (which would cause conflicts).</p>
 
+                                    <div class="note highlight">
+                                        <p>It's worth renaming these parts from the template before making other changes, to minimize the number of things needed to be renamed. The steps below assume renaming prior to following the rest of the guide.</p>
+                                    </div>
 
                                     <ol>
+                                        <li>Open the template directory and navigate to the following directory, which contains the unpacked default FPK and FPKD directories.
+
+                                            <pre>Assets\tpp\pack\mission2\ih</pre>
+                                        </li>
+                                        <li>
+                                            <p>Rename the <code>custom_motions_fpk</code> and <code>custom_motions_fpkd</code> directories to your choosing but keep the end <code>_fpk</code> and <code>_fpkd</code> parts of the names.</p>
+
+                                            <div class="note">Filenames in MGSV are limited to upper/lowercase, numbers and underscores (no spaces).</div>
+                                        </li>
+
                                         <li>
                                             <p>Open the template directory and navigate to the following directory, which contains the default MTAR.</p>
 
@@ -796,8 +809,6 @@
                                         </li>
                                         <li>
                                             <p>Rename the MTAR to your choosing.</p>
-
-                                            <div class="note">Filenames in MGSV are limited to upper/lowercase, numbers and underscores (no spaces).</div>
                                         </li>
                                         <li>
                                             <p>Go back up to the root of the template directory and navigate to the following Fox2 file, then drag it onto FoxTool.exe. An XML file will be created beside it.</p>
@@ -880,6 +891,8 @@
 
                                             <div class="tip">You can name the labels whatever you want. I've named them above <code>QuietLaying</code>, etc, to be recognizable.</div>
 
+                                            <div class="note">Unlike when we created the custom MTAR in the previous section any GANI paths added here need the <code>.gani</code> at the end.</div>
+
                                             <div class="spoiler-block regular">
                                                 <input class="spoiler-checkbox" type="checkbox"/>
                                                 <div class="spoiler-content-wrapper" alt="(Alternative) Grouping multiple GANI within a single label">
@@ -895,7 +908,7 @@
 <!--                                                     -->}
 <!--                                                 --></pre>
 
-                                                        <div class="tip">Grouping related motions under a single label can be useful if there is an intro/middle/outro, or if you want to bulk add motions to test. It's all just personal preference.</div>
+                                                        <div class="tip">Grouping related motions under a single label can be useful if there is an intro/middle/outro, or if you want to bulk add motions to test since as a bonus the GANI are played back in order of appearance within the group.</div>
 
                                                         <div class="tip">Descriptive comments can be added to the <em>right-side</em> of lines. Also notice that trailing commas can be used after all paths and closing brackets within a parent code block.</div>
                                                     </div>
@@ -1398,12 +1411,13 @@
                                 </li>
                                 <li>Group labels appear in the motions list in-game but nothing plays.
                                     <ul>
+                                        <li>Check in <code>IHDev_AddMotions.lua</code> that the GANI paths within <code>this.motions</code> are correct (eg: that they end with <code>.gani</code> and <code>/Assets/</code> begins with a forward slash).</li>
                                         <li>Check that the custom FPK is correctly listed in the <code>this.packages</code> section within <code>IHDev_AddMotions.lua</code>, as per step 2 of <a href="#configuration">this section</a>.</li>
                                     </ul>
                                 </li>
                                 <li>Motions were able to be played while in-game but a moment later stopped working.
                                     <ul>
-                                        <li>Occasionally this just <em>happens</em> for unknown reasons. A checkpoint reload usually resolves it.</li>
+                                        <li>Occasionally this just <em>happens</em> for unknown reasons. A checkpoint reload usually resolves it. Alternatively try relaunching the game.</li>
                                     </ul>
                                 </li>
                                 <li>After launching game it gets stuck on the black loading screen, following the intro logos.
@@ -1418,6 +1432,12 @@
 
                                     <ul>
                                         <li>If you've added anything to the custom order list (<code>this.motionGroups</code>) from step 4 of <a href="#configuration">this section</a> make sure there are the same items included in that list as enabled in the <code>this.motions</code> list, as per note in the linked step.</li>
+                                    </ul>
+                                </li>
+                                <li>No motions are listed or appear in-game.
+
+                                    <ul>
+                                        <li>If you have multiple, separate motion mods installed via Snakebite make sure each unique FPK path of theirs is included in the <code>this.packages</code> section with the <code>IHDev_AddMotions.lua</code> (step 2 of <a href="#configuration">this section</a>).</li>
                                     </ul>
                                 </li>
 
@@ -1499,6 +1519,7 @@
                             <li class="key diamond"><a href="files/gani-descriptions/Hostage2_layers.txt">Hostage2_layers.mtar</a></li>
                             <li class="key diamond"><a href="files/gani-descriptions/Liquid2_layers.txt">Liquid2_layers.mtar</a></li>
                             <li><a href="https://cdn.discordapp.com/attachments/364177950805065732/549317300256243714/Gani_Notes.zip">mgoplayer_resident.mtar</a> <sup>zip</sup></li>
+                            <li class="key diamond"><a href="files/gani-descriptions/Parasite2_layers.txt">Parasite2_layers.mtar (Skulls)</a></li>
                             <li><a href="https://cdn.discordapp.com/attachments/364177950805065732/549317300256243714/Gani_Notes.zip">player2_behind.mtar</a> <sup>zip</sup></li>
                             <li>
                                 <a href="https://cdn.discordapp.com/attachments/364177950805065732/549317300256243714/Gani_Notes.zip">player2_resident.mtar</a> <sup>zip</sup>
