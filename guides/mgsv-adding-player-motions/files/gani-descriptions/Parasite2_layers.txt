@@ -1,0 +1,255 @@
+Location
+--------
+
+chunk2.dat\Assets\tpp\pack\mission2\story\s10020\s10020_d04.fpk
+	Assets\tpp\motion\mtar\parasite\Parasite2_layers.mtar
+
+
+Descriptions
+------------
+
+/Assets/tpp/motion/SI_game/fani/bodies/wmu0/wmu0/0049_wmu0_s_idl_a -- wandering puppets-like idle standing - loop
+0000 -- laying on back, arms and legs splayed, unconscious (static)
+0001 -- fulton ascending/zipping into sky
+0002 -- unbuckling parachute (?), descending with arms and legs outward - intro [clips through ground when played]
+0003 -- dropped (by player?) from standing position onto ground, rolls onto back, arms and legs splayed, unconscious
+0004 -- fulton swaying - loop
+0005 -- pulled up by chest (?) while laying on back unconscious, then returning back to original position
+0006 -- fulton attached to body from laying on back, transitions to mid-air fulton sway intro
+0007 -- jump with machete swipe from mid-air position, transitions to standing pose
+0008 -- jump, mid-air pose - loop
+0009 -- pulls/materializes machete out of hand from standing position, transitions to crouched pose with arm back
+0010 -- crouched pose holding machete with arm back - loop
+0011 -- crouched pose holding machete, transitions into jump intro
+0012 -- huge backwards flip from being hit, rolls into crouched pose (no machete held) [can clip through ground depending on where it lands]
+0013 -- intimidating single step forward while standing
+0014 -- intimidating single step forward while standing [if there's any difference to 0013 it's very minor] 
+0015 -- intimidating walking forwards - loop
+0016 -- intimidating standing pose, transitions into walking forwards intro
+0017 -- intimidating larger step forward while standing
+0018 -- intimidating larger step forward while standing, quicker, minor head tilt upward momentarily
+0019 -- transition from crouched running (large step) into slide, then into standing pose 
+0020 -- transition from crouched running (small step) into slide, then into standing pose 
+0021 -- hit while standing, head juts back momentarily
+0022 -- hit while standing, torso moves back slightly, head juts back momentarily
+0023 -- hit while standing, arms react, head juts back and rotates slightly momentarily [angled impact?]
+0024 -- hit while standing, arms react, head juts back slightly momentarily [forward impact?]
+0025 -- holding gun, flips back (while mid-air?) from large hit impact, slowly gets up, transitions to standing aim pose [looks like intense finger pointing out of context]
+0026 -- hit while standing, large impact on left side, torso and head swivel back before resuming standing pose
+0027 -- hit while standing, large impact on right side, torso and head swivel back before resuming standing pose
+0028 - hit while standing, entire body curls back (like doing limbo dance), with arms dangling down, before resuming standing pose
+0029 - standing, does unusual entire body slow wriggle from right to left, resumes standing pose
+0030 -- instant 180° flip from standing position, crouches momentarily, resumes standing pose facing opposite
+0031 -- shifts body quickly from more upright pose to limp-like, semi-crouched state, transitions to upright standing pose
+0032 -- regular, human-like running forward - loop
+0033 -- multiple rolls forward, transitions to standing pose
+0034 -- crouched running forward - loop
+0035 -- transition from standing into crouched running intro
+0036 -- crouched running forward - non-seamless loop [does it start on a different foot?]
+0037 -- large jump motion, mid-air, body curling back then forward, stops while still mid-air [character doesn't travel any distance when played]
+0038 -- large jump motion, transition from standing to jump intro 
+0039 -- transition from standing to running/sprinting intro
+0040 -- minor hit (?) while walking forward, transitions to running intro
+0041 -- fall straight onto back from standing pose with no other reaction, arms and legs splayed
+0042 -- picked up from chest by player (?) off ground, regains consciousness and swipes away player with arm, transitions to standing pose
+0043 -- crouched and bent over, contorted limb motions, slowly returning to upright standing pose
+0044 -- standing, head bent down and torso rotated right looking at ground (static)
+0045 -- standing, bent over, arms limp, flexes shoulders back and returns to standing pose
+0046 -- standing, bent over, arms limp, minor idle movement before stopping
+0047 -- transition from slightly haunched standing pose to bent over, arms lip
+0048 -- standing, then bends forward slightly to flex arm muscles to engage hardened armor, before resuming standing pose
+0050 -- wandering puppets-like standing state, head and torso tilt back, rotates body 45°, ends on off-center standing pose
+0051 -- standing pose at 45° angle - loop
+0052 -- standing pose at 45° angle, holding machete with arms down (static)
+0053 -- stabbed by machette via player counter-CQC, from crouched state, transitions to standing pose
+0054 -- stabbed in neck by machette via player counter-CQC, from standing state, transitions to standing pose
+0055 -- stabbed in neck by machette via player counter-CQC, from standing state, lowers onto knee, transitions to standing pose
+0056 -- large jump motion, transition from crouched intro jump intro
+0057 -- jump motion, kneeling and bent over with one hand wrapped over the other in front, holding machette - loop
+0058 -- jump motion, quick transition from mid-air to kneeling and bent over intro
+0059 -- crouched running into reversing direction rapidly (shifting body backward), ends on mid-transition pose
+0060 -- transition from slide to running intro
+0061 -- either transition from either regular human running to crouched running, or running to leap foward intro
+0062 -- leap forward (static)
+0063 -- wandering puppets-like standing state, contorted torso begins at side the transitions to more regular stance, rotates body 45°, ends on off-center standing pose
+0064 -- wandering puppets-like standing state, body bend forward, transitions to more regular stance, ends on off-center standing pose
+0065 -- wandering puppets-like standing state, body bent over, torso almost perpendicular to ground, head looking up and forward - loop
+0066 -- wandering puppets-like standing state, contorted torso at side - loop
+0067 -- transition from off-center standing pose to wandering puppets-like contorted torso at side pose
+0068 --  transition from off-center standing pose to wandering puppets-like body bent over with perpendicular torso, head looking forward pose
+0069 -- taking two small steps forward, while in wandering puppets-like state with contorted torso at side
+0070 -- taking one step forward, while in wandering puppets-like state with perpendicular torso
+0071 -- walking forward, while in wandering puppets-like state with contorted torso at side - loop
+0072 -- walking forward, while in wandering puppets-like state with perpendicular torso
+0073 -- transition from some standing state (?) to taking two steps forward while in wandering puppets-like state with contorted torso at side
+0074 -- transition from some standing state (?) to taking two steps forward while in wandering puppets-like state with perpendicular torso
+0075 -- pushing away player with both arms in sweeping motion, transitions to standing state
+0076 -- hit (?) while standing, rotating body 90° left, returning to standing state
+0077 -- hit (?) while standing, rotating body 90° right, returning to standing state
+0078 -- transition from crouched pose, rotating 180°, pulling out gun, then standing and aiming [again, looks like finger pointing]
+0079 -- transition from standing and aiming to standing pose [appears to no longer hold gun during transition]
+0080 -- standing and aiming, moving arm forward marginally while trigger held
+0081 -- standing and aiming (static)
+0082 -- standing and aiming, arm parallel to body, pointed at ground on right side (static)
+0083 -- machette held, takes two steps forward and swipes overhead as attack, transitions to standing pose holding machette
+0084 -- machette held, takes two steps forward and swipes from left to right, transitions to standing pose holding machette
+0085 -- pulls/materializes machete out of hand while in standing position, transitions to standing pose holding machette
+0086 -- pulls/materializes gun out of hand while in standing position, takes aim
+0087 -- while aiming gun walks forward slightly
+0088 -- while aiming gun walks forward slightly [if there's any difference to 0087 it's very minor]
+0089 -- walking while aiming gun - loop
+0090 -- transition from aiming gun while standing to walking intro
+0091 -- holding rock above head, throwing it forward, transitioning to standing pose
+0092 -- holding rock above head - loop
+0093 -- materializing rock from ground, holding it above head
+0094 -- wandering puppets-like standing state, rotating body left 180°
+0095 -- wandering puppets-like standing state, rotating body right 180°
+0096 -- wandering puppets-like standing state, rotating body left 90°
+0097 -- wandering puppets-like standing state, rotating body right 90°
+0098 -- jump landing to standing pose
+0099 -- jump landing (alternate) to standing pose
+0100 -- jump landing (alternate 2, superhero-esque, body angled to left) to standing pose
+0101 -- jump landing (alternate 2, superhero-esque, body angled to right) to standing pose
+0102 -- transition from crouched to large jump backward, ends in mid-air state
+0103 -- crouched to leap forward intro
+0104 -- crouched to leap sideways left
+0105 -- crouched to leap sideways right
+0106 -- materializing rock from ground, transitions to standing pose
+0107 -- manipulating rock in front of body, transitions to standing pose
+0108 -- manipulating rock in front of body - loop
+0109 -- holding rock in front of body while being hit, before throwing rock forward
+0110 -- wandering puppets-like walking foward - loop
+0111 -- transition from walking to off-center standing pose
+0112 -- transition from walking to off-center standing pose (alternate)
+0113 -- transition from off-center standing pose to walking intro
+0114 -- stabbed by machette via player counter-CQC, from crouched state, rotates 180°, transitions to standing pose
+0115 -- stabbed by machette, flings arms around, transitions to standing state
+0116 -- stabbed by machette in neck, rotates 360° while moving against ground, transitions to standing pose
+0117 -- shoves player off while holding machete
+0118 -- swings machette over opposite side of body
+0119 -- crouched to jump upward transition
+
+
+Raw MtarTool reference (2023-01-07)
+-----------------------------------
+
+/Assets/tpp/motion/SI_game/fani/bodies/wmu0/wmu0/0049_wmu0_s_idl_a
+0000_21017ac2c8ddd
+0001_2c8bd51e581d0
+0002_3c08203181e01
+0003_15e51fedc7712
+0004_28490574e7a51
+0005_2f87a31de8bcd
+0006_3342bd609f394
+0007_2b40e3117a012
+0008_c60ea6cc0466
+0009_e9fd50fc4ff3
+0010_15090f60fd77
+0011_34242d8362bd
+0012_3e8fcbc912e59
+0013_bc522fe4e8b7
+0014_2759de93745ea
+0015_2a2fe53d3f4c2
+0016_a30b2e5cbdfc
+0017_19dda2a1efdde
+0018_11aef952d7cbb
+0019_22aa047adad27
+0020_340af1ec94032
+0021_43372459993f
+0022_16bf66e17cfe1
+0023_3ca94aea6edc4
+0024_930eb209c737
+0025_35ca95eb1c31e
+0026_a18b39d1c154
+0027_3d33ee7f5d92e
+0028_22a620d0a0bea
+0029_259f86bf92517
+0030_28f903be26a41
+0031_38fd5f1b09945
+0032_3f1642ac7787d
+0033_1b1f7d3348399
+0034_1701273789f8
+0035_339169df2e581
+0036_2566166c8f16f
+0037_1ef5c580621c5
+0038_593de0bdd634
+0039_1d68a62da736a
+0040_1e4b08d584def
+0041_1348c3a58945b
+0042_3d895bbd3322a
+0043_b0fe5da6a5bb
+0044_18f5861ba8596
+0045_378c2843a0982
+0046_37faf7a3979a4
+0047_1670d2fe3f3e3
+0048_2fe0caa46ecad
+0050_3c6adc7494181
+0051_264df349a2c40
+0052_251bf7f7fcbe7
+0053_35c2e65e2322b
+0054_32dfe5d1b44fa
+0055_3dd61e2ac529f
+0056_18bef2276c332
+0057_6747f580dba4
+0058_285a2ef79fa88
+0059_1d671c338df64
+0060_187deb242e51c
+0061_3ff102d956630
+0062_23550cee8fe4
+0063_22fd74613c69
+0064_cd769b1e653
+0065_17be99d739d36
+0066_2629898fc2b2b
+0067_1287dcb1de849
+0068_b7f1732046e9
+0069_3863e5e2aa360
+0070_18ae8bcd39357
+0071_219ec91652fb6
+0072_302356c9fe230
+0073_3ab505d27ae9e
+0074_21b0176822aa7
+0075_2bd8b5275b621
+0076_cd429ddb7db6
+0077_3950f1c51765d
+0078_34216eb3b7585
+0079_1ec93f403a96
+0080_15044e7f1058f
+0081_2538c5023fc4d
+0082_1c5de44053f8a
+0083_f41805fae91
+0084_1eea680790f8b
+0085_283f35e13bee0
+0086_2bd6ec575a040
+0087_20de8038b1747
+0088_26ce3e44af47a
+0089_1b42a7077e1c5
+0090_39b83c3323a49
+0091_2a5a66e5bd4ab
+0092_b3ea0638c55
+0093_26cdc93cb334a
+0094_204f9648fa39
+0095_169f34d329876
+0096_1f848b2e8ae38
+0097_2a0d6410e3830
+0098_3f39a58f1b647
+0099_396d1ba52ff47
+0100_1ceb2b89a5f98
+0101_401a2eef309b
+0102_3954183d33f9b
+0103_36d0b6f3d8460
+0104_175bc063dd965
+0105_1d415a4095953
+0106_2a45025d18582
+0107_14bcb01b4ae24
+0108_32757271f58bf
+0109_22137a6660f04
+0110_11ee7d45e5f29
+0111_1f46321fda1ed
+0112_3e7ff7df1b4c4
+0113_353f859ede62f
+0114_2f6b78cf53f9d
+0115_280ae2e5e2667
+0116_1a9edaecf5178
+0117_23668d070e3e5
+0118_35298a29a20f9
+0119_a8a5d5205320
