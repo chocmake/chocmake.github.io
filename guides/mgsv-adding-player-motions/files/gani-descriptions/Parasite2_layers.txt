@@ -2,7 +2,7 @@ Location
 --------
 
 chunk2.dat\Assets\tpp\pack\mission2\story\s10020\s10020_d04.fpk
-	Assets\tpp\motion\mtar\parasite\Parasite2_layers.mtar
+    Assets\tpp\motion\mtar\parasite\Parasite2_layers.mtar
 
 
 Descriptions
@@ -14,8 +14,8 @@ Descriptions
 0002 -- unbuckling parachute (?), descending with arms and legs outward - intro [clips through ground when played]
 0003 -- dropped (by player?) from standing position onto ground, rolls onto back, arms and legs splayed, unconscious
 0004 -- fulton swaying - loop
-0005 -- pulled up by chest (?) while laying on back unconscious, then returning back to original position
-0006 -- fulton attached to body from laying on back, transitions to mid-air fulton sway intro
+0005 -- fulton attached to body while laying on back, then disattaches, returning back to original position
+0006 -- fulton attached to body while laying on back, transitions to mid-air fulton sway intro
 0007 -- jump with machete swipe from mid-air position, transitions to standing pose
 0008 -- jump, mid-air pose - loop
 0009 -- pulls/materializes machete out of hand from standing position, transitions to crouched pose with arm back
@@ -37,8 +37,8 @@ Descriptions
 0025 -- holding gun, flips back (while mid-air?) from large hit impact, slowly gets up, transitions to standing aim pose [looks like intense finger pointing out of context]
 0026 -- hit while standing, large impact on left side, torso and head swivel back before resuming standing pose
 0027 -- hit while standing, large impact on right side, torso and head swivel back before resuming standing pose
-0028 - hit while standing, entire body curls back (like doing limbo dance), with arms dangling down, before resuming standing pose
-0029 - standing, does unusual entire body slow wriggle from right to left, resumes standing pose
+0028 -- hit while standing, entire body curls back (like doing limbo dance), with arms dangling down, before resuming standing pose
+0029 -- standing, does unusual entire body slow wriggle from right to left, resumes standing pose
 0030 -- instant 180° flip from standing position, crouches momentarily, resumes standing pose facing opposite
 0031 -- shifts body quickly from more upright pose to limp-like, semi-crouched state, transitions to upright standing pose
 0032 -- regular, human-like running forward - loop
