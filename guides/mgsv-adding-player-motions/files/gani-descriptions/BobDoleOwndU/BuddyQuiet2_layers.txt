@@ -1,0 +1,237 @@
+Location
+--------
+
+chunk1.dat\Assets\tpp\pack\buddy\quiet\buddy_quiet2_common.fpk
+    Assets\tpp\motion\mtar\buddyquiet2\BuddyQuiet2_layers.mtar
+
+
+Descriptions
+------------
+
+0 - 2: Knocked Flat on stomach.
+3: Fall backwards
+4: Idle Fall
+5 - 8: Fall recover
+9 - 11: Flat on back
+12: Knocked over
+13 - 15: Falling Forwards
+16: Ragdoll Falling
+17: Falling backwards
+18: Landing backwards
+19: Falling backwards
+20: Landing backwards
+21 - 22: Knocked sideways
+23: Landing on ass
+24: Getting pulled up
+25: Getting rolled over
+26: Going prone with sniper (unused?)
+27: Prone rechamber (unused?)
+28: Prone idle
+29: Looking down with sniper on side
+30: Reload prone (unused?)
+31 - 32: Standing getting shot?
+33: Going from on back to crouched
+34: Flat on back
+35: Fultoned up!
+36: Hanging on fulton
+37: Picked up by fulton
+38: On back with sniper
+39 - 41: Hit while on back
+42: Rechamber sniper on back
+43: On back idle
+44: Aiming down with sniper on side
+45: Reloading on back
+46: On back idle
+47: On back thumbs up!
+48: On back look
+49: Fall backwards
+50: Land backwards
+51: Fall backwards idle
+52: Start fall backwards
+53: Dance in rain
+54 - 56: Crouched hit
+57 - 64: Fall over
+65: Self fulton
+66 - 68: Jump down
+69: Landing
+70: Start jump down
+71: Landing
+72 - 74: Jump up
+75 - 76: Dash
+77: Crouched feel the rain
+78: Hand on ground to crouch
+79: Shoulder sniper from crouch
+80: Rechamber crouched
+81: Crouched idle
+82: Look down crouched
+83: Shoulder sniper from back
+84: Go prone with sniper
+85: Go on back with sniper
+86: Go on back with sniper
+87: Crouch reload
+88 - 89: Turn around and aim crouched
+90: Aim down sights crouched
+91 - 92: Crouched turn
+93: Hold rifle crouched
+94: Nod crouched
+95: Thumbs up crouched
+96: Look crouched
+97: Slide
+98: Start dash
+99 - 100: Turn and dash
+101: Remove fulton
+102: Crouch with sound effect
+103: Hands to ground with sound effect
+104: Falling
+105: Stand stiffly
+106: Walk
+107: Rechamber on back
+108: Aim down on side
+109: Reload on back
+110: On back idle
+111: Rechamber crouched
+112: Aim down crouched
+113: Reload crouched
+114: Hold rifle crouched idle
+115: Falling over sitting
+116: Sitting straight up
+117: Sitting turning to look
+118: Sitting turning and nodding
+119: Getting up and jumping out of helicopter
+120: Sitting peaking around the edge
+121: Jumping up on the side of helicopter
+122: On side of helicopter idle
+123: On side of helicopter turning to look
+124: Getting into helicopter and sitting
+125: Jumping into helicopter and sitting
+
+
+Raw MtarTool reference (2021-05-18)
+-----------------------------------
+
+0000_3ad528bb36404
+0001_1475af78f03cb
+0002_b1dfc8ea8cc6
+0003_6eb6acdebb01
+0004_333558ec7872a
+0005_3c58457a43094
+0006_237cb2468e5e8
+0007_3783502798175
+0008_23e3fd608e048
+0009_3b50699d85394
+0010_1877151185fc0
+0011_2961d57cc8431
+0012_24ae1dba9a9b1
+0013_8cb2944d9801
+0014_2dcb4340f7bbf
+0015_2b93d79a79e00
+0016_3d5a261f9f082
+0017_1edb882c20149
+0018_3430a543e9535
+0019_a62d3cfcd853
+0020_31bab6d8bd8aa
+0021_1bee1fed2eec
+0022_3711983550ed1
+0023_250b13540d880
+0024_32db6f3419de3
+0025_337a8d73aa77b
+0026_111f6fbe46898
+0027_2ad9e7cb8cbdd
+0028_23706289a5f49
+0029_341fbccb1c895
+0030_2e74bf0009027
+0031_3c913aaa12b34
+0032_2831c58e54486
+0033_274510d53ce5b
+0034_3df0cae3531bb
+0035_2dd1dfa8fd5cc
+0036_2a1081b6ad105
+0037_27b309d682450
+0038_2c128da26254a
+0039_26243d3bf507d
+0040_1b9e6827e1eb5
+0041_95f87903933
+0042_1551bbb1b699d
+0043_1da8386aa5476
+0044_2fbfa37b5a414
+0045_111097996c33f
+0046_216e3e1cbce05
+0047_26a559172a164
+0048_141180c240a70
+0049_268b244d11337
+0050_1a2c408341eaf
+0051_734e2693ace7
+0052_1d1bfe5784456
+0053_833031eb82a7
+0054_3089967304939
+0055_1edd59059f8ee
+0056_3b34d3659c918
+0057_3fb3e793968fd
+0058_22d27cfc016e4
+0059_1fd2f37d1b6ca
+0060_2b93e1ef68456
+0061_21e5543596619
+0062_35408ca2a5cc
+0063_14ba11be9e5f7
+0064_20e99ede4ec49
+0065_1155392f742fd
+0066_baf3560283a2
+0067_181237f74bb45
+0068_128891a339b10
+0069_26752a3584b39
+0070_2e01e85ca9b0e
+0071_1a1da0299976f
+0072_2156da15fa90
+0073_50479968110
+0074_1a8f8feaf9d6f
+0075_36c1d21c15fac
+0076_30593c8df39d4
+0077_28440788ac9e7
+0078_3d5e624a97973
+0079_9c0c64baa9ab
+0080_217c7a91d48d8
+0081_3cc409b007e7d
+0082_212996967e6f2
+0083_15946f7ab812a
+0084_2a617569324
+0085_1df8146aaaf14
+0086_33398e0273bc4
+0087_2c14b1c800fe8
+0088_537478dcf8e4
+0089_3ef2770f12b58
+0090_1f3eab5b612f1
+0091_26e19b064ae80
+0092_a9948817f3c7
+0093_2ac7afbae1d66
+0094_c0fcbb22d7bd
+0095_16172c3f223c7
+0096_2a38293a2eee7
+0097_256d740a30d9e
+0098_2a3877c1daf72
+0099_25ee4eef77b0b
+0100_36e403457fef3
+0101_a840071febb9
+0102_10dd5dded9896
+0103_1bc74fa8d917
+0104_1099b8e5f3ada
+0105_1950f7b1e2511
+0106_1e932047374f2
+0107_110bbd5b6f9d5
+0108_381552894055a
+0109_306a30981d04a
+0110_31e21eaf6c39d
+0111_24eae82911090
+0112_103d55bb04d07
+0113_ee09978cc5dc
+0114_9685dbde1d2b
+0115_7545107cc557
+0116_bfe107fdd2ed
+0117_83bec4f72467
+0118_3e5213ed255e8
+0119_1ddbe3bdc527c
+0120_7e1673b299d0
+0121_1c16e5b27f2c7
+0122_177db4d22dc29
+0123_152776b106d7f
+0124_152f315dec7a
+0125_18bd3aebfebf0

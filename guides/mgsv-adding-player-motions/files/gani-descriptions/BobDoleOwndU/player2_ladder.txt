@@ -1,0 +1,58 @@
+Location
+--------
+
+chunk0.dat\Assets\tpp\pack\player\motion\player2_location_motion_fpk
+    Assets\tpp\motion\mtar\player2\player2_ladder.mtar
+
+
+Descriptions
+------------
+
+0 - 3: crouch walking from top of ladder (assumption)
+4: Getting off at bottom of ladder
+5: Frozen on ladder, just after getting on the ladder, used for going up a step after stopping.
+6: Going a step up the ladder from being stopped on the latter (right arm up [this doesn't seem to matter?])
+7: Climbing off of ladder at top
+8: Going a step down the ladder (left arm up [this doesn't seem to matter])
+9: Coming to a rest after going down a step
+10: Turning left and going on ladder (right arm up) - Doesn't seem to be used?
+11: Turning left and going on ladder (left arm up) - Doesn't seem to be used?
+12: Falling idle
+13: Going from on ladder to falling
+14: Getting off ladder at bottom and turning left (left arm up)
+15: Getting off ladder at bottom and turning left (right arm up)
+16: Getting off ladder at bottom and turning around (right arm up)
+17: Getting on ladder at bottom (right arm up) - Doesn't seem to be used?
+18: Sliding down ladder end
+19: Sliding down ladder idle
+20: Sliding down ladder start
+21: Mid-climbing animation (right arm up)
+22: Used for going down a step after stopping
+
+
+Raw MtarTool reference (2023-01-15)
+-----------------------------------
+
+0000_24274bc60b33b
+0001_6c71098b68ef
+0002_f8694cbf91d2
+0003_223ee3e336051
+0004_2c98ff8d79528
+0005_22a79ba420287
+0006_2c15a68069cc0
+0007_ee2b3f79e1d2
+0008_105071796f397
+0009_65624cea561d
+0010_17889ed9166d0
+0011_14b09f137d334
+0012_3051f40b16433
+0013_1f0a27643ea09
+0014_2cda064bb365b
+0015_3df06fe014396
+0016_259a488e32cb0
+0017_39652ad03677d
+0018_3c6c941231044
+0019_20f5bfc6fbfc2
+0020_3bcc5a0b6d4d4
+0021_3991999dd9b84
+0022_368ae65f2bd8a

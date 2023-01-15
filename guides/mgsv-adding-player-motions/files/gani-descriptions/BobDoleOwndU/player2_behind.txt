@@ -1,0 +1,307 @@
+Location
+--------
+
+chunk0.dat\Assets\tpp\pack\player\motion\player2_location_motion_fpk
+    Assets\tpp\motion\mtar\player2\player2_behind.mtar
+
+
+Descriptions
+------------
+
+0000: Climbing ledge on right (from crouch)
+0001: Climbing ledge on right (from crouch)
+0002: Jumping then climbing ledge on right (from crouch?)
+0003: Jumping then climbing ledge on right (from crouch?)
+0004: Climbing ledge on right (from crouch)
+0005: Climbing ledge on right (from crouch)
+0006: From leaning right to leaning left (crouched)
+0007: From leaning right to leaning left (crouched)
+0008: From leaning right to crouch walking backwards
+0009: From leaning right to crouch walking backwards
+0010: Slowly turning around crouched
+0011: Slowly turning around crouched
+0012: From crouched leaning right to standing leaning right
+0013: From crouched leaning right to standing leaning right
+0014: Putting right hand on wall (crouched)
+0015: Putting right hand on wall (crouched)
+0016: Right hand on wall idle (crouched)
+0017: Right hand on wall idle (crouched)
+0018: Adjusting right hand on wall(?) (crouched)
+0019: Adjusting right hand on wall(?) (crouched)
+0020: From standing to crouched leaning right(?) (crouched)
+0021: From standing to crouched leaning right(?) (crouched)
+0022: Leaning right crouch walk idle
+0023: Starting to crouch walk leaning right
+0024: Starting to crouch walk leaning right
+0025: Leaning right move back slightly (crouched)
+0026: Leaning right move back slightly (crouched)
+0027: Leaning right move forward slightly (crouched)
+0028: Leaning right move forward slightly (crouched)
+0029: Leaning right move forward slightly (crouched)
+0030: Leaning right move forward slightly (crouched)
+0031: Leaning right slow crouch walk idle
+0032: Leaning right slow crouch walk start
+0033: Leaning right slow crouch walk start
+0034: From peaking over right ledge to crouched
+0035: From peaking over right ledge to crouched
+0036: Peaking over right ledge idle
+0037: Peaking over right ledge idle
+0038: From crouched to peaking over right ledge
+0039: From crouched to peaking over right ledge
+0040: From crouched leaning left to crouched leaning right (turning around)
+0041: From crouched leaning left to crouched leaning right (turning around)
+0042: From crouched leaning left to crouch walking (turning around)
+0043: From crouched leaning left to crouch walking (turning around)
+0044: Leaning left turning around slowly (crouched)
+0045: Leaning left turning around slowly (crouched)
+0046: From standing to crouched leaning left
+0047: From standing to crouched leaning left
+0048: Leaning left walking idle (crouched)
+0049: Starting to walk leaning left (crouched)
+0050: Starting to walk leaning left (crouched)
+0051: Leaning left moving back slightly (crouched)
+0052: Leaning left moving back slightly (crouched)
+0053: Leaning left moving forward slightly (crouched)
+0054: Leaning left moving forward slightly (crouched)
+0055: Leaning left walking slowly idle (crouched)
+0056: Starting to crouch walk slowly (crouched)
+0057: Starting to crouch walk slowly (crouched)
+0058: Looking left around a corner idle (crouched)
+0059: Throwing something over the left ledge (crouched)
+0060: Starting to look left around a corner(?) (crouched)
+0061: Turning around and leaning right (crouched)
+0062: Leaning left idle (crouched)
+0063: Throwing something over the left ledge (crouched)
+0064: Underhand throwing something around the left corner (crouched)
+0065: From throwing to leaning left(?) (crouched)
+0066: From throwing to leaning left(?) (crouched)
+0067: Leaning left ready to throw something idle(?) (crouched)
+0068: Drawing a throwable item leaning left (crouched)
+0069: Moving forward slightly leaning left (crouched)
+0070: Turning right and climbing a ledge (standing)
+0071: Turning right and climbing a ledge (standing)
+0072: Turning right and climbing a ledge (standing)
+0073: Turning right and climbing a ledge (standing)
+0074: Hopping up a small ledge on the right (standing)
+0075: Hopping up a small ledge on the right (standing)
+0076: From leaning right to leaning left
+0077: From leaning right to leaning left
+0078: From leaning right turning around quickly
+0079: From leaning right turning around quickly
+0080: From leaning right to leaning left
+0081: From leaning right to leaning left
+0082: From standing leaning right to crouched leaning right
+0083: From standing leaning right to crouched leaning right
+0084: Putting hand on right wall
+0085: Putting hand on right wall
+0086: Peaking around right corner idle
+0087: Peaking around right corner idle
+0088: Starting to peak around the right corner
+0089: Starting to peak around the right corner
+0090: Leaning right moving forward slightly
+0091: Leaning right moving forward slightly
+0092: Leaning right walking idle
+0093: Starting to walk leaning right
+0094: Starting to walk leaning right
+0095: Leaning right moving forward slightly(?)
+0096: Leaning right moving forward slightly(?)
+0097: Leaning right moving forward slightly(?)
+0098: Leaning right moving forward slightly(?)
+0099: Leaning right moving forward slightly(?)
+0100: Leaning right moving forward slightly(?)
+0101: Walking forward slowly leaning right idle
+0102: Starting to walk forward slowly leaning right
+0103: Starting to walk forward slowly leaning right
+0104: From leaning left to leaning right(?)
+0105: From leaning left to leaning right(?)
+0106: From leaning left turning around quickly
+0107: From leaning left turning around quickly
+0108: From leaning left to leaning right(?)
+0109: From leaning left to leaning right(?)
+0110: Leaning left moving forward slightly
+0111: Leaning left moving forward slightly
+0112: Leaning left walking idle
+0113: Starting to walk leaning left
+0114: Starting to walk leaning left
+0115: Leaning left moving forward slightly
+0116: Leaning left moving forward slightly
+0117: Leaning left moving forward slightly
+0118: Leaning left moving forward slightly
+0119: Leaning left walking forward slowly idle
+0120: Leaning left starting to walk forward slowly
+0121: Leaning left starting to walk forward slowly
+0122: Leaning left ready to throw something around the corner idle
+0123: Leaning left throwing something around the corner
+0124: Leaning left drawing something to throw around the corner
+0125: From leaning left to leaning right
+0126: Leaning left ready to throw something around the corner idle
+0127: Leaning left throwing something around the corner
+0128: Throwing something underhand around the left corner
+0129: Drawing something to throw around the left corner(?)
+0130: Putting something to throw away or drawing it (leaning left)
+0131: Ready to throw something around the left corner idle
+0132: Drawing something to throw around the left corner
+0133: Drawing something to throw around the left corner
+0134: Maybe fultoning something(?)
+0135: Dodging backwards around right corner (crouched)
+0136: Drawing gun around right corner (crouched)
+0137: Aiming a gun (crouched)
+0138: Dodging backwards around left corner (crouched)
+0139: Aiming a gun (crouched)
+0140: Aiming a gun (standing)
+0141: Dodging backwards around right corner (standing)
+0142: Turning right and aiming a gun (standing)
+0143: Aiming a gun (standing)
+0144: Dodgin backwards around left corner (standing)
+0145: Turning left and aiming a gun (standing)
+
+
+Raw MtarTool reference (2023-01-15)
+-----------------------------------
+
+0000_14e3fc0f3ec3b
+0001_888233633c55
+0002_291ec02247e15
+0003_15852cfdbcfca
+0004_644d2b542c47
+0005_2a711dab697b9
+0006_221bad747b6bc
+0007_7b9ae7d0a594
+0008_a8c078994d4d
+0009_b81080469c58
+0010_2dd5e20cb3bdc
+0011_13a9a247f558e
+0012_2f16d6bcc4c17
+0013_2915b2e0263e3
+0014_2063c470585d8
+0015_1f1e80dec361
+0016_8d5f418a0117
+0017_1ddbb875a6efc
+0018_1d525b0c4800c
+0019_142d99722ae8d
+0020_336260af79da0
+0021_25db56a67d4ed
+0022_29c18e4d52f87
+0023_2bef5a7eea5aa
+0024_26658102efaee
+0025_9a809cdf6ea5
+0026_36b3111a7f5dd
+0027_2d107007d1b33
+0028_3d91f33baf1e9
+0029_e28bef09fda0
+0030_2e95c0d7eb4ac
+0031_304e786b3b31e
+0032_3041515881fda
+0033_d595fcd9070c
+0034_20858c214a611
+0035_197f3f8eb4c32
+0036_117a100c4d9a5
+0037_19201c2b08881
+0038_2a9cae6565bea
+0039_26258d9775d86
+0040_65c70f48dbfc
+0041_18848570008ef
+0042_3d929efba1a8c
+0043_25f548d8d52d0
+0044_129f2551fb48
+0045_19146ae9d9867
+0046_13d7f819cd881
+0047_29e35a00f7867
+0048_20ec1db5893e0
+0049_2d343c1b17adb
+0050_3dc87a0c7fcdd
+0051_964a6cc28df0
+0052_b0c0ebdf0118
+0053_3d934a008b2c5
+0054_c0de49696fce
+0055_2e01a98b5ab28
+0056_1f9ce8f178849
+0057_3bdd3f40a6217
+0058_f1fd02df27c9
+0059_2f7e103ab8f5e
+0060_7f9a31afd363
+0061_31c0bbeea63b2
+0062_1661b4e79665f
+0063_1ec5e36f727f5
+0064_10dcf2ba7b0f7
+0065_357d35d1fe49f
+0066_13bf72bd4f7b9
+0067_16b7d7141c366
+0068_4c2ba53b6423
+0069_2daff472982fb
+0070_4f3bed498e78
+0071_1042e0bc1a5d2
+0072_139013fe11529
+0073_1eb6001b19d0d
+0074_fbb5301f0793
+0075_32aa106646b74
+0076_17c597a703085
+0077_16fad661b85cf
+0078_2a56132386a48
+0079_3ffa3a438c7bc
+0080_30ec0b392cd16
+0081_4323ed23aa69
+0082_1e5aa2ca5d3db
+0083_3b38156349e4c
+0084_c40d931f134e
+0085_2e6e2d04ddbc9
+0086_7ee70e2d9d6f
+0087_1ba0d67e1f049
+0088_367292044e1b9
+0089_39955eb16bb13
+0090_1216c3d6cae19
+0091_1dafca03f6b74
+0092_1856f36c8cd08
+0093_b2b5ecc082a8
+0094_16f49f47029ee
+0095_234477bbd4a8e
+0096_da72c753da62
+0097_38ee37680676f
+0098_e33889363e11
+0099_96045185a753
+0100_3cb860b2c2e69
+0101_efb986afa0aa
+0102_10929e33a3097
+0103_349d73a1eba4d
+0104_1329885645279
+0105_37923efbd3540
+0106_2fe9e472f3e0c
+0107_3ea4f18d6cee1
+0108_144e131a41933
+0109_efa23d9596c5
+0110_202d05b068679
+0111_6cc6e57a8e0e
+0112_1d98bb5de7eb0
+0113_1ae725a795e44
+0114_2f86f2e66a403
+0115_16622a6f7fd95
+0116_9f8b35c9f4ca
+0117_264d7c389b6d
+0118_189d49ca6d8c8
+0119_5da001e4850e
+0120_35468f0ecb1cf
+0121_370823d1fd6fa
+0122_2326da44450c3
+0123_210b6fb194b24
+0124_2ab7d37b0825
+0125_bd17668550ee
+0126_3ef9efcacbf8e
+0127_1aee1cccbb463
+0128_7e62b5677011
+0129_279f42988b2c7
+0130_24a5a167d1be
+0131_21f55be596d5c
+0132_15d7c3464c780
+0133_384bac4fabdfd
+0134_1aad0827e58f2
+0135_250c819291b9a
+0136_1e2b63c0f72d9
+0137_1aa3361e0fc94
+0138_eb79277eb27c
+0139_4a41577ca299
+0140_2b5c88f0a2192
+0141_1d1b7c16c3b24
+0142_3dbf185a3b303
+0143_3526d2c9e7c03
+0144_2e228a2e376f9
+0145_2f4a5bfea65e4

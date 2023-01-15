@@ -1,0 +1,257 @@
+Location
+--------
+
+chunk2.dat\Assets\tpp\pack\mission2\story\s10050\s10050_area.fpk
+    Assets\tpp\motion\mtar\bossquiet2\BossQuiet2_layers.mtar
+
+
+Descriptions
+------------
+
+0: Handcuffed on ground idle
+1: Fall to cuff position
+2: Being carried?
+3: Being picked up
+4 - 5: Lifted from ground
+6 - 7: Handcuffed on ground
+8: Fall to cuffed position
+9: Swing with knife
+10: Prone rechamber (unused)
+11: Prone idle
+12: Aim down on side
+13: Prone reload
+14: Roll backwards
+15: From ground to crouch
+16: Hitting ground on back
+17: Hurt on back idle
+18: Being fultoned
+19: Jumping to skydiver position
+20: Hitting ground on stomach
+21: Hitting ground and rolling
+22: Hanging from fulton
+23: Falling and landing on back
+24: Being picked up by fulton
+25: Adjusting aim while on back?
+26: Being hit while on back
+27: Knocked flat on back while on back
+28: Hit while on back
+29: Rechambering while on back
+30: On back idle
+31: Aiming down on side
+32: Aiming forward on side
+33: Reload on back
+34: Start sprinting?
+35: Start crouch-walking?
+36: Turn around and crouch-walk
+37: Turn and crouch-walk
+38: Turn around and crouch-walk
+39: Turn and crouch-walk
+40: Knocked backwards
+41: Landing on back
+42: Falling backwards idle
+43: Knocked backwards
+44: Adjusting sight while crouched
+45: From crouch to rain dance
+46: From rain dance to crouch
+47: Rain dance idle
+48: Crouched hit to aim?
+49: Hit while crouched
+50: Hit while crouched
+51: Hit while crouched
+52: Fall from crouched to back
+53: Fall backwards from crouch?
+54: Fall sideways from crouch
+55: Fall sideways from crouch
+56: Sprint idle
+57: From sprint to crouch
+58: Knocked down from standing
+59: Knocked down from standing
+60: Knocked sideways from standing
+61: Knocked sideways from standing
+62: From crouched to standing
+63: Crouched idle
+64: Jump down
+65: Land from jump
+66: Jump down
+67: Land from jump
+68: Jump up
+69: From jump to landing
+70: Jump down
+71: Landing?
+72: Jump up
+73: Crouched on hands to crouched aiming
+74: Shoulder rifle from crouch
+75: Rechamber while crouched
+76: Crouched idle
+77: Aim down while crouched
+78: Aim down while crouched
+79: Should rifle from on back
+80: Go prone and aim
+81: Lay on back and aim
+82: Lay on back and aim
+83: Reload while crouched
+84: Turn around and aim
+85: Turn around and aim
+86: Draw and aim sniper while crouched
+87: Turn and draw sniper while crouched
+88: Turn and draw sniper while crouched
+89: Turn and aim sniper while crouched
+90: Turn and aim sniper while crouched
+91: Crouch walk idle
+92: From crouch walk to crouch
+93: Crouch walk very slowly
+94: Being carried idle
+95: Being carried sprinting idle
+96: Being carried
+97: From standing to crouch
+98: Blocking melee?
+99: Dodging something?
+100: Dodging something?
+101: Dodging something?
+102: Jumping up/hurdling
+103: Dashing forward
+104: Dashing sideways
+105: Dahsing sideways
+106: Falling to back from standing
+107: Looking down while standing
+108: Standing idle
+109: Jumping straight up
+110: Fighting off knife attack? Possibly for use against skulls?
+111: Appears to be removing a blade from her chest?
+112: Swinging blade or knife, probably at skull
+113: Getting ready to swing blade
+114: Swinging blade
+115: Getting ready to swing blade
+116: Standing up straight
+117: Standing up straight
+118: Runway type walk
+119: Standing pose
+120: Turning to walk
+121: Turning to walk
+
+
+Raw MtarTool reference (2021-03-21)
+-----------------------------------
+
+0000_2ea6209ac5533
+0001_2c100e9d65576
+0002_333fbcc600385
+0003_2287386d30beb
+0004_115a46deb8201
+0005_431087b17e3d
+0006_18d3f6fc0a016
+0007_d192442128e6
+0008_a0fd32edeff3
+0009_367fa3a799ab1
+0010_2ad9e7cb8cbdd
+0011_23706289a5f49
+0012_341fbccb1c895
+0013_2e74bf0009027
+0014_1225084dd727a
+0015_274510d53ce5b
+0016_2af963a5a01c6
+0017_3df0cae3531bb
+0018_2dd1dfa8fd5cc
+0019_373cf0dca0ee5
+0020_1fc8627514514
+0021_9a9ec855544d
+0022_2a1081b6ad105
+0023_25136baf5bb68
+0024_27b309d682450
+0025_3ec2b5bdf9033
+0026_364a8cf6ed86c
+0027_26243d3bf507d
+0028_1b9e6827e1eb5
+0029_1551bbb1b699d
+0030_1da8386aa5476
+0031_2fbfa37b5a414
+0032_fd651e827402
+0033_111097996c33f
+0034_3dfd34b317b45
+0035_15f5161d319bc
+0036_fbd3949cff55
+0037_30b2c0f5f8181
+0038_2e7c62bfcc22d
+0039_3120b3b9c4c40
+0040_268b244d11337
+0041_1a2c408341eaf
+0042_734e2693ace7
+0043_1d1bfe5784456
+0044_35f98a176526a
+0045_833031eb82a7
+0046_9947041c024
+0047_20b11e7a7a63c
+0048_3089967304939
+0049_1edd59059f8ee
+0050_265a474044a18
+0051_3b34d3659c918
+0052_3fb3e793968fd
+0053_22d27cfc016e4
+0054_1fd2f37d1b6ca
+0055_2b93e1ef68456
+0056_177ff4abc5fd4
+0057_137d31468b7cf
+0058_21e5543596619
+0059_35408ca2a5cc
+0060_14ba11be9e5f7
+0061_20e99ede4ec49
+0062_94ee5410cafe
+0063_fd0bdc010352
+0064_128891a339b10
+0065_26752a3584b39
+0066_2e01e85ca9b0e
+0067_1a1da0299976f
+0068_2156da15fa90
+0069_50479968110
+0070_26f62fca4f36f
+0071_370e278ce089f
+0072_207afc0cddd91
+0073_3d5e624a97973
+0074_9c0c64baa9ab
+0075_217c7a91d48d8
+0076_3cc409b007e7d
+0077_212996967e6f2
+0078_df5a49156b49
+0079_15946f7ab812a
+0080_2a617569324
+0081_1df8146aaaf14
+0082_33398e0273bc4
+0083_2c14b1c800fe8
+0084_537478dcf8e4
+0085_3ef2770f12b58
+0086_1f3eab5b612f1
+0087_1cf19a238afdb
+0088_17e4368740a20
+0089_26e19b064ae80
+0090_a9948817f3c7
+0091_1984d2c4e4d30
+0092_39c9856906584
+0093_3ea9acb5fd65c
+0094_33ab4d2990c29
+0095_da75e58f8102
+0096_113f11f365c89
+0097_1bb026e92e748
+0098_3f39a58f1b647
+0099_396d1ba52ff47
+0100_1ceb2b89a5f98
+0101_401a2eef309b
+0102_3954183d33f9b
+0103_36d0b6f3d8460
+0104_175bc063dd965
+0105_1d415a4095953
+0106_34112a9c8fd51
+0107_c962d944e8df
+0108_1737b57b0a82d
+0109_2d192f6cebda5
+0110_315a0e4cbf214
+0111_29a337c458961
+0112_2797922fd471b
+0113_1ad50d1828b58
+0114_226dcfa449bce
+0115_2026ec3bffd22
+0116_15e02a9542405
+0117_37d112a0fa78e
+0118_364f67339b7b3
+0119_3b9d13b98d6c8
+0120_38d0b0ce6af5a
+0121_c42190d91784
