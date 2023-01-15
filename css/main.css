@@ -28,6 +28,7 @@
     --viewport-width: calc(100vw + var(--body-margin) * 2);
     --content-width: 700px;
     --sidenote-width: 184px;
+    --spoiler-margin: 5px;
     --font-family-global: sans-serif;
     --font-size-global: 15px;
     --font-size-code: 95%;
@@ -1123,12 +1124,12 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
 }
 
 .spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper {
-    padding: calc(var(--toggle-height) + var(--spacing-general)) 5px 0; /* slight padding on sides to look more gracefully aligned beneath toggle strip */
+    padding: calc(var(--toggle-height) + var(--spacing-general)) var(--spoiler-margin) 0; /* slight padding on sides to look more gracefully aligned beneath toggle strip */
 }
 
 h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper,
 .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper {
-    padding: calc(var(--toggle-height) + var(--spacing-general) - 8px) 5px 0; /* the '8px' top subtraction is to align the heading to the first child element as per non-spoilered headings */
+    padding: calc(var(--toggle-height) + var(--spacing-general) - 8px) var(--spoiler-margin) 0; /* the '8px' top subtraction is to align the heading to the first child element as per non-spoilered headings */
 }
 
 h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper,
@@ -1209,6 +1210,12 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
 
 .paginated-list-wrapper .paginated-page > ol {
     counter-reset: unset;
+}
+
+/* Match right-side margin for non-standalone lists */
+.paginated-list-wrapper .paginated-page > ol:not(.standalone),
+.paginated-list-wrapper .paginated-page > ul:not(.standalone) {
+    width: calc(100% - (var(--spacing-general) * 1.5));
 }
 
 /* Intended to prevent standalone child elements from being split by ol columns */
@@ -1306,6 +1313,18 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
     border-color: var(--color-unique);
 }
 
+/* Break out of padding within regular expandable spoilers to preserve existing width sizing */
+.spoiler-block.regular .paginated-wrapper {
+    width: calc(100% + (var(--spoiler-margin) * 2));
+    margin-left: calc(-1 * var(--spoiler-margin));
+}
+
+/* Match inner padding to align with content from regular expandable spoilers padding */
+.spoiler-block.regular .paginated-page {
+    padding-left: var(--spoiler-margin);
+    padding-right: var(--spoiler-margin);
+}
+
 
 /* ----------------------------- Tables ----------------------------- */
 
@@ -1316,12 +1335,12 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
     margin: var(--spacing-general) 0;
 }
 
-.table .centered {
-    justify-content: center;
+.table .center {
+    text-align: center;
 }
 
 .table .right {
-    justify-content: flex-end;
+    text-align: right;
 }
 
 .table .tr {
@@ -1333,15 +1352,28 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
 .table .th,
 .table .td {
     font-size: var(--font-size-small);
-    display: flex;
+    word-break: break-all;
+    overflow-wrap: break-word;
     flex: 1 1 0%;
-    flex-flow: row;
     padding: calc(var(--spacing-general) / 2) calc(var(--spacing-general) / 1.5);
     border-bottom: 1px solid var(--border-color);
 }
 
+.table.wider .th,
+.table.wider .td {
+    flex-basis: 20%;
+}
+
 .table .td + .td {
     border-left: 1px solid var(--border-color);
+}
+
+/* Disables absolute word-breaks for last cell (if only two cells total), or third onwards. Assumes last cell used for notes. */
+.table .th:nth-child(2):last-child,
+.table .td:nth-child(2):last-child,
+.table .th:nth-child(n+3),
+.table .td:nth-child(n+3) {
+    word-break: normal;
 }
 
 /* Last column can grow wider than first */
@@ -1353,6 +1385,10 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
 .table.bias-right-wider .th:last-child,
 .table.bias-right-wider .td:last-child {
     flex-grow: 3;
+}
+
+.table p:last-child {
+    margin-bottom: 0;
 }
 
 .table .td code,
@@ -1758,6 +1794,10 @@ span.key.graph.secondary::before {
     }
 
     /* Make bold text easier to distinguish on dark background */
+    .theme-toggle-checkbox:checked ~ .page b:not(.label):not(.highlight),
+    .theme-toggle-checkbox:checked ~ .page strong:not(.label):not(.highlight) {
+        filter: none;
+    }
     .theme-toggle-checkbox:not(:checked) ~ .page b:not(.label):not(.highlight),
     .theme-toggle-checkbox:not(:checked) ~ .page strong:not(.label):not(.highlight) {
         filter: brightness(1.05);
