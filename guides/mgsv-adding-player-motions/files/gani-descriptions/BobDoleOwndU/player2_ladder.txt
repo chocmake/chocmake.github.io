@@ -1,7 +1,7 @@
 Location
 --------
 
-chunk0.dat\Assets\tpp\pack\player\motion\player2_location_motion_fpk
+chunk0.dat\Assets\tpp\pack\player\motion\player2_location_motion.fpk
     Assets\tpp\motion\mtar\player2\player2_ladder.mtar
 
 
