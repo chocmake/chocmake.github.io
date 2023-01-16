@@ -8,7 +8,6 @@ chunk2.dat\Assets\tpp\pack\mission2\story\s10020\s10020_d04.fpk
 Descriptions
 ------------
 
-/Assets/tpp/motion/SI_game/fani/bodies/wmu0/wmu0/0049_wmu0_s_idl_a -- wandering puppets-like idle standing - loop
 0000 -- laying on back, arms and legs splayed, unconscious (static)
 0001 -- fulton ascending/zipping into sky
 0002 -- unbuckling parachute (?), descending with arms and legs outward - intro [clips through ground when played]
@@ -58,6 +57,7 @@ Descriptions
 0046 -- standing, bent over, arms limp, minor idle movement before stopping
 0047 -- transition from slightly haunched standing pose to bent over, arms lip
 0048 -- standing, then bends forward slightly to flex arm muscles to engage hardened armor, before resuming standing pose
+0049 -- wandering puppets-like idle standing - loop
 0050 -- wandering puppets-like standing state, head and torso tilt back, rotates body 45°, ends on off-center standing pose
 0051 -- standing pose at 45° angle - loop
 0052 -- standing pose at 45° angle, holding machete with arms down (static)
@@ -133,7 +133,6 @@ Descriptions
 Raw MtarTool reference (2023-01-07)
 -----------------------------------
 
-/Assets/tpp/motion/SI_game/fani/bodies/wmu0/wmu0/0049_wmu0_s_idl_a
 0000_21017ac2c8ddd
 0001_2c8bd51e581d0
 0002_3c08203181e01
@@ -183,6 +182,7 @@ Raw MtarTool reference (2023-01-07)
 0046_37faf7a3979a4
 0047_1670d2fe3f3e3
 0048_2fe0caa46ecad
+/Assets/tpp/motion/SI_game/fani/bodies/wmu0/wmu0/0049_wmu0_s_idl_a
 0050_3c6adc7494181
 0051_264df349a2c40
 0052_251bf7f7fcbe7
