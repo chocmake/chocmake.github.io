@@ -54,7 +54,7 @@
                     <strong class="label highlight version-toggle-default">Infinite Heaven version</strong>
                     <strong class="label highlight version-toggle-alternative">unknown321 version</strong>
                 </div>
-                <small class="date-edited">Last edited: <time datetime="2023-01-15"></time></small>
+                <small class="date-edited">Last edited: <time datetime="2023-01-16"></time></small>
                 <small class="caption">Animation seen above: <code>35ac42b3641df.gani</code> from <code>player2_resident.mtar</code>. One such motion that when triggered allows moving through the air and walls.</small>
             </div>
 
@@ -1628,17 +1628,25 @@
 
                                     <p>This tells us that the filename of the GANI was <code>58e0b4d37ba8.gani</code>, as of the date listed that MtarTool unpacked it. MtarTool then added the <code>0017_</code> prefix since it was generated with the internal order number setting enabled.</p>
 
-                                    <p>So if you extracted the same MTAR yourself for use in a custom motions mod you can then find the GANI being described in the notes, assuming MtarTool's dictionary has remained the same.</p>
+                                    <p>So if you extracted the same MTAR yourself for use in a custom motions mod, or perhaps some animation swap mod, you can then find the GANI being described in the notes, assuming MtarTool's dictionary has remained the same.</p>
 
                                     <div class="tip">If MtarTool's dictionary should change, which would happen if the community discovers more non-hashed GANI paths, then you can follow the <i>Generating MTAR numbers for your own notes</i> expandable section below.</div>
 
                                     <hr class="subsection"/>
 
-                                    <p>As an extended example of how this can be used, if you followed the guide above and used the suggested custom MTAR name, the full path to that GANI would be the path below, which we could then use <span class="version-toggle-default">to point Infinite Heaven to (as described in step 3 of <a href="#configuration">this section</a>)</span> <span class="version-toggle-alternative">in step 4 of <a href="#configuration">this section</a></span>:</p>
+                                    <p>As an alternative example of how this can be applicable, if you're using someone else's custom MTAR that was made by following the guide above and using the suggested custom MTAR name, the full path to that GANI would be as below, which we could then use <span class="version-toggle-default">to point Infinite Heaven to (as described in step 3 of <a href="#configuration">this section</a>)</span> <span class="version-toggle-alternative">in step 4 of <a href="#configuration">this section</a></span>:</p>
 
                                     <pre>/Assets/tpp/BuddyQuiet2_heli/58e0b4d37ba8.gani</pre>
 
-                                    <div class="note highlight">If you're instead using someone else's mod then they may have named their custom MTAR something different (and may also be using completely custom GANI filenames), so it's best to check with the mod author in such cases to find what their path naming is.</div>
+                                    <small class="caption">The guide suggests using the MTAR's name as the parent directory for hashed GANI.</small>
+
+                                    <p>In contrast, here's an example of a non-hashed GANI path from the <span class="version-toggle-default">guide's template file</span><span class="version-toggle-alternative">template file in the Infinite Heaven version of the guide</span>:</p>
+
+                                    <pre>/Assets/tpp/motion/SI_game/fani/bodies/enet/enetnon/enetnon_ful_idl.gani</pre>
+
+                                    <small class="caption">I like to add non-hashed GANI directly to the root of <code>/Assets/tpp</code>, since MtarTool already has the path in its vanilla dictionary. It's just personal preference though.</small>
+
+                                    <div class="note highlight">Keep in mind if you're using someone else's mod they may be using a different path structure/naming (and even custom GANI filenames), so it's best to check with the mod author in such cases to find how they named their paths if they lack a full list of motions included.</div>
                                 </div>
                             </div>
                         </div>
