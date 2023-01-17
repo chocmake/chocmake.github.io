@@ -452,10 +452,17 @@
                                         <li>
                                             <p>Open the unpacked MTAR directory and within it open <code>Assets\tpp</code>. There create a directory named <code>BuddyQuiet2_heli</code>.</p>
 
-                                            <div class="tip">
-                                                <p>This is a custom named directory. You could give it a different name and even place it within more custom sub-directories if you wanted (just has to always begin inside <code>Assets\tpp</code>).</p>
-                                                <p>So long the name is limited to upper/lowercase, numbers and underscores (no spaces).</p>
-                                                <p>I've found it useful though to name it after the MTAR the GANI came from so that's what this guide uses.</p>
+                                            <div class="spoiler-block regular">
+                                                <input class="spoiler-checkbox" type="checkbox"/>
+                                                <div class="spoiler-content-wrapper" alt="More about custom directories">
+                                                    <div class="spoiler-content">
+                                                        <p>The above is a suggested directory name but you could alternatively give it a different name and even place it within more custom sub-directories if you wanted (it just has to always begin inside <code>Assets\tpp</code>).</p>
+
+                                                        <p>I've just found it useful and consistent to name it after the MTAR the GANI came from so that's what this guide uses.</p>
+
+                                                        <div class="note">Filenames in MGSV are limited to upper/lowercase, numbers and underscores (no spaces)</div>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div class="note">You'll also notice a <code>motion</code> directory already there. It contains a single fulton GANI to keep the template small. See it in action beneath the Credits section.</div>
@@ -522,9 +529,26 @@
 
                                     <hr class="subsection"/>
 
-                                    <div class="note highlight">For future reference step 6 is only necessary if the GANI have <em>hashed</em> filenames, like the ones we're adding in this guide.</div>
+                                    <div class="spoiler-block regular">
+                                        <input class="spoiler-checkbox" type="checkbox"/>
+                                        <div class="spoiler-content-wrapper" alt="(Advanced tip) More about the MtarTool dictionary">
+                                            <div class="spoiler-content">
+                                                <p>For future reference adding the entries to MtarTool's dictionary is only necessary if either the GANI have hashed filenames <em>or</em> if they were originally non-hashed but have been added to non-original custom directories.</p>
 
-                                    <div class="tip">Hashed filenames are easy to spot since they look random, eg: <code>1c22467fb6de7</code> (hashed) vs <code>enetnon_ful_idl</code> (non-hashed). Non-hashed GANI are already in MtarTool's dictionary.</div>
+                                                <div class="tip">Hashed filenames are easy to spot since when unpacked they look random and aren't in any sub-directories, eg: <code>1fcae14e60d2d.gani</code>.</div>
+
+                                                <p>For example, the following is the system path of the fulton swaying motion included in the template file, which is non-hashed. Since it was placed in the same directory structure nothing was needed to be added to MtarTool's dictionary.</p>
+
+                                                <pre>Assets\tpp\motion\SI_game\fani\bodies\enet\enetnon\enetnon_ful_idl.gani</pre>
+
+                                                However if the motion were instead added to <code>Assets\tpp\MyCustomPath</code>, like the following then it <em>would</em> need to be added to MtarTool's dictionary, otherwise when the custom MTAR is packed the path won't work when referenced in the following section.
+
+                                                <pre>Assets\tpp\MyCustomPath\Assets\tpp\motion\SI_game\fani\bodies\enet\enetnon\enetnon_ful_idl.gani</pre>
+
+                                                <small class="caption">When added to MtarTool's dictionary the path would have to be reformatted with forwardslashes instead (including one before <code>Assets</code>) and without the <code>.gani</code> at the end, as per the example excerpt in step 6a.</small>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="paginated-page">
                                     <ol class="standalone split">
@@ -603,10 +627,17 @@
                                         <li>
                                             <p>Open the unpacked MTAR directory and within it open <code>Assets\tpp</code>. There create a directory named <code>BuddyQuiet2_heli</code>.</p>
 
-                                            <div class="tip">
-                                                <p>This is a custom named directory. You could give it a different name and even place it within more custom sub-directories if you wanted (just has to always begin inside <code>Assets\tpp</code>).</p>
-                                                <p>So long the name is limited to upper/lowercase, numbers and underscores (no spaces).</p>
-                                                <p>I've found it useful though to name it after the MTAR the GANI came from so that's what this guide uses.</p>
+                                            <div class="spoiler-block regular">
+                                                <input class="spoiler-checkbox" type="checkbox"/>
+                                                <div class="spoiler-content-wrapper" alt="More about custom directories">
+                                                    <div class="spoiler-content">
+                                                        <p>The above is a suggested directory name but you could alternatively give it a different name and even place it within more custom sub-directories if you wanted (it just has to always begin inside <code>Assets\tpp</code>).</p>
+
+                                                        <p>I've just found it useful and consistent to name it after the MTAR the GANI came from so that's what this guide uses.</p>
+
+                                                        <div class="note">Filenames in MGSV are limited to upper/lowercase, numbers and underscores (no spaces)</div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </li>
                                         <li>
@@ -671,9 +702,26 @@
 
                                     <hr class="subsection"/>
 
-                                    <div class="note highlight">For future reference step 7 is only necessary if the GANI have <em>hashed</em> filenames, like the ones we're adding in this guide.</div>
+                                    <div class="spoiler-block regular">
+                                        <input class="spoiler-checkbox" type="checkbox"/>
+                                        <div class="spoiler-content-wrapper" alt="(Advanced tip) More about the MtarTool dictionary">
+                                            <div class="spoiler-content">
+                                                <p>For future reference adding the entries to MtarTool's dictionary is only necessary if either the GANI have hashed filenames <em>or</em> if they were originally non-hashed but have been added to non-original custom directories.</p>
 
-                                    <div class="tip">Hashed filenames are easy to spot since they look random, eg: <code>1c22467fb6de7</code> (hashed) vs <code>enetnon_ful_idl</code> (non-hashed). Non-hashed GANI are already in MtarTool's dictionary.</div>
+                                                <div class="tip">Hashed filenames are easy to spot since when unpacked they look random and aren't in any sub-directories, eg: <code>1fcae14e60d2d.gani</code>.</div>
+
+                                                <p>For example, the following is the system path of the fulton swaying motion from <code>mgoplayer_resident.mtar</code>, which is non-hashed. If placed in the same directory structure then nothing would need to be added to MtarTool's dictionary.</p>
+
+                                                <pre>Assets\tpp\motion\SI_game\fani\bodies\enet\enetnon\enetnon_ful_idl.gani</pre>
+
+                                                However if the motion were instead added to <code>Assets\tpp\MyCustomPath</code>, like the following then it <em>would</em> need to be added to MtarTool's dictionary, otherwise when the custom MTAR is packed the path won't work when referenced in the following section.
+
+                                                <pre>Assets\tpp\MyCustomPath\Assets\tpp\motion\SI_game\fani\bodies\enet\enetnon\enetnon_ful_idl.gani</pre>
+
+                                                <small class="caption">When added to MtarTool's dictionary the path would have to be reformatted with forwardslashes instead (including one before <code>Assets</code>) and without the <code>.gani</code> at the end, as per the example excerpt in step 7a.</small>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="paginated-page">
                                     <ol class="standalone split">
@@ -1638,13 +1686,13 @@
 
                                     <pre>/Assets/tpp/BuddyQuiet2_heli/58e0b4d37ba8.gani</pre>
 
-                                    <small class="caption">The guide suggests using the MTAR's name as the parent directory for hashed GANI.</small>
+                                    <small class="caption">The guide suggests using the MTAR's name as the parent directory since the GANI used are hashed and it keeps them in a recognizable location.</small>
 
                                     <p>In contrast, here's an example of a non-hashed GANI path from the <span class="version-toggle-default">guide's template file</span><span class="version-toggle-alternative">template file in the Infinite Heaven version of the guide</span>:</p>
 
                                     <pre>/Assets/tpp/motion/SI_game/fani/bodies/enet/enetnon/enetnon_ful_idl.gani</pre>
 
-                                    <small class="caption">I like to add non-hashed GANI directly to the root of <code>/Assets/tpp</code>, since MtarTool already has the path in its vanilla dictionary. It's just personal preference though.</small>
+                                    <small class="caption">Here the non-hashed GANI was added directly to the root of <code>/Assets/tpp</code>, which is useful since MtarTool already has the path in its vanilla dictionary. However it's all just arbitrary preference.</small>
 
                                     <div class="note highlight">Keep in mind if you're using someone else's mod they may be using a different path structure/naming (and even custom GANI filenames), so it's best to check with the mod author in such cases to find how they named their paths if they lack a full list of motions included.</div>
                                 </div>
