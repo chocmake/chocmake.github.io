@@ -1598,6 +1598,17 @@ span.key.graph.secondary::before {
     margin-right: calc(var(--spacing-general) * 2);
 }
 
+.home .section-entries.split .section-entry {
+    display: block; /* prevents Firefox splitting/wrapping mid-element */
+}
+
+/* Place pseudo element after final odd item to force even number of items in first column */
+.home .section-entries.split .section-entry:nth-child(odd):last-child::after {
+    height: calc(var(--spacing-general) * 2);
+    content: '';
+    display: block;
+}
+
 .home .section-entries.split .section-entry .details {
     width: 100%;
 }
@@ -1880,6 +1891,11 @@ span.key.graph.secondary::before {
 
     .home .header {
         margin-bottom: inherit;
+    }
+
+    /* Hide pseudo element for odd number of split column items */
+    .home .section-entries.split .section-entry:nth-child(odd):last-child::after {
+        display: none;
     }
 
 }
