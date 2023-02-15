@@ -1599,12 +1599,13 @@ span.key.graph.secondary::before {
 }
 
 .home .section-entries.split .section-entry {
-    display: block; /* prevents Firefox splitting/wrapping mid-element */
+    overflow: hidden; /* prevents Firefox splitting/wrapping mid-element when `page-break-inside: avoid` set */
 }
 
-/* Place pseudo element after final odd item to force even number of items in first column */
-.home .section-entries.split .section-entry:nth-child(odd):last-child::after {
-    height: calc(var(--spacing-general) * 2);
+/* Pseudo element after final odd item to force even number of items in first column. Only within a certain threshold of height difference though. */
+.home .section-entries.split .section-entry:nth-child(odd):last-child:not(:only-child)::after {
+    width: 100%;
+    height: calc(var(--spacing-general) * 10);
     content: '';
     display: block;
 }
@@ -1894,7 +1895,7 @@ span.key.graph.secondary::before {
     }
 
     /* Hide pseudo element for odd number of split column items */
-    .home .section-entries.split .section-entry:nth-child(odd):last-child::after {
+    .home .section-entries.split .section-entry:nth-child(odd):last-child:not(:only-child)::after {
         display: none;
     }
 
