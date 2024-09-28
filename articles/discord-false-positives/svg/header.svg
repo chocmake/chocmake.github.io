@@ -1189,6 +1189,10 @@
                 --header-margin: 100px;
             }
 
+            .webkit-only-raster {
+                transform: translateY(calc(-1 * var(--header-margin)));
+            }
+
             .sticker {
                 --scale: 0.8;
                 /*transition: transform 150ms;*/ /* This would be a nice touch for dynamic viewport width shifts but on Firefox it also triggers any time the page reloads, unlike Chromium, so I've left it disabled. */
@@ -1265,6 +1269,7 @@
             }
 
         }
+
 
     ]]></style>
 
@@ -1356,7 +1361,7 @@
     <g class="center">
         <g class="stickers-wrapper">
             <g class="sticker-keycap sticker-hover">
-                <use class="sticker"        xlink:href="#stickers-keycap"/>
+                <use class="sticker" xlink:href="#stickers-keycap"/>
             </g>
             <g class="sticker-borpa sticker-hover">
                 <use class="sticker" xlink:href="#stickers-borpa"/>
@@ -1376,6 +1381,11 @@
         </g>
     </g>
 
+    <svg x="50%" y="50%" class="webkit-only-raster-wrapper">
+        <g class="webkit-only-raster">
+        </g>
+    </svg>
+
     <!-- Remove 'choc-present' illustration post intro animation to save perf (particularly in Firefox, as even when invisible it still contributes to the usage) -->
     <script type="text/javascript"><![CDATA[
         const choc = document.querySelector('.choc-present');
@@ -1385,6 +1395,26 @@
                 if (event.currentTarget !== event.target) return;
                 choc.remove();
             }, false);
+        }
+
+        // Last minute Webkit changes
+        // After testing live Webkit's SVG compatibility for these is so terribad/buggy I have to swap out the SVGs for a static raster
+
+        if (engine == 'WebKit') {
+            const main = document.querySelector('#main-graphic'),
+                  stickers = document.querySelector('.stickers-wrapper'),
+                  wkonly = document.querySelector('.webkit-only-raster');
+
+            main.remove();
+            stickers.remove();
+
+            let el = document.createElementNS("http://www.w3.org/2000/svg", 'image');
+            el.setAttribute('href','header-webkit.png'); // inexplicably using `xlink:href` fails to render when added via JS but SVG 2's `href` syntax does
+            el.setAttribute ('width','1796px');
+            el.setAttribute('height','653px');
+            el.setAttribute('transform','translate(-898 -326)');
+            el.classList.add('wkonly-image');
+            wkonly.appendChild(el)
         }
 
     ]]></script>

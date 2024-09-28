@@ -354,21 +354,54 @@
     <!-- <rect width="100%" height="100%" fill="lightblue"/> -->
 
 
-    <rect class="background" width="100%" height="100%"/>
-    <rect class="graphic" width="100%" height="100%" mask="url(#background-mask)"/>
+    <g id="main-graphic">
+        <rect class="background" width="100%" height="100%"/>
+        <rect class="graphic" width="100%" height="100%" mask="url(#background-mask)"/>
 
 
-    <g class="text-container">
-        <foreignObject width="100%" height="100%">
-            <body xmlns="http://www.w3.org/1999/xhtml">
-                <div class="text">
-                    <p><b class="t1"><i>T</i></b><b class="w"><i>w</i></b><b class="o1"><i>o</i></b> <b class="m"><i>M</i></b><b class="o2"><i>o</i></b><b class="n2"><i>n</i></b><b class="t2"><i>t</i></b><b class="h"><i>h</i></b><b class="s"><i>s</i></b>
-                    <br/>
-                    <b class="l"><i>L</i></b><b class="a"><i>a</i></b><b class="t3"><i>t</i></b><b class="e2"><i>e</i></b><b class="r"><i>r</i></b><b class="ell1"><i>.</i></b><b class="ell2"><i>.</i></b><b class="ell3"><i>.</i></b></p>
-                </div>
-            </body>
-        </foreignObject>
+        <g class="text-container">
+            <foreignObject width="100%" height="100%">
+                <body xmlns="http://www.w3.org/1999/xhtml">
+                    <div class="text">
+                        <p><b class="t1"><i>T</i></b><b class="w"><i>w</i></b><b class="o1"><i>o</i></b> <b class="m"><i>M</i></b><b class="o2"><i>o</i></b><b class="n2"><i>n</i></b><b class="t2"><i>t</i></b><b class="h"><i>h</i></b><b class="s"><i>s</i></b>
+                        <br/>
+                        <b class="l"><i>L</i></b><b class="a"><i>a</i></b><b class="t3"><i>t</i></b><b class="e2"><i>e</i></b><b class="r"><i>r</i></b><b class="ell1"><i>.</i></b><b class="ell2"><i>.</i></b><b class="ell3"><i>.</i></b></p>
+                    </div>
+                </body>
+            </foreignObject>
+        </g>
     </g>
+
+    <svg x="50%" y="50%" class="webkit-only-raster-wrapper">
+        <g class="webkit-only-raster">
+        </g>
+    </svg>
+
+    <script xlink:href="/js/ua-parser.js" type="text/javascript"/>
+    <script type="text/javascript"><![CDATA[
+        // Last minute Webkit changes
+        // After testing live Webkit's SVG compatibility for these is so terribad/buggy I have to swap out the SVGs for a static raster
+
+        const uaRaw = window.navigator.userAgent,
+        ua = new UAParser(uaRaw),
+        engine = ua.getEngine().name;
+
+        if (engine == 'WebKit') {
+            const main = document.querySelector('#main-graphic'),
+                  wkonly = document.querySelector('.webkit-only-raster');
+
+            main.remove();
+
+            let el = document.createElementNS("http://www.w3.org/2000/svg", 'image');
+            el.setAttribute('href','time-card-webkit.png');
+            el.setAttribute ('width','700px');
+            el.setAttribute('height','300px');
+            el.setAttribute('transform','translate(-350 -150)');
+            el.classList.add('wkonly-image');
+            wkonly.appendChild(el)
+        }
+
+    ]]></script>
 
 
 </svg>

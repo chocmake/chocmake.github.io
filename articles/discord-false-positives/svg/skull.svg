@@ -591,14 +591,42 @@
     ]]></script>
 
     <g id="thumbnail">
-        <rect width="100%" height="100%" class="ground-fill" mask="url(#ground-mask)"/>
+        <g id="main-graphic">
+            <rect width="100%" height="100%" class="ground-fill" mask="url(#ground-mask)"/>
 
-        <g mask="url(#hole-mask)">
-            <rect width="100%" height="100%" class="spirit-fill" mask="url(#spirit-mask)"/>
+            <g mask="url(#hole-mask)">
+                <rect width="100%" height="100%" class="spirit-fill" mask="url(#spirit-mask)"/>
+            </g>
+
+            <use xlink:href="#head-bottom" class="head-bottom"/>
+            <use xlink:href="#head-top" class="head-top"/>
         </g>
 
-        <use xlink:href="#head-bottom" class="head-bottom"/>
-        <use xlink:href="#head-top" class="head-top"/>
+        <svg x="50%" y="50%" class="webkit-only-raster-wrapper">
+            <g class="webkit-only-raster">
+            </g>
+        </svg>
     </g>
+
+    <script type="text/javascript"><![CDATA[
+        // Last minute Webkit changes
+        // After testing live Webkit's SVG compatibility for these is so terribad/buggy I have to swap out the SVGs for a static raster
+
+        if (engine == 'WebKit') {
+            const main = document.querySelector('#main-graphic'),
+                  wkonly = document.querySelector('.webkit-only-raster');
+
+            main.remove();
+
+            let el = document.createElementNS("http://www.w3.org/2000/svg", 'image');
+            el.setAttribute('href','skull-webkit.png');
+            el.setAttribute ('width','210px');
+            el.setAttribute('height','258px');
+            el.setAttribute('transform','translate(-105 -129)');
+            el.classList.add('wkonly-image');
+            wkonly.appendChild(el)
+        }
+
+    ]]></script>
 
 </svg>
