@@ -1432,7 +1432,7 @@
 
             function centerContainer() {
                 const { width: viewportWidth, height: viewportHeight } = getViewportDimensions();
-                container.setAttribute('x',(viewportWidth / 2) + 'px');
+                container.setAttribute('x',viewportWidth + 'px');
             }
 
             window.addEventListener('load', centerContainer);
