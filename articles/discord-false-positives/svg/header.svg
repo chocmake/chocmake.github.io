@@ -1382,9 +1382,11 @@
     </g>
 
     <svg x="50%">
-        <svg y="50%" class="webkit-only-raster-wrapper">
-            <g class="webkit-only-raster" style="transform: translate(-898px,-326px)">
-            </g>
+        <svg x="-50%">
+            <svg y="50%" class="webkit-only-raster-wrapper">
+                <g class="webkit-only-raster" style="transform: translate(-898px,-326px)">
+                </g>
+            </svg>
         </svg>
     </svg>
 
