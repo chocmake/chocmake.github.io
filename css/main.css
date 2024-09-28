@@ -37,6 +37,7 @@
     --spacing-general: 16px;
     --column-gap: calc(var(--spacing-general) * 2);
     --heading-primary-margin-bottom: 50px;
+    --target-spacing-top: 30px; /* static so Javascript can also more easily read it */
     --border-radius: 3px;
     --border-radius-circle: 30px;
     --rounding: 4.9406564584124654e-324;
@@ -70,6 +71,14 @@
     --dark-color-selection-fg: hsl(218,22%,73%);
     --dark-border-color: hsl(218,11%,23%);
     --dark-border-color-thin: var(--dark-border-color);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html.no-js {
+    scroll-behavior: auto; /* due to how the expansion of spoiler blocks changes the page length the scroll jump position can become incorrect if set to 'smooth', since there's no extra handling by Javascript */
 }
 
 body {
@@ -127,9 +136,9 @@ h2, h3  {
     z-index: 2;
 }
 
-.guide h2,
-.guide h3 {
-    pointer-events: none; /* so that expandable spoiler checkbox takes precidence */
+.article h2,
+.article h3 {
+    pointer-events: none; /* so that expandable spoiler checkbox takes precedence */
 }
 
 .home h3,
@@ -138,12 +147,12 @@ h2 {
     letter-spacing: -0.02em;
 }
 
-/* Viewport top margin for fragment links */
+/* Viewport top margin for fragment links. Not jumpy when paired with non-JS expanding spoielrs, unlike the alternative `scroll-margin-top` ime. */
 h2:target::before {
-    height: 30px;
+    height: var(--target-spacing-top);
     content: '';
     display: block;
-    margin-top: -30px;
+    margin-top: calc(-1 * var(--target-spacing-top));
 }
 
 h2.table-of-contents,
@@ -153,8 +162,7 @@ h3 {
 
 p + h2, p + h3,
 small + h2, small + h3,
-.note + h2, .note + h3,
-.tip + h2, .tip + h3 {
+.note + h2, .note + h3 {
     margin-top: calc(var(--spacing-general) * 1.5); /* additional spacing when directly beneath other block text */
 }
 
@@ -252,8 +260,9 @@ blockquote {
 }
 
 pre[alt]::before,
-.note::before,
-.tip::before {
+div.note p:first-of-type::before,
+p.note::before,
+small.note::before {
     letter-spacing: 0.02em;
     text-transform: uppercase;
     line-height: 0;
@@ -300,16 +309,13 @@ object {
 .content video {
     display: block;
     margin: 0 auto calc(var(--spacing-general) * 2);
+    border-radius: var(--border-radius);
 }
 
 .content img,
 .content object:not(.full-width):not(.full-viewport),
 .content video {
     max-width: 100%;
-}
-
-.content video {
-    border-radius: var(--border-radius);
 }
 
 .content video:focus {
@@ -321,10 +327,39 @@ object {
     /* To compensate for Chromium's SVG alpha mask alignment issue (where depending whether a raster sprite inside an SVG has odd/even frame widths the edges will flicker if the viewport has a non-odd/even width, respectively). */
     /* Requires SVG sprite to have even number frame width and the HTML container element to have an initial even width (subsequent viewport scaling rounding handled by the calc below). */
     --width: var(--content-width);
-    --max-width: var(--content-width-formatted);
+    --max-width: calc(var(--content-width-formatted) + var(--spacing-general));
     width: var(--width);
     /* Rounds max-width to even whole numbers. Doesn't fix it appearing on zoom scaling however. Doesn't work with percentage inputs only viewport/pixel units. */
     max-width: calc((((var(--max-width) * var(--rounding) / var(--rounding)) / 2) * var(--rounding) / var(--rounding)) * 2);
+}
+
+/* Using visibility instead of display since there's no method of restoring original display value */
+.version-toggle-checkbox:checked ~ .page .version-toggle-default,
+.version-toggle-checkbox ~ .page .version-toggle-alternative,
+.webkit-only,
+.is-webkit .non-webkit-only,
+html:not(.no-js) .no-js-only {
+    visibility: hidden !important;
+    position: absolute !important;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.version-toggle-checkbox:checked ~ .page .version-toggle-alternative,
+.is-webkit .webkit-only,
+html:not(.is-webkit) .non-webkit-only,
+.no-js .no-js-only {
+    visibility: visible !important;
+    position: inherit !important;
+    pointer-events: inherit;
+    -webkit-user-select: inherit;
+    user-select: inherit;
+}
+
+/* Class addable via JS on elements to pause CSS animations until class removed. To be used when there's a risk of animation desync between SVGs and parent page animations that require sync (eg: `.header-custom-color-anim`) */
+.svg-loading * {
+    animation-play-state: paused !important;
 }
 
 
@@ -428,8 +463,7 @@ ul:not(.downloads):not(.graph) li:not(.fragment-link):not(.credit).key.diamond::
     top: 7.5px;
 }
 
-.note span.key.diamond::before,
-.tip span.key.diamond::before {
+.note span.key.diamond::before {
     opacity: 0.75; /* for even color */
 }
 
@@ -570,45 +604,47 @@ ul.downloads li a::after {
     column-gap: var(--column-gap);
 }
 
-.note,
-.tip {
+.note {
     color: var(--color-secondary);
+    break-inside: avoid;
     padding: var(--spacing-general);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     margin: var(--spacing-general) 0;
 }
 
-.note::before,
-.tip::before {
+div.note p:first-of-type::before,
+p.note::before,
+small.note::before {
     font-size: var(--font-size-micro);
     content: 'Note';
+    display: inline-block;
     margin-right: 5px;
     position: relative;
     top: -1px;
 }
 
-.tip::before {
+small.note::before {
+    /* Reverse recursive scaling */
+    font-size: calc(var(--font-size-small) * 0.9);
+    letter-spacing: 0.08em;
+}
+
+div.note.tip p:first-of-type::before,
+p.note.tip::before,
+small.note.tip::before {
     content: 'Tip';
 }
 
+div.note p[data-label]:first-of-type::before, /* since child elements can't inherit the parent's attributes for this purpose the attribute has to instead be defined on the paragraph child itself */
+p.note[data-label]::before,
+small.note[data-label]::before {
+    content: attr(data-label);
+}
+
 .note p:last-of-type,
-.tip p:last-of-type {
+.note ul:last-child {
     margin-bottom: 0;
-}
-
-/* To make pseudo-element text appear inline. Used instead of absolute positioning the pseudo-elements since text usually isn't wrapped in paragraph elements, although the margin-left offsets below vary slightly based on the font. */
-.note p:first-of-type,
-.tip p:first-of-type {
-    margin-top: calc(-1 * var(--spacing-general) - 3px);
-}
-
-.note p:first-of-type:first-letter {
-    margin-left: 43px;
-}
-
-.tip p:first-of-type:first-letter {
-    margin-left: 31px;
 }
 
 span.highlight,
@@ -617,8 +653,9 @@ em.highlight {
     color: var(--color-unique);
 }
 
-.note.highlight::before,
-.tip.highlight::before {
+div.note.highlight p:first-of-type::before,
+p.note.highlight::before,
+small.note.highlight::before {
     background: var(--color-unique);
     color: var(--page-background);
     border-color: var(--color-unique);
@@ -743,6 +780,7 @@ em.highlight {
     color: var(--dark-color);
 }
 
+.theme-toggle-checked .page::before, /* class added via JS to mitigate some FOUC between navigating pages */
 .theme-toggle-checkbox:checked ~ .page::before {
     background: var(--dark-page-background);
 }
@@ -751,24 +789,6 @@ em.highlight {
 .theme-toggle-checkbox:checked ~ .page b:not(.label):not(.highlight),
 .theme-toggle-checkbox:checked ~ .page strong:not(.label):not(.highlight) {
     filter: brightness(1.05);
-}
-
-/* Using visibility instead of display since there's no method of restoring original display value */
-.version-toggle-checkbox:checked ~ .page .version-toggle-default,
-.version-toggle-checkbox ~ .page .version-toggle-alternative {
-    visibility: hidden;
-    position: absolute;
-    pointer-events: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-.version-toggle-checkbox:checked ~ .page .version-toggle-alternative {
-    visibility: visible;
-    position: inherit;
-    pointer-events: inherit;
-    -webkit-user-select: inherit;
-    user-select: inherit;
 }
 
 .version-toggle-checkbox:checked ~ .page li.version-toggle-alternative {
@@ -803,11 +823,25 @@ div.version-toggle-alternative > .spoiler-block.section {
     padding-top: var(--margin);
     margin: 0 auto calc(var(--margin) + 5px);
     position: relative;
+    z-index: 2;
 }
 
 .home .header {
     margin-bottom: 80px;
 }
+
+.header-custom-color:not(.header-custom-color-anim) .header {
+    color: var(--header-custom-color); /* defined via root html inline style */
+}
+
+.header-custom-color.header-custom-color-anim .header {
+    animation: anim-header-custom-color-root 0.01s var(--header-custom-color-anim-delay) linear forwards;
+}
+
+    @keyframes anim-header-custom-color-root {
+        0%   { color: inherit; }
+        100% { color: var(--header-custom-color); }
+    }
 
 .header .breadcrumbs {
     position: relative;
@@ -823,6 +857,7 @@ div.version-toggle-alternative > .spoiler-block.section {
 }
 
 .header .breadcrumbs a + a::before {
+    --custom-arrow-opacity: 0.7;
     content: '→';
     color: var(--color-secondary);
     text-decoration: none;
@@ -831,6 +866,21 @@ div.version-toggle-alternative > .spoiler-block.section {
     left: -21px;
     pointer-events: none;
 }
+
+.header-custom-color:not(.header-custom-color-anim) .header .breadcrumbs a + a::before {
+    color: var(--header-custom-color);
+    opacity: var(--custom-arrow-opacity);
+}
+
+/* This custom `html` level class allows for a primary heading graphic that begins with an SVG animation without a solid background behind the header (problematic if the custom color is similar to one of the site theme backgrounds), allowing it to switch instantly to the custom color only after a specified delay (defined via `--header-custom-color-anim-delay` inline style value). */
+.header-custom-color.header-custom-color-anim:not(.svg-loading) .header .breadcrumbs a + a::before {
+    animation: anim-header-custom-color-arrow 0.01s var(--header-custom-color-anim-delay) linear forwards;
+}
+
+    @keyframes anim-header-custom-color-arrow {
+        0%   { color: inherit; opacity: inherit; }
+        100% { color: var(--header-custom-color); opacity: var(--custom-arrow-opacity); }
+    }
 
 .header .user-settings {
     display: flex;
@@ -849,6 +899,9 @@ div.version-toggle-alternative > .spoiler-block.section {
 
 .user-setting-button::before,
 .user-setting-button::after {
+    --custom-background: none;
+    --custom-box-shadow: 0 0 0 1px var(--header-custom-color);
+    --custom-opacity: 0.5;
     width: 40px;
     height: 20px;
     background: var(--color-code);
@@ -860,6 +913,7 @@ div.version-toggle-alternative > .spoiler-block.section {
 }
 
 .user-setting-button::after {
+    --custom-box-shadow: inset 0 0 0 1px var(--header-custom-color);
     --size: 16px;
     width: var(--size);
     height: var(--size);
@@ -869,15 +923,50 @@ div.version-toggle-alternative > .spoiler-block.section {
     transition: background 150ms, right 150ms;
 }
 
+.header-custom-color:not(.header-custom-color-anim) .user-setting-button::before,
+.header-custom-color:not(.header-custom-color-anim) .user-setting-button::after {
+    /* The reason for avoiding background fills in this scenario is since if in a checked state and the user defaults to dark theme (ie: the switch enables light theme) then if the custom color is also a similar color to the theme it becomes hard to distinguish. */
+    background: var(--custom-background);
+    box-shadow: var(--custom-box-shadow);
+    opacity: var(--custom-opacity);
+}
+
+.header-custom-color.header-custom-color-anim:not(.svg-loading) .user-setting-button::before,
+.header-custom-color.header-custom-color-anim:not(.svg-loading) .user-setting-button::after {
+    /* Issue: Chromium handles this fine but in Firefox, with this animation defined, if a checkbox is manually toggled before the animation has fired it has an unexpected `::after` background style, even though on page reload regardless of the state it gets styled correctly. */
+    animation: anim-header-custom-color-switch 0.01s var(--header-custom-color-anim-delay) linear forwards;
+}
+
+    @keyframes anim-header-custom-color-switch {
+        0%   { background: inherit; box-shadow: inherit; opacity: inherit; }
+        100% { background: var(--custom-background); box-shadow: var(--custom-box-shadow); opacity: var(--custom-opacity); }
+    }
+
 .theme-toggle-checkbox:checked ~ .page .header .user-settings .theme-toggle-button::before,
 .version-toggle-checkbox:checked ~ .page .header .user-settings .version-toggle-button::before {
+    --custom-background: none;
     background: var(--color-unique);
+}
+
+.header-custom-color:not(.header-custom-color-anim) .theme-toggle-checkbox:checked ~ .page .header .user-settings .theme-toggle-button::before,
+.header-custom-color:not(.header-custom-color-anim) .version-toggle-checkbox:checked ~ .page .header .user-settings .version-toggle-button::before {
+    background: var(--custom-background);
 }
 
 .theme-toggle-checkbox:checked ~ .page .header .user-settings .theme-toggle-button::after,
 .version-toggle-checkbox:checked ~ .page .header .user-settings .version-toggle-button::after {
+    --custom-background: var(--header-custom-color);
+    --custom-box-shadow: none;
+    --custom-opacity: 1;
     background: var(--page-background);
     right: 2px;
+}
+
+.header-custom-color:not(.header-custom-color-anim) .theme-toggle-checkbox:checked ~ .page .header .user-settings .theme-toggle-button::after,
+.header-custom-color:not(.header-custom-color-anim) .version-toggle-checkbox:checked ~ .page .header .user-settings .version-toggle-button::after {
+    background: var(--custom-background);
+    box-shadow: var(--custom-box-shadow);
+    opacity: var(--custom-opacity);
 }
 
 .header .user-setting-button:last-child {
@@ -892,7 +981,7 @@ div.version-toggle-alternative > .spoiler-block.section {
     margin-bottom: var(--heading-primary-margin-bottom);
 }
 
-.guide .heading-primary-wrapper {
+.article .heading-primary-wrapper {
     --width: calc(100% + var(--body-margin) * 2);
     width: var(--width);
     max-width: var(--width);
@@ -902,23 +991,28 @@ div.version-toggle-alternative > .spoiler-block.section {
     left: calc(-1 * var(--body-margin));
 }
 
-.guide .heading-primary-image {
+.article.heading-flush .heading-primary-wrapper {
+    margin-top: -180px; /* header is dynamic height depending on viewport so using a static offset. This also requires extra headroom in SVG. */
+    z-index: 0;
+}
+
+.article .heading-primary-image {
     min-height: 200px;
     display: block;
     margin: 0 auto;
     position: relative;
 }
 
-.guide .heading-primary-image:not(.full-width):not(.full-viewport) {
+.article .heading-primary-image:not(.full-width):not(.full-viewport) {
     max-width: 100%;
 }
 
 /* To compensate for Chromium's SVG alpha mask alignment issue (see .full-width notes for info) */
-.guide .heading-primary-image.full-width {
+.article .heading-primary-image.full-width {
     --width: var(--extended-width);
 }
 
-.guide .heading-primary-image.full-viewport {
+.article .heading-primary-image.full-viewport {
     --width: 200vw; /* for an initial even, absolute value */
     width: var(--width);
     max-width: calc((((var(--viewport-width) * var(--rounding) / var(--rounding)) / 2) * var(--rounding) / var(--rounding)) * 2);
@@ -927,11 +1021,16 @@ div.version-toggle-alternative > .spoiler-block.section {
 }
 
 /* Solely for guide pages/articles, element can be absent on other pages. Added for optional full viewport width heading images, to provide a relative positioned centered point. */
-.guide .heading-primary-text-wrapper {
+.article .heading-primary-text-wrapper {
     max-width: var(--extended-width);
     margin: 0 auto;
     position: relative;
     left: 0;
+}
+
+/* For heading graphics that contain their own headings */
+.article.heading-no-text .heading-primary-text-wrapper {
+    opacity: 0;
 }
 
 .heading-primary-text {
@@ -966,8 +1065,8 @@ div.version-toggle-alternative > .spoiler-block.section {
     z-index: 2;
 }
 
-.guide .heading-primary-text-wrapper.inverted .heading-primary,
-.guide .heading-primary-text-wrapper.inverted .subheading-primary {
+.article .heading-primary-text-wrapper.inverted .heading-primary,
+.article .heading-primary-text-wrapper.inverted .subheading-primary {
     --color: var(--color-unique);
 }
 
@@ -1005,8 +1104,8 @@ div.version-toggle-alternative > .spoiler-block.section {
     user-select: none;
 }
 
-.guide .heading-primary-text-wrapper.inverted .heading-primary .highlight,
-.guide .heading-primary-text-wrapper.inverted .subheading-primary .highlight {
+.article .heading-primary-text-wrapper.inverted .heading-primary .highlight,
+.article .heading-primary-text-wrapper.inverted .subheading-primary .highlight {
     --color: var(--page-background);
 }
 
@@ -1038,8 +1137,13 @@ div.version-toggle-alternative > .spoiler-block.section {
 }
 
 /* Excluded negative margin on last section */
+.spoiler-block.section.standalone,
 .spoiler-block.section:not(:last-of-type) {
     margin-bottom: calc(-1 * var(--spacing-general));
+}
+
+.spoiler-block.section.standalone:last-of-type {
+    margin-bottom: calc(-1 * var(--spacing-general) * 1.5);
 }
 
 .spoiler-checkbox,
@@ -1085,14 +1189,14 @@ div.version-toggle-alternative > .spoiler-block.section {
     background-blend-mode: overlay;
 }
 
-h2:target + .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper::after,
+.no-js h2:target + .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper::after,
 .spoiler-content-wrapper::after {
     font-size: 120%;
     content: '+';
     justify-content: flex-end;
 }
 
-h2:target + .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper::after,
+.no-js h2:target + .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper::after,
 .spoiler-block.section > .spoiler-content-wrapper::after {
     background: var(--page-background);
     color: var(--color-intermediate);
@@ -1100,25 +1204,25 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-conten
     border-radius: 0; /* prevents any content leaking through edge pixels on transition */
 }
 
-h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) ~ .spoiler-content-wrapper::after,
+.no-js h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) ~ .spoiler-content-wrapper::after,
 .spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper::after {
     content: '-';
     letter-spacing: 1px; /* to align with '+' */
 }
 
-h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) ~ .spoiler-content-wrapper::after,
+.no-js h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) ~ .spoiler-content-wrapper::after,
 .spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper::after {
     letter-spacing: 2px;
     padding-top: 0.5px;
 }
 
-h2:target + .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper,
+.no-js h2:target + .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper,
 .spoiler-block .spoiler-content-wrapper {
     height: 0;
     transition: height 250ms; /* to slow the height transition on collapse, else it appears like there's no transition on child elements */
 }
 
-h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper,
+.no-js h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper,
 .spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper {
     height: 100%;
 }
@@ -1127,18 +1231,18 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
     padding: calc(var(--toggle-height) + var(--spacing-general)) var(--spoiler-margin) 0; /* slight padding on sides to look more gracefully aligned beneath toggle strip */
 }
 
-h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper,
+.no-js h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper,
 .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper {
     padding: calc(var(--toggle-height) + var(--spacing-general) - 8px) var(--spoiler-margin) 0; /* the '8px' top subtraction is to align the heading to the first child element as per non-spoilered headings */
 }
 
-h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper,
+.no-js h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper,
 .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper {
     padding-left: 0;
     padding-right: 0;
 }
 
-h2:target + .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper > .spoiler-content,
+.no-js h2:target + .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-content-wrapper > .spoiler-content,
 .spoiler-block .spoiler-content-wrapper > .spoiler-content {
     opacity: 0;
     margin-bottom: -100%; /* without it there's no transition for elements below it when collapsing */
@@ -1147,7 +1251,7 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:checked + .spoiler-conten
     transition: opacity 150ms, top 250ms, margin-bottom 500ms;
 }
 
-h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper > .spoiler-content,
+.no-js h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper > .spoiler-content,
 .spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper > .spoiler-content {
     margin-bottom: 0;
     opacity: 1;
@@ -1155,12 +1259,12 @@ h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-
     transition: opacity 150ms, top 250ms, margin-bottom 0ms;
 }
 
-h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper > .spoiler-content > *:first-child,
+.no-js h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper > .spoiler-content > *:first-child,
 .spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper > .spoiler-content > *:first-child {
     margin-top: 0;
 }
 
-h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper > .spoiler-content > pre[alt]:first-child,
+.no-js h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper > .spoiler-content > pre[alt]:first-child,
 .spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper > .spoiler-content > pre[alt]:first-child {
     margin-top: calc(var(--spacing-general) * 1.5);
 }
@@ -1469,7 +1573,7 @@ ul.graph li:not(:first-of-type):not(.secondary) {
     --width: calc(100% * var(--value) / var(--peak-value));
 }
 
-h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper ul.graph li,
+.no-js h2:target + .spoiler-block.section > .spoiler-checkbox:not(:checked) + .spoiler-content-wrapper ul.graph li,
 .spoiler-block .spoiler-checkbox:checked + .spoiler-content-wrapper ul.graph li {
     animation: graph-intro-anim 500ms;
 }
@@ -1801,6 +1905,7 @@ span.key.graph.secondary::before {
         color: var(--light-color);
     }
 
+    .theme-toggle-checked .theme-toggle-checked,
     .theme-toggle-checkbox:checked ~ .page::before {
         background: var(--light-page-background);
     }
@@ -1813,6 +1918,14 @@ span.key.graph.secondary::before {
     .theme-toggle-checkbox:not(:checked) ~ .page b:not(.label):not(.highlight),
     .theme-toggle-checkbox:not(:checked) ~ .page strong:not(.label):not(.highlight) {
         filter: brightness(1.05);
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
     }
 
 }
@@ -1935,18 +2048,18 @@ span.key.graph.secondary::before {
     }
 
     /* Only wrap to new line if more than one user setting button */
-    .guide .user-setting:nth-child(2) ~ .page .header {
+    .article .user-setting:nth-child(2) ~ .page .header {
         display: flex;
         flex-direction: column;
         margin-bottom: calc(var(--margin) * 4); /* to account for the lowered user-settings row */
     }
 
-    .guide .user-setting:nth-child(2) ~ .page .header .breadcrumbs,
-    .guide .user-setting:nth-child(2) ~ .page .header .user-settings {
+    .article .user-setting:nth-child(2) ~ .page .header .breadcrumbs,
+    .article .user-setting:nth-child(2) ~ .page .header .user-settings {
         flex-basis: 100%;
     }
 
-    .guide .user-setting:nth-child(2) ~ .page .header .user-settings {
+    .article .user-setting:nth-child(2) ~ .page .header .user-settings {
         justify-content: space-between;
         margin-left: 0;
         margin-top: 20px;
@@ -1968,7 +2081,7 @@ span.key.graph.secondary::before {
 /* Firefox doesn't suffer from the same SVG alpha mask alignment bug that Chromium does so it can support sane 100% widths */
 @supports (-moz-appearance:none) {
 
-    .guide .heading-primary-image.full-viewport {
+    .article .heading-primary-image.full-viewport {
         width: var(--viewport-width);
         max-width: var(--viewport-width);
     }

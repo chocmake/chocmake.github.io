@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-US" class="article heading-flush heading-no-text header-custom-color header-custom-color-anim no-js" style="--light-color-unique: #7b87de; --dark-color-unique: #6b76ca; --header-custom-color: #e2e2e2; --header-custom-color-anim-delay: 6.48s;" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Imagine a Place (Without You): Headaches of Discord's False Positives | Articles | choc</title>
+    <meta name="description" content="How overzealous heuristics and unresponsive support are letting down long-term users."/>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <script type="module" src="/js/general.js"></script>
+    <meta name="theme-color" content="#7b87de"/>
+    <!-- Open Graph/Twitter/Discord specific metadata -->
+    <meta property="og:site_name" content="choc"/>
+    <meta property="og:title" content="Imagine a Place (Without You): Headaches of Discord's False Positives"/>
+    <meta property="og:description" content="How overzealous heuristics and unresponsive support are letting down long-term users."/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="https://chocmake.github.io/articles/discord-false-positives/meta/embed.png"/>
+</head>
+<body>
+
+    <input id="version-toggle" class="version-toggle-checkbox user-setting" type="checkbox"/>
+    <input id="theme-toggle" class="theme-toggle-checkbox user-setting" type="checkbox"/>
+
+    <div class="page">
+        <script type="text/javascript" src="/js/session.js"></script>
+
+        <div class="header">
+            <div class="breadcrumbs">
+                <a href="/">Home</a>
+                <a href="/#articles">Articles</a>
+            </div>
+            <div class="user-settings">
+                <label class="theme-toggle-button user-setting-button" for="theme-toggle">Theme</label>
+            </div>
+        </div>
+
+        <div class="heading-primary-wrapper" style="margin-bottom: -40px">
+            <object class="heading-primary-image full-viewport" data="svg/header.svg" type="image/svg+xml" title="Imagine a graphic here"></object>
+            <div class="heading-primary-text-wrapper">
+                <div class="heading-primary-text bottom">
+                    <h1 class="heading-primary">Imagine a Place<br/>(Without You)</h1><br/>
+                    <span class="subheading-primary">Headaches of Discord's False Positives</span>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Pause all CSS animations until main SVG loaded to always ensure sync for the header color change anim on slower network connections
+            let h = document.documentElement,
+                img = h.querySelector('.heading-primary-image');
+            h.classList.add('svg-loading');
+            img.addEventListener('load',beginAnims);
+
+            function beginAnims() {
+                // Zero the header text color anim for WebKit
+                const observer = new MutationObserver(function(mutations) {
+                  mutations.forEach(function(mutation) {
+                    if (h.classList.contains('is-webkit')) {
+                        observer.disconnect(); // prevent mutation observer recursion
+                        h.style.setProperty('--header-custom-color-anim-delay','0s');
+                    }
+                  });
+                });
+
+                observer.observe(h, { attributes: true, attributeFilter: ['class'] });
+
+                h.classList.remove('svg-loading');
+            }
+        </script>
+
+        <div class="content">
+
+            <div class="sidenote">
+                <small class="date-edited">Last edited: <time datetime="2024-09-27"></time></small>
+                <small class="caption">The <strike>smack in the face</strike> <em>adventures</em> of finding your account inaccessible and the need for good support.</small>
+                <small class="caption note webkit-only">For full animations (and just non-buggy <abbr title="Scalable Vector Graphics">SVG</abbr> compatibility in general) check out the page in a non-WebKit Chromium/Firefox browser.</small>
+                <small class="caption note tip no-js-only">Javascript-less users: if graphics are absent your script manager is blocking <code>object</code> elements, too (used for embedding the <abbr title="Scalable Vector Graphics">SVG</abbr>s so separate images can be combined together).</small>
+            </div>
+
+            <p>Discord as a service has solved various practical hurdles for running and participating in communities with mixed media, which has led to it becoming a popular, if controversial, alternative to open web means. It can be great until <em>it isn't</em>.</p>
+
+            <p>Thanks to its attractiveness to scam campaigns the onboarding stringency and bot detection sensitivity has grown over time, where even as early as registration these days users can be gated for more verification without any out-of-the-ordinary actions taken. It's not surprising algorithms dealing with broad problems make mistakes, though particularly for long-term users how a service handles them is important.</p>
+
+            <p>Since while Discord is largely known for chit-chat it's also increasingly supplanted standard web platforms as a <em>sole</em> replacement for user support, discussions and collaboration for a wide variety of communities, due to its convenience and along with cost largely being Somebody Else's Problem (outside of freemium perks).</p>
+
+            <hr class="subsection">
+
+            <p>Multiple dedicated forums—and even some IRC channels—I've either found useful or been part of have migrated exclusively to Discord, for better or worse. Some having time-limited, restricted Discord invite links that have long since expired. With such consolidation tripping the voodoo of heuristics with an established account, especially with ongoing projects, becomes a tad more impactful than just not being able to post <i>I've hired this cat to stare at you</i> memes.</p>
+
+            <hr/>
+
+            <h2 class="table-of-contents">Contents</h2>
+
+            <ul class="compact split">
+                <li class="fragment-link"><a href="#how-it-started">How it started</a></li>
+                <li class="fragment-link"><a href="#how-its-going">How it's going</a></li>
+                <li class="fragment-link"><a href="#possible-causes">So what may have triggered this?</a></li>
+                <li class="fragment-link"><a href="#verification">Verification gotchas</a></li>
+            </ul>
+
+            <hr/>
+
+            <h2 id="how-it-started">How it started</h2>
+
+            <div class="split">
+                <p>While receiving help from a user about a nodes setup in a 3D file (consisting of <em>cubes</em> *gasp*), over the course of a couple hours and within a community I've been part of for years, I asked if I could direct message them the file for a quick look-over, as my setup was having differing results. 'Sure', they said.</p>
+
+                <p>Wow, Big Mistake, apparently. Despite this being commonplace, somewhere between me trying to DM them and add them as a friend—which they also agreed to—Discord triggered some false positive.</p>
+
+                <p>When the friend request button had been clicked a captcha was presented (the first time encountering one on Discord in eight years) and immediately after completing it my account was restricted and a phone number prompt presented to regain access.</p>
+
+                <p>Great. Then subsequently upon entering a number I've had for several years it was rejected by Discord. <em>Great</em>.</p>
+
+                <object data="svg/skull.svg" type="image/svg+xml" title="Skully McFloat Face"></object>
+                <small class="caption">Pictured: user who clicked a button</small>
+            </div>
+
+            <hr/>
+
+            <h2 id="how-its-going">How it's going</h2>
+
+            <p>On the same page Discord presents a <i>Think you're seeing this by mistake?</i> support link. Surely given the context I was able to provide it would be clear some error on their end had occured [narrator: they were not in fact that sure].</p>
+
+            <p>After a couple days of not knowing if the form had actually been received in came a polite if generic sounding reply asking for confirmation of something in the form. Following my response they escalated the ticket...</p>
+
+            <object data="svg/time-card.svg" class="full-width non-webkit-only" type="image/svg+xml" title="'Two Months Later' time card"></object>
+            <img class="webkit-only" src="svg/time-card-webkit.png"/>
+
+            <p>More jaded readers might see where this was going but it hasn't been looking spectacularly promising, with no further response after more than two months.</p>
+
+            <p>Reading online one can perhaps unsurprisingly find various users in similar scenarios who've experienced dead ends to escalated tickets. Though sprinkled in more obscure comments are some who've been blessed by marginally better <strike>RNG</strike> support.</p>
+
+            <p class="note">In contrast Discord appear to if nothing else pay more attention to bug reports, with a UX ticket I submitted last year receiving follow-ups and a reproducibility confirmation (even if it ultimately seemed like a wontfix). Years prior they also had a dedicated official community chat for bug reports which was rather large and active.</p>
+
+            <p>So I figured I'd write about it. At least some may find the <abbr title="Scalable Vector Graphics">SVGs</abbr> interesting (and/or be able to avoid similar pitfalls). By some chance maybe even get an official response, being able to observe that I am indeed a Real Human Being.</p>
+
+            <hr/>
+
+            <h2 id="possible-causes">So what may have triggered this?</h2>
+
+            <div class="spoiler-block section">
+                <input class="spoiler-checkbox" type="checkbox"/>
+                <div class="spoiler-content-wrapper">
+                    <div class="spoiler-content">
+                        <div class="split">
+                            <p>In trying to sleuth out what happened I found one post suggesting a verification lockout can occur when attempting to add multiple users as friends in a short timeframe.</p>
+
+                            <p>It was this that made me piece together what may have been an unintended side-effect of managing Javascript.</p>
+
+                            <img src="svg/js.svg" alt="Javascript graphic">
+
+                            <p>In the browser I use Discord for I keep Javascript enabled only for domains trusted/frequented. When the captcha was presented after the friend request button was clicked the domain it loaded from wasn't in the allow list which caused the captcha to be blank the first few times, as I first had to permit the captcha domain then some further domains it loaded scripts from, each time necessitating a page reload.</p>
+
+                            <p>By the time all the Javascript was allowed and the captcha had finally loaded I'd probably clicked the button ~3 times while checking if it had rendered yet, though I hadn't given it any thought at the time.</p>
+
+                            <p class="note" data-label="fyi">It's also the first time in several years I've had to change any permissions while using Discord.</p>
+
+                            <p>It was immediately following the completion of the captcha the lockout occurred—and talk about an odd way to go about it: would not having matched the pairs of lions prevented this all from happening? UX mysteries for the ages.</p>
+
+                            <p>So potentially their system saw I was clicking the (same) friend request button multiple times in a short timespan and flagged the account. Delightful. This is just a best guess as there hasn't been any further response.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr/>
+
+            <h2 id="verification">Verification gotchas</h2>
+
+            <div class="spoiler-block section standalone">
+                <input class="spoiler-checkbox" type="checkbox"/>
+                <div class="spoiler-content-wrapper">
+                    <div class="spoiler-content">
+                        <p>In looking at their documentation Discord uses a third party phone verification API (which at least as of some years ago was Twilio, per a Discord developer comment) and screen for prepaid numbers (among others like VoIP, eSIM, landline).</p>
+
+                        <p>I'd imagine a reason for this is because, at least in an ever decreasing minority of places, ID isn't required to register a prepaid number (likely more attractive for so-called burner numbers). This isn't the case in my situation however, nor have any environment factors changed in almost a year which Discord would be able to see.</p>
+
+                        <hr class="subsection">
+
+                        <p>Where things get more into the weeds are the gotchas with their verification system that themselves can trigger false positive <em>permabans</em> that are entirely out of users' hands. This wasn't the rabbit hole I was anticipating looking into for what some describe as glorified IRC but here we are.</p>
+
+                        <ol class="split standalone">
+                            <li>
+                                <p>If a number has been previously attached to a banned account Discord <a href="https://old.reddit.com/r/discordapp/comments/tyyx03/why_is_discord_disabling_my_account_right_after_i/">is said</a> to auto ban whichever account that same number is subsequently attached to, as they store both numbers from such <a href="https://old.reddit.com/r/discordapp/comments/a011mh/discord_stores_our_phone_numbers_even_if_we/eaee76o/">banned accounts</a> and the <a href="https://old.reddit.com/r/discordapp/comments/14k0f9q/tip_for_those_who_cant_change_their_phone_numbers/">last used number</a> of all accounts (or perhaps a hash of it) even if it's removed.</p>
+
+                                <p>This is an issue as if one were to register any type of new number with a carrier that happens to be recycled (ie: a phone number reissued by the carrier after a period of inactivity) you're rolling the dice with your account given you have no insight into a number's history.</p>
+
+                                <p class="note" data-label="fyi">For context, I'm grandfathered into a more ideal phone plan, aren't planning on switching and have had the number for IIRC about long as using Discord. Relevant as it means my existing number wouldn't be affected from the above.</p>
+                            </li>
+                            <li>
+                                <p>Multiple users have reported being <a href="https://old.reddit.com/r/discordapp/comments/oqimgd/so_you_cant_remove_your_phone_number_from_your/h6eg4ji/">unable</a> to detach a number from their account once used for verification (reporting it distinct from the known cooldown).</p>
+
+                                <p>It seems by an esoteric metric accounts can sometimes be flagged by Discord to always require the same number. So if one were to register a new number just for verification purposes it'd be impractical to continue to pay for an entirely separate number just for Discord.</p>
+                            </li>
+                            <li>
+                                <p>Even if one managed to temporarily register a number that by chance didn't have prior issues, was arbitrarily accepted and without a dettachment restriction, once it had lapsed and become recycled if a different user attached that number and became banned it's plausible based on the above that Discord may retroactively ban/flag the initial account it was attached to, naively considering them the same person.</p>
+                            </li>
+                        </ol>
+
+                        <hr class="subsection">
+
+                        <p>One user I spoke with outside Discord told me they rejected a number they'd had for over 15 years, leading them to abandon the service entirely. Yeah, they weren't super happy about that.</p>
+
+                        <p>While a user elsewhere reported Discord support suggesting trying someone else's phone number—which itself has obvious problems (no direct control and prevents such a person from using it themselves if point #2 applies). This really makes one wonder how limited offical support privileges are if such things are being suggested as workarounds within their own system.</p>
+
+                        <div class="spoiler-block regular">
+                            <input class="spoiler-checkbox" type="checkbox"/>
+                            <div class="spoiler-content-wrapper" alt="(Aside) The bigger picture">
+                                <div class="spoiler-content">
+                                    <p>From Discord's perspective I expect they're not overly concerned about losing users here and there. One of the less accounted for factors though is typically communities are disproportionately supported by far fewer users.</p>
+
+                                    <p>So you have the case (and not just on Discord) where a small group are contributing anywhere from a significant to all the support/core contributions/moderation, etc for a wider community. I'm sure some reading this would be able to think of situations that have a bus factor of even just one. With the indiscriminate official support this has a gamut of obvious to less quantifiable knock-on effects for such users who face issues with their account or can't even create a new one due to verification gating, which is context lost on a large platform.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr/>
+
+            <p>Given the scenario one would think the issue could be reasonably resolved, though just reaching anyone who can help with certain types of tickets appears to be a complete gamble.</p>
+
+            <p>While if this were a regular community site I'd have been able to get in touch with someone familiar with the community, if not the webmaster themselves. Y'know, <em>like normal</em>. Which is relevant when the outcome has been at times wholesale migrations of previously self-administered sites, absorbing the users helping shape and support them (and in turn Discord).</p>
+
+            <p>For as much as Discord gets right there should at least be a better process for handling such cases for the rare occasions when it counts.</p>
+
+            <p class="note highlight" data-label="btw">If anyone at Discord <em>does</em> happen to see this and would like to resolve this the ticket is #46824891. I'd certainly appreciate my account being back to normal than in limbo.</p>
+
+            <!-- A Lottie-less recreation based on a GIF I happened to have captured a year ago -->
+            <object data="svg/reaction.svg" class="full-width" type="image/svg+xml" title="Emote pseudo reactions" style="margin-top: -60px"></object>
+
+        </div><!-- End of .content -->
+
+        <div class="footer"></div>
+
+    </div><!-- End of .page -->
+
+</body>
+</html>

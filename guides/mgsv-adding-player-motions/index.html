@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en-US" class="guide" style="--light-color-unique: #7b87de; --dark-color-unique: #6b76ca;" prefix="og: http://ogp.me/ns#">
+<html lang="en-US" class="article no-js" style="--light-color-unique: #7b87de; --dark-color-unique: #6b76ca;" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Metal Gear Solid V Modding: Adding Player Motions | Guides | choc</title>
     <meta name="description" content="Discover how to customize player animations, allowing on-demand playback of poses and actions from other characters and contexts."/>
-    <script type="text/javascript" src="/js/session.js" defer></script>
     <link rel="stylesheet" href="/css/main.css"/>
+    <script type="module" src="/js/general.js"></script>
     <meta name="theme-color" content="#7b87de"/>
     <!-- Open Graph/Twitter/Discord specific metadata -->
     <meta property="og:site_name" content="choc"/>
@@ -21,6 +21,7 @@
     <input id="theme-toggle" class="theme-toggle-checkbox user-setting" type="checkbox"/>
 
     <div class="page">
+        <script type="text/javascript" src="/js/session.js"></script>
 
         <div class="header">
             <div class="breadcrumbs">
@@ -56,6 +57,8 @@
                 </div>
                 <small class="date-edited">Last edited: <time datetime="2023-09-14"></time></small>
                 <small class="caption">Animation seen above: <code>35ac42b3641df.gani</code> from <code>player2_resident.mtar</code>. One such motion that when triggered allows moving through the air and walls.</small>
+                <small class="caption note webkit-only">For non-buggy <abbr title="Scalable Vector Graphics">SVG</abbr> compatibility check out the page in a non-WebKit Chromium/Firefox browser.</small>
+                <small class="caption note tip no-js-only">Javascript-less users: if graphics are absent your script manager is blocking <code>object</code> elements, too (used for embedding the <abbr title="Scalable Vector Graphics">SVG</abbr>s so separate images can be combined together).</small>
             </div>
 
             <p>This guide covers adding a custom collection of existing human animations (motions) to <cite>Metal Gear Solid V: The Phantom Pain</cite>, so they can be triggered on-demand via the playable character. The guide can be followed without prior modding experience and also is useful for general reference.</p>
@@ -71,7 +74,7 @@
             <p>Once set-up you'll be able to trigger and switch between animations while playing in free roam/missions<span class="version-toggle-default">, either by Infinite Heaven's menu or via button combos.</span><span class="version-toggle-alternative"> using button combos.</span></p>
 
 
-            <div class="tip version-toggle-default">By default IH already includes the player gestures from Metal Gear Online, such as saluting/pointing/karate/etc. You can try those out right now by opening IH's menu and selecting <i>Motions→Play motion</i>.</div>
+            <p class="note tip version-toggle-default">By default IH already includes the player gestures from Metal Gear Online, such as saluting/pointing/karate/etc. You can try those out right now by opening IH's menu and selecting <i>Motions→Play motion</i>.</p>
 
             <div class="note highlight version-toggle-default">
                 <p>As this guide is based on improvements added to IH in version r238 it's only compatible with game versions 1.0.15.2 and higher.</p>
@@ -79,9 +82,9 @@
                 <p>If you're on an older version or don't use IH you can alternatively switch to my guide for unknown321's version using the <i>Version</i> toggle at the top of the page.</p>
             </div>
 
-            <div class="tip version-toggle-alternative">By default the mod we're basing this guide on already includes the player gestures from Metal Gear Online, such as saluting/pointing/karate/etc.</div>
+            <p class="note tip version-toggle-alternative">By default the mod we're basing this guide on already includes the player gestures from Metal Gear Online, such as saluting/pointing/karate/etc.</p>
 
-            <div class="note version-toggle-alternative">The main drawbacks of this mod compared to IH's version are being limited to a single modded motion archive rather than multiple, having a more involved initial installation and lacking a few QoL features. That said, they're both similar functionally.</div>
+            <p class="note version-toggle-alternative">The main drawbacks of this mod compared to IH's version are being limited to a single modded motion archive rather than multiple, having a more involved initial installation and lacking a few QoL features. That said, they're both similar functionally.</p>
 
             <hr/>
 
@@ -127,7 +130,7 @@
 
             <p>It's recommended to unzip the tools to a more permanent directory that has write permissions (eg: <code>C:\Modding\Tools</code>).</p>
 
-            <div class="note">It's generally more foolproof to place the tools in directories that don't contain special characters.</div>
+            <p class="note">It's generally more foolproof to place the tools in directories that don't contain special characters.</p>
 
             <div class="version-toggle-alternative">
                 <hr/>
@@ -136,7 +139,7 @@
 
                 <p>To ensure compatibility with whatever version of the game you're running (and optionally Infinite Heaven) we'll first update the Snakebite mod package from unknown321's mod files.</p>
 
-                <div class="note">It looks like quite a few steps to go through but it's pretty simple, we're only changing a single line in two text files before installing the updated package with Snakebite.</div>
+                <p class="note">It looks like quite a few steps to go through but it's pretty simple, we're only changing a single line in two text files before installing the updated package with Snakebite.</p>
 
                 <hr class="subsection"/>
 
@@ -252,13 +255,13 @@
                                     <ol>
                                         <li>Unzip unknown321's mod files. The file we want is <code>script_loader.mgsv</code>.
 
-                                            <div class="note">You can ignore <code>script_loader_IH.mgsv</code> since the only difference are the two lua files we've already edited.</div></li>
+                                            <p class="note">You can ignore <code>script_loader_IH.mgsv</code> since the only difference are the two lua files we've already edited.</p></li>
                                         <li>Open <code>script_loader.mgsv</code> in a decent zip manager (eg: 7-Zip).
-                                            <div class="tip">Snakebite packages are just zip files with a different file extension.</div>
+                                            <p class="note tip">Snakebite packages are just zip files with a different file extension.</p>
                                         </li>
                                         <li>Within the zip manager nagivate to <code>Assets\tpp\script\lib</code> and replace both <code>Tpp.lua</code> and <code>TppMain.lua</code> with the versions we modified in the prior steps.
 
-                                            <div class="tip">In 7-Zip this can be done by simply dragging and dropping the updated files onto its window.</div>
+                                            <p class="note tip">In 7-Zip this can be done by simply dragging and dropping the updated files onto its window.</p>
                                         </li>
                                     </ol>
                                 </li>
@@ -267,9 +270,9 @@
 
                                     <p>If you're using Infinite Heaven Snakebite will warn of a conflict with the two lua files but it's fine to continue since we updated the versions of the files it uses.</p>
 
-                                    <div class="note">We won't be installing the <code>motions.mgsv</code> from unknown321's files yet since we'll be editing it later.</div>
+                                    <p class="note">We won't be installing the <code>motions.mgsv</code> from unknown321's files yet since we'll be editing it later.</p>
 
-                                    <div class="tip">You can also delete the unpacked <code>0_dat</code> directory since we no longer need it.</div>
+                                    <p class="note tip">You can also delete the unpacked <code>0_dat</code> directory since we no longer need it.</p>
                                 </li>
                             </ol>
                         </div>
@@ -342,14 +345,14 @@
                                 </li>
                             <li>The specific data file we want is <code>chunk1.dat</code>. Unpack it by dragging it onto GzsTool.exe. You'll see a new unpacked directory named <code>chunk1_dat</code>.
 
-                                <div class="note">Be patient as GzsTool can take a while to unpack everything.</div>
+                                <p class="note">Be patient as GzsTool can take a while to unpack everything.</p>
 
                             </li>
                             <li>Now we need the FPK within the unpacked DAT directory. Find it in the path below then copy the FPK somewhere else (eg: the desktop).
 
                                 <pre>Assets\tpp\pack\buddy\quiet\buddy_quiet2_heli.fpk</pre>
 
-                                <div class="tip">The reason for copying it elsewhere is to avoid too many nested directories in the next step, since Windows has a limit and files can silently fail to unpack otherwise.</div>
+                                <p class="note tip">The reason for copying it elsewhere is to avoid too many nested directories in the next step, since Windows has a limit and files can silently fail to unpack otherwise.</p>
 
                             </li>
                         </ol>
@@ -363,7 +366,7 @@
 
                                 <pre>Assets\tpp\motion\mtar\buddyquiet2\BuddyQuiet2_heli.mtar</pre>
 
-                                <div class="tip">You can also delete the unpacked <code>chunk1_dat</code> directory since we no longer need it.</div>
+                                <p class="note tip">You can also delete the unpacked <code>chunk1_dat</code> directory since we no longer need it.</p>
 
                             </li>
                         </ol>
@@ -390,7 +393,7 @@
 
                         <p>There you'll find various FPK files that include MTAR, such as <code>player2_resident_motion.fpk</code>, containing <code>player2_resident.mtar</code>, which features hundreds of the player character's default animations: actions like running, CQC, carrying bodies and more.</p>
 
-                        <div class="tip">
+                        <div class="note tip">
                             <p>For a complete list of of MTAR locations download <a href="https://github.com/JosephZoeller/FileMonolith/releases/latest">File Monolith</a>, which includes <code>TppMasterFileList.txt</code>, a giant list all the files in the game.</p>
 
                             <p>Keep in mind this file isn't updated regularly so mightn't reflect new changes if hashed paths are discovered in the future (though as of writing it's up-to-date <abbr title="as far as I can tell">afaict</abbr>).</p>
@@ -460,17 +463,17 @@
 
                                                         <p>I've just found it useful and consistent to name it after the MTAR the GANI came from so that's what this guide uses.</p>
 
-                                                        <div class="note">Filenames in MGSV are limited to upper/lowercase, numbers and underscores (no spaces)</div>
+                                                        <p class="note">Filenames in MGSV are limited to upper/lowercase, numbers and underscores (no spaces)</p>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="note">You'll also notice a <code>motion</code> directory already there. It contains a single fulton GANI to keep the template small. See it in action beneath the Credits section.</div>
+                                            <p class="note">You'll also notice a <code>motion</code> directory already there. It contains a single fulton GANI to keep the template small. See it in action beneath the Credits section.</p>
                                         </li>
                                         <li>
                                             <p>Time to use that MTAR we unpacked in the <a href="#finding">previous section</a>! Open its unpacked directory and copy all the files from it <em>except</em> <code>BuddyQuiet2_heli.chnk</code> and <code>BuddyQuiet2_heli.trk</code> into our newly created directory from step 3 of this section.</p>
 
-                                            <div class="tip">For future reference animations can be just a <code>.gani</code> file, or have additional matching <code>.enchnk</code> (and occasionally <code>.exchnk</code>) files. Such matching files need to also be copied if present.</div>
+                                            <p class="note tip">For future reference animations can be just a <code>.gani</code> file, or have additional matching <code>.enchnk</code> (and occasionally <code>.exchnk</code>) files. Such matching files need to also be copied if present.</p>
                                         </li>
                                     </ol>
                                 </div>
@@ -492,12 +495,12 @@
 
                                                                 <small class="caption">Only one path per animation is necessary since paths are extensionless (ie: no <code>.gani</code>/etc is used).</small>
 
-                                                                <div class="note highlight">Native MGSV files use forward-slashes rather than backslashes for paths and always use a forward-slash before <code>Assets</code>.</div>
+                                                                <p class="note highlight">Native MGSV files use forward-slashes rather than backslashes for paths and always use a forward-slash before <code>Assets</code>.</p>
                                                             </div>
                                                         </div>
                                                     </div>
 
-                                                    <div class="tip">If you're unsure or want to skip ahead check the complete list of example XML entries necessary to add in the expandable section below these steps.</div>
+                                                    <p class="note tip">If you're unsure or want to skip ahead check the complete list of example XML entries necessary to add in the expandable section below these steps.</p>
                                                 </li>
                                             </ol>
                                         </li>
@@ -535,7 +538,7 @@
                                             <div class="spoiler-content">
                                                 <p>For future reference adding the entries to MtarTool's dictionary is only necessary if either the motions have hashed filenames <em>or</em> if they were originally non-hashed but have been added to non-original custom directories.</p>
 
-                                                <div class="tip">Hashed filenames are easy to spot since when unpacked they look random and aren't in any sub-directories, eg: <code>1fcae14e60d2d</code>.</div>
+                                                <p class="note tip">Hashed filenames are easy to spot since when unpacked they look random and aren't in any sub-directories, eg: <code>1fcae14e60d2d</code>.</p>
 
                                                 <p>For example, the following is the GANI path of the fulton swaying motion included in the template file, which is non-hashed. Since it was placed in the same directory structure nothing was needed to be added to MtarTool's dictionary.</p>
 
@@ -557,7 +560,7 @@
 
                                             <p>Drag the <code>custom_motions.mtar.xml</code> onto MtarTool.exe and a new <code>custom_motions.mtar</code> will be created.</p>
 
-                                            <div class="tip">The unpacked <code>custom_motions_mtar</code> and <code>custom_motions.mtar.xml</code> can now be deleted since we no longer need them.</div>
+                                            <p class="note tip">The unpacked <code>custom_motions_mtar</code> and <code>custom_motions.mtar.xml</code> can now be deleted since we no longer need them.</p>
                                         </li>
                                         <li>
                                             <p>Final step is creating a Snakebite mod package and installing it. Open the Snakebite program directory and launch makebite.exe.</p>
@@ -608,7 +611,7 @@
                                 <div class="paginated-page">
                                     <ol class="standalone split">
                                         <li>Within unknown321's unzipped mod files you'll see the <code>motions.mgsv</code> Snakebite package. Unzip it somewhere (eg: the desktop).
-                                            <div class="tip">If you remember from the Updating the mod <a href="#updating-mod">section</a> such packages are just renamed zip files.</div>
+                                            <p class="note tip">If you remember from the Updating the mod <a href="#updating-mod">section</a> such packages are just renamed zip files.</p>
                                         </li>
                                         <li>In the unzipped <code>motions</code> directory navigate to the following FPK file and unpack it by dragging it onto GzsTool.exe
                                             <pre>Assets\tpp\pack\player\motion\player2_resident_motion.fpk</pre>
@@ -635,7 +638,7 @@
 
                                                         <p>I've just found it useful and consistent to name it after the MTAR the GANI came from so that's what this guide uses.</p>
 
-                                                        <div class="note">Filenames in MGSV are limited to upper/lowercase, numbers and underscores (no spaces)</div>
+                                                        <p class="note">Filenames in MGSV are limited to upper/lowercase, numbers and underscores (no spaces)</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -643,7 +646,7 @@
                                         <li>
                                             <p>Time to use that MTAR we unpacked in the <a href="#finding">previous section</a>! Open its unpacked directory and copy all the files from it <em>except</em> <code>BuddyQuiet2_heli.chnk</code> and <code>BuddyQuiet2_heli.trk</code> into our newly created directory from step 4 of this section.</p>
 
-                                            <div class="tip">For future reference animations can be just a <code>.gani</code> file, or have additional matching <code>.enchnk</code> (and occasionally <code>.exchnk</code>) files. Such matching files need to also be copied if present.</div>
+                                            <p class="note tip">For future reference animations can be just a <code>.gani</code> file, or have additional matching <code>.enchnk</code> (and occasionally <code>.exchnk</code>) files. Such matching files need to also be copied if present.</p>
                                         </li>
                                     </ol>
                                 </div>
@@ -665,12 +668,12 @@
 
                                                                 <small class="caption">Only one path per animation is necessary since paths are extensionless (ie: no <code>.gani</code>/etc is used).</small>
 
-                                                                <div class="note highlight">Native MGSV filesize use forward-slashes rather than backslashes for paths and always use a forward-slash before <code>Assets</code>.</div>
+                                                                <p class="note highlight">Native MGSV filesize use forward-slashes rather than backslashes for paths and always use a forward-slash before <code>Assets</code>.</p>
                                                             </div>
                                                         </div>
                                                     </div>
 
-                                                    <div class="tip">If you're unsure or want to skip ahead check the complete list of example XML entries necessary to add in the expandable section below these steps.</div>
+                                                    <p class="note tip">If you're unsure or want to skip ahead check the complete list of example XML entries necessary to add in the expandable section below these steps.</p>
                                                 </li>
                                             </ol>
                                         </li>
@@ -708,7 +711,7 @@
                                             <div class="spoiler-content">
                                                 <p>For future reference adding the entries to MtarTool's dictionary is only necessary if either the motions have hashed filenames <em>or</em> if they were originally non-hashed but have been added to non-original custom directories.</p>
 
-                                                <div class="tip">Hashed filenames are easy to spot since when unpacked they look random and aren't in any sub-directories, eg: <code>1fcae14e60d2d</code>.</div>
+                                                <p class="note tip">Hashed filenames are easy to spot since when unpacked they look random and aren't in any sub-directories, eg: <code>1fcae14e60d2d</code>.</p>
 
                                                 <p>For example, the following is the GANI path of the fulton swaying motion from <code>mgoplayer_resident.mtar</code>, which is non-hashed. If placed in the same directory structure then nothing would need to be added to MtarTool's dictionary.</p>
 
@@ -730,14 +733,14 @@
 
                                             <p>Drag the <code>player2_resident.mtar.xml</code> onto MtarTool.exe and a new <code>player2_resident.mtar</code> will be created.</p>
 
-                                            <div class="tip">The unpacked <code>player2_resident_mtar</code> and <code>player2_resident.mtar.xml</code> can now be deleted since we no longer need them.</div>
+                                            <p class="note tip">The unpacked <code>player2_resident_mtar</code> and <code>player2_resident.mtar.xml</code> can now be deleted since we no longer need them.</p>
                                         </li>
                                         <li>
                                             <p>Let's also repack the FPK we unpacked earlier by navigating up to where <code>player2_resident_motion_fpk</code> and the XML are located and dragging <code>player2_resident_motion.fpk.xml</code> onto GzsTool.exe.</p>
 
                                             <p>A new <code>player2_resident_motion.fpk</code> will be created.</p>
 
-                                            <div class="tip">The unpacked <code>player2_resident_motion_fpk</code> and <code>player2_resident_motion.fpk.xml</code> can now be deleted since we no longer need them.</div>
+                                            <p class="note tip">The unpacked <code>player2_resident_motion_fpk</code> and <code>player2_resident_motion.fpk.xml</code> can now be deleted since we no longer need them.</p>
                                         </li>
                                     </ol>
                                 </div>
@@ -750,7 +753,7 @@
                                                 <li>
                                                     <p>Highlight both the <code>Assets</code> directory and <code>metadata.xml</code> file, right-click them and select <i>Send to→Compressed (zipped) folder</i>.</p>
 
-                                                    <div class="note">You can of course alternatively zip them with whatever your preferred zip program is.</div>
+                                                    <p class="note">You can of course alternatively zip them with whatever your preferred zip program is.</p>
                                                 </li>
                                                 <li>Rename the newly generated zip to whatever you like and then edit the file extension to be <code>.mgsv</code> instead of <code>.zip</code> (eg: <code>custom_motions.mgsv</code>).</li>
                                             </ol>
@@ -782,12 +785,12 @@
 
                         <hr class="subsection">
 
-                        <div class="tip version-toggle-default">
+                        <div class="note tip version-toggle-default">
                             <p>The above steps can be followed to also add other GANI to the same custom MTAR.</p>
                             <p>Alternatively you could create multiple Snakebite mods each with a custom MTAR, which is great for flexibility and only requires a few extra steps to rename the template MTAR (for that see the expandable section below).</p>
                         </div>
 
-                        <div class="tip version-toggle-alternative">
+                        <div class="note tip version-toggle-alternative">
                             <p>The above steps can be followed to also add other GANI to the same MTAR.</p>
                         </div>
 
@@ -847,7 +850,7 @@
                                         <li>
                                             <p>Rename the <code>custom_motions_fpk</code> and <code>custom_motions_fpkd</code> directories to your choosing but keep the end <code>_fpk</code> and <code>_fpkd</code> parts of the names.</p>
 
-                                            <div class="note">Filenames in MGSV are limited to upper/lowercase, numbers and underscores (no spaces).</div>
+                                            <p class="note">Filenames in MGSV are limited to upper/lowercase, numbers and underscores (no spaces).</p>
                                         </li>
 
                                         <li>
@@ -921,7 +924,7 @@
                                         <li>
                                             <p>While still in <code>IHDev_AddMotions.lua</code> and within the <code>this.motions</code> section add the desired GANI paths from the MTAR we installed with Snakebite, like the following. Not all the GANI have to be added, just whichever you want to access while in-game.</p>
 
-                                            <div class="tip">See the <a href="#resources">Resources</a> section for GANI descriptions.</div>
+                                            <p class="note tip">See the <a href="#resources">Resources</a> section for GANI descriptions.</p>
 
                                             <pre>
 <!--                                         -->this.motions={
@@ -937,9 +940,9 @@
 
                                             <small class="caption">By default the lua includes a couple disabled example entries in <code>this.motions</code>, which I've excluded from the above for brevity. You can simply add your code below them.</small>
 
-                                            <div class="tip">You can name the labels whatever you want. I've named them above <code>QuietLaying</code>, etc, to be recognizable.</div>
+                                            <p class="note tip">You can name the labels whatever you want. I've named them above <code>QuietLaying</code>, etc, to be recognizable.</p>
 
-                                            <div class="note highlight">Unlike when we created the custom MTAR in the previous section any GANI paths added here need the <code>.gani</code> at the end. Otherwise the motions won't play in-game later.</div>
+                                            <p class="note highlight">Unlike when we created the custom MTAR in the previous section any GANI paths added here need the <code>.gani</code> at the end. Otherwise the motions won't play in-game later.</p>
 
                                             <div class="spoiler-block regular">
                                                 <input class="spoiler-checkbox" type="checkbox"/>
@@ -956,9 +959,9 @@
 <!--                                                     -->}
 <!--                                                 --></pre>
 
-                                                        <div class="tip">Grouping related motions under a single label can be useful if there is an intro/middle/outro, or if you want to bulk add motions to test since as a bonus the GANI are played back in order of appearance within the group.</div>
+                                                        <p class="note tip">Grouping related motions under a single label can be useful if there is an intro/middle/outro, or if you want to bulk add motions to test since as a bonus the GANI are played back in order of appearance within the group.</p>
 
-                                                        <div class="tip">Descriptive comments can be added to the <em>right-side</em> of lines. Also notice that trailing commas can be used after all paths and closing brackets within a parent code block.</div>
+                                                        <p class="note tip">Descriptive comments can be added to the <em>right-side</em> of lines. Also notice that trailing commas can be used after all paths and closing brackets within a parent code block.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1003,7 +1006,7 @@
                                     <ol class="standalone">
                                         <li>Open the game's install directory and create an empty text file named <code>log.txt</code> in it (beside the game EXE).
 
-                                            <div class="note">This is so we can display mod messages and names of motions while in-game.</div>
+                                            <p class="note">This is so we can display mod messages and names of motions while in-game.</p>
                                         </li>
                                         <li>Create a directory named <code>lua</code> in the same place and into it copy the <em>contents</em> of the <code>put_us_into[MGS_TPP-lua]</code> directory from unknown321's mod files.</li>
                                     </ol>
@@ -1015,7 +1018,7 @@
 
                                             <ul>
                                                 <li>The value in <code>debug = false</code> to <code>true</code>.
-                                                    <div class="note">This tells the mod to display messages while in-game, which is strongly recommended initially so you can tell when the mod is active and which motions are playing.</div>
+                                                    <p class="note">This tells the mod to display messages while in-game, which is strongly recommended initially so you can tell when the mod is active and which motions are playing.</p>
                                                 </li>
                                                 <li>The value in <code>ani_hold_forever = true</code> to <code>false</code>.
                                                     <div class="note">
@@ -1032,7 +1035,7 @@
                                         <li>
                                             <p>In that same lua, within the <code>motions_table</code> section add the desired GANI paths from the MTAR we installed with Snakebite, like the following. Not all the GANI have to be added, just whichever you want to access while in-game.</p>
 
-                                            <div class="tip">See the <a href="#resources">Resources</a> section for GANI descriptions.</div>
+                                            <p class="note tip">See the <a href="#resources">Resources</a> section for GANI descriptions.</p>
 
                                             <pre>
 <!--                                         -->local motions_table = {
@@ -1048,7 +1051,7 @@
 
                                             <small class="caption">By default the lua includes all the MGO gestures already within <code>motions_table</code>, which I've excluded from the above for brevity. You can add your motions above them, or disable them by commenting them out (prefixing each line with two dashes and a space: <code>-- </code>).</small>
 
-                                            <div class="tip">You can name the labels whatever you want. I've named them above <code>QuietLaying</code>, etc, to be recognizable.</div>
+                                            <p class="note tip">You can name the labels whatever you want. I've named them above <code>QuietLaying</code>, etc, to be recognizable.</p>
 
                                             <div class="spoiler-block regular">
                                                 <input class="spoiler-checkbox" type="checkbox"/>
@@ -1065,9 +1068,9 @@
 <!--                                                     -->}
 <!--                                                 --></pre>
 
-                                                        <div class="tip">Grouping related motions under a single label can be useful if there is an intro/middle/outro, or if you want to bulk add motions to test. It's all just personal preference.</div>
+                                                        <p class="note tip">Grouping related motions under a single label can be useful if there is an intro/middle/outro, or if you want to bulk add motions to test. It's all just personal preference.</p>
 
-                                                        <div class="tip">Descriptive comments can be added to the <em>right-side</em> of lines. Also notice that trailing commas can be used after all paths and closing brackets within a parent code block.</div>
+                                                        <p class="note tip">Descriptive comments can be added to the <em>right-side</em> of lines. Also notice that trailing commas can be used after all paths and closing brackets within a parent code block.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1087,7 +1090,7 @@
 
                         <hr class="subsection version-toggle-default"/>
 
-                        <div class="tip version-toggle-default">
+                        <div class="note tip version-toggle-default">
                             <p>You can also edit the lua script while the game is running, which is a quick way of testing things.</p>
                             <p>To do so: save your changes, open IH's menu and select <i>Debug stuff menu→Reload IH modules</i>, then pause the game and reload from checkpoint. Occasionally this doesn't work so in such cases just do a full game relaunch.</p>
                         </div>
@@ -1116,7 +1119,7 @@
                                         <li>Uncomment the default <code>ih_additional_motion.fpk</code> path from the <code>this.packages</code> section by removing the beginning two dashes from the line (<code>-- </code>).</li>
                                         <li>Add back any default GANI you want in the <code>this.motions</code> section (there are two already there commented-out as examples).
 
-                                            <div class="tip">The full list of GANI paths and labels from the default IH motions can be found mid-way inside the <code>InfMotion.lua</code>, from the <code>mod\modules</code> directory.</div>
+                                            <p class="note tip">The full list of GANI paths and labels from the default IH motions can be found mid-way inside the <code>InfMotion.lua</code>, from the <code>mod\modules</code> directory.</p>
                                     </ol>
 
                                     <p class="task-complete"><i>*QuietThumbsUpGood*</i></p>
@@ -1148,7 +1151,7 @@
                         <ol class="version-toggle-alternative">
                             <li>Launch the game and deploy in free-roam/Motherbase/a mission.</li>
                             <li>Press and hold <kbd>V</kbd>+<kbd>E</kbd> until it states on screen the keys have been bound.
-                                <div class="note highlight">This button combo is necessary to be used once after each new launch of the game while deployed if you want to use the motions mod. Once bound it will enable the mod until exiting the game.</div>
+                                <p class="note highlight">This button combo is necessary to be used once after each new launch of the game while deployed if you want to use the motions mod. Once bound it will enable the mod until exiting the game.</p>
                             </li>
                             <li>Then you can press and hold the default <kbd>Zoom</kbd> button + <kbd>Up</kbd> to play the first animation in the motions list we customized earlier.</li>
                         </ol>
@@ -1159,7 +1162,7 @@
 
                         <small class="caption">GANI tag team!</small>
 
-                        <div class="tip">
+                        <div class="note tip">
                             <p>If you'd like to loop motions when played (such as the various seen in this guide) open <span class="version-toggle-default">IH's menu and in the <i>Motions</i> menu enable <i>Hold motion</i></span><span class="version-toggle-alternative">the game's install directory then edit <code>lua\animation_changer.lua</code> in a text editor and change the <code>ani_hold_forever</code> value from <code>false</code> to <code>true</code></span>.</p>
 
                             <p>Just know that only certain motions are loopable, while the rest will simply remain static on the last frame.</p>
@@ -1200,7 +1203,7 @@
 
                             <small class="caption">For anyone who may be viewing this table out of context keep in mind these commands will only be available by default if step 1 of <a href="#configuration">this</a> section was followed.</small>
 
-                            <div class="tip">More commands are available and different buttons can be assigned if you customize the Quick Menu functions. See the expandable steps below for info.</div>
+                            <p class="note tip">More commands are available and different buttons can be assigned if you customize the Quick Menu functions. See the expandable steps below for info.</p>
 
                             <div class="spoiler-block regular">
                                 <input class="spoiler-checkbox" type="checkbox"/>
@@ -1217,7 +1220,7 @@
                                             <li>Search for <code>this.quickMenuHoldButton</code> and change its default value (<code>InfButton.CALL</code>) to one of the other button names that can be found listed in commented-out examples at the top of the same lua.</li>
                                         </ol>
 
-                                        <div class="tip">A <a href="https://metalgearmodding.fandom.com/wiki/Input_Handling">full list</a> of button names can be found on the MGSV modding wiki. The most relevant buttons not covered in the aforementioned IH lua comments are <code>DASH</code> (L3/left stick) and <code>DECIDE</code> (R3/right stick).</div>
+                                        <p class="note tip">A <a href="https://metalgearmodding.fandom.com/wiki/Input_Handling">full list</a> of button names can be found on the MGSV modding wiki. The most relevant buttons not covered in the aforementioned IH lua comments are <code>DASH</code> (L3/left stick) and <code>DECIDE</code> (R3/right stick).</p>
 
                                         <hr class="subsection"/>
 
@@ -1325,7 +1328,7 @@
                                 </div>
                             </div>
 
-                            <div class="tip">The buttons used for the combos can be customized, and it's possible to add a function to play a previous motion group. See the expandable steps below for info.</div>
+                            <p class="note tip">The buttons used for the combos can be customized, and it's possible to add a function to play a previous motion group. See the expandable steps below for info.</p>
 
                             <div class="spoiler-block regular">
                                 <input class="spoiler-checkbox" type="checkbox"/>
@@ -1351,7 +1354,7 @@
 <!--                                             -->end
 <!--                                         --></pre>
 
-                                                <div class="note">This function allows playing a previous motion group <em>after</em> some next motion group has been switched to but can't wrap backwards to the very last motions group if pressed while at the first group of the list.</div>
+                                                <p class="note">This function allows playing a previous motion group <em>after</em> some next motion group has been switched to but can't wrap backwards to the very last motions group if pressed while at the first group of the list.</p>
                                             </li>
                                         </ol>
 
@@ -1515,17 +1518,17 @@
                             <li>The custom motions still won't play, even after trying the troubleshooting suggestions above.
                                 <ul>
                                     <li>Open MtarTool's <code>mtar_dictionary.txt</code> and check whether the custom GANI paths were added/saved to it, as per step <span class="version-toggle-default">6</span><span class="version-toggle-alternative">7</span> of <a href="#creation">this section</a>. If the custom paths aren't present you'll need to redo those steps to pack the MTAR as intended.
-                                        <div class="note">While MtarTool will still pack the MTAR even without any custom entries in the dictionary (they'll simply be converted to alternate hashed filenames instead) the issue is that the GANI paths added to <code class="version-toggle-default">IHDev_AddMotions.lua</code><code class="version-toggle-alternative">animation_changer.lua</code> would be using differently named paths so <span class="version-toggle-default">IH</span><span class="version-toggle-alternative">the mod</span> wouldn't find them.</div>
+                                        <p class="note">While MtarTool will still pack the MTAR even without any custom entries in the dictionary (they'll simply be converted to alternate hashed filenames instead) the issue is that the GANI paths added to <code class="version-toggle-default">IHDev_AddMotions.lua</code><code class="version-toggle-alternative">animation_changer.lua</code> would be using differently named paths so <span class="version-toggle-default">IH</span><span class="version-toggle-alternative">the mod</span> wouldn't find them.</p>
                                     </li>
                                     <li>Check the filesize of the custom MTAR. If it's suspiciously small (eg: it's meant to be close to 1MB but instead it's 100KB) unpack the MTAR and check that the MTAR XML contains exactly the same number of GANI entries as there are GANI files in the unpacked MTAR and that they're the correct paths.
 
-                                        <div class="note">If there are more/less entries in the XML than there are files in the MTAR MtarTool can fail to pack it correctly, resulting in an unusually small MTAR filesize.</div>
+                                        <p class="note">If there are more/less entries in the XML than there are files in the MTAR MtarTool can fail to pack it correctly, resulting in an unusually small MTAR filesize.</p>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
 
-                        <div class="tip">Something not covered here? Ask on the <a href="https://discord.gg/3XwAsWV">Modders' Heaven Discord</a>. Be sure to mention you're using <span class="version-toggle-default">Infinite Heaven's</span><span class="version-toggle-alternative">unknown321's</span> motions mod.</div>
+                        <p class="note tip">Something not covered here? Ask on the <a href="https://discord.gg/3XwAsWV">Modders' Heaven Discord</a>. Be sure to mention you're using <span class="version-toggle-default">Infinite Heaven's</span><span class="version-toggle-alternative">unknown321's</span> motions mod.</p>
 
                     </div>
                 </div>
@@ -1558,7 +1561,7 @@
 
                         <h3>Notes list</h3>
 
-                        <div class="tip">All the text file notes here also include the location of the MTAR version used, along with a supplementary list of the GANI filenames matched to the order (accurate as of the date they were unpacked), for easier lookup.</div>
+                        <p class="note tip">All the text file notes here also include the location of the MTAR version used, along with a supplementary list of the GANI filenames matched to the order (accurate as of the date they were unpacked), for easier lookup.</p>
 
                         <div class="table wider bias-right">
                             <div class="tr">
@@ -1651,12 +1654,12 @@
 
                         <small class="caption">* Partial/incomplete notes.</small>
 
-                        <div class="tip">If you want to contribute your own to the above list get in touch on the <a href="https://discord.gg/3XwAsWV">Modders' Heaven Discord</a>!</div>
+                        <p class="note tip">If you want to contribute your own to the above list get in touch on the <a href="https://discord.gg/3XwAsWV">Modders' Heaven Discord</a>!</p>
 
-                        <div class="tip">
+                        <div class="note tip">
                             <p>The game sometimes has related GANI located in different MTAR.</p>
                             <p>Some of Quiet's boss motions for instance are used for Quiet's buddy motions, or Snake having a couple intros for the Phantom Cigar motions in one MTAR and loops in another.</p>
-                            </div>
+                        </div>
 
                         <hr class="subsection"/>
 
@@ -1678,7 +1681,7 @@
 
                                     <p>So if you extracted the same MTAR yourself for use in a custom motions mod, or perhaps some animation swap mod, you can then find the GANI being described in the notes, assuming MtarTool's dictionary has remained the same.</p>
 
-                                    <div class="tip">If MtarTool's dictionary should change, which would happen if the community discovers more non-hashed GANI paths, then you can follow the <i>Generating MTAR numbers for your own notes</i> expandable section below.</div>
+                                    <p class="note tip">If MtarTool's dictionary should change, which would happen if the community discovers more non-hashed GANI paths, then you can follow the <i>Generating MTAR numbers for your own notes</i> expandable section below.</p>
 
                                     <hr class="subsection"/>
 
@@ -1694,7 +1697,7 @@
 
                                     <small class="caption">Here the non-hashed GANI was added directly to the root of <code>/Assets/tpp</code>, which is useful since MtarTool already has the path in its vanilla dictionary. However it's all just arbitrary preference.</small>
 
-                                    <div class="note highlight">Keep in mind if you're using someone else's mod they may be using a different path structure/naming (and even custom GANI filenames), so it's best to check with the mod author in such cases to find how they named their paths if they lack a full list of motions included.</div>
+                                    <p class="note highlight">Keep in mind if you're using someone else's mod they may be using a different path structure/naming (and even custom GANI filenames), so it's best to check with the mod author in such cases to find how they named their paths if they lack a full list of motions included.</p>
                                 </div>
                             </div>
                         </div>
@@ -1707,11 +1710,11 @@
 
                                     <p>This is ideal for making new notes oneself about an MTAR, since it'll be consistent with existing notes by other users.</p>
 
-                                    <div class="tip">It's also useful for if you discover user notes that lack a <i>Raw MtarTool reference</i> section, or if in the future the MtarTool dictionary has been updated and some of the GANI filenames included no longer match in the user notes.</div>
+                                    <p class="note tip">It's also useful for if you discover user notes that lack a <i>Raw MtarTool reference</i> section, or if in the future the MtarTool dictionary has been updated and some of the GANI filenames included no longer match in the user notes.</p>
 
                                     <ol class="standalone split">
                                         <li>First locate the original MTAR and copy it somewhere else (eg: the desktop).
-                                            <div class="tip">
+                                            <div class="note tip">
                                                 <p>We can determine where an MTAR is located by searching for the MTAR filename in <code>TppMasterFileList.txt</code> from <a href="https://github.com/JosephZoeller/FileMonolith/releases/latest">File Monolith</a>, which contains a list of all the MTARs in the game.</p>
 
                                                 <p>File Monolith's list doesn't display which DAT file it's contained within though so you may have to unpack them all to find them.</p>
@@ -1726,14 +1729,14 @@
                                         </li>
                                         <li>Press <kbd>Enter</kbd> and MtarTool will unpack the MTAR but this time it'll prefix all the GANI filenames with the original internal order (eg: <code>0002_163ffb1df1550.gani</code>, where <code>0002</code> is the order number).
 
-                                            <div class="note highlight">Make sure you unpack only an original MTAR. If the MTAR has been repacked previously (even if nothing else has been modified) the internal order will be different.</div>
+                                            <p class="note highlight">Make sure you unpack only an original MTAR. If the MTAR has been repacked previously (even if nothing else has been modified) the internal order will be different.</p>
                                         </li>
                                         <li>
                                             <p>To get a quick text file list of all the extracted GANI open the matching <code>mtar.xml</code> file that gets generated.</p>
 
                                             <p>Then you can copy its list of GANI paths and re-format it using find and replace, to have a structured starting point for making notes beside each motion.</p>
 
-                                            <div class="tip">This is also how I create the <i>Raw MtarTool reference</i> sections of each notes file.</div>
+                                            <p class="note tip">This is also how I create the <i>Raw MtarTool reference</i> sections of each notes file.</p>
                                         </li>
                                     </ol>
 

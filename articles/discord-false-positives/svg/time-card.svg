@@ -1,0 +1,371 @@
+<!-- Created by choc (chocmake.github.io) -->
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+    <!ENTITY ns_svg "http://www.w3.org/2000/svg">
+    <!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
+]>
+
+<svg version="1.1" width="700px" height="300px" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;">
+
+    <defs>
+
+        <rect id="mask-exclusion" class="exclusion fill" width="100%" height="100%"/>
+        <rect id="mask-fill" class="fill" width="100%" height="100%"/>
+
+        <g id="background-whole">
+            <g id="post-mark" class="stroke">
+                <circle id="post-mark-circle" cx="427.667" cy="319.381" r="71.333"/>
+                <path id="post-mark-pseudo-text-top" d="M401,314.381L448,303.881"/>
+                <path id="post-mark-pseudo-text-bottom" class="stroke" d="M406.333,334.715L453.333,324.215"/>
+                <g id="post-mark-pseudo-text-curved-top">
+                    <path id="P1" d="M404.419,358.875L402.419,363.375"/>
+                    <path id="P2" d="M421.528,361.593L420.361,368.604"/>
+                    <path id="P3" d="M438.973,360.746L440.684,367.645"/>
+                    <path id="P4" d="M454.717,352.726L459.151,358.281"/>
+                    <path id="P5" d="M467.694,341.389L471.816,344.083"/>
+                </g>
+                <g id="post-mark-pseudo-text-curved-bottom">
+                    <path id="P11" d="M452.136,280.118L454.136,275.618"/>
+                    <path id="P21" d="M435.027,277.4L436.194,270.389"/>
+                    <path id="P31" d="M417.582,278.247L415.871,271.348"/>
+                    <path id="P41" d="M401.838,286.267L397.404,280.712"/>
+                    <path id="P51" d="M388.861,297.604L384.739,294.91"/>
+                </g>
+                <g id="post-mark-waves">
+                    <path id="post-mark-waves-p1" d="M515.801,267.038C533.253,258.227 542.909,283.859 559.23,280.752C573.255,278.083 578.553,256.603 593.42,254.133C608.287,251.664 618.915,271.768 633.087,268.8C647.837,265.71 653.889,239.621 669.087,242.133"/>
+                    <path id="post-mark-waves-p2" d="M523.801,296.038C541.253,287.227 550.909,312.859 567.23,309.752C581.255,307.083 586.553,285.603 601.42,283.133C616.287,280.664 626.915,300.768 641.087,297.8C655.837,294.71 661.889,268.621 677.087,271.133"/>
+                    <path id="post-mark-waves-p3" d="M530.801,325.038C548.253,316.227 557.909,341.859 574.23,338.752C588.255,336.083 593.553,314.603 608.42,312.133C623.287,309.664 633.915,329.768 648.087,326.8C662.837,323.71 668.889,297.621 684.087,300.133"/>
+                </g>
+            </g>
+
+            <g id="contacts-book" class="stroke">
+                <path id="contacts-book-outer" d="M489.689,187.042C508.599,184.038 546.301,178 546.301,178L515.096,54.094C515.096,54.094 475.053,59.65 454.166,62.883C436.937,65.55 425.231,73.82 423.408,85.181C417.621,75.663 403.732,70.353 383.919,74.894C366.53,78.88 325.726,87.821 325.726,87.821L351.524,213.698C351.524,213.698 389.116,204.439 407.503,200.682C425.89,196.925 440.275,199.55 453.941,211.381C460.973,195.561 470.779,190.046 489.689,187.042Z"/>
+                <g id="contacts-book-lines-left">
+                    <path id="contacts-book-lines-left-p1" d="M355.282,108.969L388.08,102.081"/>
+                    <path id="contacts-book-lines-left-p2" d="M361.073,132.215L393.872,125.327"/>
+                    <path id="contacts-book-lines-left-p3" d="M366.586,155.896L399.384,149.008"/>
+                    <path id="contacts-book-lines-left-p4" d="M372.747,180.857L405.546,173.969"/>
+                </g>
+                <g id="contacts-book-lines-right">
+                    <path id="contacts-book-lines-right-p1" d="M466.115,88.969L497.902,83.738"/>
+                    <path id="contacts-book-lines-right-p2" d="M471.907,112.215L503.694,106.984"/>
+                    <path id="contacts-book-lines-right-p3" d="M477.419,135.896L509.206,130.666"/>
+                    <path id="contacts-book-lines-right-p4" d="M483.581,160.857L515.368,155.626"/>
+                </g>
+                <g id="contacts-book-spine">
+                    <path id="contacts-book-spine-p1" d="M452.437,205.871L445.637,174.871"/>
+                    <path id="contacts-book-spine-p2" d="M441.156,155.87L438.437,143.471"/>
+                    <path id="contacts-book-spine-p3" d="M432.756,123.87L430.037,111.471"/>
+                    <path id="contacts-book-spine-p4" d="M425.356,91.87L423.218,82.119"/>
+                    <path id="contacts-book-spirals-p1" d="M411.937,112.405C412.437,100.738 419.397,96.54 425.937,94.905C432.603,93.238 442.77,95.071 447.603,105.571"/>
+                    <path id="contacts-book-spirals-p2" d="M420.27,144.405C420.77,132.738 427.73,128.54 434.27,126.905C440.937,125.238 451.103,127.071 455.937,137.571"/>
+                    <path id="contacts-book-spirals-p3" d="M427.687,176.155C428.187,164.488 435.147,160.29 441.687,158.655C448.353,156.988 458.52,158.821 463.353,169.321"/>
+                </g>
+            </g>
+
+            <path id="paperclip" class="stroke" transform="translate(10 2)" d="M220.503,242.688C220.503,242.688 152.929,192.394 140.596,183.061C127.738,173.33 120.354,154.707 132.137,138.621C143.621,122.943 166.528,125.322 182.329,136.061C204.394,151.056 259.659,191.028 274.659,202.695C289.659,214.362 289.918,228.937 282.237,237.855C274.556,246.773 260.861,245.789 247.474,235.749C231.474,223.749 179.509,186.147 166.509,176.747C158.883,171.233 156.566,164.165 161.237,158.688C165.907,153.211 172.775,154.947 181.175,160.747C193.519,169.27 249.903,210.688 255.903,215.688"/>
+
+            <g id="paper-plane">
+                <path id="paper-plane-outer" class="stroke" d="M243.453,290.521L231.287,377.521L269.203,354.771L284.12,395.271L295.203,351.188L328.703,352.188L243.453,290.521Z"/>
+                <path id="paper-plane-inner-p1" class="stroke" d="M245.537,302.355L268.037,352.355"/>
+                <path id="paper-plane-inner-p2" class="stroke" d="M254.537,302.355L294.287,349.271"/>
+                <path id="paper-plane-outer-mask" class="exclusion fill" d="M241.787,357.188L260.12,351.188L245.37,311.771L241.787,357.188ZM270.12,341.188L285.12,348.188L252.453,304.605L270.12,341.188ZM298.653,344.988L317.42,347.038L273.653,316.705L298.653,344.988Z"/>
+            </g>
+
+            <g id="italic" class="stroke" transform="translate(5 2)">
+                <path id="italic-stem" d="M163.237,417.471C175.07,404.471 194.549,409.903 189.07,426.805C184.047,442.301 166.403,457.471 161.403,471.638C155.864,487.333 171.07,494.638 187.403,480.305"/>
+                <path id="italic-dot" d="M201.97,388.555L196.137,396.055"/>
+            </g>
+
+            <g id="at" transform="translate(8 -10)">
+                <path id="at-p1" class="stroke" d="M150.92,301.421C145.587,294.966 133.22,288.549 120.178,298.296C112.343,304.152 108.214,318.47 117.195,330.796C124.353,340.621 138.464,345.841 149.42,337.471C159.451,329.808 162.42,316.921 153.42,304.321"/>
+                <path id="at-p2" class="stroke" d="M140.437,288.488C140.437,288.488 151.67,302.005 158.42,310.205C164.416,317.488 174.087,319.471 179.753,315.138C185.42,310.805 188.858,304.032 183.095,292.213C178.178,282.13 166.303,273.021 154.803,269.271C145.784,266.33 126.005,263.268 107.57,275.955C85.138,291.392 78.642,321.788 94.603,345.421C110.565,369.055 141.754,373.159 161.72,359.255C169.348,353.942 177.103,345.605 178.653,336.455"/>
+                <path id="at-mask" class="exclusion fill" d="M162.774,321.292C168.252,324.962 171.178,325.891 176.335,324.883C172.953,329.548 161.859,339.515 157.1,339.037C161.592,334.201 163.916,327.128 162.774,321.292ZM126.639,301.476C131.125,298.003 140.767,297.211 147.972,305.976C155.148,314.705 155.806,325.143 146.806,331.976C138.193,338.516 135.972,329.143 129.472,318.976C122.972,308.809 120.898,305.921 126.639,301.476ZM134.66,289.293C129.098,287.931 120.629,288.645 113.168,295.895C109.761,290.493 132.586,280.195 137.059,281.888C134.48,284.202 132.408,284.787 134.66,289.293Z"/>
+            </g>
+
+            <g id="checkbox">
+                <path id="checkbox-box" class="stroke" d="M289.199,429.743L247.599,443.343L263.799,491.743L315.799,474.943L301.999,435.943"/>
+                <path id="checkbox-mask" class="exclusion fill" d="M302.499,425.626C293.165,434.927 292.699,439.226 291.899,447.226C291.099,455.226 292.899,470.759 301.299,453.359C298.699,443.359 308.099,434.359 311.299,444.359C311.899,435.159 312.631,419.899 302.499,425.626Z"/>
+                <path id="checkbox-check" class="stroke" d="M271.602,458.611L285.299,465.026L297.299,420.026"/>
+            </g>
+
+            <path id="contact-profile" class="stroke" d="M404.737,517.295L462.594,453.724C462.594,453.724 459.794,451.032 455.165,447.152C452.945,445.292 448.402,443.519 442.022,445.581C437.021,447.198 426.532,451.233 418.813,454.291C416.62,452.745 414.932,450.887 412.903,449.343C412.903,444.343 411.605,438.893 408.451,434.438C404.034,428.197 396.27,420.846 390.737,417.009C387.496,414.763 385.093,414.669 381.594,415.438C370.406,417.897 361.589,427.259 360.579,436.424C359.994,441.738 359.102,443.789 362.651,448.209C368.424,455.4 375.882,460.985 381.451,465.152C385.509,468.189 392.164,468.838 395.637,467.414C397.658,469.012 399.25,470.673 400.879,472.581C399.451,480.009 396.905,490.046 395.522,496.581C394.03,503.633 394.724,508.096 397.124,510.515C399.144,512.553 404.737,517.295 404.737,517.295Z"/>
+
+            <g id="trash">
+                <path id="trash-lid-p1" class="stroke" d="M492.972,425.848L587.306,401.181"/>
+                <path id="trash-lid-p2" class="stroke" d="M528.282,412.919C525.624,402.018 529.282,396.538 535.949,394.871C542.615,393.205 548.749,396.138 551.71,407.824"/>
+                <path id="trash-can-outer" class="stroke" d="M514.513,454.533L582.179,421.2L609.846,499.2L565.846,520.533L514.513,454.533Z"/>
+                <path id="trash-can-lines-p1" class="stroke thinner" d="M549.513,460.867L571.513,493.867"/>
+                <path id="trash-can-lines-p2" class="stroke thinner" d="M569.179,450.867L584.846,487.533"/>
+            </g>
+
+            <g id="reply">
+                <path id="reply-path" class="stroke" d="M642.679,404.2C642.679,404.2 657.57,414.598 662.904,419.098C672.855,427.495 673.413,436.8 673.579,443.3C698.913,424.467 691.57,401.932 683.404,395.265C675.237,388.598 662.846,380.367 662.846,380.367L676.513,364.033L611.346,368.2L630.013,420.867L642.679,404.2Z"/>
+                <path id="reply-mask" class="exclusion fill" d="M667.063,414.1C672.995,420.313 677.384,426.395 676.323,434.748C687.263,422.9 686.166,406.966 679.027,401.48C676.101,405.939 669.856,409.467 667.063,414.1Z"/>
+            </g>
+
+            <g id="link" class="stroke" transform="translate(0 30) scale(0.98)">
+                <path id="link-chain-p2" d="M785.974,268.775C785.974,268.775 793.028,262.117 803.472,250.978C813.915,239.838 829.063,240.208 837.353,247.763C845.643,255.319 847.114,268.285 836.524,279.768C832.743,283.868 824.618,292.169 816.88,299.776C807.186,309.305 795.851,307.425 790.339,301.913"/>
+                <path id="link-chain-p2" d="M784.122,320.051C784.122,320.051 775.895,328.533 766.852,337.576C756.054,348.374 741.261,348.346 732.971,340.791C724.681,333.235 723.209,320.269 733.799,308.786C737.58,304.686 745.705,296.385 753.444,288.778C763.138,279.249 774.473,281.129 779.984,286.641"/>
+                <path id="link-sparks-left-p1" d="M741.553,259.716L748.297,263.943"/>
+                <path id="link-sparks-left-p2" d="M765.927,244.691L767.923,252.397"/>
+                <path id="link-sparks-right-p1" d="M828.77,328.838L822.026,324.611"/>
+                <path id="link-sparks-right-p2" d="M804.396,343.863L802.4,336.157"/>
+            </g>
+
+            <g id="inbox" transform="translate(-3 16)">
+                <path id="inbox-outer" class="stroke" d="M766.418,381.098L731.918,416.848C731.918,416.848 725.918,429.098 720.418,442.848C714.545,457.528 716.401,464.323 732.227,472.469C747.935,480.555 786.363,497.098 801.715,503.288C819.972,510.65 829.011,511.299 835.843,496.221C843.093,480.221 847.668,466.348 847.668,466.348L851.168,415.598L766.418,381.098Z"/>
+                <path id="inbox-inner" class="stroke" d="M735.918,418.198L767.168,431.948C767.168,431.948 759.418,448.816 770.262,453.561C778.262,457.061 788.689,461.85 796.124,464.771C806.837,468.98 813.052,451.606 813.052,451.606L843.668,464.448"/>
+                <path id="inbox-arrow-mask" class="exclusion fill" d="M812.523,356.873L786.205,420.317L796.145,429.432L807.813,427.978L833.783,366.474L812.523,356.873Z"/>
+                <path id="inbox-arrow-stem" class="stroke" d="M817.898,373.172L792.808,435.618"/>
+                <path id="inbox-arrow-point" class="stroke" d="M821.311,424.383L792.806,435.717L780.403,407.54"/>
+            </g>
+
+            <g id="bold">
+                <path id="bold-path" class="stroke" d="M730.573,204.585C742.918,198.989 746.733,187.288 741.95,178.678C736.95,169.678 724.946,169.167 715.443,173.127C703.443,178.127 686.934,185.714 686.934,185.714L717.834,251.614C717.834,251.614 736.658,243.307 749.241,237.322C759.406,232.488 766.29,221.998 761.751,211.698C757.418,201.864 743.363,198.584 732.008,203.882C719.508,209.716 703.975,216.72 703.975,216.72"/>
+                <path id="bold-mask" class="exclusion fill" d="M747.963,176.067C751.718,185.467 749.937,192.416 745.683,196.908C752.229,196.233 759.163,198.1 763.729,203.467C777.129,193.867 754.716,167.384 747.963,176.067Z"/>
+            </g>
+
+            <g id="pen">
+                <path id="pen-body-outer" class="stroke" d="M652.163,103.95L673.413,117.2L622.153,195.749L598.163,209.117L600.699,181.308L652.163,103.95Z"/>
+                <path id="pen-body-inner" class="stroke" d="M600.699,181.308L622.153,195.749"/>
+                <path id="pen-nib" class="stroke" d="M598.163,209.117L595.696,212.95"/>
+                <path id="pen-clicker" class="stroke" d="M664.563,107.5L670.813,97.75"/>
+                <path id="pen-clip" class="stroke" d="M643.48,111.083C643.48,111.083 637.605,107.243 634.525,105.388C632.054,103.901 628.7,104.924 626.167,108.622C621.953,114.775 605.396,140 605.396,140"/>
+                <path id="pen-mask" class="exclusion fill" d="M604.562,190.031L612.738,195.633L602.896,201.749L604.562,190.031Z"/>
+            </g>
+
+            <path id="top-right-stamp-corner" class="stroke" transform="translate(-874 -172) scale(2.1) rotate(0 850 150)" d="M818.247,125.077C818.247,125.077 815.548,131.001 809.762,143.595C823.696,149.033 815.971,165.752 802.113,160.23C799.925,164.978 797.492,170.239 796.567,172.211C804.082,175.851 804.5,180.737 801.001,188.318C803.291,189.305 809.908,191.836 814.028,193.409C819.808,181.248 837.13,187.24 832.094,200.254C836.32,201.814 840.379,203.287 844.124,204.63C849.174,192.189 866.753,198.329 862.463,211.062C864.69,211.842 872.323,214.387 872.323,214.387"/>
+
+            <circle id="center-right-circle-thing" class="stroke" transform="translate(-5 0)" cx="905.626" cy="344.753" r="54.972"/>
+        </g>
+
+        <mask id="background-mask">
+            <g class="mask-offset">
+                <use xlink:href="#background-whole"/>
+            </g>
+        </mask>
+
+    </defs>
+
+    <style><![CDATA[
+
+        * {
+            --color-text: #fff;
+            --color-text-shadow: var(--color-graphic);
+            --color-background: hsl(235,99%,69%);
+            --color-graphic: #404eed;
+        }
+
+        @font-face {
+            font-family: 'Spongeboy';
+            src: url('spongeboy.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        svg {
+            overflow: visible;
+        }
+
+        path {
+            vector-effect: non-scaling-stroke;
+        }
+
+        foreignObject {
+            overflow: visible;
+        }
+
+        body {
+            height: 100%; /* this only works when SVG viewed via embedded image, not when viewed directly, since percentage inherits from viewport height which when viewed directly is the browser height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body, p {
+            padding: 0;
+            margin: 0;
+        }
+
+        .stroke {
+            fill: none;
+            stroke: #fff;
+            stroke-width: 12px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 2;
+        }
+
+        .stroke.thinner {
+            stroke-width: 10.67px;
+        }
+
+        .exclusion.fill {
+            fill: #000;
+        }
+
+        .fill {
+            fill: #fff;
+            stroke: none;
+        }
+
+
+        /* ---------------------------- Background ---------------------------  */
+
+        .mask-offset {
+            transform: translate(-150px,-176px);
+        }
+
+        .background {
+            fill: var(--color-background);
+        }
+
+        .graphic {
+            fill: var(--color-graphic);
+        }
+
+
+        /* ---------------------------- Text ---------------------------  */
+
+        .text {
+            width: 410px;
+            color: var(--color-text);
+            font-family: 'Spongeboy', sans-serif;
+            font-size: 60px;
+            letter-spacing: 0.05em;
+            text-align: center;
+            text-transform: uppercase;
+            margin-top: 6px;
+        }
+
+        b {
+            font-weight: normal;
+            display: inline-block;
+            position: relative;
+        }
+
+        i {
+            /* Since `text-shadow` is affected by `transform` we have to offset the shadow to compensate */
+            --scaleX: 1;
+            --scaleY: 1;
+            --offset: 2px;
+            --adjX: calc(var(--offset) / var(--scaleX));
+            --adjY: calc(var(--offset) / var(--scaleY));
+            display: inline-block;
+            text-shadow: calc(-1 * var(--adjX)) var(--adjY) var(--color-text-shadow);
+            transform: scaleX(var(--scaleX)) scaleY(var(--scaleY));
+            font-style: normal;
+        }
+
+        .w i { --scaleY: .79; }
+        .o1 i { --scaleY: .87; }
+        .o2 i { --scaleY: .82; }
+        .n2 i { --scaleY: .79; }
+        .t2 i { --scaleY: .9; }
+        .h i  { --scaleY: .8; }
+        .s i  { --scaleY: 0.96; --scaleX: 0.9; }
+        .l i  { --scaleY: 1.05; }
+        .a i  { --scaleY: .85; }
+        .t3 i { --scaleY: .96; }
+        .e2 i { --scaleY: .78; }
+        .r i  { --scaleY: .88; }
+
+        .ell1 i { --scaleX: .7; transform: skew(-10deg) scaleX(var(--scaleX)) translateX(3px) }
+        .ell2 i { --scaleX: .8; transform: rotate(10deg) scaleX(var(--scaleX)) translateX(-2px) }
+        .ell3 i { --scaleX: .8; --scaleY: .8; transform: rotate(-5deg) scale(var(--scaleX),var(--scaleY)) translate(-10px,-2px) }
+
+        .t1 { letter-spacing: -0.06em; }
+        .t2 { letter-spacing: -0.015em; z-index: 1; }
+        .o2 { letter-spacing: 0.04em; }
+        .n2 { letter-spacing: 0.02em; z-index: 2; }
+        .h  { letter-spacing: -0.01em; } /* use only when `.s` has `scaleX` applied */
+        .l  { letter-spacing: 0.01em; margin-left: 10px; } /* offset for better visual centering */
+        .a  { letter-spacing: 0em; }
+        .t3 { letter-spacing: 0em; z-index: 1; }
+        .e2 { letter-spacing: 0.03em; z-index: 0; }
+        .r  { letter-spacing: 0.01em; }
+        .ell1  { letter-spacing: 0.01em; }
+        .ell2  { letter-spacing: 0.01em; z-index: 2 }
+
+
+        /* ---------------------------- Animation ---------------------------  */
+
+        b {
+            --distance-ratio: 1;
+            --distance: calc(1px * var(--distance-ratio));
+            --duration: 1s;
+            --delay: 0s;
+            --anim-name: anim-text;
+            --bezier: cubic-bezier(0.445, 0.050, 0.550, 0.950); /* easeInOutSine */
+            animation: var(--anim-name) var(--duration) var(--delay) infinite var(--bezier);
+        }
+
+        .t1 { --delay: -0s; }
+        .w { --delay: -1.1s; }
+        .o1 { --delay: -3.2s; }
+        .m  { --delay: -4.1s; }
+        .o2 { --delay: -1.24s; }
+        .n2 { --delay: 0s; }
+        .t2 { --delay: -0.5s; }
+        .h  { --delay: -4.8s; }
+        .l  { --delay: -2.2s; }
+        .a  { --delay: -0.05s; }
+        .t3 { --delay: -2.75s; }
+        .e2 { --delay: -0.4s; }
+        .r  { --delay: -0.9s; }
+        .ell1  { --delay: -0.2s; }
+        .ell2  { --delay: -1.4s; }
+        .ell3  { --delay: -0.1s; }
+
+        @keyframes anim-text {
+            0%   { transform: translateY(calc(-1 * var(--distance))) }
+            50%  { transform: translateY(var(--distance)) }
+            100% { transform: translateY(calc(-1 * var(--distance))) }
+        }
+
+
+        /* ---------------------------- Media queries ---------------------------  */
+
+        /* Due to the outer-SVG margins this width isn't reflective of the browser viewport width */
+        @media only screen and (max-width: 550px) {
+
+            .text {
+                font-size: 40px;
+            }
+
+            b {
+                --distance-ratio: 0.5;
+            }
+
+        }
+
+        @media only screen and (max-width: 400px) {
+
+            .text {
+                font-size: 30px;
+            }
+
+        }
+
+
+    ]]></style>
+
+    <!-- <rect width="100%" height="100%" fill="lightblue"/> -->
+
+    <rect class="background" width="100%" height="100%"/>
+    <rect class="graphic" width="100%" height="100%" mask="url(#background-mask)"/>
+
+    <g class="text-container">
+        <foreignObject width="100%" height="100%">
+            <body xmlns="http://www.w3.org/1999/xhtml">
+                <div class="text">
+                    <p><b class="t1"><i>T</i></b><b class="w"><i>w</i></b><b class="o1"><i>o</i></b> <b class="m"><i>M</i></b><b class="o2"><i>o</i></b><b class="n2"><i>n</i></b><b class="t2"><i>t</i></b><b class="h"><i>h</i></b><b class="s"><i>s</i></b>
+                    <br/>
+                    <b class="l"><i>L</i></b><b class="a"><i>a</i></b><b class="t3"><i>t</i></b><b class="e2"><i>e</i></b><b class="r"><i>r</i></b><b class="ell1"><i>.</i></b><b class="ell2"><i>.</i></b><b class="ell3"><i>.</i></b></p>
+                </div>
+            </body>
+        </foreignObject>
+    </g>
+
+</svg>
