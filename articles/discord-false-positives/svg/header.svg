@@ -1381,8 +1381,8 @@
         </g>
     </g>
 
-    <svg x="50%" y="50%" class="webkit-only-raster-wrapper">
-        <g class="webkit-only-raster" style="transform: translate(calc(-898px - 200px),-326px)">
+    <svg y="50%" class="webkit-only-raster-wrapper">
+        <g class="webkit-only-raster" style="transform: translate(-898px,-326px)">
         </g>
     </svg>
 
@@ -1410,10 +1410,34 @@
 
             let el = document.createElementNS("http://www.w3.org/2000/svg", 'image');
             el.setAttribute('href','header-webkit.png'); // inexplicably using `xlink:href` fails to render when added via JS but SVG 2's `href` syntax does
-            el.setAttribute('width','1796px');
+            el.setAttribute ('width','1796px');
             el.setAttribute('height','653px');
             el.classList.add('webkit-only-image');
             wkonly.appendChild(el)
+
+            const container = document.querySelector('.webkit-only-raster-wrapper');
+
+            function getViewportDimensions() {
+                return {
+                    width: Math.max(
+                        document.documentElement.clientWidth,
+                        window.innerWidth || 0
+                    ),
+                    height: Math.max(
+                        document.documentElement.clientHeight,
+                        window.innerHeight || 0
+                    )
+                };
+            }
+
+            function centerContainer() {
+                const { width: viewportWidth, height: viewportHeight } = getViewportDimensions();
+                container.setAttribute('x',(viewportWidth / 2) + 'px');
+            }
+
+            window.addEventListener('load', centerContainer);
+            window.addEventListener('resize', centerContainer);
+
         }
 
     ]]></script>
