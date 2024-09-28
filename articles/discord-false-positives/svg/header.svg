@@ -1381,10 +1381,10 @@
         </g>
     </g>
 
-    <g class="webkit-only-raster-wrapper" style="transform: translate(50%,50%)">
+    <svg x="50%" y="50%" class="webkit-only-raster-wrapper">
         <g class="webkit-only-raster">
         </g>
-    </g>
+    </svg>
 
     <!-- Remove 'choc-present' illustration post intro animation to save perf (particularly in Firefox, as even when invisible it still contributes to the usage) -->
     <script type="text/javascript"><![CDATA[
@@ -1412,7 +1412,7 @@
             el.setAttribute('href','header-webkit.png'); // inexplicably using `xlink:href` fails to render when added via JS but SVG 2's `href` syntax does
             el.setAttribute ('width','1796px');
             el.setAttribute('height','653px');
-            el.setAttribute('transform','translate(-898 -326)');
+            el.setAttribute('style','transform: translate(-898px,-326px)');
             el.classList.add('wkonly-image');
             wkonly.appendChild(el)
         }
