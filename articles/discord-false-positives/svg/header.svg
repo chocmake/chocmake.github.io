@@ -1382,7 +1382,7 @@
     </g>
 
     <svg y="50%" class="webkit-only-raster-wrapper">
-        <g class="webkit-only-raster" style="transform: translate(-898px,-326px)">
+        <g class="webkit-only-raster" style="transform: translate(-449px,-326px)">
         </g>
     </svg>
 
@@ -1432,7 +1432,7 @@
 
             function centerContainer() {
                 const { width: viewportWidth, height: viewportHeight } = getViewportDimensions();
-                container.setAttribute('x',viewportWidth + 'px');
+                container.setAttribute('x',(viewportWidth / 2) + 'px');
             }
 
             window.addEventListener('load', centerContainer);
