@@ -514,6 +514,16 @@
             --bezier-custom-6: cubic-bezier(0.550, -0.100, 0.100, 1.800);
         }
 
+        .is-webkit * {
+            -webkit-transform-box: fill-box;
+            transform-box: fill-box;
+        }
+
+        .webkit-only-image {
+            transform-origin: 50% 50%;
+            transform: translate(-898px,-326px);
+        }
+
         .svg-loading * {
             animation-play-state: paused !important;
         }
@@ -562,12 +572,6 @@
         @keyframes anim-mask-fill-exclusion {
             0%   { fill: #fff; }
             100% { fill: #000; }
-        }
-
-        .webkit-only-image {
-            width: 1796px;
-            height: 653px;
-            transform: translate(-898px,-326px);
         }
 
 
@@ -1387,10 +1391,10 @@
         </g>
     </g>
 
-    <svg x="50%" y="50%" class="webkit-only-raster-wrapper">
+    <g class="webkit-only-raster-wrapper">
         <g class="webkit-only-raster">
         </g>
-    </svg>
+    </g>
 
     <!-- Remove 'choc-present' illustration post intro animation to save perf (particularly in Firefox, as even when invisible it still contributes to the usage) -->
     <script type="text/javascript"><![CDATA[
@@ -1416,6 +1420,10 @@
 
             let el = document.createElementNS("http://www.w3.org/2000/svg", 'image');
             el.setAttribute('href','header-webkit.png'); // inexplicably using `xlink:href` fails to render when added via JS but SVG 2's `href` syntax does
+            el.setAttribute ('x','50%');
+            el.setAttribute ('y','50%');
+            el.setAttribute ('width','1796px');
+            el.setAttribute('height','653px');
             el.classList.add('webkit-only-image');
             wkonly.appendChild(el)
         }
