@@ -1381,9 +1381,11 @@
         </g>
     </g>
 
-    <svg y="50%" class="webkit-only-raster-wrapper">
-        <g class="webkit-only-raster" style="transform: translate(0,-326px)">
-        </g>
+    <svg x="50%">
+        <svg y="50%" class="webkit-only-raster-wrapper">
+            <g class="webkit-only-raster" style="transform: translate(-898px,-326px)">
+            </g>
+        </svg>
     </svg>
 
     <!-- Remove 'choc-present' illustration post intro animation to save perf (particularly in Firefox, as even when invisible it still contributes to the usage) -->
@@ -1432,7 +1434,7 @@
 
             function centerContainer() {
                 const { width: viewportWidth, height: viewportHeight } = getViewportDimensions();
-                container.setAttribute('x',(viewportWidth / 2 - 1796 / 2) + 'px');
+                container.setAttribute('x',(viewportWidth / 2) + 'px');
             }
 
             window.addEventListener('load', centerContainer);
