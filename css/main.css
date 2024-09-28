@@ -337,9 +337,10 @@ object {
 .version-toggle-checkbox:checked ~ .page .version-toggle-default,
 .version-toggle-checkbox ~ .page .version-toggle-alternative,
 .webkit-only,
+.is-webkit .non-webkit-only,
 html:not(.no-js) .no-js-only {
-    visibility: hidden;
-    position: absolute;
+    visibility: hidden !important;
+    position: absolute !important;
     pointer-events: none;
     -webkit-user-select: none;
     user-select: none;
@@ -347,9 +348,10 @@ html:not(.no-js) .no-js-only {
 
 .version-toggle-checkbox:checked ~ .page .version-toggle-alternative,
 .is-webkit .webkit-only,
+html:not(.is-webkit) .non-webkit-only,
 .no-js .no-js-only {
-    visibility: visible;
-    position: inherit;
+    visibility: visible !important;
+    position: inherit !important;
     pointer-events: inherit;
     -webkit-user-select: inherit;
     user-select: inherit;

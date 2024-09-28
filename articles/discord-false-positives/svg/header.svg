@@ -1381,11 +1381,14 @@
         </g>
     </g>
 
+    <!-- This nonsensical insanity is apparently what is required to center the fallback image in WebKit -->
     <svg x="50%">
         <svg x="-25%">
-            <svg y="50%" class="webkit-only-raster-wrapper">
-                <g class="webkit-only-raster" style="transform: translate(-898px,-326px)">
-                </g>
+            <svg x="50px">
+                <svg y="50%" class="webkit-only-raster-wrapper">
+                    <g class="webkit-only-raster" style="transform: translate(-898px,-326px)">
+                    </g>
+                </svg>
             </svg>
         </svg>
     </svg>
