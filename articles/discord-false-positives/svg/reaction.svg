@@ -1,0 +1,738 @@
+<!-- Created by choc (chocmake.github.io) -->
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+    <!ENTITY ns_svg "http://www.w3.org/2000/svg">
+    <!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
+]>
+
+<svg version="1.1" height="200px" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;">
+
+    <defs>
+
+        <rect id="mask-exclusion" class="exclusion fill" width="100%" height="100%"/>
+        <rect id="mask-fill" class="fill" width="100%" height="100%"/>
+
+        <clipPath id="button-mask">
+            <rect id="button-rect" width="45px" height="28px" rx="8px"/>
+        </clipPath>
+
+        <path id="button-text-4-path" d="M15,22.095L15,25.196L18.567,25.196L18.567,22.095L20.754,22.095L20.754,19.106L18.567,19.106L18.567,7.555L13.898,7.555L6.534,19.158L6.534,22.095L15,22.095ZM10.289,19.106L10.289,18.968L14.932,11.621L15.07,11.621L15.07,19.106L10.289,19.106Z"/>
+        <path id="button-text-3-path" d="M17.059,24.765C18.081,24.317 18.884,23.703 19.467,22.922C20.049,22.141 20.338,21.248 20.332,20.243C20.338,19.146 20,18.231 19.32,17.495C18.64,16.76 17.651,16.313 16.353,16.152L16.353,16.014C17.34,15.836 18.143,15.417 18.76,14.756C19.377,14.096 19.683,13.272 19.678,12.284C19.683,11.354 19.432,10.514 18.924,9.765C18.416,9.015 17.705,8.42 16.792,7.977C15.879,7.535 14.814,7.314 13.596,7.314C12.391,7.314 11.31,7.533 10.354,7.969C9.397,8.405 8.638,9.013 8.075,9.791C7.512,10.569 7.222,11.466 7.205,12.482L10.78,12.482C10.803,11.81 11.084,11.273 11.624,10.872C12.164,10.47 12.815,10.269 13.579,10.269C14.331,10.269 14.939,10.475 15.401,10.889C15.863,11.302 16.091,11.842 16.086,12.508C16.091,13.203 15.827,13.764 15.293,14.192C14.759,14.62 14.067,14.834 13.217,14.834L11.572,14.834L11.572,17.573L13.217,17.573C14.217,17.573 15.008,17.798 15.591,18.249C16.173,18.7 16.462,19.281 16.456,19.993C16.462,20.694 16.193,21.264 15.651,21.703C15.108,22.143 14.409,22.362 13.553,22.362C12.732,22.362 12.045,22.164 11.49,21.768C10.936,21.371 10.642,20.852 10.608,20.209L6.852,20.209C6.875,21.236 7.174,22.144 7.748,22.93C8.322,23.717 9.109,24.332 10.108,24.774C11.107,25.216 12.253,25.437 13.545,25.437C14.866,25.437 16.037,25.213 17.059,24.765Z"/>
+        <path id="button-text-2-path" d="M19.958,25.196L19.958,22.147L12.55,22.147L12.55,22.026L15.126,19.502C16.337,18.4 17.275,17.454 17.938,16.664C18.601,15.874 19.065,15.155 19.329,14.506C19.593,13.858 19.725,13.2 19.725,12.534C19.725,11.512 19.464,10.609 18.941,9.825C18.419,9.041 17.688,8.427 16.749,7.982C15.81,7.537 14.709,7.314 13.446,7.314C12.211,7.314 11.124,7.547 10.186,8.012C9.247,8.477 8.516,9.135 7.994,9.984C7.471,10.834 7.21,11.836 7.21,12.99L10.75,12.99C10.744,12.146 10.987,11.482 11.478,10.997C11.969,10.511 12.616,10.269 13.42,10.269C14.195,10.269 14.84,10.494 15.354,10.945C15.868,11.396 16.125,12.009 16.125,12.784C16.125,13.484 15.915,14.119 15.496,14.687C15.077,15.256 14.465,15.925 13.661,16.694L7.382,22.508L7.382,25.196L19.958,25.196Z"/>
+
+        <g id="plus-streak-source">
+            <linearGradient id="linear-color" gradientTransform="rotate(90)">
+                <stop offset="0%" stop-color="var(--color-white)"/>
+                <stop offset="100%" stop-color="hsla(0,0%,100%,0)"/><!-- Can't use `transparent` else produces non-light fade -->
+            </linearGradient>
+            <path class="plus-streak-gradient" d="M40.016,104.984L40.016,86.254L34.525,86.254L34.525,104.984L40.016,104.984Z"/>
+            <path class="plus-streak-plus" d="M38,85.525L38,83.508L36.541,83.508L36.541,85.525L34.525,85.525L34.525,86.984L36.541,86.984L36.541,89L38,89L38,86.984L40.016,86.984L40.016,85.525L38,85.525Z"/>
+        </g>
+
+        <path id="sparkle-1-path" d=""/>
+        <path id="sparkle-2-path" d=""/>
+        <path id="sparkle-3-path" d=""/>
+        <path id="sparkle-4-path" d=""/>
+
+        <path id="open-plus-1-path" d=""/>
+        <path id="open-plus-2-path" d=""/>
+        <path id="open-plus-3-path" d=""/>
+        <path id="open-plus-4-path" d=""/>
+        <path id="open-plus-5-path" d=""/>
+
+        <g id="lines-source" class="stroke">
+            <path id="lines-p1-1-source" class="lines p1" d="M35.636,65.642L35.636,33.307"/>
+            <path id="lines-p1-2-source" class="lines p1" d="M65.329,32.642L65.329,22.432"/>
+            <path id="lines-p1-3-source" class="lines p1" d="M78.693,61.939L78.631,51.492"/>
+            <path id="lines-p1-4-source" class="lines p1" d="M86.477,82.757L86.477,61.547"/>
+
+            <path id="lines-p2-1-source" class="lines p2" d="M35.636,65.642L35.636,33.307"/>
+            <path id="lines-p2-2-source" class="lines p2" d="M65.329,32.642L65.329,22.432"/>
+            <path id="lines-p2-3-source" class="lines p2" d="M73.329,84.642L73.329,74.432"/>
+            <path id="lines-p2-4-source" class="lines p2" d="M86.477,82.757L86.477,61.547"/>
+        </g>
+
+        <g id="arrow-path">
+            <rect id="arrow-path-stem" x="54px" y="85px" width="8px" height="10px" rx="0.5px"/>
+            <path id="arrow-path-tip" d="M58,79L67.774,87L48.226,87L58,79Z"/>
+        </g>
+
+        <g id="emote-source">
+            <svg x="50px" y="54px">
+                <g class="emote">
+                    <g class="emote-rotate">
+                        <use xlink:href="#radial-inner-source" class="radial-inner"/>
+                        <g class="emote-opacity">
+                            <!-- <rect width="16px" height="16px" fill="blue"/> -->
+                            <image width="16px" height="16px" xlink:href="reaction-emote-super.png"/>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </g>
+
+        <radialGradient id="radial-outer-color">
+            <!-- Grey (slightly darker than `color-grey`) to be visible on light theme -->
+            <stop offset="0%" stop-color="hsla(220,11%,64%,0.5)"/>
+            <stop offset="30%" stop-color="hsla(220,11%,64%,0.25)"/>
+            <stop offset="100%" stop-color="hsla(220,11%,64%,0)"/>
+        </radialGradient>
+
+        <radialGradient id="radial-outer-exclusion-color">
+            <stop offset="55%" stop-color="hsla(0,0%,0%,1)"/>
+            <stop offset="100%" stop-color="hsla(0,0%,0%,0)"/>
+        </radialGradient>
+
+        <radialGradient id="radial-inner-color">
+            <stop offset="0%" stop-color="hsla(0,0%,100%,0.6)"/>
+            <stop offset="50%" stop-color="hsla(0,0%,100%,0.3)"/>
+            <stop offset="100%" stop-color="hsla(0,0%,100%,0)"/>
+        </radialGradient>
+
+        <g id="radial-outer-source" mask="url(#radial-outer-mask)">
+            <circle cx="58px" cy="51px" r="42" fill="url(#radial-outer-color)"/>
+        </g>
+
+        <circle id="radial-inner-source" cx="8px" cy="8px" r="13" fill="url(#radial-inner-color)"/>
+
+        <mask id="radial-outer-slice-mask">
+            <use xlink:href="#mask-fill"/>
+            <rect x="16px" y="0" width="42px" height="100px" class="exclusion fill radial-outer-slice-mask-1"/>
+            <rect x="16px" y="0" width="42px" height="100px" class="exclusion fill radial-outer-slice-mask-2"/>
+        </mask>
+
+        <mask id="radial-outer-mask">
+            <g class="radial-outer-mask-opacity">
+                <g class="radial-outer-mask-rotate">
+                    <use class="radial-outer-slice slice-1" xlink:href="#mask-fill" mask="url(#radial-outer-slice-mask)"/>
+                    <use class="radial-outer-slice slice-2" xlink:href="#mask-fill" mask="url(#radial-outer-slice-mask)"/>
+                    <use class="radial-outer-slice slice-3" xlink:href="#mask-fill" mask="url(#radial-outer-slice-mask)"/>
+                    <use class="radial-outer-slice slice-4" xlink:href="#mask-fill" mask="url(#radial-outer-slice-mask)"/>
+                    <use class="radial-outer-slice slice-5" xlink:href="#mask-fill" mask="url(#radial-outer-slice-mask)"/>
+                    <use class="radial-outer-slice slice-6" xlink:href="#mask-fill" mask="url(#radial-outer-slice-mask)"/>
+                    <use class="radial-outer-slice slice-7" xlink:href="#mask-fill" mask="url(#radial-outer-slice-mask)"/>
+                    <use class="radial-outer-slice slice-8" xlink:href="#mask-fill" mask="url(#radial-outer-slice-mask)"/>
+                </g>
+            </g>
+            <circle cx="58px" cy="51px" r="22" fill="url(#radial-outer-exclusion-color)"/>
+        </mask>
+
+        <!-- Simulate outer stroke and combine path -->
+        <mask id="arrow-mask">
+            <use xlink:href="#arrow-path" class="stroke"/>
+            <use xlink:href="#arrow-path" class="exclusion fill"/>
+        </mask>
+
+        <!-- Coords + dimensions necessary for filter due to default SVG bounds -->
+        <filter id="button-glow-filter" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+    </defs>
+
+    <style><![CDATA[
+
+        * {
+            --color-white: #fff;
+            --color-grey: #d2d5db;
+            --color-green: #21cf8d;
+            --stroke-width: 2px;
+            --anim-duration: 24.132s;
+            --anim-duration-orig: 10;
+            --anim-duration-perceived: 4.132s;
+            --bezier-circ: cubic-bezier(0.075, 0.820, 0.165, 1.000); /* easeOutCirc */
+            --bezier-circ-2: cubic-bezier(0.785, 0.135, 0.150, 0.860); /* easeInOutCirc */
+            --bezier-custom: cubic-bezier(0.290, 1.000, 0.630, 1.000); /* based loosely on easeOutQuint */
+        }
+
+        svg {
+            overflow: visible;
+        }
+
+        .stroke {
+            fill: none;
+            stroke: var(--color-white);
+            stroke-width: var(--stroke-width);
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 2;
+        }
+
+        .exclusion.fill {
+            fill: #000;
+        }
+
+        .fill {
+            fill: #fff;
+            stroke: none;
+        }
+
+        /* ---------------------------- Buttons ---------------------------  */
+
+        .overall-scale {
+            transform-origin: 57px 57px;
+            transform: scale(2) translate(35px,20px);
+        }
+
+        .button {
+            --y: 48px;
+            transform: translate(var(--x),var(--y));
+        }
+
+        .button.one {
+            --x: -6px;
+        }
+
+        .button.two {
+            --x: 92px;
+        }
+
+        .button.super-react {
+            --x: 43px;
+        }
+
+        .button-bg {
+            fill: hsla(218,18%,0%,0.1);
+        }
+
+        .super-react .button-bg {
+            /* Super reacts take on the hue of the primary color of the base emote */
+            /*fill: hsla(17,57%,50%,0.3);*/
+            fill: hsla(17,57%,50%,0.2); /* for use sans the stroke/glow */
+        }
+
+        .super-react .button-bg.stroke {
+            stroke: hsla(17,67%,50%,0.1);
+        }
+
+        .super-react .button-bg.filter {
+            filter: url("#button-glow-filter");
+        }
+
+        .button-text {
+            fill: hsl(218,18%,55%);
+            opacity: 0.7;
+            transform: scale(0.5);
+        }
+
+        .super-react .button-text {
+            fill: hsla(17,67%,50%,1);
+            opacity: 0.8;
+        }
+
+
+        /* ---------------------------- Animation ---------------------------  */
+
+        /* Unlike SVG's SMIL CSS still lacks a dedicated way to simply define a delay between loop iterations (SMIL can do this via `begin` offsets), which makes adjusting for loop delays far more convoluted and why recalculating keyframes is required. Those familiar with CSS will know that `animation-delay` only offsets the first iteration of an animation. */
+
+        /* Keyframe timing was first normalized to 0-100% & 10s total duration, without any pseudo loop iteration delay. Then retargeted to a final perceived animation duration of 4.132 seconds and a 20s perceived loop delay. For a 24.132s total duration. */
+
+        /* The formula for recalculating the keyframes percentage: `<original percent> * (<new perceived duration> / <new total duration>)`. */
+
+        /* The inline formula for recalculating the `animation-delay` values: `(<original delay> / <original total duration>) * <new perceived duration>`. For the calc() to work the `<original delay>` and `<original total duration>` values have to be unit-less (sans `s`), while the new duration has to have the time unit. */
+
+        /* --------------- Green sequences - plus --------------  */
+
+        .plus-streak-gradient {
+            fill: url("#linear-color");
+            opacity: 0.1;
+        }
+
+        .plus-streak-plus {
+            fill: var(--color-green);
+        }
+
+        .plus-streak-offset {
+            transform: translate(0,0);
+        }
+
+        .plus-streak {
+            opacity: 0;
+            animation: anim-plus-streak var(--anim-duration) 0s infinite ease-out;
+        }
+
+        .plus-streak.p1-2 {
+            animation-delay: 0s;
+        }
+        .plus-streak.p1-2 use {
+            transform: translate(12px,-45px);
+        }
+
+        .plus-streak.p1-3 {
+            animation-name: anim-plus-streak-longer;
+        }
+        .plus-streak.p1-3 use {
+            transform: translate(35px,-45px);
+        }
+
+        .plus-streak.p2-1,
+        .plus-streak.p2-2,
+        .plus-streak.p2-4 {
+            animation-delay: calc((2.3/var(--anim-duration-orig)) * var(--anim-duration-perceived));
+        }
+        .plus-streak.p2-1 use {
+            transform: translate(0,0);
+        }
+
+        .plus-streak.p2-2 use {
+            transform: translate(-8px,-23px);
+        }
+
+        .plus-streak.p2-3 {
+            animation-name: anim-plus-streak-longer;
+            animation-delay: calc((2.5/var(--anim-duration-orig)) * var(--anim-duration-perceived));
+        }
+        .plus-streak.p2-3 use {
+            transform: translate(44px,-28px);
+        }
+
+        .plus-streak.p2-4 use {
+            transform: translate(49.5px,-45.5px);
+        }
+
+        .plus-streak.p2-5 {
+            animation-name: anim-plus-streak-longer;
+            animation-delay: calc((2.55/var(--anim-duration-orig)) * var(--anim-duration-perceived));
+        }
+        .plus-streak.p2-5 use {
+            transform: translate(12px,-55px);
+        }
+
+        @keyframes anim-plus-streak {
+            0%,2.226%   { opacity: 0; transform: translate(0,3px); }
+            3.253%      { opacity: 1; transform: translate(0,-6px); }
+            3.767%,100% { opacity: 0; transform: translate(0,-6px); }
+        }
+
+        @keyframes anim-plus-streak-longer {
+            0%,1.883%   { opacity: 0; transform: translate(0,8px); }
+            3.082%      { opacity: 1; transform: translate(0,-6px); }
+            3.596%,100% { opacity: 0; transform: translate(0,-6px); }
+        }
+
+
+        /* --------------- Green sequences - lines --------------  */
+
+        .lines {
+            stroke: var(--color-green);
+            stroke-dasharray: 0 200px;
+            stroke-dashoffset: 20px;
+            animation: anim-lines var(--anim-duration) infinite var(--bezier-custom);
+        }
+
+        .lines-offset {
+            transform: translate(0,0);
+        }
+
+        .lines.p2 {
+            animation-delay: calc((2.45/var(--anim-duration-orig)) * var(--anim-duration-perceived));
+        }
+
+        #lines-p1-1-source,
+        #lines-p2-1-source {
+            --height: 35px;
+            --adj: 6px; /* these are to ensure the ending position of the stroke matches the frame of the shortest height line */
+        }
+
+        #lines-p1-2-source,
+        #lines-p2-2-source,
+        #lines-p2-3-source {
+            --height: 13px;
+            --adj: 0px;
+        }
+
+        #lines-p1-3-source {
+            --height: 14px;
+            --adj: -0.5px;
+        }
+
+        #lines-p1-4-source,
+        #lines-p2-4-source {
+            --height: 24px;
+            --adj: 3px;
+        }
+
+        @keyframes anim-lines {
+            0%,5.858%,100% { stroke-dasharray: 0 200px; stroke-dashoffset: 20px; }
+            2.055%         { stroke-dasharray: 0 var(--height); stroke-dashoffset: 0; }
+            3.253%         { opacity: 1; }
+            3.938%         { opacity: 0; }
+            5.856%         { stroke-dasharray: calc(var(--height) + 8px) calc(var(--height) + var(--adj)); stroke-dashoffset: calc(-1 * var(--height) - var(--adj)); }
+        }
+
+
+        /* --------------- Radial gradients --------------  */
+
+        .radial-inner {
+            animation: anim-radial-inner var(--anim-duration) infinite var(--bezier-circ-2);
+        }
+
+        @keyframes anim-radial-inner {
+            0%,6.678%    { opacity: 0; }
+            10.27%,11.3% { opacity: 1; }
+            13.7%,100%   { opacity: 0; }
+        }
+
+        .radial-outer-offset {
+            transform: translate(0,0);
+        }
+
+        .radial-outer-slice-mask-1,
+        .radial-outer-slice-mask-2,
+        .radial-outer-slice,
+        .radial-outer-mask-rotate {
+            transform-origin: 58px 51px;
+        }
+
+        .radial-outer-slice-mask-1 {
+            transform: rotate(0deg);
+            animation: anim-radial-outer-slice-1 var(--anim-duration) infinite ease-in-out;
+        }
+
+        .radial-outer-slice-mask-2 {
+            transform: rotate(155deg);
+            animation: anim-radial-outer-slice-2 var(--anim-duration) infinite ease-in-out;
+        }
+
+        .radial-outer-slice.slice-1 { transform: rotate(-155deg); }
+        .radial-outer-slice.slice-2 { transform: rotate(-110deg); }
+        .radial-outer-slice.slice-3 { transform: rotate(-65deg); }
+        .radial-outer-slice.slice-4 { transform: rotate(-20deg); }
+        .radial-outer-slice.slice-5 { transform: rotate(25deg); }
+        .radial-outer-slice.slice-6 { transform: rotate(70deg); }
+        .radial-outer-slice.slice-7 { transform: rotate(115deg); }
+        .radial-outer-slice.slice-8 { transform: rotate(160deg); }
+
+        .radial-outer-mask-opacity {
+            animation: anim-radial-outer-opacity var(--anim-duration) infinite var(--bezier-circ-2);
+        }
+
+        .radial-outer-mask-rotate {
+            animation: anim-radial-outer-rotate var(--anim-duration) infinite var(--bezier-circ-2);
+        }
+
+        @keyframes anim-radial-outer-opacity {
+            0%,6.849%     { opacity: 0; }
+            10.27%,11.13% { opacity: 1; }
+            12.84%,100%   { opacity: 0; }
+        }
+
+        @keyframes anim-radial-outer-rotate {
+            0%,6.849% { transform: rotate(-5deg); }
+            13.7%     { transform: rotate(5deg); }
+            100%      { transform: rotate(0deg) }
+        }
+
+        @keyframes anim-radial-outer-slice-1 {
+            0%,5.479%   { transform: rotate(-10deg); }
+            11.64%,100% { transform: rotate(2deg); }
+        }
+
+        @keyframes anim-radial-outer-slice-2 {
+            0%,10.27%  { transform: rotate(155deg); }
+            13.7%,100% { transform: rotate(170deg); }
+        }
+
+
+        /* --------------- Sparkles --------------  */
+
+        /* Have to use CSS instead of SMIL for path morphing as native SVG lacks way to reference multiple instances of a single defs' path's `animate` with different `begin` attribute values (offset), without using Javascript. */
+
+        #sparkle-1-path,
+        #sparkle-2-path,
+        #sparkle-3-path,
+        #sparkle-4-path {
+            fill: var(--color-white);
+            animation: anim-sparkle var(--anim-duration) calc((5.4/var(--anim-duration-orig)) * var(--anim-duration-perceived)) infinite linear;
+        }
+
+        #sparkle-2-path {
+            animation-delay: calc((5.3/var(--anim-duration-orig)) * var(--anim-duration-perceived));
+            transform: translate(36.5px,8px);
+        }
+
+        #sparkle-3-path {
+            animation-delay: calc((5.6/var(--anim-duration-orig)) * var(--anim-duration-perceived));
+            transform: translate(46.5px,31px);
+        }
+
+        #sparkle-4-path {
+            animation-delay: calc((6/var(--anim-duration-orig)) * var(--anim-duration-perceived));
+            transform: translate(-6.5px,42px);
+        }
+
+        @keyframes anim-sparkle {
+            0%       { d: path("M41.512,28.834C41.776,28.834 41.826,29.04 41.826,29.059C41.826,29.092 41.866,29.175 41.899,29.175C41.933,29.175 42.14,29.189 42.14,29.487C42.14,29.785 41.932,29.798 41.899,29.798C41.866,29.798 41.826,29.89 41.826,29.923C41.826,29.942 41.776,30.142 41.512,30.142C41.248,30.142 41.198,29.941 41.198,29.923C41.198,29.891 41.146,29.8 41.114,29.8C41.082,29.8 40.884,29.775 40.884,29.487C40.884,29.208 41.085,29.172 41.116,29.172C41.147,29.172 41.198,29.09 41.198,29.059C41.198,29.04 41.244,28.834 41.512,28.834Z"); }
+            0.4109%  { d: path("M41.512,24.17C41.776,24.17 41.826,24.369 41.826,24.581C41.826,28.208 43.021,29.175 43.751,29.175C43.944,29.175 44.136,29.189 44.136,29.487C44.136,29.785 43.942,29.798 43.751,29.798C43.035,29.798 41.826,30.743 41.826,34.443C41.826,34.655 41.776,34.806 41.512,34.806C41.248,34.806 41.198,34.648 41.198,34.443C41.198,30.728 39.987,29.8 39.228,29.8C39.042,29.8 38.888,29.775 38.888,29.487C38.888,29.208 39.059,29.172 39.24,29.172C39.988,29.172 41.198,28.215 41.198,24.581C41.198,24.365 41.244,24.17 41.512,24.17Z"); }
+            0.8219%  { d: path("M41.512,22.855C41.776,22.855 41.826,23.103 41.826,23.368C41.826,27.275 43.323,29.175 44.748,29.175C45.026,29.175 45.304,29.189 45.304,29.487C45.304,29.785 45.023,29.798 44.748,29.798C43.313,29.798 41.826,31.707 41.826,35.668C41.826,35.932 41.776,36.121 41.512,36.121C41.248,36.121 41.198,35.923 41.198,35.668C41.198,31.716 39.673,29.8 38.212,29.8C37.943,29.8 37.72,29.775 37.72,29.487C37.72,29.208 37.968,29.172 38.229,29.172C39.673,29.172 41.198,27.265 41.198,23.368C41.198,23.099 41.244,22.855 41.512,22.855Z"); }
+            1.233%   { d: path("M41.512,22.488C41.791,22.488 41.844,22.75 41.844,23.029C41.844,26.308 43.673,29.175 44.971,29.175C45.269,29.175 45.566,29.189 45.566,29.487C45.566,29.785 45.266,29.798 44.971,29.798C43.677,29.798 41.844,32.731 41.844,36.01C41.844,36.289 41.791,36.488 41.512,36.488C41.233,36.488 41.18,36.279 41.18,36.01C41.18,32.74 39.271,29.8 37.984,29.8C37.696,29.8 37.458,29.775 37.458,29.487C37.458,29.208 37.723,29.172 38.002,29.172C39.28,29.172 41.18,26.312 41.18,23.029C41.18,22.746 41.229,22.488 41.512,22.488Z"); }
+            1.644%   { d: path("M41.512,22.855C41.776,22.855 41.826,23.103 41.826,23.368C41.826,27.154 43.671,29.175 44.748,29.175C45.026,29.175 45.304,29.189 45.304,29.487C45.304,29.785 45.023,29.798 44.748,29.798C43.662,29.798 41.826,31.895 41.826,35.668C41.826,35.932 41.776,36.121 41.512,36.121C41.248,36.121 41.198,35.923 41.198,35.668C41.198,31.891 39.421,29.8 38.212,29.8C37.943,29.8 37.72,29.775 37.72,29.487C37.72,29.208 37.968,29.172 38.229,29.172C39.428,29.172 41.198,27.131 41.198,23.368C41.198,23.099 41.244,22.855 41.512,22.855Z"); }
+            2.055%   { d: path("M41.512,25.303C41.776,25.303 41.826,25.46 41.826,25.627C41.826,27.786 42.434,29.175 43.629,29.175C43.812,29.175 43.994,29.189 43.994,29.487C43.994,29.785 43.809,29.798 43.629,29.798C42.436,29.798 41.826,31.311 41.826,33.387C41.826,33.554 41.776,33.673 41.512,33.673C41.248,33.673 41.198,33.548 41.198,33.387C41.198,31.317 40.59,29.8 39.353,29.8C39.177,29.8 39.03,29.775 39.03,29.487C39.03,29.208 39.193,29.172 39.363,29.172C40.563,29.172 41.198,27.768 41.198,25.627C41.198,25.458 41.244,25.303 41.512,25.303Z"); }
+            2.056%   { d: path("") } /* effectively hides it */
+        }
+
+
+        /* --------------- Open plus --------------  */
+
+        .open-plus-offset {
+            transform: translate(0,0);
+        }
+
+        #open-plus-1-path,
+        #open-plus-2-path,
+        #open-plus-3-path,
+        #open-plus-4-path,
+        #open-plus-5-path {
+            fill: var(--color-white);
+            animation: anim-open-plus var(--anim-duration) calc((5.6/var(--anim-duration-orig)) * var(--anim-duration-perceived)) infinite ease-in-out;
+        }
+
+        #open-plus-2-path {
+            animation-delay: calc((6.4/var(--anim-duration-orig)) * var(--anim-duration-perceived));
+            transform: translate(47.5px,-9.5px);
+        }
+
+        #open-plus-3-path {
+            animation-delay: calc((6/var(--anim-duration-orig)) * var(--anim-duration-perceived));
+            transform: translate(45px,35px);
+        }
+
+        #open-plus-4-path {
+            animation-delay: calc((6.8/var(--anim-duration-orig)) * var(--anim-duration-perceived));
+            transform: translate(-4.5px,10px);
+        }
+
+        #open-plus-5-path {
+            animation-delay: calc((7/var(--anim-duration-orig)) * var(--anim-duration-perceived));
+            transform: translate(51px,32px);
+        }
+
+        @keyframes anim-open-plus {
+            0%     { d: path("M30,48.491L31.459,48.491L31.459,44.999L30,44.999L30,48.491ZM26.508,43.016L26.508,44.475L30,44.475L30,43.016L26.508,43.016ZM35.475,44.475L35.475,43.016L31.984,43.016L31.984,44.475L35.475,44.475ZM31.459,39.524L30,39.524L30,43.016L31.459,43.016L31.459,39.524Z"); opacity: 1 }
+            1.027% { d: path("M30,49.491L31.459,49.491L31.459,45.999L30,45.999L30,49.491ZM25.508,43.016L25.508,44.475L29,44.475L29,43.016L25.508,43.016ZM36.475,44.475L36.475,43.016L32.984,43.016L32.984,44.475L36.475,44.475ZM31.459,38.524L30,38.524L30,42.016L31.459,42.016L31.459,38.524Z"); opacity: 0 }
+            1.029% { d: path("") }
+        }
+
+        /* --------------- Arrow --------------  */
+
+        .arrow-offset {
+            transform: translate(0,-2px);
+        }
+
+        .arrow {
+            animation: anim-arrow-move-fade var(--anim-duration) infinite var(--bezier-circ);
+        }
+
+        @keyframes anim-arrow-move-fade {
+            0%,0.6849%    { opacity: 0; transform: translate(0,5px); }
+            1.712%        { opacity: 1; transform: translate(0,0); }
+            2.055%        { opacity: 1; transform: translate(0,3px); }
+            3.082%        { opacity: 1; transform: translate(0,0); }
+            3.767%        { opacity: 0; transform: translate(0,0); }
+            3.769%,4.966% { opacity: 0; transform: translate(0,5px); }
+            5.822%        { opacity: 1; transform: translate(0,0); }
+            6.164%        { opacity: 1; transform: translate(0,3px); }
+            7.191%        { opacity: 1; transform: translate(0,0); }
+            7.876%,100%   { opacity: 0; transform: translate(0,0); }
+        }
+
+        .arrow-fill {
+            fill: var(--color-green);
+            stroke-width: calc(var(--stroke-width) / 2); /* bleed to avoid sub-pixel gaps between fill and stroke */
+            stroke: var(--color-green);
+            animation: anim-arrow-color var(--anim-duration) infinite var(--bezier-circ);
+        }
+
+        @keyframes anim-arrow-color {
+            /* Have to define properties directly (instead of changing a single contextual var like `--color`) as otherwise CSS can't animate the transition */
+            0%,1.027%     { fill: var(--color-green); stroke: var(--color-green); }
+            1.541%        { fill: var(--color-white); stroke: var(--color-white); }
+            2.226%,5.137% { fill: var(--color-green); stroke: var(--color-green); }
+            5.65%         { fill: var(--color-white); stroke: var(--color-white); }
+            6.335%,100%   { fill: var(--color-green); stroke: var(--color-green); }
+        }
+
+        .arrow-stroke {
+            fill: var(--color-white);
+        }
+
+        #arrow-path-stem {
+            animation: anim-arrow-rect-size var(--anim-duration) infinite;
+        }
+
+        @keyframes anim-arrow-rect-size {
+            0%,0.5137%    { transform: translate(0,0); }
+            2.055%,4.623% { transform: translate(0,-1px); }
+            4.625%        { transform: translate(0,0); }
+            6.164%,100%   { transform: translate(0,-1px); }
+        }
+
+
+        /* --------------- Emote --------------  */
+
+        .emote-offset {
+            transform: translate(0,0);
+        }
+
+        .emote,
+        .emote-rotate {
+            transform-origin: 8px 8px; /* 50% element dimensions as parent SVG sets initial X/Y */
+        }
+
+        .emote {
+            animation: anim-emote-move-scale var(--anim-duration) infinite var(--bezier-circ-2);
+        }
+
+        .emote-rotate {
+            animation: anim-emote-rotate var(--anim-duration) infinite var(--bezier-circ-2);
+        }
+
+        .emote-opacity {
+            opacity: 1;
+            animation: anim-emote-opacity var(--anim-duration) infinite var(--bezier-circ);
+        }
+
+        @keyframes anim-emote-rotate {
+            0%,2.397%,100% { transform: rotate(0deg); }
+            2.911%         { transform: rotate(2deg) translate(0.5px,0); }
+            3.767%         { transform: rotate(-2deg) translate(-0.5px,0); }
+            4.281%         { transform: rotate(0.6deg) translate(0.25px,0); }
+            4.452%,5.993%  { transform: rotate(0); }
+            6.678%         { transform: rotate(2deg) translate(0.5px,0); }
+            7.705%         { transform: rotate(-2deg) translate(-0.5px,0); }
+            8.219%         { transform: rotate(0.6deg) translate(0.25px,0); }
+            8.839%,8.904%  { transform: rotate(0deg); }
+            9.589%         { transform: rotate(-5deg) translate(-1px,0); }
+            10.79%         { transform: rotate(8deg) translate(1px,0); }
+            11.64%,14.9%   { transform: rotate(0deg); }
+            15.75%         { transform: rotate(-2deg) translate(-0.5px,0); }
+            16.27%         { transform: rotate(2deg) translate(0.5px,0); }
+            16.78%         { transform: rotate(0) translate(0,0); }
+        }
+
+        @keyframes anim-emote-move-scale {
+            0%,0.3424%,100% { transform: scale(1) translate(0,0); }
+            0.5137%,2.226%  { transform: scale(1) translate(0,-1px); }
+            2.568%,6.164%   { transform: scale(1.57) translate(0,-3.5px); }
+            6.678%,13.87%   { transform: scale(2) translate(0,-4.5px); }
+            15.07%          { transform: scale(0.9) translate(0,-1px); }
+            15.41%,16.61%   { transform: scale(1) translate(0,-1px); }
+            16.95%          { transform: scale(1) translate(0,0); }
+        }
+
+        /* These times could be combined into two lines but it'd be practically unreadable */
+        @keyframes anim-emote-opacity {
+            0%,0.6849%,100% { opacity: 1; }
+            1.37%           { opacity: 0.7; }
+            1.712%          { opacity: 1; }
+            2.226%          { opacity: 0.7; }
+            2.397%,4.966%   { opacity: 1; }
+            5.65%           { opacity: 0.7; }
+            5.993%          { opacity: 1; }
+            6.507%          { opacity: 0.7; }
+            6.849%,12.67%   { opacity: 1; }
+            13.01%          { opacity: 0.7; }
+            13.7%           { opacity: 1; }
+            14.21%          { opacity: 0.7; }
+            14.55%,14.73%   { opacity: 1; }
+            15.07%          { opacity: 0.7; }
+            15.75%          { opacity: 1; }
+        }
+
+        /* ---------------------------- Media queries ---------------------------  */
+
+        /* Due to the outer-SVG margins this width isn't reflective of the browser viewport width */
+        @media only screen and (max-width: 330px) {
+
+            /* Pseudo line wrap */
+            .button.two {
+                --x: -6px;
+                --y: 80px;
+            }
+
+        }
+
+    ]]></style>
+
+    <!-- <rect width="100%" height="100%" fill="lightblue"/> -->
+
+    <g class="overall-scale">
+
+        <!-- In actual reacts the glow of a super react is below sibling buttons but since these are translucent it's not 1:1 -->
+        <g class="button super-react">
+            <!-- Mask coords + dimensions required to not clip bounds -->
+            <mask id="button-mask-outer" x="-50%" y="-50%" width="200%" height="200%">
+                <rect x="-50px" y="-50px" width="200%" height="200%" class="fill"/>
+                <use class="exclusion fill" xlink:href="#button-rect"/>
+            </mask>
+            <!-- The commented-out lines reflect the more recent style but are less consistent in this site context -->
+            <!-- <use class="button-bg filter" xlink:href="#button-rect" mask="url(#button-mask-outer)"/> -->
+            <!-- <use class="button-bg stroke" xlink:href="#button-rect" clip-path="url(#button-mask)"/> -->
+            <use class="button-bg" xlink:href="#button-rect"/>
+            <use x="54px" y="11px" class="button-text" xlink:href="#button-text-3-path"/>
+        </g>
+
+        <g class="button one">
+            <use class="button-bg" xlink:href="#button-rect"/>
+            <image x="7px" y="6px" width="16px" height="16px" xlink:href="reaction-emote-1.png"/>
+            <use x="54px" y="11px" class="button-text" xlink:href="#button-text-4-path"/>
+        </g>
+
+        <g class="button two">
+            <use class="button-bg" xlink:href="#button-rect"/>
+            <image x="7px" y="6px" width="16px" height="16px" xlink:href="reaction-emote-2.png"/>
+            <use x="54px" y="11px" class="button-text" xlink:href="#button-text-2-path"/>
+        </g>
+
+        <g class="radial-outer-offset">
+            <use xlink:href="#radial-outer-source" class="radial-outer"/>
+        </g>
+
+        <g class="plus-streak-offset">
+            <g class="plus-streak p1-1"><use xlink:href="#plus-streak-source"/></g>
+            <g class="plus-streak p1-2"><use xlink:href="#plus-streak-source"/></g>
+            <g class="plus-streak p1-3"><use xlink:href="#plus-streak-source"/></g>
+
+            <g class="plus-streak p2-1"><use xlink:href="#plus-streak-source"/></g>
+            <g class="plus-streak p2-2"><use xlink:href="#plus-streak-source"/></g>
+            <g class="plus-streak p2-3"><use xlink:href="#plus-streak-source"/></g>
+            <g class="plus-streak p2-4"><use xlink:href="#plus-streak-source"/></g>
+            <g class="plus-streak p2-5"><use xlink:href="#plus-streak-source"/></g>
+        </g>
+
+        <g class="lines-offset">
+            <use xlink:href="#lines-source"/>
+        </g>
+
+        <g class="arrow-offset">
+            <g class="arrow">
+                <use xlink:href="#arrow-path" class="arrow-fill stroke"/>
+                <rect width="100%" height="100%" class="arrow-stroke" mask="url(#arrow-mask)"/>
+            </g>
+        </g>
+
+        <g class="emote-offset">
+            <use xlink:href="#emote-source"/>
+        </g>
+
+        <g class="sparkle-offset">
+            <use xlink:href="#sparkle-1-path"/>
+            <use xlink:href="#sparkle-2-path"/>
+            <use xlink:href="#sparkle-3-path"/>
+            <use xlink:href="#sparkle-4-path"/>
+        </g>
+
+        <g class="open-plus-offset">
+            <use xlink:href="#open-plus-1-path"/>
+            <use xlink:href="#open-plus-2-path"/>
+            <use xlink:href="#open-plus-3-path"/>
+            <use xlink:href="#open-plus-4-path"/>
+            <use xlink:href="#open-plus-5-path"/>
+        </g>
+    </g>
+
+</svg>
