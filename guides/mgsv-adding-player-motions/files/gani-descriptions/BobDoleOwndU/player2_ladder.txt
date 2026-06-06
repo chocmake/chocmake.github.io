@@ -30,29 +30,29 @@ Descriptions
 22: Used for going down a step after stopping
 
 
-Raw MtarTool reference (2023-01-15)
+Raw MtarTool reference (2026-06-05)
 -----------------------------------
 
-0000_24274bc60b33b
-0001_6c71098b68ef
-0002_f8694cbf91d2
-0003_223ee3e336051
-0004_2c98ff8d79528
-0005_22a79ba420287
-0006_2c15a68069cc0
-0007_ee2b3f79e1d2
-0008_105071796f397
-0009_65624cea561d
-0010_17889ed9166d0
-0011_14b09f137d334
-0012_3051f40b16433
-0013_1f0a27643ea09
-0014_2cda064bb365b
-0015_3df06fe014396
-0016_259a488e32cb0
-0017_39652ad03677d
-0018_3c6c941231044
-0019_20f5bfc6fbfc2
-0020_3bcc5a0b6d4d4
-0021_3991999dd9b84
-0022_368ae65f2bd8a
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0000_snaplsd_q_clb_up_ed_l_r
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0001_snaplsd_q_clb_up_ed_r_l
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0002_snaplsd_q_rn_clb_up_ed_r_r
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0003_snaplsd_q_wk_clb_up_ed_r_r
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0004_snaplsd_s_clb_dwn_ed_r_l
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0005_snaplsd_s_clb_idl2dwn_l_r
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0006_snaplsd_s_clb_idl2up_l_r
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0007_snaplsd_s_clb_up2ed_pos_r_l
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0008_snaplsd_s_dwn_r
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0009_snaplsd_s_dwn_rcl_r
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0010_snaplsd_s_edg_2lsd_l_l
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0011_snaplsd_s_edg_2lsd_r_l
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0012_snaplsd_s_fal_lp
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0013_snaplsd_s_fal_st_l
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0014_snaplsd_s_lsd_2edg_l_l
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0015_snaplsd_s_lsd_2edg_r_l
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0016_snaplsd_s_sd_dwn_ed_r_l
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0017_snaplsd_s_sld_fal_ed_2idl
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0018_snaplsd_s_sld_fal_ed_l
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0019_snaplsd_s_sld_fal_lp
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0020_snaplsd_s_sld_fal_st_l
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0021_snaplsd_s_up_r
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snaplsd/0022_snaplsd_s_up_rcl_r

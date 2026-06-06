@@ -16,13 +16,13 @@ Note: 'outro' = placing cigar back in pouch
 0003 -- smoking loop - standing
 
 
-Raw MtarTool reference (2021-05-18)
+Raw MtarTool reference (2026-06-05)
 -----------------------------------
 
-0000_35c526ac3beb4
-0001_1d06e831899c0
-0002_3fee178f25b2c
-0003_b46bf194f75b
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snapcig/0000_snapcig_q_ed
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snapcig/0001_snapcig_q_idl
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snapcig/0002_snapcig_s_ed
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snapcig/0003_snapcig_s_idl
 
 
 Related
@@ -30,5 +30,5 @@ Related
 
 `player2_resident.mtar` contains:
 
-	0166_d7775c7add7f  -- smoking intro - crouched
-	0167_3334d75022485 -- smoking intro - standing
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snapcig/0166_snapcig_q_st [smoking intro - crouched]
+/Assets/tpp/motion/SI_game/fani/bodies/snap/snapcig/0167_snapcig_s_st [smoking intro - standing]

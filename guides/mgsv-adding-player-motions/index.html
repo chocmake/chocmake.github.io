@@ -55,8 +55,8 @@
                     <strong class="label highlight version-toggle-default">Infinite Heaven version</strong>
                     <strong class="label highlight version-toggle-alternative">unknown321 version</strong>
                 </div>
-                <small class="date-edited">Last edited: <time datetime="2023-09-14"></time></small>
-                <small class="caption">Animation seen above: <code>35ac42b3641df.gani</code> from <code>player2_resident.mtar</code>. One such motion that when triggered allows moving through the air and walls.</small>
+                <small class="date-edited">Last edited: <time datetime="2026-06-05"></time></small>
+                <small class="caption">Animation seen above: <code>snapnon_s_dh_lp.gani</code> from <code>player2_resident.mtar</code>. One such motion that when triggered allows moving through the air and walls.</small>
                 <small class="caption note webkit-only">For non-buggy <abbr title="Scalable Vector Graphics">SVG</abbr> compatibility check out the page in a non-WebKit Chromium/Firefox browser.</small>
                 <small class="caption note tip no-js-only">Javascript-less users: if graphics are absent your script manager is blocking <code>object</code> elements, too (used for embedding the <abbr title="Scalable Vector Graphics">SVG</abbr>s so separate images can be combined together).</small>
             </div>
@@ -74,7 +74,7 @@
             <p>Once set-up you'll be able to trigger and switch between animations while playing in free roam/missions<span class="version-toggle-default">, either by Infinite Heaven's menu or via button combos.</span><span class="version-toggle-alternative"> using button combos.</span></p>
 
 
-            <p class="note tip version-toggle-default">By default IH already includes the player gestures from Metal Gear Online, such as saluting/pointing/karate/etc. You can try those out right now by opening IH's menu and selecting <i>Motions→Play motion</i>.</p>
+            <p class="note tip version-toggle-default">By default IH already includes the player gestures from <cite>Metal Gear Online 3</cite>, such as saluting/pointing/karate/etc. You can try those out right now by opening IH's menu and selecting <i>Motions→Play motion</i>.</p>
 
             <div class="note highlight version-toggle-default">
                 <p>As this guide is based on improvements added to IH in version r238 it's only compatible with game versions 1.0.15.2 and higher.</p>
@@ -82,7 +82,7 @@
                 <p>If you're on an older version or don't use IH you can alternatively switch to my guide for unknown321's version using the <i>Version</i> toggle at the top of the page.</p>
             </div>
 
-            <p class="note tip version-toggle-alternative">By default the mod we're basing this guide on already includes the player gestures from Metal Gear Online, such as saluting/pointing/karate/etc.</p>
+            <p class="note tip version-toggle-alternative">By default the mod we're basing this guide on already includes the player gestures from <cite>Metal Gear Online</cite>, such as saluting/pointing/karate/etc.</p>
 
             <p class="note version-toggle-alternative">The main drawbacks of this mod compared to IH's version are being limited to a single modded motion archive rather than multiple, having a more involved initial installation and lacking a few QoL features. That said, they're both similar functionally.</p>
 
@@ -131,6 +131,8 @@
             <p>It's recommended to unzip the tools to a more permanent directory that has write permissions (eg: <code>C:\Modding\Tools</code>).</p>
 
             <p class="note">It's generally more foolproof to place the tools in directories that don't contain special characters.</p>
+
+            <p class="note highlight">As of 2026-06-05 MtarTool's v0.2.7 zip file now includes the latest <code>mtar_dictionary.txt</code>. If you downloaded MtarTool in the past re-download it for the new dictionary (or you can find the latest dictionary by itself <a href="https://raw.githubusercontent.com/kapuragu/mgsv-lookup-strings/refs/heads/master/MtarTool/mtar_dictionary.txt">here</a>).</p>
 
             <div class="version-toggle-alternative">
                 <hr/>
@@ -446,7 +448,7 @@
 
                                         <div class="paginated-non-breaking">
                                             <object data="svg/dancing.svg" type="image/svg+xml" title="Quiet boss fight rejuvenating dance motion"></object>
-                                            <small class="caption">That fresh mod feeling. Or maybe <code>20b11e7a7a63c.gani</code> from <code>BossQuiet2_layers.mtar</code></small>
+                                            <small class="caption">That fresh mod feeling. Or maybe <code>qui0non_q_cue_a_lp.gani</code> from <code>BossQuiet2_layers.mtar</code></small>
                                         </div>
                                     </ol>
                                 </div>
@@ -491,7 +493,7 @@
                                                         <input class="spoiler-checkbox" type="checkbox"/>
                                                         <div class="spoiler-content-wrapper" alt="Example entry formatting">
                                                             <div class="spoiler-content">
-                                                                <pre>&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/1fcae14e60d2d" /&gt;</pre>
+                                                                <pre>&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0non/qui0non_s_edit_look_sna" /&gt;</pre>
 
                                                                 <small class="caption">Only one path per animation is necessary since paths are extensionless (ie: no <code>.gani</code>/etc is used).</small>
 
@@ -518,13 +520,19 @@
                                                     <p>At the start or end of the text file paste in just the paths by themselves from step 5b, like the example below. Then save.</p>
 
                                                     <pre alt="Example excerpt">
-<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/1fcae14e60d2d
-<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/239e21cf935ce
-<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/163ffb1df1550
+<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0non/qui0non_s_edit_look_sna
+<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0non/qui0non_s_edit_rdy_go
+<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0non/qui0non_s_idl_a
 <!--                                                 -->...
 <!--                                             --></pre>
 
                                                     <small class="caption">The <code>...</code> is truncation for brevity.</small></small>
+
+                                                    <div class="note highlight">
+                                                        <p>This step is only required when placing the animation files in a custom directory path (eg: <code>/Assets/tpp/BuddyQuiet2_heli/</code>), or when the GANI have hashed filenames (eg: <code>1fcae14e60d2d.gani</code>).</p>
+                                                        <p>As of 2026 most of the GANI paths for <cite>The Phantom Pain</cite> and many for <cite>Metal Gear Online</cite> have been discovered by the community, so the latest <code>mtar_dictionary.txt</code> included with MtarTool will unpack most vanilla MTAR files with their originally intended GANI paths, instead of being merely a hashed filename.</p>
+                                                        <p>Since this guide was originally written when the GANI paths <em>were</em> hashed I've kept the steps the same (since it's still useful for when you do encounter hashed GANI) but if you wanted to skip this step and the GANI you've unpacked don't have hashed filenames then you can instead leave the GANI in their originally extracted paths when packing the MTAR (eg: in this guide's case inside <code>/Assets/tpp/motion/SI_game/fani/bodies/qui0/...</code> directly) instead of placing within the custom directory/path as earlier steps suggested.</p>
+                                                    </div>
                                                 </li>
                                             </ol>
                                         </li>
@@ -618,7 +626,7 @@
                                         </li>
                                         <div class="paginated-non-breaking">
                                             <object data="svg/dancing.svg" type="image/svg+xml" title="Quiet boss fight rejuvenating dance motion"></object>
-                                            <small class="caption">That fresh mod feeling. Or maybe <code>20b11e7a7a63c.gani</code> from <code>BossQuiet2_layers.mtar</code></small>
+                                            <small class="caption">That fresh mod feeling. Or maybe <code>qui0non_q_cue_a_lp.gani</code> from <code>BossQuiet2_layers.mtar</code></small>
                                         </div>
                                     </ol>
                                 </div>
@@ -664,7 +672,7 @@
                                                         <input class="spoiler-checkbox" type="checkbox"/>
                                                         <div class="spoiler-content-wrapper" alt="Example entry formatting">
                                                             <div class="spoiler-content">
-                                                                <pre>&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/1fcae14e60d2d" /&gt;</pre>
+                                                                <pre>&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0non/qui0non_s_edit_look_sna" /&gt;</pre>
 
                                                                 <small class="caption">Only one path per animation is necessary since paths are extensionless (ie: no <code>.gani</code>/etc is used).</small>
 
@@ -691,14 +699,20 @@
                                                     <p>At the start or end of the text file paste in just the paths by themselves from step 6b, like the example below. Then save.</p>
 
                                                     <pre alt="Example excerpt">
-<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/1fcae14e60d2d
-<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/239e21cf935ce
-<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/163ffb1df1550
+<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0non/qui0non_s_edit_look_sna
+<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0non/qui0non_s_edit_rdy_go
+<!--                                                 -->/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0non/qui0non_s_idl_a
 <!--                                                 -->...
 <!--                                             --></pre>
 
                                                     <small class="caption">The <code>...</code> is truncation for brevity.</small></small>
                                                 </li>
+
+                                                <div class="note highlight">
+                                                    <p>This step is only required when placing the animation files in a custom directory path (eg: <code>/Assets/tpp/BuddyQuiet2_heli/</code>), or when the GANI have hashed filenames (eg: <code>1fcae14e60d2d.gani</code>).</p>
+                                                    <p>As of 2026 most of the GANI paths for <cite>The Phantom Pain</cite> and many for <cite>Metal Gear Online</cite> have been discovered by the community, so the latest <code>mtar_dictionary.txt</code> included with MtarTool will unpack most vanilla MTAR files with their originally intended GANI paths, instead of being merely a hashed filename.</p>
+                                                    <p>Since this guide was originally written when the GANI paths <em>were</em> hashed I've kept the steps the same (since it's still useful for when you do encounter hashed GANI) but if you wanted to skip this step and the GANI you've unpacked don't have hashed filenames then you can instead leave the GANI in their originally extracted paths when packing the MTAR (eg: in this guide's case inside <code>/Assets/tpp/motion/SI_game/fani/bodies/qui0/...</code> directly) instead of placing within the custom directory/path as earlier steps suggested.</p>
+                                                </div>
                                             </ol>
                                         </li>
                                     </ol>
@@ -803,28 +817,28 @@
                                     <p>For reference of step <span class="version-toggle-default">5b</span><span class="version-toggle-alternative">6b</span> above.</p>
 
                                     <pre>
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/1fcae14e60d2d" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/239e21cf935ce" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/163ffb1df1550" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/1c22467fb6de7" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/69e8d06626a2" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/d8ce58e5cdfa" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/269bc42fa2bec" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/31ce91238aeab" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/9622b94619c6" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/265e4b6107a50" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/1d72ca247ffd6" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/23f479ca7f442" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/279727693777d" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/90e9df1ef895" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/3db975a160f95" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/7827e881f13d" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/70c0ba4e5c1e" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/58e0b4d37ba8" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/2e7997d7a7344" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/21b1bce3c601" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/121942f76b8db" /&gt;
-<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/254c06e19936c" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0non/qui0non_s_edit_look_sna" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0non/qui0non_s_edit_rdy_go" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0non/qui0non_s_idl_a" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_a" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_b" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_b_ed" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_b_lp" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_c" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_d" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_e" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_f" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_g" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_h" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_h_ed" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_h_lp" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_i" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_i_ed" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_i_lp" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_idl" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_j" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_sns_a" /&gt;
+<!--                                 -->&lt;Gani FilePath="/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_sns_b" /&gt;
 <!--                             --></pre>
 
                                     <small class="caption">These example entries use the custom <code>BuddyQuietQuiet2_heli</code> directory name chosen in step <span class="version-toggle-default">3</span><span class="version-toggle-alternative">4</span> above. If you've chosen a different name you'll have to update the above paths.</small>
@@ -929,11 +943,11 @@
                                             <pre>
 <!--                                         -->this.motions={
 <!--                                         -->    QuietLaying={
-<!--                                         -->        "/Assets/tpp/BuddyQuiet2_heli/58e0b4d37ba8.gani"
+<!--                                         -->        "/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_i_lp.gani"
 <!--                                         -->    },
 
 <!--                                         -->    QuietSittingCrossingLegs={
-<!--                                         -->        "/Assets/tpp/BuddyQuiet2_heli/9622b94619c6.gani"
+<!--                                         -->        "/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_d.gani"
 <!--                                         -->    },
 <!--                                         -->}
 <!--                                     --></pre>
@@ -953,8 +967,8 @@
                                                         <pre>
 <!--                                                     -->this.motions={
 <!--                                                     -->    QuietGroup={
-<!--                                                     -->       "/Assets/tpp/BuddyQuiet2_heli/58e0b4d37ba8.gani", -- Laying
-<!--                                                     -->       "/Assets/tpp/BuddyQuiet2_heli/9622b94619c6.gani", -- Sitting
+<!--                                                     -->       "/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_i_lp.gani", -- Laying
+<!--                                                     -->       "/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_d.gani", -- Sitting
 <!--                                                     -->    },
 <!--                                                     -->}
 <!--                                                 --></pre>
@@ -1040,11 +1054,11 @@
                                             <pre>
 <!--                                         -->local motions_table = {
 <!--                                         -->    {"QuietLaying",
-<!--                                         -->        "/Assets/tpp/BuddyQuiet2_heli/58e0b4d37ba8.gani"
+<!--                                         -->        "/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_i_lp.gani"
 <!--                                         -->    },
 
 <!--                                         -->    {"QuietSittingCrossingLegs",
-<!--                                         -->        "/Assets/tpp/BuddyQuiet2_heli/9622b94619c6.gani"
+<!--                                         -->        "/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_d.gani"
 <!--                                         -->    },
 <!--                                         -->}
 <!--                                     --></pre>
@@ -1062,8 +1076,8 @@
                                                         <pre>
 <!--                                                     -->local motions_table = {
 <!--                                                     -->    QuietGroup={
-<!--                                                     -->       "/Assets/tpp/BuddyQuiet2_heli/58e0b4d37ba8.gani", -- Laying
-<!--                                                     -->       "/Assets/tpp/BuddyQuiet2_heli/9622b94619c6.gani", -- Sitting
+<!--                                                     -->       "/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_i_lp.gani", -- Laying
+<!--                                                     -->       "/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_d.gani", -- Sitting
 <!--                                                     -->    },
 <!--                                                     -->}
 <!--                                                 --></pre>
@@ -1099,7 +1113,7 @@
                             <input class="spoiler-checkbox" type="checkbox"/>
                             <div class="spoiler-content-wrapper" alt="(Optional) Adding back default MGO motions">
                                 <div class="spoiler-content">
-                                    <p>When we added the <code>IHDev_AddMotions.lua</code> to the <code>modules</code> directory IH disabled the default Metal Gear Online motions from appearing in the motions list.</p>
+                                    <p>When we added the <code>IHDev_AddMotions.lua</code> to the <code>modules</code> directory IH disabled the default <cite>Metal Gear Online</cite> motions from appearing in the motions list.</p>
 
                                     <p>This is intentional behavior so the user can chose exactly which motions they want available when in the game, instead of having the MGO ones always there.</p>
 
@@ -1454,24 +1468,24 @@
                         <div class="version-toggle-default">
                             <h3>Infinite Heaven specific</h3>
                             <ul class="standalone split">
-                                <li>Only the default MGO motions show in IH's in-game motions list.
+                                <li><strong>Only the default MGO motions show in IH's in-game motions list</strong>.
                                     <ul>
                                         <li>Could be a mistake in <code>IHDev_AddMotions.lua</code>. Check that commas are correctly set in <code>this.motions</code> and <code>this.packages</code>, as per step 2-3 of <a href="#configuration">this section</a>.</li>
                                         <li>If you made an edit to the lua then reloaded it via IH's menu (<i>Debug stuff menu→Reload IH modules</i>) and continued from the last checkpoint, it could be IH didn't reload the lua properly. Try relaunching the game.</li>
                                     </ul>
                                 </li>
-                                <li>Group labels appear in the motions list in-game but nothing plays.
+                                <li><strong>Group labels appear in the motions list in-game but nothing plays</strong>.
                                     <ul>
                                         <li>Check in <code>IHDev_AddMotions.lua</code> that the GANI paths within <code>this.motions</code> are correct (eg: that they end with <code>.gani</code> and <code>/Assets/</code> begins with a forward slash).</li>
                                         <li>Check that the custom FPK is correctly listed in the <code>this.packages</code> section within <code>IHDev_AddMotions.lua</code>, as per step 2 of <a href="#configuration">this section</a>.</li>
                                     </ul>
                                 </li>
-                                <li>Motions were able to be played while in-game but a moment later stopped working.
+                                <li><strong>Motions were able to be played while in-game but a moment later stopped working</strong>.
                                     <ul>
                                         <li>Occasionally this just <em>happens</em> for unknown reasons. A checkpoint reload usually resolves it. Alternatively try relaunching the game.</li>
                                     </ul>
                                 </li>
-                                <li>After launching game it gets stuck on the black loading screen, following the intro logos.
+                                <li><strong>After launching game it gets stuck on the black loading screen, following the intro logos</strong>.
                                     <ul>
                                         <li>
                                             <p>Check that the FPK listed in the <code>this.packages</code> section within the <code>IHDev_AddMotions.lua</code> (step 2 of <a href="#configuration">this section</a>) is installed via Snakebite.</p>
@@ -1479,13 +1493,13 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li>Some of the custom motions show up in-game and others not.
+                                <li><strong>Some of the custom motions show up in-game and others not</strong>.
 
                                     <ul>
                                         <li>If you've added anything to the custom order list (<code>this.motionGroups</code>) from step 4 of <a href="#configuration">this section</a> make sure there are the same items included in that list as enabled in the <code>this.motions</code> list, as per note in the linked step.</li>
                                     </ul>
                                 </li>
-                                <li>No motions are listed or appear in-game.
+                                <li><strong>No motions are listed or appear in-game</strong>.
 
                                     <ul>
                                         <li>If you have multiple, separate motion mods installed via Snakebite make sure each unique FPK path of theirs is included in the <code>this.packages</code> section with the <code>IHDev_AddMotions.lua</code> (step 2 of <a href="#configuration">this section</a>). Also check that only GANI from currently installed mods are listed in <code>this.motions</code>.</li>
@@ -1498,12 +1512,12 @@
                         <div class="version-toggle-alternative">
                             <h3>Mod specific</h3>
                             <ul class="standalone split">
-                                <li>Nothing plays and there's no indication on screen of the mod.
+                                <li><strong>Nothing plays and there's no indication on screen of the mod</strong>.
                                     <ul>
                                         <li>Check that you've bound the keys after deploying in the field, as per step 2 of the Usage <a href="#usage">section</a>. The mod won't be enabled until doing so.</li>
                                     </ul>
                                 </li>
-                                <li>Only the MGO motions are available in-game.
+                                <li><strong>Only the MGO motions are available in-game</strong>.
                                     <ul>
                                         <li>Could be a mistake in <code>animation_changer.lua</code>. Check that commas are correctly set in the <code>motions_table</code>, as per step 4 of <a href="#configuration">this section</a>.</li>
                                     </ul>
@@ -1515,7 +1529,7 @@
 
                         <h3>General</h3>
                         <ul class="standalone">
-                            <li>The custom motions still won't play, even after trying the troubleshooting suggestions above.
+                            <li><strong>The custom motions still won't play, even after trying the troubleshooting suggestions above</strong>.
                                 <ul>
                                     <li>Open MtarTool's <code>mtar_dictionary.txt</code> and check whether the custom GANI paths were added/saved to it, as per step <span class="version-toggle-default">6</span><span class="version-toggle-alternative">7</span> of <a href="#creation">this section</a>. If the custom paths aren't present you'll need to redo those steps to pack the MTAR as intended.
                                         <p class="note">While MtarTool will still pack the MTAR even without any custom entries in the dictionary (they'll simply be converted to alternate hashed filenames instead) the issue is that the GANI paths added to <code class="version-toggle-default">IHDev_AddMotions.lua</code><code class="version-toggle-alternative">animation_changer.lua</code> would be using differently named paths so <span class="version-toggle-default">IH</span><span class="version-toggle-alternative">the mod</span> wouldn't find them.</p>
@@ -1544,7 +1558,9 @@
                     <div class="spoiler-content">
                         <p>Below is a collection of GANI notes about various MTAR, made by users to document the motions and save time for others.</p>
 
-                        <p>Each motion description is numbered and sorted according to the GANI internal order of appearance to be more consistent between each author and since GANI filenames may change over time but the internal order generally won't.</p>
+                        <p>Each motion description is numbered and sorted according to the GANI internal order of appearance to be more consistent between each author and since GANI filenames may change over time but the internal order won't.</p>
+
+                        <p class="note tip">It also helps since motions are typically grouped by their internal order, so eg: 0-10 might be walking motions, while 11-20 could be attacking motions, which makes sifting through them less jarring compared to the uncoordinated order of their file paths.</p>
 
                         <pre alt="Example">
 <!--                     -->0000 - Description
@@ -1673,29 +1689,26 @@
 
                                     <p>For example from the <code>BuddyQuiet2_heli.mtar</code> notes we can see one of Quiet's motions (laying prone) is number <code>0017</code>.</p>
 
-                                    <p>So in the notes file scroll down to the <i>Raw MtarTool reference</i> list and find the line beginning with <code>0017</code>, which currently shows as:</p>
+                                    <p>So in the notes file scroll down to the <i>Raw MtarTool reference</i> list and find the line with the GANI filename beginning with <code>0017</code>, which currently shows as:</p>
 
-                                    <pre>0017_58e0b4d37ba8</pre>
+                                    <pre>/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/0017_qui0uth_q_wait_i_lp</pre>
 
-                                    <p>This tells us that the filename of the GANI was <code>58e0b4d37ba8.gani</code>, as of the date listed that MtarTool unpacked it. MtarTool then added the <code>0017_</code> prefix since it was generated with the internal order number setting enabled.</p>
+                                    <p>This tells us that the filename of the GANI was <code>qui0uth_q_wait_i_lp.gani</code>, as of the date listed that MtarTool unpacked it. MtarTool then added the <code>0017_</code> prefix to the GANI filename since it was generated with the internal order number setting enabled.</p>
 
                                     <p>So if you extracted the same MTAR yourself for use in a custom motions mod, or perhaps some animation swap mod, you can then find the GANI being described in the notes, assuming MtarTool's dictionary has remained the same.</p>
 
-                                    <p class="note tip">If MtarTool's dictionary should change, which would happen if the community discovers more non-hashed GANI paths, then you can follow the <i>Generating MTAR numbers for your own notes</i> expandable section below.</p>
+                                    <div class="note tip">
+                                        <p>If MtarTool's dictionary should change, which would happen if the community discovers more non-hashed GANI paths, then you can follow the <i>Generating MTAR numbers for your own notes</i> expandable section below.</p>
+                                        <p>The lastest community-updated <code>mtar_dictionary.txt</code> is always located <a href="https://raw.githubusercontent.com/kapuragu/mgsv-lookup-strings/refs/heads/master/MtarTool/mtar_dictionary.txt">here</a>.</p>
+                                    </div>
 
                                     <hr class="subsection"/>
 
                                     <p>As an alternative example of how this can be applicable, if you're using someone else's custom MTAR that was made by following the guide above and using the suggested custom MTAR name, the full path to that GANI would be as below, which we could then use <span class="version-toggle-default">to point Infinite Heaven to (as described in step 3 of <a href="#configuration">this section</a>)</span> <span class="version-toggle-alternative">in step 4 of <a href="#configuration">this section</a></span>:</p>
 
-                                    <pre>/Assets/tpp/BuddyQuiet2_heli/58e0b4d37ba8.gani</pre>
+                                    <pre>/Assets/tpp/BuddyQuiet2_heli/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0uth/qui0uth_q_wait_i_lp.gani</pre>
 
-                                    <small class="caption">The guide suggests using the MTAR's name as the parent directory since the GANI used are hashed and it keeps them in a recognizable location.</small>
-
-                                    <p>In contrast, here's an example of a non-hashed GANI path from the <span class="version-toggle-default">guide's template file</span><span class="version-toggle-alternative">template file in the Infinite Heaven version of the guide</span>:</p>
-
-                                    <pre>/Assets/tpp/motion/SI_game/fani/bodies/enet/enetnon/enetnon_ful_idl.gani</pre>
-
-                                    <small class="caption">Here the non-hashed GANI was added directly to the root of <code>/Assets/tpp</code>, which is useful since MtarTool already has the path in its vanilla dictionary. However it's all just arbitrary preference.</small>
+                                    <small class="caption">The guide suggested using the MTAR's name as the parent directory due to at the original time of writing the GANI used were hashed so it kept the files in a recognizable location. As of 2026 though most of the full motion paths have been found but it can still be useful for organization.</small>
 
                                     <p class="note highlight">Keep in mind if you're using someone else's mod they may be using a different path structure/naming (and even custom GANI filenames), so it's best to check with the mod author in such cases to find how they named their paths if they lack a full list of motions included.</p>
                                 </div>
@@ -1727,7 +1740,7 @@
 
                                             <pre>MtarTool.exe "C:\example.mtar" -n</pre>
                                         </li>
-                                        <li>Press <kbd>Enter</kbd> and MtarTool will unpack the MTAR but this time it'll prefix all the GANI filenames with the original internal order (eg: <code>0002_163ffb1df1550.gani</code>, where <code>0002</code> is the order number).
+                                        <li>Press <kbd>Enter</kbd> and MtarTool will unpack the MTAR but this time it'll prefix all the GANI filenames with the original internal order (eg: <code>0002_qui0non_s_idl_a.gani</code>, where <code>0002</code> is the order number).
 
                                             <p class="note highlight">Make sure you unpack only an original MTAR. If the MTAR has been repacked previously (even if nothing else has been modified) the internal order will be different.</p>
                                         </li>

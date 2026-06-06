@@ -17,9 +17,9 @@ Note: the way the behind cover rotations is described isn't the clearest in the 
 0004 -- held by player, placed down on back, arms and legs splayed
 0005 -- held by player, placed down on back, hands tied
 0006 -- held by player (static)
-0007 -- grabbed by player from front, Eli begins upright with legs bent, hands tied
-0008 -- grabbed by player from left, Eli begins on back, hands tied (freezes before fully on player's shoulders)
-0009 -- grabbed by player from left, Eli begins upright with legs bent, hands tied (freezes while upright with legs bent, like start of 0007)
+0007 -- grabbed by player from front, begins upright with legs bent, hands tied
+0008 -- grabbed by player from left, begins on back, hands tied (freezes before fully on player's shoulders)
+0009 -- grabbed by player from left, begins upright with legs bent, hands tied (freezes while upright with legs bent, like start of 0007)
 0010 -- laying on back, hands tied (static)
 0011 -- laying on back, hands tied (static)
 0012 -- laying on back, unconscious, arms and legs splayed
@@ -30,14 +30,14 @@ Note: the way the behind cover rotations is described isn't the clearest in the 
 0017 -- prone, unconscious, arms and legs splayed (static)
 0018 -- held by player, placed down on back, arms and legs splayed
 0019 -- held by player while still - loop
-0020 -- grabbed by player from left, Eli begins on back, arms and legs splayed (freezes while fully upright)
-0021 -- grabbed by player from front, Eli begins on back (slightly bent knees), arms and legs splayed (freezes while fully upright)
+0020 -- grabbed by player from left, begins on back, arms and legs splayed (freezes while fully upright)
+0021 -- grabbed by player from front, begins on back (slightly bent knees), arms and legs splayed (freezes while fully upright)
 0022 -- laying on back, unconscious, arms and legs splayed
 0023 -- laying on back, unconscious, arms and legs splayed
-0024 -- grabbed by player from front, Eli begins upright (?)
+0024 -- grabbed by player from front, begins upright (?)
 0025 -- landing on ground prone, unconscious, arms and legs splayed, short duration (potentially already on ground when knocked unconscious)
 0026 -- landing on ground on back, unconscious, arms and legs splayed, short duration (potentially already on ground when knocked unconscious)
-0027 -- pulling machete out, spinning it around, assuming armed stance
+0027 -- pulling machete out, spinning it around, assuming armed stance [2026 update: with unhashed paths can now see the Eli-specific motions begin here, while prior motion paths marked as generic enemy motion, so unclear if prior were reused for Eli or not]
 0028 -- spinning machete around, resumes armed stance
 0029 -- armed stance, looking downward and to the right (static)
 0030 -- vertical then horizontal machete slash, resumes armed stance
@@ -171,173 +171,173 @@ Note: the way the behind cover rotations is described isn't the clearest in the 
 0158 -- underhand throw of object (right hand), assuming crouched pose
 0159 -- looking at object then larger overhand throw (right hand), assuming crouched pose
 0160 -- armed stance, quick underhand throw of object (left hand), assuming armed stance 
-0161 -- held by player while running, hands tied - loop
-0162 -- held by player, hands tied (static)
+0161 -- held by player while running, hands tied - loop [2026 update: with unhashed path can now see this is a (reused?) Quiet motion]
+0162 -- held by player, hands tied (static) [2026 update: ditto]
 
 
-Raw MtarTool reference (2021-05-18)
+Raw MtarTool reference (2026-06-05)
 -----------------------------------
 
-0000_1e0998dc6c7fd
-0001_2ea6209ac5533
-0002_1475af78f03cb
-0003_b1dfc8ea8cc6
-0004_6eb6acdebb01
-0005_2c100e9d65576
-0006_333fbcc600385
-0007_2287386d30beb
-0008_115a46deb8201
-0009_431087b17e3d
-0010_18d3f6fc0a016
-0011_d192442128e6
-0012_1877151185fc0
-0013_2961d57cc8431
-0014_6c592deee19d
-0015_15e93b8b508ad
-0016_13df0e37e9313
-0017_1280019aef5bc
-0018_24ae1dba9a9b1
-0019_8cb2944d9801
-0020_3b58a5b440d92
-0021_28df893bfc28
-0022_36c090af6bc48
-0023_3f133452377de
-0024_32db6f3419de3
-0025_3a94a9d9c9b7d
-0026_2282d827c61ab
-0027_29995b3e817ad
-0028_2cdbe5fe10672
-0029_30226ef9d0bd0
-0030_23498d5cac3bc
-0031_24cbba93b197c
-0032_187cbd316cc51
-0033_3fdf8a84847f5
-0034_356c24d34772f
-0035_3d643551cbf8b
-0036_12c7f88ab0e36
-0037_1bb56fd3c126
-0038_18880ab412b5f
-0039_27e40e1a089a3
-0040_f42199a7ace1
-0041_3219245f06ba8
-0042_21ef2d550e68a
-0043_2de088599289d
-0044_34b4f4b639f24
-0045_11f97341d6c9f
-0046_f385db115480
-0047_3f0497a1664ee
-0048_247f6b4375d44
-0049_e2245808e03c
-0050_1964905073f52
-0051_2b2cb752c309c
-0052_13a5c5934ada
-0053_3f18c46a7a22a
-0054_66632c51f7ea
-0055_3597a97b4046d
-0056_176148949e56f
-0057_607207dd9a32
-0058_702727a5feb7
-0059_151a827249338
-0060_18bd6bacde74e
-0061_309c1b6402b11
-0062_c16cbc8bd250
-0063_182560eecd388
-0064_40c5d2c18c85
-0065_27d94b90ce819
-0066_175e5b8fc0ac4
-0067_1a5c66ac8114a
-0068_34c8ee98ac0b
-0069_37129a92fe5cd
-0070_33ce88ee442cc
-0071_1db426deaef99
-0072_1dc98a2efd6f8
-0073_1e1861f80511
-0074_3c9d6a2016ea9
-0075_11f21937f5c2b
-0076_2777de0d70d49
-0077_4902112fb77e
-0078_1962f5b529c4
-0079_2f265a56f0577
-0080_34b4562d7544a
-0081_17fa43b3f62be
-0082_1190234ea603e
-0083_3e3b307aedb5c
-0084_1f0fd59ab6ede
-0085_3017586bb6083
-0086_2b3a8c7fc180b
-0087_1b9c872a3322c
-0088_1035971a63339
-0089_2bc3988086945
-0090_12c8407c33e0c
-0091_2aa92b95c3bfa
-0092_77e4f0b99764
-0093_221beabf8bcc2
-0094_1b3aafd2d4d8c
-0095_29f9963b6fd2c
-0096_38d27460007e0
-0097_19ea3311078b4
-0098_11bef5f63109e
-0099_1960adc63c78c
-0100_2c7fae23f8ce8
-0101_3207e37c47917
-0102_2828391c2afb1
-0103_3074a43dbc652
-0104_35206ea1a81e6
-0105_3a1bb045b4a84
-0106_32cc1db9ab460
-0107_280fb17d1a5cc
-0108_28a78c00d8366
-0109_110075a7c1a9a
-0110_36cbb3299cb91
-0111_64e45492d5d8
-0112_2d4066abfb30f
-0113_3bea77da91475
-0114_3e8830e5a6656
-0115_2c0c13975ad2e
-0116_37c302d1060aa
-0117_1cdccf7dfb29a
-0118_d97e975008c4
-0119_234f3fa3da73
-0120_1cb20bd3a836
-0121_185b7d5241a9
-0122_26719c945971d
-0123_1b6c27345467e
-0124_307a503820ed8
-0125_395b99c650bf7
-0126_138ffbe348f38
-0127_3b72664352288
-0128_3c82397563745
-0129_32ddd58f934c
-0130_3b343a51ab0a1
-0131_3201bf49972e9
-0132_159453bc2896c
-0133_1d959aecdd14d
-0134_122c7aabcab1
-0135_85d3390c55f4
-0136_29c25baf29db6
-0137_2f44e7e9d699c
-0138_85b48946336d
-0139_2c6b0e0076ca7
-0140_1c557277d2c36
-0141_1e878cc9ba654
-0142_7e5ec2dc2404
-0143_2f1d25fa0ffc2
-0144_12dbf230b485d
-0145_939275fb9705
-0146_100d71db5c24
-0147_3bc7fa97de3a
-0148_3b583ff010b65
-0149_19d5dc855e338
-0150_298b8d0ad54d8
-0151_25452a819754
-0152_3c98f21cfd670
-0153_1255330a96b4f
-0154_3e3a1aead4266
-0155_37366d127ac73
-0156_3b0206a2d9e4b
-0157_d5504691e024
-0158_1f461c2ac26c0
-0159_732ca17d416d
-0160_cd762284c4b
-0161_da75e58f8102
-0162_113f11f365c89
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemasr/0000_enemasr_s_thw_com_f
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0001_enemnon_p_lok_idl
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0002_enemnon_q_ene_c_l_st_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0003_enemnon_q_ene_c_r_st_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0004_enemnon_q_ene_ed_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0005_enemnon_q_ene_lok_ed_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0006_enemnon_q_ene_lok_idl_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0007_enemnon_q_ene_lok_l_st2idl
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0008_enemnon_q_ene_lok_p2up_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0009_enemnon_q_ene_lok_p2up_r
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0010_enemnon_q_ene_lok_p_l_st_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0011_enemnon_q_ene_lok_p_r_st_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0012_enemnon_q_ene_p_l_st_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0013_enemnon_q_ene_p_r_st_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0014_enemnon_s_ene_c2p_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0015_enemnon_s_ene_c2p_r
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0016_enemnon_s_ene_c_l_st_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0017_enemnon_s_ene_c_r_st_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0018_enemnon_s_ene_ed_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0019_enemnon_s_ene_idl_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0020_enemnon_s_ene_p2up_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0021_enemnon_s_ene_p2up_r
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0022_enemnon_s_ene_p_l_st_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0023_enemnon_s_ene_p_r_st_l
+/Assets/tpp/motion/SI_game/fani/bodies/enem/enemnon/0024_enemnon_s_ene_up2idl
+/Assets/tpp/motion/SI_game/fani/bodies/enet/enetasr/0025_enetasr_slp_b_dm_f
+/Assets/tpp/motion/SI_game/fani/bodies/enet/enetasr/0026_enetasr_slp_f_dm_f
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0027_lqd0_mch_s_act1
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0028_lqd0_mch_s_act2
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0029_lqd0_mch_s_aim_idl
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0030_lqd0_mch_s_atk1_com1
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0031_lqd0_mch_s_atk3_jmp
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0032_lqd0_mch_s_atk3_tuki
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0033_lqd0_mch_s_cnt1_com1
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0034_lqd0_mch_s_cnt1_com2
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0035_lqd0_mch_s_cnt3_jmp
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0036_lqd0_mch_s_cnt3_tuki
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0037_lqd0_mch_s_cov_l_dscvr_f
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0038_lqd0_mch_s_cov_l_dscvr_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0039_lqd0_mch_s_cov_l_dscvr_r
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0040_lqd0_mch_s_cov_l_in_f
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0041_lqd0_mch_s_cov_l_in_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0042_lqd0_mch_s_cov_l_in_r
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0043_lqd0_mch_s_cov_r_dscvr_f
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0044_lqd0_mch_s_cov_r_dscvr_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0045_lqd0_mch_s_cov_r_dscvr_r
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0046_lqd0_mch_s_cov_r_in_f
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0047_lqd0_mch_s_cov_r_in_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0048_lqd0_mch_s_cov_r_in_r
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0049_lqd0_mch_s_dh_ed
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0050_lqd0_mch_s_dh_ed_rev
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0051_lqd0_mch_s_dh_lp
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0052_lqd0_mch_s_dh_st
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0053_lqd0_mch_s_dh_st_180
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0054_lqd0_mch_s_dh_st_r180
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0055_lqd0_mch_s_dh_tn_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0056_lqd0_mch_s_dh_tn_r
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0057_lqd0_mch_s_dwn_ecp_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0058_lqd0_mch_s_dwn_ecp_r
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0059_lqd0_mch_s_ecp_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0060_lqd0_mch_s_ecp_r
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0061_lqd0_mch_s_idl_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0062_lqd0_mch_s_kic
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0063_lqd0_mch_s_stp_b
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0064_lqd0_mch_s_wk_ed_b
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0065_lqd0_mch_s_wk_ed_b_rev
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0066_lqd0_mch_s_wk_ed_f
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0067_lqd0_mch_s_wk_ed_f_rev
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0068_lqd0_mch_s_wk_ed_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0069_lqd0_mch_s_wk_ed_l_rev
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0070_lqd0_mch_s_wk_ed_r
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0071_lqd0_mch_s_wk_ed_r_rev
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0072_lqd0_mch_s_wk_lp_b
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0073_lqd0_mch_s_wk_lp_f
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0074_lqd0_mch_s_wk_lp_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0075_lqd0_mch_s_wk_lp_r
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0076_lqd0_mch_s_wk_st_b
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0077_lqd0_mch_s_wk_st_f
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0078_lqd0_mch_s_wk_st_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0079_lqd0_mch_s_wk_st_r
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0080_lqd0_non_c_dam_ele_lp
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0081_lqd0_non_c_rise
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0082_lqd0_non_dwn_idl_b
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0083_lqd0_non_dwn_idl_f
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0084_lqd0_non_p_dam_ele_lp
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0085_lqd0_non_p_rise
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0086_lqd0_non_s_aim_idl
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0087_lqd0_non_s_cov_idl
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0088_lqd0_non_s_cov_idl_r
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0089_lqd0_non_s_cry_idl_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0090_lqd0_non_s_dam_b
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0091_lqd0_non_s_dam_b_fal_lnd
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0092_lqd0_non_s_dam_b_fal_lp
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0093_lqd0_non_s_dam_b_lnd
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0094_lqd0_non_s_dam_ded_b
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0095_lqd0_non_s_dam_ded_f
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0096_lqd0_non_s_dam_dwn
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0097_lqd0_non_s_dam_ele_b
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0098_lqd0_non_s_dam_ele_lp
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0099_lqd0_non_s_dam_f
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0100_lqd0_non_s_dam_f_fal_lnd
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0101_lqd0_non_s_dam_f_fal_lp
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0102_lqd0_non_s_dam_f_lnd
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0103_lqd0_non_s_dam_fbom_ed
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0104_lqd0_non_s_dam_fbom_lp
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0105_lqd0_non_s_dam_fbom_st
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0106_lqd0_non_s_dam_slp
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0107_lqd0_non_s_dam_slp_min
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0108_lqd0_non_s_dh_ed
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0109_lqd0_non_s_dh_ed_rev
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0110_lqd0_non_s_dh_lp
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0111_lqd0_non_s_dh_st
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0112_lqd0_non_s_dh_st_180
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0113_lqd0_non_s_dh_st_r180
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0114_lqd0_non_s_dh_tn_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0115_lqd0_non_s_dh_tn_r
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0116_lqd0_non_s_get_wep_tn
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0117_lqd0_non_s_get_wep_tnr
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0118_lqd0_non_s_get_wep_vr1
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0119_lqd0_non_s_get_wep_vr3
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0120_lqd0_non_s_idl_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0121_lqd0_non_s_nom_bed_down
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0122_lqd0_non_s_nom_bed_idl
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0123_lqd0_non_s_nom_bed_in
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0124_lqd0_non_s_nom_bed_out
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0125_lqd0_non_s_nom_bed_speed_ed
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0126_lqd0_non_s_nom_down
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0127_lqd0_non_s_nom_idl
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0128_lqd0_non_s_nom_look_bl
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0129_lqd0_non_s_nom_look_br
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0130_lqd0_non_s_nom_look_ed
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0131_lqd0_non_s_nom_look_f
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0132_lqd0_non_s_nom_look_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0133_lqd0_non_s_nom_look_r
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0134_lqd0_non_s_nom_pat_lp
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0135_lqd0_non_s_nom_sft_ed
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0136_lqd0_non_s_nom_sft_lp
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0137_lqd0_non_s_nom_sft_st
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0138_lqd0_non_s_nom_sit_ed
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0139_lqd0_non_s_nom_sit_idl
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0140_lqd0_non_s_nom_sit_speed_ed
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0141_lqd0_non_s_nom_sit_st
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0142_lqd0_non_s_nom_tn_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0143_lqd0_non_s_nom_tn_r
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0144_lqd0_non_s_nom_to_combat
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0145_lqd0_non_s_nom_wk_ed
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0146_lqd0_non_s_nom_wk_lp
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0147_lqd0_non_s_nom_wk_st
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0148_lqd0_non_s_pos_chg
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0149_lqd0_non_s_pos_chg_ver2
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0150_lqd0_non_s_wal_dn
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0151_lqd0_non_s_wal_dn2
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0152_lqd0_non_s_wal_fal
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0153_lqd0_non_s_wal_lnd
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0154_lqd0_non_s_wal_up
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0155_lqd0_non_s_win_in_vr1
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0156_lqd0_thr_s_idl_l
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0157_lqd0_thr_s_thr
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0158_lqd0_thr_s_thr_mch
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0159_lqd0_thr_s_thr_pipe
+/Assets/tpp/motion/SI_game/fani/bodies/lqd0/lqd0/0160_lqd0_thr_s_thr_stn
+/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0non/0161_qui0non_s_cry_rn_lp_add
+/Assets/tpp/motion/SI_game/fani/bodies/qui0/qui0non/0162_qui0non_s_cry_rn_lp_p
